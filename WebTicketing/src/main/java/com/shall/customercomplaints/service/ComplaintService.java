@@ -6,6 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
 import com.shall.customercomplaints.model.Complaint;
+import com.shall.customercomplaints.model.User;
 import com.shall.customercomplaints.repository.ComplaintsRepository;
 
 import java.util.List;
@@ -36,30 +37,35 @@ public class ComplaintService implements GenericService<Complaint, Long> {
 		return complaintsRepository.findByCustomerEmail(email);
 	}
 
-	/*
-	 * @Override public Customer createCustomer(Customer Customer) { return
-	 * CustomerRepository.save(Customer); }
-	 * 
-	 * @Override public Customer getCustomer(Long id) { return
-	 * CustomerRepository.findOne(id); }
-	 * 
-	 * @Override public Customer editCustomer(Customer Customer) { return
-	 * CustomerRepository.save(Customer); }
-	 * 
-	 * @Override public void deleteCustomer(Customer Customer) {
-	 * CustomerRepository.delete(Customer); }
-	 * 
-	 * @Override public void deleteCustomer(Long id) {
-	 * CustomerRepository.delete(id); }
-	 * 
-	 * @Override public List<Customer> getAllCustomers(int pageNumber, int
-	 * pageSize) { return CustomerRepository.findAll(new PageRequest(pageNumber,
-	 * pageSize)).getContent(); }
-	 * 
-	 * @Override public List<Customer> getAllCustomers() { return
-	 * CustomerRepository.findAll(); }
-	 * 
-	 * @Override public long countCustomers() { return
-	 * CustomerRepository.count(); }
-	 */
+	public List<Complaint> findByPhoneNumber(String phoneNumber) {
+		return complaintsRepository.findByPhoneNumber(phoneNumber);
+	}
+
+	public List<Complaint> findByTerminalId(int termianlId) {
+		return complaintsRepository.findByTerminalId(termianlId);
+	}
+
+	public List<Complaint> findByMerchantId(int merchantId) {
+		return complaintsRepository.findByMerchantId(merchantId);
+	}
+
+	public Complaint updateComplaint(Complaint complaint) {
+		if(complaint.getComplaintId()!=null){
+			Complaint existing = complaintsRepository.findOne(complaint.getComplaintId());
+			if (existing != null) {
+				complaint.setComplaintId(existing.getComplaintId());
+				Complaint updatdComplaint = complaintsRepository.save(complaint);
+				return updatdComplaint;
+			} else {// This complaint doesn't exist
+				return null;
+			}
+		}else{
+			return null;
+		}
+
+	}
+
+	public long countComplaints() {
+		return complaintsRepository.count();
+	}
 }

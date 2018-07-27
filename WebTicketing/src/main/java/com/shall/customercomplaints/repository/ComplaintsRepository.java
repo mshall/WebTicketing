@@ -9,6 +9,16 @@ import com.shall.customercomplaints.model.Complaint;
 
 @Repository
 public interface ComplaintsRepository extends JpaRepository<Complaint, Long> {
-	
+
 	public List<Complaint> findByCustomerEmail(String emaill);
+
+	public List<Complaint> findByPhoneNumber(String phoneNumber);
+
+	public List<Complaint> findByMerchantId(int merchantId);
+
+	public List<Complaint> findByTerminalId(int terminalId);
+
+	public List<Complaint> findByIsOpenTrue();
+
+	public List<Complaint> findByIsOpenFalse();
 }

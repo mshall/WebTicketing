@@ -5,8 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -17,14 +15,19 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode
 @Entity
-public class Users {
+public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "user_id")
 	private Integer userId;
 
+	/*
+	 * 0 : root admin
+	 * 1: admin
+	 * 2: technician
+	 */
 	private String username, email, password;
 	@Column(name = "user_type")
-	private String userType;
+	private int userType;
 
 }

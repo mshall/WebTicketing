@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import com.shall.customercomplaints.model.Users;
+import com.shall.customercomplaints.model.User;
 import com.shall.customercomplaints.network.response.ResponseVO;
 import com.shall.customercomplaints.service.GenericService;
 import com.shall.customercomplaints.service.UserService;
@@ -19,45 +19,62 @@ import com.webticketing.util.Constants;
 public class UserController {
 
 	@Autowired
-	private GenericService<Users, Integer> service;
+	private GenericService<User, Integer> service;
 
 	@RequestMapping(value = "/all", produces = "application/json; charset=UTF-8", method = RequestMethod.GET)
-	public ResponseEntity<ResponseVO<Iterable<Users>>> getAllUsers() {
+	public ResponseEntity<ResponseVO<Iterable<User>>> getAllUsers() {
 		return ResponseEntity.ok(new ResponseVO<>(100, "Ok", ((UserService) service).getAllUsers()));
 	}
 
+	@RequestMapping(value = "/all/{userType}", produces = "application/json; charset=UTF-8", method = RequestMethod.GET)
+	public ResponseEntity<ResponseVO<Iterable<User>>> getAllUsersOfTyp(@PathVariable("userType") int userType) {
+		return ResponseEntity.ok(new ResponseVO<>(100, "Ok", ((UserService) service).getAllUsersOfType(userType)));
+	}
+
 	@RequestMapping(value = "/{username}", produces = "application/json; charset=UTF-8", method = RequestMethod.GET)
-	public ResponseEntity<ResponseVO<Users>> findUserByUsername(@PathVariable("username") String username) {
-		ResponseVO<Users> response = null;
-		Users user = ((UserService) service).findByUsername(username);
+	public ResponseEntity<ResponseVO<User>> findUserByUsername(@PathVariable("username") String username) {
+		ResponseVO<User> response = null;
+		User user = ((UserService) service).findByUsername(username);
 		if (user == null) {
-			response = new ResponseVO<Users>(Constants.ERROR_GENERAL, Constants.ERROR_MESSAGE_NO_USERS, user);
+			response = new ResponseVO<User>(Constants.ERROR_CODE_GENERAL, Constants.ERROR_MESSAGE_NO_USERS, user);
 		} else {
-			response = new ResponseVO<Users>(Constants.SUCCESS_CODE, Constants.SUCCESS_MESSAGE_SELECT, user);
+			response = new ResponseVO<User>(Constants.SUCCESS_CODE, Constants.SUCCESS_MESSAGE_SELECT, user);
 		}
 		return ResponseEntity.ok(response);
 	}
 
 	@RequestMapping(value = "/", produces = "application/json; charset=UTF-8", method = RequestMethod.GET)
-	public ResponseEntity<ResponseVO<Users>> findUserByEmail(@RequestParam("email") String email) {
-		ResponseVO<Users> response = null;
-		Users user = ((UserService) service).findByEmail(email);
+	public ResponseEntity<ResponseVO<User>> findUserByEmail(@RequestParam("email") String email) {
+		ResponseVO<User> response = null;
+		User user = ((UserService) service).findByEmail(email);
 		if (user == null) {
-			response = new ResponseVO<Users>(Constants.ERROR_GENERAL, Constants.ERROR_MESSAGE_NO_USERS, user);
+			response = new ResponseVO<User>(Constants.ERROR_CODE_GENERAL, Constants.ERROR_MESSAGE_NO_USERS, user);
 		} else {
-			response = new ResponseVO<Users>(Constants.SUCCESS_CODE, Constants.SUCCESS_MESSAGE_SELECT, user);
+			response = new ResponseVO<User>(Constants.SUCCESS_CODE, Constants.SUCCESS_MESSAGE_SELECT, user);
 		}
 		return ResponseEntity.ok(response);
 	}
 
 	@RequestMapping(value = "/", produces = "application/json; charset=UTF-8", method = RequestMethod.POST)
-	public ResponseEntity<ResponseVO<Users>> saveUser(@RequestBody Users user) {
-		ResponseVO<Users> response = null;
-		Users savedUser = ((UserService) service).save(user);
+	public ResponseEntity<ResponseVO<User>> saveUser(@RequestBody User user) {
+		ResponseVO<User> response = null;
+		User savedUser = ((UserService) service).save(user);
 		if (savedUser == null) {
-			response = new ResponseVO<Users>(Constants.ERROR_GENERAL, Constants.ERROR_MESSAGE_USER_SAVE, savedUser);
+			response = new ResponseVO<User>(Constants.ERROR_CODE_GENERAL, Constants.ERROR_MESSAGE_USER_SAVE, savedUser);
 		} else {
-			response = new ResponseVO<Users>(Constants.SUCCESS_CODE, Constants.SUCCESS_MESSAGE_SAVE, savedUser);
+			response = new ResponseVO<User>(Constants.SUCCESS_CODE, Constants.SUCCESS_MESSAGE_SAVE, savedUser);
+		}
+		return ResponseEntity.ok(response);
+	}
+
+	@RequestMapping(value = "/update/", produces = "application/json; charset=UTF-8", method = RequestMethod.POST)
+	public ResponseEntity<ResponseVO<User>> updateUser(@RequestBody User user) {
+		ResponseVO<User> response = null;
+		User updatedUser = ((UserService) service).updateUser(user);
+		if (updatedUser == null) {
+			response = new ResponseVO<User>(Constants.ERROR_CODE_GENERAL, Constants.ERROR_MESSAGE_USER_UPDATE, updatedUser);
+		} else {
+			response = new ResponseVO<User>(Constants.SUCCESS_CODE, Constants.SUCCESS_MESSAGE_UPDATE, updatedUser);
 		}
 		return ResponseEntity.ok(response);
 	}

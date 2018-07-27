@@ -6,14 +6,14 @@ public class Constants {
 	public static final String ERROR_MESSAGE_USER_ALREADY_EXISTS = "User already exists!";
 	public static final String ERROR_MESSAGE_NO_USERS = "No users are there!";
 	public static final String ERROR_MESSAGE_USER_SAVE = "Unable to save user";
-	public static final String ERROR_MESSAGE_USER_UPDATE = "Unable to update use!r";
+	public static final String ERROR_MESSAGE_USER_UPDATE = "Unable to update user!";
 	public static final String ERROR_MESSAGE_USER_DELETE = "Unable to delete user!";
 	public static final String ERROR_MESSAGE_UPDATE = "Unable to perform update!";
 	public static final String ERROR_MESSAGE_DELETE = "Unable to delete the record";
 	public static final String ERROR_MESSAGE_SELECT = "No records found";
 
 	// ------- Error codes
-	public static final int ERROR_GENERAL = 400;
+	public static final int ERROR_CODE_GENERAL = 400;
 	public static final int ERROR_CODE_NOT_FOUND = 404;
 	public static final int ERROR_CODE_UPDATE = 210;
 	public static final int ERROR_CODE_DELETE = 211;

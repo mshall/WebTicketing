@@ -1,17 +1,22 @@
 package com.shall.customercomplaints.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import com.shall.customercomplaints.model.Users;
+
+import com.shall.customercomplaints.model.User;
 
 @Repository
-public interface UsersRepository extends JpaRepository<Users, Integer> {
+public interface UsersRepository extends JpaRepository<User, Integer> {
 
-	public Users findByEmail(String emaill);
+	public User findByEmail(String emaill);
 
-	public Users findByUsername(String emaill);
+	public User findByUsername(String emaill);
 
-	public Users findByEmailAndPassword(String email, String password);
+	public User findByEmailAndPassword(String email, String password);
 
-	public Users findByUsernameAndPassword(String email, String password);
+	public User findByUsernameAndPassword(String email, String password);
+
+	public List<User> findByUserType(int userType);
 }

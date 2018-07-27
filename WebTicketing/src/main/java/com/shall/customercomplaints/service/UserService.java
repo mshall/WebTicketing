@@ -6,29 +6,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
-import com.shall.customercomplaints.model.Users;
+import com.shall.customercomplaints.model.User;
 import com.shall.customercomplaints.repository.UsersRepository;
 
 @Service
-public class UserService implements GenericService<Users, Integer> {
+public class UserService implements GenericService<User, Integer> {
 
 	@Autowired
 	private UsersRepository usersRepository;
 
 	@Override
-	public CrudRepository<Users, Integer> getRepository() {
+	public CrudRepository<User, Integer> getRepository() {
 		// TODO Auto-generated method stub
 		return usersRepository;
 	}
 
 	@Override
-	public Integer getId(Users entity) {
+	public Integer getId(User entity) {
 		return entity.getUserId();
 	}
 
 	@Override
-	public Users save(Users entity) {
-		Users savedUser = findByEmail(entity.getEmail());
+	public User save(User entity) {
+		User savedUser = findByEmail(entity.getEmail());
 		if (savedUser == null) {
 			return GenericService.super.save(entity);
 		} else {
@@ -37,16 +37,20 @@ public class UserService implements GenericService<Users, Integer> {
 
 	}
 
-	public Users findByEmail(String email) {
+	public User findByEmail(String email) {
 		return usersRepository.findByEmail(email);
 	}
 
-	public Users findByUsername(String username) {
+	public User findByUsername(String username) {
 		return usersRepository.findByUsername(username);
 	}
 
-	public List<Users> getAllUsers() {
+	public List<User> getAllUsers() {
 		return usersRepository.findAll();
+	}
+
+	public List<User> getAllUsersOfType(int userType) {
+		return usersRepository.findByUserType(userType);
 	}
 
 	public boolean deleteUser(int userId) {
@@ -57,6 +61,19 @@ public class UserService implements GenericService<Users, Integer> {
 			return false;
 		}
 	}
+
+	public User updateUser(User user) {
+		User existing = usersRepository.findOne(user.getUserId());
+		if (existing != null) {
+			user.setUserId(existing.getUserId());
+			User updatedUser = usersRepository.save(user);
+			return updatedUser;
+		} else {// This user doesn't exist to be updated
+			return null;
+		}
+
+	}
+
 	/*
 	 * @Override public Customer createCustomer(Customer Customer) { return
 	 * CustomerRepository.save(Customer); }
