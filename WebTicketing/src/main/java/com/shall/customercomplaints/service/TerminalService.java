@@ -24,9 +24,9 @@ public class TerminalService implements GenericService<Terminal, Integer> {
 	}
 
 	public Terminal updateTerminal(Terminal terminal) {
-		Terminal existingStore = terminalRepository.findOne(terminal.getTerminalId());
-		if (existingStore != null) {
-			terminal.setTerminalId((existingStore.getTerminalId()));
+		Terminal existingTerminal = terminalRepository.findOne(terminal.getTerminalId());
+		if (existingTerminal != null) {
+			terminal.setTerminalId((existingTerminal.getTerminalId()));
 			Terminal updatedTerminal = terminalRepository.save(terminal);
 			return updatedTerminal;
 		} else {// This user doesn't exist to be updated
