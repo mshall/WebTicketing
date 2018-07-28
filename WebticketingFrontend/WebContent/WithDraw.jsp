@@ -7,7 +7,6 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
-<%@page import="Services.connect"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -55,19 +54,9 @@
                                 <div class="col-sm-8" > 
                                     <select class="form-control" name="MerchantID" style="width: 50%"  >
                                         <option value="0"> select Merchant ID </option>;
-                                        <%
-                                            connect c = new connect();
-                                            Connection con = c.getConn();
-                                            Statement stmt = con.createStatement();
-                                            ResultSet result = stmt.executeQuery("select * from merchant;");
-                                            while (result.next()) {
-
-                                        %>
-                                        <option value="<%=result.getInt(1)%>">  <%=result.getString(2) %> </option>
-                                        <%
-                                            }
-
-                                        %>
+                                      
+                                        <option value=""> </option>
+                                       
 
 
 
@@ -82,20 +71,9 @@
                                 <div class="col-sm-8">
                                     <select class="form-control" name="Terminal" style="width: 50%" id="TID">
                                         <option value="0"> select Terminal serial </option>;
-                                        <%  connect cc = new connect();
-                                            Connection conn = cc.getConn();
-                                            //Statement st = conn.createStatement();
-                                            PreparedStatement pre = conn.prepareStatement("select `Terminal-id` from terminal where `merchant_Merchant-id`=?");
-                                            pre.setString(1, request.getParameter("MerchantID"));
-                                            ResultSet re = pre.executeQuery();
-                                            while (re.next()) {
-
-                                        %>
-                                        <option value="<%=result.getInt(1)%>">  <%= result.getInt(1) %> </option>
-                                        <%
-                                            }
-
-                                        %>
+                                        
+                                        <option value="">  </option>
+                                        
 
 
                                     </select>

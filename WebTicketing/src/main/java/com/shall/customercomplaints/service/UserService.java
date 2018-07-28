@@ -7,6 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
 import com.shall.customercomplaints.model.User;
+import com.shall.customercomplaints.network.request.Login;
 import com.shall.customercomplaints.repository.UsersRepository;
 
 @Service
@@ -74,6 +75,9 @@ public class UserService implements GenericService<User, Integer> {
 
 	}
 
+	public User findUser(Login login) {
+		return usersRepository.findByUsernameAndPassword(login.getUsername(), login.getPassword());
+	}
 	/*
 	 * @Override public Customer createCustomer(Customer Customer) { return
 	 * CustomerRepository.save(Customer); }

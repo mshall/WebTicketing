@@ -2,18 +2,22 @@ package com.shall.customercomplaints.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.shall.customercomplaints.model.User;
+import com.shall.customercomplaints.network.request.Login;
 import com.shall.customercomplaints.network.response.ResponseVO;
 import com.shall.customercomplaints.service.GenericService;
 import com.shall.customercomplaints.service.UserService;
 import com.webticketing.util.Constants;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/v1/user")
 public class UserController {
@@ -21,6 +25,18 @@ public class UserController {
 	@Autowired
 	private GenericService<User, Integer> service;
 
+	@RequestMapping(value = "/login", produces = "application/json; charset=UTF-8", method = RequestMethod.POST)
+	public ResponseEntity<ResponseVO<User>> loginUser(@RequestBody Login login) {
+		ResponseVO<User> response = null;
+		User loggedinUser = ((UserService) service).findUser(login);
+		if (loggedinUser == null) {
+			response = new ResponseVO<User>(Constants.ERROR_CODE_NOT_FOUND, Constants.ERROR_MESSAGE_NO_USERS, loggedinUser);
+		} else {
+			response = new ResponseVO<User>(Constants.SUCCESS_CODE, Constants.SUCCESS_MESSAGE_USER_LOGIN, loggedinUser);
+		}
+		return ResponseEntity.ok(response);
+	}
+	
 	@RequestMapping(value = "/all", produces = "application/json; charset=UTF-8", method = RequestMethod.GET)
 	public ResponseEntity<ResponseVO<Iterable<User>>> getAllUsers() {
 		return ResponseEntity.ok(new ResponseVO<>(100, "Ok", ((UserService) service).getAllUsers()));

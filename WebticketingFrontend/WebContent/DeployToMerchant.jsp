@@ -4,7 +4,6 @@
     Author     : shimaa
 --%>
 <%@page import="java.sql.*"%>
-<%@page import="Services.connect"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
@@ -79,15 +78,14 @@
                                     </select>
                                     <select >
                                         <option value="0">  Serial </option>
-                                        <c:forEach items="${serial}" var="s">
-                                            <option value=" <c:out value="${s.get()}" /> ">  <c:out value="${s.get()}" /></option>
+                                            
                                         </select> 
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-sm-4" >SIM 2</label>
                                     <div class="col-sm-7">
-                                        <select name="sim2" id="sim2" onchange="this.form.();">
+                                        <select name="sim2" id="sim2" onchange="">
                                             <option value="NULL"> Operator </option>
                                             <option value="V"> vodafone  </option>
                                             <option value="O"> Orange </option>

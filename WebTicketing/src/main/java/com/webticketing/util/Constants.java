@@ -21,7 +21,7 @@ public class Constants {
 	public static final int ERROR_CODE_SELECT = 213;
 
 	// Success messages
-	public static final String SUCCESS_MESSAGE_USER_LOGIN = "User doesn't exist";
+	public static final String SUCCESS_MESSAGE_USER_LOGIN = "Success login!";
 	public static final String SUCCESS_MESSAGE_USER_REGISTRATION = "User registered successfully";
 	public static final String SUCCESS_MESSAGE_SELECT = "Success, records retrieved";
 	public static final String SUCCESS_MESSAGE_UPDATE = "Successful update";

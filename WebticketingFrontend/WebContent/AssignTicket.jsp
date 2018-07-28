@@ -8,7 +8,7 @@
 <%@page import="jdk.nashorn.internal.ir.TryNode"%>
 <%@page import="java.sql.SQLException"%>
 <%@page import="java.sql.Connection"%>
-<%@page import="Services.connect"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

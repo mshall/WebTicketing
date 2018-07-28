@@ -1,5 +1,4 @@
 <%@page import="java.sql.Statement"%>
-<%@page import="Services.connect"%>
 <%@page import="java.sql.ResultSet"%>
 
 <%-- 

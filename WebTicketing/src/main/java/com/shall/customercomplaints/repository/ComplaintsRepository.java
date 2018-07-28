@@ -18,7 +18,5 @@ public interface ComplaintsRepository extends JpaRepository<Complaint, Long> {
 
 	public List<Complaint> findByTerminalId(int terminalId);
 
-	public List<Complaint> findByIsOpenTrue();
-
-	public List<Complaint> findByIsOpenFalse();
+	public List<Complaint> findByStatus(int status);
 }
