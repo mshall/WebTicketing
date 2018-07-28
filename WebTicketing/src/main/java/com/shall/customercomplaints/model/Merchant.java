@@ -25,7 +25,7 @@ public class Merchant {
 	private String merchant_name;
 	private String email;
 	private int MCC;
-	private String status;
+	private boolean status;
 	private String city;
 	private String street;
 	private String phone1;

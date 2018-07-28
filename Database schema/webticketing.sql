@@ -67,7 +67,7 @@ CREATE TABLE `merchant` (
   `merchant_name` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
   `MCC` int(5) default NULL,
-  `status` varchar(11) default NULL,
+  `status` bit(1) default NULL,
   `city` varchar(45) default NULL,
   `street` varchar(45) default NULL,
   `phone1` varchar(11) NOT NULL,
