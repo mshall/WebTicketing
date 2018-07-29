@@ -8,6 +8,7 @@
         <link href="BootStrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="BootStrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <link href="BootStrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+        
         <script src="BootStrap/jquery-1.12.0.min.js" type="text/javascript"></script>
         <link href="BootStrap/css/mstyle.css" rel="stylesheet" type="text/css"/>
         <script src="BootStrap/js/bootstrap.min.js" type="text/javascript"></script>
@@ -39,8 +40,6 @@
                         <div id="collapseTwo" class="panel-collapse collapse in">
                             <div class="panel-body" id="allTickets">
                              
-
-
                             </div>
                         </div>
 
@@ -53,23 +52,20 @@
             </div>
 
 
-        </div>     
+        </div>
 
 
 
-
+	<!-- 
+	<script src="assets/js/jquery.dataTables.min.js"></script>
+<script src="assets/js/dataTables.bootstrap.min.js"></script> -->
+<script src="assets/js/operations/admin/tickets.js"></script>
         <script>
 
 
 
             $(document).ready(function () {
-
-                $.ajax({
-                    url: 'TechTicekets',
-                    success: function (responseText) {
-                        $('#allTickets').html(responseText);
-                    }
-                });
+            	getAllComplaints();
             });
         </script>
 
