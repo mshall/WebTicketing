@@ -12,14 +12,16 @@
         <script src="BootStrap/js/glm-ajax.js" type="text/javascript"></script>
     <a href="BootStrap/fonts/glyphicons-halflings-regular.svg"></a>
     <link href="BootStrap/css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
-    <link href="BootStrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <link href="BootStrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+    
     <link href="BootStrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
     <link href="BootStrap/css/mstyle.css" rel="stylesheet" type="text/css"/>
-    <script src="BootStrap/jquery-1.12.0.min.js" type="text/javascript"></script>
-    <script src="BootStrap/js/bootstrap.min.js" type="text/javascript"></script>
+    
     <script src="BootStrap/js/npm.js" type="text/javascript"></script>
     <script src="BootStrap/js/bootstrap.js" type="text/javascript"></script>
+    
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 <body>
 

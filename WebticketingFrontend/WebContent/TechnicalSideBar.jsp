@@ -10,7 +10,8 @@
 <head>
 
 <a href="BootStrap/fonts/glyphicons-halflings-regular.svg"></a>
-<script src="BootStrap/jquery-1.12.0.min.js" type="text/javascript"></script>
+<!-- <script src="BootStrap/jquery-1.12.0.min.js" type="text/javascript"></script> -->
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 <link href="BootStrap/css/bootstrap-theme.css" rel="stylesheet"
 	type="text/css" />
 <link href="BootStrap/css/bootstrap.min.css" rel="stylesheet"
@@ -19,8 +20,8 @@
 	type="text/css" />
 <link href="BootStrap/css/bootstrap-theme.min.css" rel="stylesheet"
 	type="text/css" />
-<link href="BootStrap/css/mstyle.css" rel="stylesheet" type="text/css" />
-<script src="BootStrap/jquery-1.12.0.min.js" type="text/javascript"></script>
+<link href="BootStrap/css/mstyle.css" rel="stylesheet" type="text/css" /><!-- 
+<script src="BootStrap/jquery-1.12.0.min.js" type="text/javascript"></script> -->
 <script src="BootStrap/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="BootStrap/js/npm.js" type="text/javascript"></script>
 <script src="BootStrap/js/bootstrap.js" type="text/javascript"></script>

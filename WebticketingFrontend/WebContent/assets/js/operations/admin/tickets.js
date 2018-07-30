@@ -25,7 +25,9 @@ function processResponse(response){
 	 }
 	 output+="</tbody></body></div>";
 
-	// $('#allTicketsTable').DataTable();
+	 
 	 
 	ticketstable.html(output);
+
+	$('#allTicketsTable').DataTable();
 }

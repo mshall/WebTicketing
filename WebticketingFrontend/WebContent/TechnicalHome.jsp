@@ -4,16 +4,19 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+		<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
         <link href="BootStrap/css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
         <link href="BootStrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="BootStrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <link href="BootStrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
-        
-        <script src="BootStrap/jquery-1.12.0.min.js" type="text/javascript"></script>
         <link href="BootStrap/css/mstyle.css" rel="stylesheet" type="text/css"/>
         <script src="BootStrap/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="BootStrap/js/npm.js" type="text/javascript"></script>
         <script src="BootStrap/js/bootstrap.js" type="text/javascript"></script>
+        <script src="BootStrap/js/transition.js" type="text/javascript"></script>
+
 
     </head>
     <body>
@@ -55,11 +58,10 @@
         </div>
 
 
+<script src="https://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.4/css/jquery.dataTables.min.css">
 
-	<!-- 
-	<script src="assets/js/jquery.dataTables.min.js"></script>
-<script src="assets/js/dataTables.bootstrap.min.js"></script> -->
-<script src="assets/js/operations/admin/tickets.js"></script>
+<script src="assets/js/operations/admin/tickets.js"></script> -->
         <script>
 
 
