@@ -26,7 +26,7 @@
 <script src="BootStrap/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="BootStrap/js/npm.js" type="text/javascript"></script>
 <script src="BootStrap/js/bootstrap.js" type="text/javascript"></script>
-<link href="MyCss.css" rel="stylesheet" type="text/css" />
+<link href="BootStrap/MyCss.css" rel="stylesheet" type="text/css" />
 
 
 </head>
@@ -52,15 +52,12 @@
 						</h4>
 					</div>
 					<div id="collapseOne" class="panel-collapse collapse in">
-						<div class="panel-body" id="storeInfo"></div>
+						<div class="panel-body" id="allStores"></div>
 					</div>
 				</div>
 
 
-				<br>
-				<br>
-				<br>
-				<br>
+				<br> <br> <br> <br>
 
 
 				<div class="panel panel-primary" id="panel2">
@@ -90,25 +87,12 @@
 
 	<script src="assets/js/jquery.session.js"></script>
 	<script src="assets/js/operations/admin/admin-home.js"></script>
+	<script src="assets/js/operations/admin/stores.js"></script>
+	<script src="assets/js/operations/admin/tickets.js"></script>
 	<script>
 		$(document).ready(function() {
-
-			$.ajax({
-				url : 'TotalStoreInfo',
-				success : function(responseText) {
-					$('#storeInfo').html(responseText);
-				}
-			});
-		});
-
-		$(document).ready(function() {
-
-			$.ajax({
-				url : 'AllTicekets',
-				success : function(responseText) {
-					$('#allTickets').html(responseText);
-				}
-			});
+			getAllStores();
+			getAllComplaints();
 		});
 	</script>
 

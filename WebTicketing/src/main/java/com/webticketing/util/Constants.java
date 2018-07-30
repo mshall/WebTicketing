@@ -30,5 +30,6 @@ public class Constants {
 
 	// Success code
 	public static final int SUCCESS_CODE = 200;
+	public static final String ERROR_MESSAGE_NO_FOUND = "No data found!";
 
 }

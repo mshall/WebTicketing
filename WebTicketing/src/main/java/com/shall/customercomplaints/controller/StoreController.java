@@ -26,7 +26,16 @@ public class StoreController {
 
 	@RequestMapping(value = "/all", produces = "application/json; charset=UTF-8", method = RequestMethod.GET)
 	public ResponseEntity<ResponseVO<Iterable<Store>>> getAllStores() {
-		return ResponseEntity.ok(new ResponseVO<>(service.findAll()));
+		ResponseVO<Iterable<Store>> response = new ResponseVO<>(service.findAll());
+		if(response.getResults() == null || response.getResults().spliterator().getExactSizeIfKnown()==0){
+			response.setCode(Constants.ERROR_CODE_NOT_FOUND);
+			response.setMessage(Constants.ERROR_MESSAGE_NO_FOUND);
+			
+		}else{
+			response.setCode(Constants.SUCCESS_CODE);
+			response.setMessage(Constants.SUCCESS_MESSAGE_SELECT);
+		}
+		return ResponseEntity.ok(response);
 	}
 
 	@RequestMapping(value = "/{storeId}", produces = "application/json; charset=UTF-8", method = RequestMethod.GET)
