@@ -64,9 +64,5 @@
 		});
 	</script>
 
-
-
-
-
 </body>
 </html>

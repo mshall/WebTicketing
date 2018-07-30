@@ -47,9 +47,9 @@
 					Accounts
 			</a>
 				<ul class="collapse list-unstyled" id="homeSubmenu">
-					<li><a href="TechnicalIndex.jsp"> Technical</a></li>
-					<li><a href="MerchantIndex.jsp"> Merchant</a></li>
-					<li><a href="StoreIndex.jsp"> Store</a></li>
+					<li><a href="Technical.jsp"> Technical</a></li>
+					<li><a href="Merchant.jsp"> Merchant</a></li>
+					<li><a href="Store.jsp"> Store</a></li>
 					<li><a href="ChangePassword.jsp">Change Password</a></li>
 				</ul></li>
 			<li><a href="#Terminal" data-toggle="collapse"
@@ -121,6 +121,15 @@
 
 
 	<script src="assets/js/jquery.session.js"></script>
+	<script
+		src="https://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
+	<link rel="stylesheet"
+		href="https://cdn.datatables.net/1.10.4/css/jquery.dataTables.min.css">
+	<script src="assets/js/jquery.session.js"></script>
+	<script src="assets/js/operations/admin/admin-home.js"></script>
+	<script src="assets/js/operations/admin/stores.js"></script>
+	<script src="assets/js/operations/admin/tickets.js"></script>
+	
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#sidebarCollapse').on('click', function() {

@@ -36,6 +36,6 @@ public class Merchant {
 	private String contact_person;
 	@Column(name = "amex_merchant_id")
 	private int amex_merchant_id;
-	@Column(name = "permium_id")
-	private int premium_id;
+	@Column(name = "premium_id")
+	private int premiumId;
 }

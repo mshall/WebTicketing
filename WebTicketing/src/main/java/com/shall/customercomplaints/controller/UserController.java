@@ -43,8 +43,23 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/all/{userType}", produces = "application/json; charset=UTF-8", method = RequestMethod.GET)
-	public ResponseEntity<ResponseVO<Iterable<User>>> getAllUsersOfTyp(@PathVariable("userType") int userType) {
+	public ResponseEntity<ResponseVO<Iterable<User>>> getAllUsersOfType(@PathVariable("userType") int userType) {
 		return ResponseEntity.ok(new ResponseVO<>(100, "Ok", ((UserService) service).getAllUsersOfType(userType)));
+	}
+	
+	@RequestMapping(value = "/all/admin/root", produces = "application/json; charset=UTF-8", method = RequestMethod.GET)
+	public ResponseEntity<ResponseVO<Iterable<User>>> getAllRootAdmins() {
+		return ResponseEntity.ok(new ResponseVO<>(100, "Ok", ((UserService) service).getAllUsersOfType(0)));
+	}
+	
+	@RequestMapping(value = "/all/admin", produces = "application/json; charset=UTF-8", method = RequestMethod.GET)
+	public ResponseEntity<ResponseVO<Iterable<User>>> getAllAdmins() {
+		return ResponseEntity.ok(new ResponseVO<>(100, "Ok", ((UserService) service).getAllUsersOfType(1)));
+	}
+	
+	@RequestMapping(value = "/all/technician", produces = "application/json; charset=UTF-8", method = RequestMethod.GET)
+	public ResponseEntity<ResponseVO<Iterable<User>>> getAllTechnicians() {
+		return ResponseEntity.ok(new ResponseVO<>(100, "Ok", ((UserService) service).getAllUsersOfType(2)));
 	}
 
 	@RequestMapping(value = "/{username}", produces = "application/json; charset=UTF-8", method = RequestMethod.GET)

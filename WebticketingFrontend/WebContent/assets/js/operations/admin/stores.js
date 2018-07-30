@@ -15,7 +15,7 @@ function processAdminAllStoresResponse(response) {
 	console.log('store.processResponse -> Response: ' + response);
 	var storestable = $('#allStores');
 
-	var output = "<div ><table class=\"table responsive\" border=\"1\"> "
+	var output = "<div ><table id='storesTable' class=\"table responsive\" border=\"1\"> "
 			+ "<thead> <tr><th>Store-id</th>" + "<th>Store Name</th>"
 			+ "<th>Address</th>" + "<th>Details</th></tr></thead>";
 	for ( var i in response.results) {
@@ -27,10 +27,6 @@ function processAdminAllStoresResponse(response) {
 	output += "</tbody></body></div>";
 
 	storestable.html(output);
+	$('#storesTable').DataTable();
 }
 
-// ///////////////////// Tickets History ////////////////
-
-function getTicketsHistory() {
-
-}
