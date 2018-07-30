@@ -19,4 +19,6 @@ public interface ComplaintsRepository extends JpaRepository<Complaint, Long> {
 	public List<Complaint> findByTerminalId(int terminalId);
 
 	public List<Complaint> findByStatus(int status);
+
+	public List<Complaint> findByTechnicianId(int technicianId);
 }

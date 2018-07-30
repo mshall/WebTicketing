@@ -35,7 +35,13 @@ public class ComplaintController {
 	}
 
 	@RequestMapping(value = "/", produces = "application/json; charset=UTF-8", method = RequestMethod.GET)
-	public ResponseEntity<ResponseVO<Iterable<Complaint>>> findComplaintByCustomerEmail(
+	public ResponseEntity<ResponseVO<Iterable<Complaint>>> findComplaintByTechnicianId(
+			@RequestParam("technicianId") int technicianId) {
+		return ResponseEntity.ok(new ResponseVO<>(((ComplaintService) service).findByTechnicianId(technicianId)));
+	}
+
+	@RequestMapping(value = "/phone", produces = "application/json; charset=UTF-8", method = RequestMethod.GET)
+	public ResponseEntity<ResponseVO<Iterable<Complaint>>> findComplaintByPhoneNumber(
 			@RequestParam("phoneNumber") String phoneNumber) {
 		return ResponseEntity.ok(new ResponseVO<>(((ComplaintService) service).findByPhoneNumber(phoneNumber)));
 	}
@@ -45,7 +51,7 @@ public class ComplaintController {
 		return ResponseEntity.ok(new ResponseVO<>(service.save(complaint)));
 	}
 
-	@RequestMapping(value = "/update/", produces = "application/json; charset=UTF-8", method = RequestMethod.POST)
+	@RequestMapping(value = "/update", produces = "application/json; charset=UTF-8", method = RequestMethod.POST)
 	public ResponseEntity<ResponseVO<Complaint>> updateComplaint(@RequestBody Complaint complaint) {
 		ResponseVO<Complaint> response = null;
 		Complaint updatedComplaint = ((ComplaintService) service).updateComplaint(complaint);
@@ -58,7 +64,8 @@ public class ComplaintController {
 		}
 		return ResponseEntity.ok(response);
 	}
-
+	
+	
 	@RequestMapping(value = "/{complaintId}", produces = "application/json; charset=UTF-8", method = RequestMethod.DELETE)
 	public ResponseEntity<ResponseVO<Boolean>> deleteComplaint(@PathVariable("complaintId") Long complaintId) {
 		ResponseVO<Boolean> response = new ResponseVO<>(service.delete(complaintId));

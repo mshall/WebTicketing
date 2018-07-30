@@ -1,21 +1,22 @@
 package com.shall.customercomplaints.service;
 
+import java.util.List;
+
+import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
-
 import com.shall.customercomplaints.model.Complaint;
-import com.shall.customercomplaints.model.User;
 import com.shall.customercomplaints.repository.ComplaintsRepository;
-
-import java.util.List;
 
 @Service
 public class ComplaintService implements GenericService<Complaint, Long> {
 
 	@Autowired
 	private ComplaintsRepository complaintsRepository;
+
+	@Autowired
+	private DozerBeanMapper dozerMapper;
 
 	@Override
 	public CrudRepository<Complaint, Long> getRepository() {
@@ -49,17 +50,22 @@ public class ComplaintService implements GenericService<Complaint, Long> {
 		return complaintsRepository.findByMerchantId(merchantId);
 	}
 
+	public List<Complaint> findByTechnicianId(int technicianId) {
+		return complaintsRepository.findByTechnicianId(technicianId);
+	}
+
 	public Complaint updateComplaint(Complaint complaint) {
-		if(complaint.getComplaintId()!=null){
+		if (complaint.getComplaintId() != null) {
 			Complaint existing = complaintsRepository.findOne(complaint.getComplaintId());
 			if (existing != null) {
 				complaint.setComplaintId(existing.getComplaintId());
-				Complaint updatdComplaint = complaintsRepository.save(complaint);
+				dozerMapper.map(complaint, existing);
+				Complaint updatdComplaint = complaintsRepository.save(existing);
 				return updatdComplaint;
 			} else {// This complaint doesn't exist
 				return null;
 			}
-		}else{
+		} else {
 			return null;
 		}
 
