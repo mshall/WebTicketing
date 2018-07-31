@@ -27,6 +27,7 @@ public class Constants {
 	public static final String SUCCESS_MESSAGE_UPDATE = "Successful update";
 	public static final String SUCCESS_MESSAGE_DELETE = "Successful delete";
 	public static final String SUCCESS_MESSAGE_SAVE = "Successful save";
+	public static final String SUCCESS_MESSAGE = "Success!";
 
 	// Success code
 	public static final int SUCCESS_CODE = 200;

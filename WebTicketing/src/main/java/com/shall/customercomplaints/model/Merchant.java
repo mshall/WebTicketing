@@ -22,7 +22,7 @@ public class Merchant {
 	private Integer merchantId;
 
 	@Column(name = "merchant_name")
-	private String merchant_name;
+	private String merchantName;
 	private String email;
 	private int MCC;
 	private boolean status;
@@ -33,9 +33,9 @@ public class Merchant {
 	private String currancy;
 	private String vendor;
 	@Column(name = "contact_person")
-	private String contact_person;
+	private String contactPerson;
 	@Column(name = "amex_merchant_id")
-	private int amex_merchant_id;
+	private int amexMerchantId;
 	@Column(name = "premium_id")
 	private int premiumId;
 }

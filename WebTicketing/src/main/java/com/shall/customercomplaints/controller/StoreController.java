@@ -15,6 +15,7 @@ import com.shall.customercomplaints.network.response.ResponseVO;
 import com.shall.customercomplaints.service.ComplaintService;
 import com.shall.customercomplaints.service.GenericService;
 import com.shall.customercomplaints.service.StoreService;
+import com.shall.customercomplaints.service.UserService;
 import com.webticketing.util.Constants;
 
 @RestController
@@ -64,7 +65,14 @@ public class StoreController {
 
 	@RequestMapping(value = "/{storeId}", produces = "application/json; charset=UTF-8", method = RequestMethod.DELETE)
 	public ResponseEntity<ResponseVO<Boolean>> deleteComplaint(@PathVariable("storeId") Integer storeId) {
-		return ResponseEntity.ok(new ResponseVO<>(service.delete(storeId)));
+		ResponseVO<Boolean> response = null;
+		boolean isDeleted = ((StoreService) service).delete(storeId);
+		if (isDeleted) {
+			response = new ResponseVO<>(Constants.SUCCESS_CODE, Constants.SUCCESS_MESSAGE_DELETE, true);
+		} else {
+			response = new ResponseVO<>(Constants.ERROR_CODE_DELETE, Constants.ERROR_MESSAGE_DELETE, false);
+		}
+		return ResponseEntity.ok(response);
 	}
 
 }

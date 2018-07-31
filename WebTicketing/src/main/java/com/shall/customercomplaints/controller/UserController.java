@@ -117,7 +117,7 @@ public class UserController {
 		if (isDeleted) {
 			response = new ResponseVO<>(Constants.SUCCESS_CODE, Constants.SUCCESS_MESSAGE_DELETE, true);
 		} else {
-			response = new ResponseVO<>(Constants.SUCCESS_CODE, Constants.SUCCESS_MESSAGE_DELETE, true);
+			response = new ResponseVO<>(Constants.ERROR_CODE_DELETE, Constants.ERROR_MESSAGE_DELETE, false);
 		}
 		return ResponseEntity.ok(response);
 	}

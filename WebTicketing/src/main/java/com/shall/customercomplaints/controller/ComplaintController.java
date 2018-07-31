@@ -73,8 +73,8 @@ public class ComplaintController {
 			response.setCode(Constants.SUCCESS_CODE);
 			response.setMessage(Constants.SUCCESS_MESSAGE_SAVE);
 		} else {
-			response.setCode(Constants.SUCCESS_CODE);
-			response.setMessage(Constants.SUCCESS_MESSAGE_SAVE);
+			response.setCode(Constants.ERROR_CODE_GENERAL);
+			response.setMessage(Constants.ERROR_MESSAGE_DELETE);
 		}
 		return ResponseEntity.ok(response);
 	}
