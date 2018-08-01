@@ -44,7 +44,7 @@
                 </div>
             </div>
         </div>     
-<script src="assets/js/operations/technical/technical-home.js"></script>
+<script src="assets/js/operations/technical/tickets.js"></script>
         <script>
             $(document).ready(function () {
             	getTicketsHistory();

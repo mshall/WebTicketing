@@ -42,14 +42,18 @@
 
                 </div> 
                 <div class="panel-body   ">
+                <div>
+							<p id="form-message" style="font-size: 1.2em;">
+							</p>
+						</div>
                     <form name="Maintainenace" action="Maintainenace" method="POST"  lass="form-horizontal" id="myForm">
                         <div class="form-group"> 
                             <label class="control-label col-sm-4" > Status </label>
-                            <select  style="width: 50%" class="col-sm-8" id="getTechnical" name="Status"  class="form-control">
-                                <option value="none"> </option>
-                                <option>Solved Soft</option>
-                                <option>Solved Hard</option>
-                                <option>Maintenance</option>
+                            <select  style="width: 50%" class="col-sm-8" id="status" name="status"  class="form-control">
+                                <option value="0"> </option>
+                                <option value="1">Solved Soft</option>
+                                <option value="2">Solved Hard</option>
+                                <option value="3">Maintenance</option>
                             </select>
                         </div>
                         <br> 
@@ -57,13 +61,13 @@
                         <div class="form-group">
                             <label class="control-label col-sm-4" > Solution </label> 
                             <div class="col-sm-8">
-                                <input class="form-control" type="text" name="Solution" placeholder="write your  Solution" /></div>
+                                <input class="form-control" type="text" id="solution" name="solution" placeholder="write your  Solution" /></div>
                         </div>
                         <br> 
                         <br>
                         <div class="form-group">
                             <label class="control-label col-sm-4" >  Notes </label>
-                            <div class="col-sm-8"><input class="form-control" type="text" name="Note" placeholder=" write your Notes" />
+                            <div class="col-sm-8"><input class="form-control" type="text" id="note" name="note" placeholder=" write your Notes" />
                             </div>
                         </div>
                         <br> 
