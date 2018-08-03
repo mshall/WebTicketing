@@ -46,6 +46,16 @@ CREATE TABLE `complaint` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `complaint`
+--
+
+LOCK TABLES `complaint` WRITE;
+/*!40000 ALTER TABLE `complaint` DISABLE KEYS */;
+INSERT INTO `complaint` VALUES (1,'Hitrd initial comment','mohamed.s.elshall@gmail.com',1,1,'+971505338183','2018-07-27 19:12:06','2018-07-27 19:12:06',1,1,'Side node','No action taken'),(2,'second complaint','mohamed.s.elshall2011@gmail.com',1,1,'+971505338183','2018-07-27 23:00:00','2018-07-27 23:50:00',1,1,'Side note','No action taken');
+/*!40000 ALTER TABLE `complaint` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `merchant`
 --
 
@@ -75,6 +85,16 @@ CREATE TABLE `merchant` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `merchant`
+--
+
+LOCK TABLES `merchant` WRITE;
+/*!40000 ALTER TABLE `merchant` DISABLE KEYS */;
+INSERT INTO `merchant` VALUES (1,'Mr. Merchant','merchant@gmail.com',45345,'','Dubai','Dubai st','505338183','+2010155959','AED','Spectra','Mohamed El-Shall',5589,9955);
+/*!40000 ALTER TABLE `merchant` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `sim`
 --
 
@@ -94,6 +114,16 @@ CREATE TABLE `sim` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `sim`
+--
+
+LOCK TABLES `sim` WRITE;
+/*!40000 ALTER TABLE `sim` DISABLE KEYS */;
+INSERT INTO `sim` VALUES (123456,'vodafone','','',1,1,1);
+/*!40000 ALTER TABLE `sim` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `store`
 --
 
@@ -110,6 +140,16 @@ CREATE TABLE `store` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `store`
+--
+
+LOCK TABLES `store` WRITE;
+/*!40000 ALTER TABLE `store` DISABLE KEYS */;
+INSERT INTO `store` VALUES (1,'Shall store','Dubai, UAE','No more details');
+/*!40000 ALTER TABLE `store` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `terminal`
 --
 
@@ -118,6 +158,7 @@ DROP TABLE IF EXISTS `terminal`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `terminal` (
   `terminal_id` int(11) NOT NULL auto_increment,
+  `terminal_serial_number` varchar(45) default NULL,
   `merchant_id` int(11) default NULL,
   `store_id` int(11) default NULL,
   `first_sim_serial` int(11) default NULL,
@@ -154,6 +195,16 @@ CREATE TABLE `terminal` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `terminal`
+--
+
+LOCK TABLES `terminal` WRITE;
+/*!40000 ALTER TABLE `terminal` DISABLE KEYS */;
+INSERT INTO `terminal` VALUES (1,'22334',1,1,132413,12341,'USD','A','Stocked','2018-07-27 19:12:06','',NULL,'','','','','','','','','','','','','',1111,1,1,'Dubai','Dubai','123123','H branch');
+/*!40000 ALTER TABLE `terminal` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `user`
 --
 
@@ -169,6 +220,16 @@ CREATE TABLE `user` (
   PRIMARY KEY  (`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user`
+--
+
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (1,'shall','mohamed.s.elshall2011@gmail.com',1,'shall'),(2,'mohamed','mohamed.s.elshall@gmail.com',2,'mohamed'),(3,'mostafa','mostafa.rady@gmail.com',0,'mostafa'),(4,'emad','emad@gmail.com',2,'emad');
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -179,4 +240,4 @@ CREATE TABLE `user` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-08-03 19:44:23
+-- Dump completed on 2018-08-03 21:15:27
