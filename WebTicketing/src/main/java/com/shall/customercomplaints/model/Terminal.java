@@ -25,6 +25,9 @@ public class Terminal {
 	@Column(name = "terminal_id")
 	private Integer terminalId;
 
+	@Column(name = "terminal_serial_number")
+	private String terminalSerialNumber;
+
 	@Column(name = "merchant_id")
 	private int merchantId;
 
