@@ -17,7 +17,6 @@ import lombok.ToString;
 @Entity
 public class Merchant {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "merchant_id")
 	private Integer merchantId;
 

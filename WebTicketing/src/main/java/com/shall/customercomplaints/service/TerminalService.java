@@ -23,6 +23,10 @@ public class TerminalService implements GenericService<Terminal, Integer> {
 		return entity.getTerminalId();
 	}
 
+	public Terminal save(Terminal entity) {
+		return GenericService.super.save(entity);
+	}
+
 	public Terminal updateTerminal(Terminal terminal) {
 		Terminal existingTerminal = terminalRepository.findOne(terminal.getTerminalId());
 		if (existingTerminal != null) {

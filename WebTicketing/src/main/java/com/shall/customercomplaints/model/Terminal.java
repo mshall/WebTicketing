@@ -1,10 +1,15 @@
 package com.shall.customercomplaints.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -17,42 +22,86 @@ import lombok.ToString;
 @Entity
 public class Terminal {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "terminal_id")
 	private Integer terminalId;
 
-	private String model;
-	@Column(name = "serial_number")
-	private int serial_number;
-
-	private String condition;
-	private String status;
-	private String currency;
-	private String MCC;
-
-	@Column(name = "terminal_class")
-	private String terminalClass;
-	private int sale;
-	@Column(name = "online_returned")
-	private int onlineReturned;
-	@Column(name = "offline_returned")
-	private int offlineReturned;
-	@Column(name = "offline_sale")
-	private int offlineSale;
-	@Column(name = "online_void")
-	private int onlineVoid;
-	@Column(name = "offline_void")
-	private int offlineVoid;
-	private int preauth;
-	private int amex;
-	private String instatiment;
-	private int prepaidservices;
-	private int diners;
-	private int premuim;
-	@Column(name = "manual_entry")
-	private int manualEntry;
-	@Column(name = "store_id")
-	private int storeId;
 	@Column(name = "merchant_id")
 	private int merchantId;
+
+	@Column(name = "store_id")
+	private int storeId;
+
+	@Column(name = "first_sim_serial")
+	private int firstSimSerial;
+
+	@Column(name = "second_sim_serial")
+	private int secondSimSerial;
+
+	private String currency;
+
+	@Column(name = "class")
+	private String terminalClass;
+
+	private String status;
+
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	@Column(name = "deployment_date", columnDefinition = "DATETIME")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date deploymentDate;
+
+	private String model;
+
+	private String condition;
+
+	private boolean sale;
+
+	@Column(name = "online_refund")
+	private boolean onlineRefund;
+
+	@Column(name = "offline_refund")
+	private boolean offlineRefund;
+
+	@Column(name = "offline_sale")
+	private boolean offlineSale;
+
+	@Column(name = "online_void")
+	private boolean onlineVoid;
+
+	@Column(name = "offline_void")
+	private boolean offlineVoid;
+
+	private boolean preauth;
+
+	private boolean amex;
+
+	private boolean installments;
+
+	@Column(name = "prepaid_services")
+	private boolean prepaidServices;
+
+	private boolean diners;
+
+	private boolean premuim;
+
+	@Column(name = "manual_entry")
+	private boolean manualEntry;
+
+	@Column(name = "amex_merchant_id")
+	private int amexMerchantId;
+
+	private int MCC;
+
+	@Column(name = "premium_merchant_d")
+	private int premiumMerchantId;
+
+	@Column(name = "merchant_address")
+	private String merchantAddress;
+
+	@Column(name = "merchant_city")
+	private String merchantCity;
+
+	@Column(name = "contact_number")
+	private String contactNumber;
+
+	private String branch;
 }

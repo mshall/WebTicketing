@@ -1,4 +1,4 @@
-function getAllTerminals(apiUrl) {
+function getAllTerminals() {
 	$.ajax({
 		url : 'http://localhost:8082/v1/terminal/all',
 		type : 'GET',
@@ -11,9 +11,8 @@ function getAllTerminals(apiUrl) {
 	});
 }
 
-
 function processAllTerminalsResponse(response) {
-	console.log('terminals.processAllTerminalsResponse -> Response: ' + response);
+	console.log(response);
 	var terminalstable = $('#allTerminals');
 
 	var output = "<div ><table id='terminalsTable' class=\"table responsive\" border=\"1\"> "
@@ -22,25 +21,24 @@ function processAllTerminalsResponse(response) {
 			+ "<th>serial number</th>"
 			+ "<th>condition</th>"
 			+ +"<th>status</th>"
-			+ "<th>currency</th>" 
+			+ "<th>currency</th>"
 			+ "<th>MCC</th>"
-			
-			+ "<th>terminal Class</th>"
-			+ "<th>sale</th>"
-			+ +"<th>onlineReturned</th>"
-			+ "<th>offlineReturned</th>" 
-			+ "<th>offlineSale</th>" 
+
+			+ "<th>Terminal Class</th>"
+			+ "<th>Sale</th>"
+			+ +"<th>OnlineReturned</th>"
+			+ "<th>OfflineReturned</th>"
+			+ "<th>offlineSale</th>"
 			+ "<th>onlineVoid</th>"
 			+ "<th>offlineVoid</th>"
 			+ +"<th>preauth</th>"
-			+ "<th>amex</th>" 
-			+ "<th>instatiment</th>" 
+			+ "<th>amex</th>"
+			+ "<th>instatiment</th>"
 			+ "<th>prepaidservices</th>"
 			+ "<th>diners</th>"
 			+ +"<th>premuim</th>"
-			+ "<th>manualEntry</th>" 
-			+ "<th>storeId</th>" 
-			+ "</tr></thead>";
+			+ "<th>manualEntry</th>"
+			+ "<th>storeId</th>" + "</tr></thead>";
 	for ( var i in response.results) {
 		output += "<tr><td>" + response.results[i].terminalId + "</td><td>"
 				+ response.results[i].model + "</td><td>"
@@ -67,11 +65,11 @@ function processAllTerminalsResponse(response) {
 	}
 	output += "</tbody></body></div>";
 
-	storestable.html(output);
+	terminalstable.html(output);
 	$('#allTerminals').DataTable();
 }
 
-////////////////////////////////////////////
+// //////////////////////////////////////////
 function getTerminalById(id) {
 	$.ajax({
 		url : 'http://localhost:8082/v1/terminal/' + id,
@@ -85,6 +83,7 @@ function getTerminalById(id) {
 	});
 }
 function processGetTerminalByResponse(response) {
-	console.log('terminal.processGetTerminalByResponse -> Response: ' + response);
+	console.log('terminal.processGetTerminalByResponse -> Response: '
+			+ response);
 
 }

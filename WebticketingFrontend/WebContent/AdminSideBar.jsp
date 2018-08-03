@@ -57,7 +57,7 @@
 					Terminal
 			</a>
 				<ul class="collapse list-unstyled" id="Terminal">
-					<li><a href="TerminalIndex.jsp">Terminals</a></li>
+					<li><a href="Terminals.jsp">Terminals</a></li>
 					<li><a href="DeploymentIndex.jsp">Deployment</a></li>
 					<li><a href="TerminalUpdate.jsp">Update Deployment </a></li>
 
@@ -129,7 +129,7 @@
 	<script src="assets/js/operations/admin/admin-home.js"></script>
 	<script src="assets/js/operations/admin/stores.js"></script>
 	<script src="assets/js/operations/admin/tickets.js"></script>
-	
+
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#sidebarCollapse').on('click', function() {
