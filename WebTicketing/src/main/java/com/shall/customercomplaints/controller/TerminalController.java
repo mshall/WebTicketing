@@ -1,18 +1,19 @@
 package com.shall.customercomplaints.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.shall.customercomplaints.model.Store;
 import com.shall.customercomplaints.model.Terminal;
 import com.shall.customercomplaints.network.response.ResponseVO;
 import com.shall.customercomplaints.service.GenericService;
-import com.shall.customercomplaints.service.StoreService;
 import com.shall.customercomplaints.service.TerminalService;
 import com.webticketing.util.Constants;
 
@@ -26,6 +27,23 @@ public class TerminalController {
 	@RequestMapping(value = "/all", produces = "application/json; charset=UTF-8", method = RequestMethod.GET)
 	public ResponseEntity<ResponseVO<Iterable<Terminal>>> getAllTerminals() {
 		return ResponseEntity.ok(new ResponseVO<>(service.findAll()));
+	}
+
+	@RequestMapping(value = "/", produces = "application/json; charset=UTF-8", method = RequestMethod.GET)
+	public ResponseEntity<ResponseVO<Iterable<Terminal>>> getAllTerminalsByStatus(
+			@RequestParam("status") String status) {
+		ResponseVO<Iterable<Terminal>> response = new ResponseVO<>();
+		List<Terminal> terminals = ((TerminalService) service).findTerminalsByStatus(status);
+		if (terminals == null || terminals.size() == 0) {
+			response.setCode(Constants.ERROR_CODE_NOT_FOUND);
+			response.setMessage(Constants.ERROR_MESSAGE_NO_FOUND);
+			response.setResults(terminals);
+		} else {
+			response.setCode(Constants.SUCCESS_CODE);
+			response.setMessage(Constants.SUCCESS_MESSAGE_SELECT);
+			response.setResults(terminals);
+		}
+		return ResponseEntity.ok(response);
 	}
 
 	@RequestMapping(value = "/{terminalId}", produces = "application/json; charset=UTF-8", method = RequestMethod.GET)

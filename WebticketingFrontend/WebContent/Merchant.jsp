@@ -79,19 +79,11 @@ table {
 
 
 		</div>
-		<!--   <script>
-               $(document).ready(function () {
-       
-                   $.ajax({
-                       url: 'AllMerchant',
-                       success: function (responseText) {
-                           $('#Merchant').html(responseText);
-                       }
-                   });
-               });
-       
-       
-           </script>
-        -->
+		<script src="assets/js/operations/admin/merchants.js"></script>
+		<script>
+			$(document).ready(function() {
+				getAllMerchants();
+			});
+		</script>
 </body>
 </html>
