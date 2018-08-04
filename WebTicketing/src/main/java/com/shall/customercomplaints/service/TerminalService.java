@@ -1,8 +1,11 @@
 package com.shall.customercomplaints.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
+
 import com.shall.customercomplaints.model.Terminal;
 import com.shall.customercomplaints.repository.TerminalRepository;
 
@@ -25,6 +28,10 @@ public class TerminalService implements GenericService<Terminal, Integer> {
 
 	public Terminal save(Terminal entity) {
 		return GenericService.super.save(entity);
+	}
+
+	public List<Terminal> findTerminalsByStatus(String status) {
+		return terminalRepository.findByStatus(status);
 	}
 
 	public Terminal updateTerminal(Terminal terminal) {
