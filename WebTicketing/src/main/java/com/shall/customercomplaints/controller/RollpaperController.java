@@ -10,24 +10,26 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.shall.customercomplaints.model.Complaint;
+import com.shall.customercomplaints.model.Rollpaper;
 import com.shall.customercomplaints.model.Store;
 import com.shall.customercomplaints.network.response.ResponseVO;
 import com.shall.customercomplaints.service.ComplaintService;
 import com.shall.customercomplaints.service.GenericService;
+import com.shall.customercomplaints.service.RollpaperService;
 import com.shall.customercomplaints.service.StoreService;
 import com.shall.customercomplaints.service.UserService;
 import com.webticketing.util.Constants;
 
 @RestController
-@RequestMapping("/v1/store")
-public class StoreController {
+@RequestMapping("/v1/rollpaper")
+public class RollpaperController {
 
 	@Autowired
-	private GenericService<Store, Integer> service;
+	private GenericService<Rollpaper, Integer> service;
 
 	@RequestMapping(value = "/all", produces = "application/json; charset=UTF-8", method = RequestMethod.GET)
-	public ResponseEntity<ResponseVO<Iterable<Store>>> getAllStores() {
-		ResponseVO<Iterable<Store>> response = new ResponseVO<>(service.findAll());
+	public ResponseEntity<ResponseVO<Iterable<Rollpaper>>> getAllRollpapers() {
+		ResponseVO<Iterable<Rollpaper>> response = new ResponseVO<>(service.findAll());
 		if (response.getResults() == null || response.getResults().spliterator().getExactSizeIfKnown() == 0) {
 			response.setCode(Constants.ERROR_CODE_NOT_FOUND);
 			response.setMessage(Constants.ERROR_MESSAGE_NO_FOUND);
@@ -39,34 +41,34 @@ public class StoreController {
 		return ResponseEntity.ok(response);
 	}
 
-	@RequestMapping(value = "/{storeId}", produces = "application/json; charset=UTF-8", method = RequestMethod.GET)
-	public ResponseEntity<ResponseVO<Store>> findStoreById(@PathVariable("storeId") String storeId) {
-		return ResponseEntity.ok(new ResponseVO<>(service.find(Integer.parseInt(storeId))));
+	@RequestMapping(value = "/{rollpaperId}", produces = "application/json; charset=UTF-8", method = RequestMethod.GET)
+	public ResponseEntity<ResponseVO<Rollpaper>> findStoreById(@PathVariable("rollpaperId") String rollpaperId) {
+		return ResponseEntity.ok(new ResponseVO<>(service.find(Integer.parseInt(rollpaperId))));
 	}
 
 	@RequestMapping(value = "/", produces = "application/json; charset=UTF-8", method = RequestMethod.POST)
-	public ResponseEntity<ResponseVO<Store>> saveStoret(@RequestBody Store store) {
-		return ResponseEntity.ok(new ResponseVO<>(service.save(store)));
+	public ResponseEntity<ResponseVO<Rollpaper>> saveStoret(@RequestBody Rollpaper rollpaper) {
+		return ResponseEntity.ok(new ResponseVO<>(service.save(rollpaper)));
 	}
 
 	@RequestMapping(value = "/update/", produces = "application/json; charset=UTF-8", method = RequestMethod.POST)
-	public ResponseEntity<ResponseVO<Store>> updateStore(@RequestBody Store store) {
-		ResponseVO<Store> response = null;
-		Store updatedComplaint = ((StoreService) service).updateStore(store);
+	public ResponseEntity<ResponseVO<Rollpaper>> updateStore(@RequestBody Rollpaper store) {
+		ResponseVO<Rollpaper> response = null;
+		Rollpaper updatedComplaint = ((RollpaperService) service).updateStore(store);
 		if (updatedComplaint == null) {
-			response = new ResponseVO<Store>(Constants.ERROR_CODE_GENERAL, Constants.ERROR_MESSAGE_UPDATE,
+			response = new ResponseVO<Rollpaper>(Constants.ERROR_CODE_GENERAL, Constants.ERROR_MESSAGE_UPDATE,
 					updatedComplaint);
 		} else {
-			response = new ResponseVO<Store>(Constants.SUCCESS_CODE, Constants.SUCCESS_MESSAGE_UPDATE,
+			response = new ResponseVO<Rollpaper>(Constants.SUCCESS_CODE, Constants.SUCCESS_MESSAGE_UPDATE,
 					updatedComplaint);
 		}
 		return ResponseEntity.ok(response);
 	}
 
-	@RequestMapping(value = "/{storeId}", produces = "application/json; charset=UTF-8", method = RequestMethod.DELETE)
-	public ResponseEntity<ResponseVO<Boolean>> deleteStore(@PathVariable("storeId") Integer storeId) {
+	@RequestMapping(value = "/{rollpaperId}", produces = "application/json; charset=UTF-8", method = RequestMethod.DELETE)
+	public ResponseEntity<ResponseVO<Boolean>> deleteComplaint(@PathVariable("rollpaperId") Integer rollpaperId) {
 		ResponseVO<Boolean> response = null;
-		boolean isDeleted = ((StoreService) service).delete(storeId);
+		boolean isDeleted = ((RollpaperService) service).delete(rollpaperId);
 		if (isDeleted) {
 			response = new ResponseVO<>(Constants.SUCCESS_CODE, Constants.SUCCESS_MESSAGE_DELETE, true);
 		} else {

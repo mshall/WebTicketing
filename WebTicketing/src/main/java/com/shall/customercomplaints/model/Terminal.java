@@ -89,22 +89,5 @@ public class Terminal {
 	@Column(name = "manual_entry")
 	private boolean manualEntry;
 
-	@Column(name = "amex_merchant_id")
-	private int amexMerchantId;
-
-	private int MCC;
-
-	@Column(name = "premium_merchant_d")
-	private int premiumMerchantId;
-
-	@Column(name = "merchant_address")
-	private String merchantAddress;
-
-	@Column(name = "merchant_city")
-	private String merchantCity;
-
-	@Column(name = "contact_number")
-	private String contactNumber;
-
 	private String branch;
 }

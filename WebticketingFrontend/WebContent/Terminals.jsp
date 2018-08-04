@@ -67,10 +67,6 @@
 			</div>
 		</div>
 
-		<script
-			src="https://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
-		<link rel="stylesheet"
-			href="https://cdn.datatables.net/1.10.4/css/jquery.dataTables.min.css">
 		<script src="assets/js/operations/admin/terminals.js"></script>
 		<script>
 			$(document).ready(function() {

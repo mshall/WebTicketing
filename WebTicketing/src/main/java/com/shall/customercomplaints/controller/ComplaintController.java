@@ -11,72 +11,64 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.shall.customercomplaints.model.Complaint;
-import com.shall.customercomplaints.model.Sim;
 import com.shall.customercomplaints.network.response.ResponseVO;
 import com.shall.customercomplaints.service.ComplaintService;
 import com.shall.customercomplaints.service.GenericService;
-import com.shall.customercomplaints.service.SimService;
 import com.webticketing.util.Constants;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/v1/sim")
+@RequestMapping("/v1/complaint")
 public class ComplaintController {
 
 	@Autowired
-	private GenericService<Sim, Integer> service;
+	private GenericService<Complaint, Long> service;
 
 	@RequestMapping(value = "/all", produces = "application/json; charset=UTF-8", method = RequestMethod.GET)
-	public ResponseEntity<ResponseVO<Iterable<Sim>>> getAllSims() {
+	public ResponseEntity<ResponseVO<Iterable<Complaint>>> getAllComplaint() {
 		return ResponseEntity.ok(new ResponseVO<>(service.findAll()));
 	}
 
-	@RequestMapping(value = "/{simSerial}", produces = "application/json; charset=UTF-8", method = RequestMethod.GET)
-	public ResponseEntity<ResponseVO<Sim>> findBySimSerial(@PathVariable("simSerial") String simSerial) {
-		return ResponseEntity.ok(new ResponseVO<>(service.find(Integer.parseInt(simSerial))));
+	@RequestMapping(value = "/{complaintId}", produces = "application/json; charset=UTF-8", method = RequestMethod.GET)
+	public ResponseEntity<ResponseVO<Complaint>> findComplaintById(@PathVariable("complaintId") String complaintId) {
+		return ResponseEntity.ok(new ResponseVO<>(service.find(Long.parseLong(complaintId))));
 	}
 
-	@RequestMapping(value = "/new", produces = "application/json; charset=UTF-8", method = RequestMethod.GET)
-	public ResponseEntity<ResponseVO<Iterable<Sim>>> findNewSims() {
-		return ResponseEntity.ok(new ResponseVO<>(((SimService) service).findAllNewSims()));
+	@RequestMapping(value = "/", produces = "application/json; charset=UTF-8", method = RequestMethod.GET)
+	public ResponseEntity<ResponseVO<Iterable<Complaint>>> findComplaintByTechnicianId(
+			@RequestParam("technicianId") int technicianId) {
+		return ResponseEntity.ok(new ResponseVO<>(((ComplaintService) service).findByTechnicianId(technicianId)));
 	}
 
-	@RequestMapping(value = "/used", produces = "application/json; charset=UTF-8", method = RequestMethod.GET)
-	public ResponseEntity<ResponseVO<Iterable<Sim>>> findUsedSims() {
-		return ResponseEntity.ok(new ResponseVO<>(((SimService) service).findAllUsedSims()));
-	}
-
-	@RequestMapping(value = "/stocked", produces = "application/json; charset=UTF-8", method = RequestMethod.GET)
-	public ResponseEntity<ResponseVO<Iterable<Sim>>> findStockedSims() {
-		return ResponseEntity.ok(new ResponseVO<>(((SimService) service).findAllStockedSims()));
-	}
-
-	@RequestMapping(value = "/deployed", produces = "application/json; charset=UTF-8", method = RequestMethod.GET)
-	public ResponseEntity<ResponseVO<Iterable<Sim>>> findDeployedSims() {
-		return ResponseEntity.ok(new ResponseVO<>(((SimService) service).findAllDeployedSims()));
+	@RequestMapping(value = "/phone", produces = "application/json; charset=UTF-8", method = RequestMethod.GET)
+	public ResponseEntity<ResponseVO<Iterable<Complaint>>> findComplaintByPhoneNumber(
+			@RequestParam("phoneNumber") String phoneNumber) {
+		return ResponseEntity.ok(new ResponseVO<>(((ComplaintService) service).findByPhoneNumber(phoneNumber)));
 	}
 
 	@RequestMapping(value = "/", produces = "application/json; charset=UTF-8", method = RequestMethod.POST)
-	public ResponseEntity<ResponseVO<Sim>> saveComplaint(@RequestBody Sim sim) {
-		return ResponseEntity.ok(new ResponseVO<>(service.save(sim)));
+	public ResponseEntity<ResponseVO<Complaint>> saveComplaint(@RequestBody Complaint complaint) {
+		return ResponseEntity.ok(new ResponseVO<>(service.save(complaint)));
 	}
 
 	@RequestMapping(value = "/update", produces = "application/json; charset=UTF-8", method = RequestMethod.POST)
-	public ResponseEntity<ResponseVO<Sim>> updateComplaint(@RequestBody Sim sim) {
-		ResponseVO<Sim> response = null;
-		Sim updatedSim = ((SimService) service).updateSim(sim);
-		if (updatedSim == null) {
-			response = new ResponseVO<Sim>(Constants.ERROR_CODE_GENERAL, Constants.ERROR_MESSAGE_USER_UPDATE,
-					updatedSim);
+	public ResponseEntity<ResponseVO<Complaint>> updateComplaint(@RequestBody Complaint complaint) {
+		ResponseVO<Complaint> response = null;
+		Complaint updatedComplaint = ((ComplaintService) service).updateComplaint(complaint);
+		if (updatedComplaint == null) {
+			response = new ResponseVO<Complaint>(Constants.ERROR_CODE_GENERAL, Constants.ERROR_MESSAGE_USER_UPDATE,
+					updatedComplaint);
 		} else {
-			response = new ResponseVO<Sim>(Constants.SUCCESS_CODE, Constants.SUCCESS_MESSAGE_UPDATE, updatedSim);
+			response = new ResponseVO<Complaint>(Constants.SUCCESS_CODE, Constants.SUCCESS_MESSAGE_UPDATE,
+					updatedComplaint);
 		}
 		return ResponseEntity.ok(response);
 	}
-
-	@RequestMapping(value = "/{simSerial}", produces = "application/json; charset=UTF-8", method = RequestMethod.DELETE)
-	public ResponseEntity<ResponseVO<Boolean>> deleteComplaint(@PathVariable("simSerial") Integer simSerial) {
-		ResponseVO<Boolean> response = new ResponseVO<>(service.delete(simSerial));
+	
+	
+	@RequestMapping(value = "/{complaintId}", produces = "application/json; charset=UTF-8", method = RequestMethod.DELETE)
+	public ResponseEntity<ResponseVO<Boolean>> deleteComplaint(@PathVariable("complaintId") Long complaintId) {
+		ResponseVO<Boolean> response = new ResponseVO<>(service.delete(complaintId));
 		if (response.getResults()) {
 			response.setCode(Constants.SUCCESS_CODE);
 			response.setMessage(Constants.SUCCESS_MESSAGE_SAVE);
