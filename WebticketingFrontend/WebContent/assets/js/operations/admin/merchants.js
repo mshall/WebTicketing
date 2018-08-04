@@ -63,11 +63,20 @@ function processGetStoreByIdResponse(response) {
 
 // ///////////////////////////////////////////////////
 function navigateToEditMerchant(merchantId) {
-	var editMerchant = "addMerchant.jsp?merchantId=" + merchantId;
+	var editMerchant = "editMerchant.jsp?merchantId=" + merchantId;
 	// window.alert('dont call automatically');
-	 window.location.replace(editMerchant);
+	window.location.replace(editMerchant);
 }
 
 function deleteMerchant(merchantId) {
 	var deleteMerchant = "http://localhost:8082/v1/merchant/" + merchantId;
+}
+
+// ---------------------------------------------------------------------------------------------------
+// ---------------------------- Edit merchant operations
+// ---------------------------------------------
+// ---------------------------------------------------------------------------------------------------
+
+function populateEditMerchantForm(merchantId) {
+
 }
