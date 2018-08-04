@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
+import com.shall.common.core.config.WebTicketingBeanUtils;
 import com.shall.customercomplaints.model.Terminal;
 import com.shall.customercomplaints.repository.TerminalRepository;
 
@@ -37,8 +38,8 @@ public class TerminalService implements GenericService<Terminal, Integer> {
 	public Terminal updateTerminal(Terminal terminal) {
 		Terminal existingTerminal = terminalRepository.findOne(terminal.getTerminalId());
 		if (existingTerminal != null) {
-			terminal.setTerminalId((existingTerminal.getTerminalId()));
-			Terminal updatedTerminal = terminalRepository.save(terminal);
+			WebTicketingBeanUtils.myCopyProperties(terminal, existingTerminal);
+			Terminal updatedTerminal = terminalRepository.save(existingTerminal);
 			return updatedTerminal;
 		} else {// This user doesn't exist to be updated
 			return null;
