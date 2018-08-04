@@ -40,7 +40,6 @@
                     <div class="panel-heading">
                         <h4 class="panel-title">
                             Deployment Terminals
-
                         </h4>
                     </div>
 
@@ -51,34 +50,7 @@
 
                         </div>
                         <br> <br> <br> 
-                        <div >
-                            <div class="table responsive " ><table border="1" > 
-                                    <thead>
-
-                                        <tr> 
-                                            <th>Terminal-id</th>
-                                            <th> Serial Number </th>
-                                            <th> Merchant  </th>
-                                            <th > Action </th>
-
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-
-                                        <c:forEach items="${users}" var="user">
-                                            <tr>
-                                                <td><c:out value="${user.getTID()}" /></td>
-                                                <td><c:out value="${user.getTerSerial()}" /></td>
-                                                <td><c:out value="${user.getMID()}" /></td>
-
-                                                <td><a href="DeploymentControll?action=Deploy&TID=<c:out value="${user.getTID()}"/>">  Deploy</a></td>
-
-                                            </tr>
-                                        </c:forEach>
-
-                                    </tbody>
-                                </table>
-                            </div>
+                        <div id="allTerminals"></div>
 
                         </div>
                     </div>
@@ -87,7 +59,12 @@
         </div>
     </div>
 
-
+<script src="assets/js/operations/admin/terminals.js"></script>
+		<script>
+			$(document).ready(function() {
+				getTerminalsByStatus('deployed');
+			});
+		</script>
 
 </body>
 </html>

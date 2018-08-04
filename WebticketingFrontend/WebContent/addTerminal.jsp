@@ -220,7 +220,8 @@
 		});
 
 		function Formreset() {
-			document.getElementById("myForm").reset();
+			/* document.getElementById("myForm").reset(); */
+			window.location.replace("Terminals.jsp");
 		}
 	</script>
 </body>

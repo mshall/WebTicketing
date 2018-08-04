@@ -21,7 +21,7 @@ function processAllTerminalsResponse(response) {
 			+ "<th>model</th>"
 			+ "<th>status</th>"
 			+ "<th>Tender</th>"
-			+ "<th>Deploy</th>"
+			+ "<th> </th>"
 			/*
 			 * + "<th>condition</th>" + "<th>currency</th>" + "<th>MCC</th>" + "<th>Terminal
 			 * Class</th>" + "<th>Sale</th>" + +"<th>OnlineReturned</th>" + "<th>OfflineReturned</th>" + "<th>offlineSale</th>" + "<th>onlineVoid</th>" + "<th>offlineVoid</th>" + +"<th>preauth</th>" + "<th>amex</th>" + "<th>instatiment</th>" + "<th>prepaidservices</th>" + "<th>diners</th>" + +"<th>premuim</th>" + "<th>manualEntry</th>" + "<th>storeId</th>"
@@ -31,9 +31,9 @@ function processAllTerminalsResponse(response) {
 		output += "<tr><td>" + response.results[i].terminalId + "</td><td>"
 				+ response.results[i].terminalSerialNumber + "</td><td>"
 				+ response.results[i].model + "</td><td>"
-				+ response.results[i].status + "</td><td>" + "Tender </td><td>"
-				+ "<a href='#' onclick=\"goToUpdateTerminalPage("
-				+ response.results[i].terminalId + "); > edit </a></td></tr>";
+				+ response.results[i].status + "</td><td> Tender </td><td>"
+				+ "<a href=\"#\" onclick=\"goToUpdateTerminalPage("
+				+ response.results[i].terminalId + ")\" >edit</a></td></tr>";
 
 		/*
 		 * + response.results[i].condition + "</td><td>" +
@@ -249,3 +249,27 @@ function sendData(data, url) {
 	});
 }
 // ////////////////////////////////////////////////////
+
+function getTerminalsByStatus(status){
+	$.ajax({
+		url : 'http://localhost:8082/v1/terminal/all/'+status,
+		type : 'GET',
+		contentType : "application/json; charset=utf-8",
+		data : {},
+		dataType : 'json',
+		success : function(response) {
+			processAllTerminalsResponse(response);
+		}
+	});
+}
+
+//////////////////////////////////////////////////////
+$.urlParam = function(name) {
+	var results = new RegExp('[\?&]' + name + '=([^]*)')
+			.exec(window.location.href);
+	if (results == null) {
+		return null;
+	} else {
+		return results[1] || 0;
+	}
+}

@@ -57,6 +57,8 @@ header {
 	
 		
 	<script src="assets/js/jquery.session.js"></script>
+	
+	<script src="assets/js/operations/util.js"></script>
 	<script>
 		$(document).ready(function() {
 			var headerTitle = $("#header-title");
