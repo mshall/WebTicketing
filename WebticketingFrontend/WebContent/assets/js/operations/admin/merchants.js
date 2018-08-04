@@ -63,11 +63,59 @@ function processGetStoreByIdResponse(response) {
 
 // ///////////////////////////////////////////////////
 function navigateToEditMerchant(merchantId) {
-	var editMerchant = "addMerchant.jsp?merchantId=" + merchantId;
+	var editMerchant = "editMerchant.jsp?merchantId=" + merchantId;
 	// window.alert('dont call automatically');
-	 window.location.replace(editMerchant);
+	window.location.replace(editMerchant);
 }
 
 function deleteMerchant(merchantId) {
 	var deleteMerchant = "http://localhost:8082/v1/merchant/" + merchantId;
+}
+
+// ---------------------------------------------------------------------------------------------------
+// ---------------------------- Edit merchant operations
+// ---------------------------------------------
+// ---------------------------------------------------------------------------------------------------
+
+function populateEditMerchantForm(merchantId) {
+	var merchantDetailsUrl = "http://localhost:8082/v1/merchant/" + merchantId;
+	$.ajax({
+		url : merchantDetailsUrl,
+		type : 'GET',
+		contentType : "application/json; charset=utf-8",
+		data : {},
+		dataType : 'json',
+		success : function(response) {
+			processMerchantDetails(response);
+		}
+	});
+
+}
+
+function processMerchantDetails(response) {
+	console.log("merchants.processMerchantDetails-> "
+			+ JSON.stringify(response));
+
+	var itMerchantId = $("#itMerchantId");
+	var itMerchantName = $("#itMerchantName");
+	var itContactPerson = $("#itContactPerson");
+	var itPhone1 = $("#itPhone1");
+	var itPhone2 = $("#itPhone2");
+	var itEmail = $("#itEmail");
+	var itCity = $("#itCity");
+	var itStreet = $("#itStreet");
+	var itAmexMerchantId = $("#itAmexMerchantId");
+	var itPremiumId = $("#itPremiumId");
+	var itMCC = $("#itMCC");
+	itMerchantId.val(response.results.merchantId);
+	itMerchantName.val(response.results.merchantName);
+	itContactPerson.val(response.results.contactPerson);
+	itPhone1.val(response.results.phone1);
+	itPhone2.val(response.results.phone2);
+	itEmail.val(response.results.email);
+	itCity.val(response.results.city);
+	itStreet.val(response.results.street);
+	itAmexMerchantId.val(response.results.amexMerchantId);
+	itPremiumId.val(response.results.premiumId);
+	itMCC.val(response.results.mcc);
 }

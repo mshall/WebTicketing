@@ -18,4 +18,6 @@ public interface SimRepository extends JpaRepository<Sim, Integer> {
 	public Sim findByMerchantId(int merhcnatId);
 
 	public Sim findByTerminalId(int terminalId);
+
+	public List<Sim> findByOperator(String opertor);
 }

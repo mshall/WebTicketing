@@ -52,6 +52,11 @@ public class SimService implements GenericService<Sim, Integer> {
 		return simRepository.findByStatus(true);
 	}
 
+	public List<Sim> findSimsByOperator(String operator) {
+		// Where false means new
+		return simRepository.findByOperator(operator);
+	}
+	
 	public List<Sim> findByStoreId(int storeId) {
 		return simRepository.findByStoreId(storeId);
 	}
