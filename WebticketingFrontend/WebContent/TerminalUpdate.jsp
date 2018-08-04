@@ -9,22 +9,6 @@
 <html>
     <head>
         <title> Deployed Terminals </title>
-        <script src="BootStrap/js/glm-ajax.js" type="text/javascript"></script>
-    <a href="BootStrap/fonts/glyphicons-halflings-regular.svg"></a>
-    <link href="BootStrap/css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
-    <link href="BootStrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <link href="BootStrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
-    <link href="BootStrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
-    <link href="BootStrap/css/mstyle.css" rel="stylesheet" type="text/css"/>
-    <script src="BootStrap/jquery-1.12.0.min.js" type="text/javascript"></script>
-    <script src="BootStrap/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="BootStrap/js/npm.js" type="text/javascript"></script>
-    <script src="BootStrap/js/bootstrap.js" type="text/javascript"></script>
-
-    <link href="BootStrap/MyCss.css" rel="stylesheet" type="text/css"/>
-
-
-
 </head>
 <body>
     <%@include file="Header.jsp" %>
@@ -56,16 +40,13 @@
             </div>
         </div>
     </div>
-        
+        	<script src="assets/js/operations/admin/terminals.js"></script>
+	<script src="assets/js/operations/admin/stores.js"></script>
+	
             <script>
         $(document).ready(function () {
-
-            $.ajax({
-                url: 'TerminalDeployed',
-                success: function (responseText) {
-                    $('#deploy').html(responseText);
-                }
-            });
+        	getTerminalById();
+           
         });
 
 
