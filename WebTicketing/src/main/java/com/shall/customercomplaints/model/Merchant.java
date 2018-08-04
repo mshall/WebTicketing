@@ -37,6 +37,7 @@ public class Merchant {
 	private int amexMerchantId;
 	@Column(name = "premium_id")
 	private int premiumId;
-	@Column(name="class")
+	@Column(name = "class")
 	private String merchantClass;
+	private String currency;
 }

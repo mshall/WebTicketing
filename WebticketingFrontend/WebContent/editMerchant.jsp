@@ -33,9 +33,9 @@
 </head>
 <body>
 	<script>
-		$(function() {
+		/* $(function() {
 			$('input[name=dob]').datepicker();
-		});
+		}); */
 	</script>
 	<%@include file="Header.jsp"%>
 	<div class="wrapper">
@@ -54,97 +54,89 @@
 				</div>
 				<div id="collapseTwo" class="panel-collapse collapse in">
 					<div class="panel-body   ">
-						<form action="MerchantControll" method="POST"
-							class="form-horizontal">
+						<form action="" method="POST" class="form-horizontal">
 							<div class="form-group ">
 								<label class="control-label col-sm-4">MID</label>
 								<div class="col-sm-8">
-									<input class="form-control" type="text" name="ID" readonly=""
-										value="<c:out value="${user.getMid()}" />">
+									<input class="form-control" type="text" name="itMerchantId"
+										id="itMerchantId" readonly="">
 								</div>
 							</div>
 							<div class="form-group ">
 								<label class="control-label col-sm-4">Merchant Name</label>
 								<div class="col-sm-8">
-									<input type="text" class="form-control" name="mName"
-										placeholder="Merchant Name" required=""
-										value="<c:out value="${user.getmName()}"/>">
+									<input type="text" class="form-control" name="itMerchantName"
+										id="itMerchantName" placeholder="Merchant Name" required>
 								</div>
 							</div>
 							<div class="form-group ">
 								<label class="control-label col-sm-4">Contact Person</label>
 								<div class="col-sm-8">
-									<input type="text" class="form-control" name="CP"
-										placeholder="Contact Person"
-										value="<c:out value="${user.getMcp()}" />">
+									<input type="text" class="form-control" name="itContactPerson"
+										id="itContactPerson" placeholder="Contact Person">
 								</div>
 							</div>
 							<div class="form-group ">
 								<label class="control-label col-sm-4">Phone 1</label>
 								<div class="col-sm-8">
-									<input type="number" class="form-control" name="p1"
-										placeholder="Phone 1" required
-										value="<c:out value="${user.getPhone1()}"/>">
+									<input type="text" class="form-control" name="itPhone1"
+										id="itPhone1" placeholder="Phone 1" required>
 								</div>
 							</div>
 							<div class="form-group ">
 								<label class="control-label col-sm-4">Phone 2</label>
 								<div class="col-sm-8">
-									<input type="number" class="form-control" name="p2"
-										placeholder="Phone 2"
-										value="<c:out value="${user.getPhone2()}" />">
+									<input type="text" class="form-control" name="itPhone2"
+										id="itPhone2" placeholder="Phone 2">
 								</div>
 							</div>
 							<div class="form-group ">
 								<label class="control-label col-sm-4">Email</label>
 								<div class="col-sm-8">
-									<input type="email" class="form-control" name="email"
-										placeholder="@example.com"
-										value="<c:out value="${user.getMemail()}" />">
+									<input type="email" class="form-control" name="itEmail"
+										id="itEmail" placeholder="@example.com">
 								</div>
 							</div>
 							<div class="form-group ">
 								<label class="control-label col-sm-4">City</label>
 								<div class="col-sm-8">
-									<input type="text" class="form-control" name="City"
-										placeholder="City" value="<c:out value="${user.getCity()}" />">
+									<input type="text" class="form-control" name="itCity"
+										id="itCity" placeholder="City">
 								</div>
 							</div>
 							<div class="form-group ">
 								<label class="control-label col-sm-4">Street</label>
 								<div class="col-sm-8">
-									<input type="text" class="form-control" name="st"
-										placeholder="Street"
-										value="<c:out value="${user.getStreet()}" />">
+									<input type="text" class="form-control" name="itStreet"
+										id="itStreet" placeholder="Street">
 								</div>
 							</div>
 							<div class="form-group ">
-								<label class="control-label col-sm-4">AMes Merchant ID </label>
+								<label class="control-label col-sm-4">AMex Merchant ID </label>
 								<div class="col-sm-8">
-									<input type="number " class="form-control" name="Ames"
-										placeholder="AMes Merchant ID "
-										value="<c:out value="${user.getAID()}" />">
+									<input type="number " class="form-control"
+										name="itAmexMerchantId" id="itAmexMerchantId"
+										placeholder="AMes Merchant ID ">
 								</div>
 							</div>
 							<div class="form-group ">
 								<label class="control-label col-sm-4">Premium ID</label>
 								<div class="col-sm-8">
-									<input type="number" class="form-control" name="pid"
-										placeholder="Premium ID"
-										value="<c:out value="${user.getPID()}" />">
+									<input type="number" class="form-control" name="itPremiumId"
+										id="itPremiumId" placeholder="Premium ID">
 								</div>
 							</div>
 							<div class="form-group ">
 								<label class="control-label col-sm-4">MCC</label>
 								<div class="col-sm-8">
-									<input type="number" class="form-control" name="mcc"
-										placeholder="MCC" value="<c:out value="${user.getMCC()}" />">
+									<input type="number" class="form-control" name="itMCC"
+										id="itMCC" placeholder="MCC">
 								</div>
 							</div>
 							<div class="form-group ">
 								<label class="control-label col-sm-4">Class</label>
 								<div class="col-sm-8">
-									<select name="Class">
+									<select name="sClass" id="sClass">
 										<option value="none"></option>
 										<option value="A">A</option>
 										<option value="B">B</option>
@@ -156,7 +148,7 @@
 							<div class="form-group ">
 								<label class="control-label col-sm-4">Currency</label>
 								<div class="col-sm-8">
-									<select name="Currency">
+									<select name="sCurrency" id="sCurrency">
 										<option value="none"></option>
 										<option value="EUR">EUR</option>
 
@@ -166,7 +158,7 @@
 							<div class="form-group ">
 								<label class="control-label col-sm-4">Status</label>
 								<div class="col-sm-8">
-									<select name="Status">
+									<select name="sStatus" id="sStatus">
 										<option value="none"></option>
 										<option value="active">Active</option>
 										<option value="inactive">In Active</option>
@@ -191,9 +183,13 @@
 			</div>
 		</div>
 	</div>
-
+	<script src="assets/js/operations/util.js"></script>
 	<script src="assets/js/operations/admin/merchants.js"></script>
 	<script>
+		$(document).ready(function() {
+			var merchantId = getURLParameter('merchantId');
+			populateEditMerchantForm(merchantId);
+		});
 		function Formreset() {
 			document.getElementById("myForm").reset();
 		}
