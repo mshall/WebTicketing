@@ -1,4 +1,5 @@
 function getSimApi(apiUrl) {
+	console.log(apiUrl);
 	$.ajax({
 		url : apiUrl,
 		type : 'GET',
@@ -6,6 +7,7 @@ function getSimApi(apiUrl) {
 		data : {},
 		dataType : 'json',
 		success : function(response) {
+			//console.log(response);
 			processAllSimResponse(response);
 		}
 	});
@@ -35,28 +37,32 @@ function getAllSimNew() {
 ////////////////////////////////////////////
 
 function processAllSimResponse(response) {
-	console.log('sim.processAllSimResponse -> Response: ' + response);
+	console.log(response);
 	var simtable = $('#allSim');
 
-	var output = "<div ><table id='simTable' class=\"table responsive\" border=\"1\"> "
+	output = "<div ><table id=\"simTable\" class=\"table responsive\" border=\"1\"> "
 			+ "<thead> <tr><th>Sim Serial</th>"
 			+ "<th>operator</th>"
 			+ "<th>Sim Condition</th>"
 			+ "<th>status</th>"
 			+ +"<th>Store</th>"
-			+ "<th>merchant</th>" + "<th>terminal</th>" + "</tr></thead>";
+			+ "<th>merchant</th>" 
+			+ "<th>terminal</th>" +
+					" <th> edit </th></tr></thead>";
 	for ( var i in response.results) {
 		output += "<tr><td>" + response.results[i].simSerial + "</td><td>"
-				+ response.results[i].operator + "</td>" + "<td>"
+				+ response.results[i].operator + "</td><td>"
 				+ response.results[i].simCondition + "</td><td>"
 				+ response.results[i].status + "</td><td>"
 				+ response.results[i].storeId + "</td><td>"
 				+ response.results[i].merchantId + "</td><td>"
-				+ response.results[i].terminalId + "</td></tr>";
+				+ response.results[i].terminalId + "</td>" +
+				+"<td><a href='#' onclick=''> edit </a></td></tr>";
 	}
 	output += "</tbody></body></div>";
-
-	simtable.html(output);
+	console.log($('#allSim').html());
+	$('#allSim').html(output);
+	
 	$('#simTable').DataTable();
 }
 

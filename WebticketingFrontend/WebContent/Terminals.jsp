@@ -11,23 +11,6 @@
 <html>
 <head>
 <title></title>
-<script src="BootStrap/js/glm-ajax.js" type="text/javascript"></script>
-<a href="BootStrap/fonts/glyphicons-halflings-regular.svg"></a>
-<link href="BootStrap/css/bootstrap-theme.css" rel="stylesheet"
-	type="text/css" />
-<link href="BootStrap/css/bootstrap.min.css" rel="stylesheet"
-	type="text/css" />
-<link href="BootStrap/css/bootstrap.css" rel="stylesheet"
-	type="text/css" />
-<link href="BootStrap/css/bootstrap-theme.min.css" rel="stylesheet"
-	type="text/css" />
-<link href="BootStrap/css/mstyle.css" rel="stylesheet" type="text/css" />
-<script src="BootStrap/jquery-1.12.0.min.js" type="text/javascript"></script>
-<script src="BootStrap/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="BootStrap/js/npm.js" type="text/javascript"></script>
-<script src="BootStrap/js/bootstrap.js" type="text/javascript"></script>
-
-<link href="BootStrap/MyCss.css" rel="stylesheet" type="text/css" />
 
 </head>
 <body>
@@ -46,13 +29,13 @@
 					</div>
 
 					<div class="panel-body">
-						<div>
+						<div><%-- 
 							<input type="text" name="TID" value=""
 								placeholder="Enter Terminal ID " class="input-sm" /> <a
 								href="TerminalControll?action=search&TID=<c:out value="TID"/>">
 								<button type="submit" class="btn bg-primary">
 									<span class="glyphicon glyphicon-search"></span> Search
-								</button>
+								</button> --%>
 							</a> <a href="addTerminal.jsp">
 								<button class="btn btn-default">
 									<span class="glyphicon glyphicon-plus"></span> Terminal
@@ -66,12 +49,7 @@
 				<div></div>
 			</div>
 		</div>
-
-		<script
-			src="https://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
-		<link rel="stylesheet"
-			href="https://cdn.datatables.net/1.10.4/css/jquery.dataTables.min.css">
-		<script src="assets/js/operations/admin/terminals.js"></script>
+	<script src="assets/js/operations/admin/terminals.js"></script>
 		<script>
 			$(document).ready(function() {
 				getAllTerminals();

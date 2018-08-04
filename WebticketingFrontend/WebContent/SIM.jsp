@@ -7,23 +7,6 @@
 <html>
 
 <head>
-<script src="BootStrap/js/app-ajax.js" type="text/javascript"></script>
-<a href="BootStrap/fonts/glyphicons-halflings-regular.svg"></a>
-<script src="BootStrap/jquery-1.12.0.min.js" type="text/javascript"></script>
-<link href="BootStrap/css/bootstrap-theme.css" rel="stylesheet"
-	type="text/css" />
-<link href="BootStrap/css/bootstrap.min.css" rel="stylesheet"
-	type="text/css" />
-<link href="BootStrap/css/bootstrap.css" rel="stylesheet"
-	type="text/css" />
-<link href="BootStrap/css/bootstrap-theme.min.css" rel="stylesheet"
-	type="text/css" />
-<link href="BootStrap/css/mstyle.css" rel="stylesheet" type="text/css" />
-<script src="BootStrap/jquery-1.12.0.min.js" type="text/javascript"></script>
-<script src="BootStrap/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="BootStrap/js/npm.js" type="text/javascript"></script>
-<script src="BootStrap/js/bootstrap.js" type="text/javascript"></script>
-
 
 </head>
 <body>
@@ -61,11 +44,8 @@
 
 							<br> <br>
 
-							<div id="SIMs" style="align-content: center">
-
+							<div id="allSim" style="align-content: center">
 								<div class="allSim"></div>
-
-
 							</div>
 						</div>
 					</div>
@@ -74,23 +54,12 @@
 		</div>
 	</div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	<script src="assets/js/operations/admin/sim.js"></script>
+		<script>
+			$(document).ready(function() {
+				getAllSim();
+			});
+		</script>
 
 </body>
 

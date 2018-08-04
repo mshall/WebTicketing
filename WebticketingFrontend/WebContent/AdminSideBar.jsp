@@ -66,7 +66,7 @@
 					<i class="glyphicon glyphicon-duplicate"></i> SIM
 			</a>
 				<ul class="collapse list-unstyled" id="SIM">
-					<li><a href="SimIndex.jsp"> SIM </a></li>
+					<li><a href="SIM.jsp"> SIM </a></li>
 				</ul></li>
 			<li><a href="#RollPaper" data-toggle="collapse"
 				aria-expanded="false"> <i class="glyphicon glyphicon-duplicate"></i>

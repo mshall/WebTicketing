@@ -54,10 +54,8 @@
 
                         </div>
                         <div id="collapseTwo" class="panel-collapse collapse in">
-                            <div class="panel-body" id="allTickets">
-
-
-                            </div>
+						<div class="panel-body" id="allTickets"></div>
+					</div>
                         </div>
 
 
@@ -68,16 +66,10 @@
 
 
         </div>
-
+<script src="assets/js/operations/admin/tickets.js"></script>
         <script>
             $(document).ready(function () {
-
-                $.ajax({
-                    url: 'AllTicekets',
-                    success: function (responseText) {
-                        $('#allTickets').html(responseText);
-                    }
-                });
+            	getAllComplaints();
             });
         </script> 
     </body>
