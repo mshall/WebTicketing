@@ -146,3 +146,27 @@ function processSaveSimResponse(response) {
 }
 
 // /////////////////////////////////
+function getSimByOperatorDropdown(operator,divId,SimNo){
+	$.ajax({
+		url : 'http://localhost:8082/v1/sim/?operator='+operator,
+		type : 'GET',
+		contentType : "application/json; charset=utf-8",
+		data : {},
+		dataType : 'json',
+		success : function(response) {
+			processSimDDResponse(response,divId,SimNo);
+		}
+	});
+}
+
+function processSimDDResponse(response,divId,SimNo) {
+	console.log('processSimDDResponse -> Response: ' + response);
+	html_ = $('#'+divId+"");
+
+	output = "<select id=\""+SimNo+"\"><option value=\"none\"></option>";
+	for ( var i in response.results) {
+		output += "<option value="+response.results[i].simSerial+">"+response.results[i].simSerial+"</option>";
+	}
+	output += "</select>";
+	html_.html(output);
+}
