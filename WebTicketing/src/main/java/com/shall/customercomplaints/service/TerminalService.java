@@ -2,6 +2,8 @@ package com.shall.customercomplaints.service;
 
 import java.util.List;
 
+import org.apache.commons.beanutils.PropertyUtils;
+import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
@@ -16,6 +18,9 @@ public class TerminalService implements GenericService<Terminal, Integer> {
 	@Autowired
 	private TerminalRepository terminalRepository;
 
+	@Autowired
+	private DozerBeanMapper dozerMapper;
+	
 	@Override
 	public CrudRepository<Terminal, Integer> getRepository() {
 		// TODO Auto-generated method stub
@@ -38,7 +43,12 @@ public class TerminalService implements GenericService<Terminal, Integer> {
 	public Terminal updateTerminal(Terminal terminal) {
 		Terminal existingTerminal = terminalRepository.findOne(terminal.getTerminalId());
 		if (existingTerminal != null) {
-			WebTicketingBeanUtils.myCopyProperties(terminal, existingTerminal);
+			try {
+				dozerMapper.map(terminal, existingTerminal);
+//				PropertyUtils.copyProperties(terminal, existingTerminal);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			Terminal updatedTerminal = terminalRepository.save(existingTerminal);
 			return updatedTerminal;
 		} else {// This user doesn't exist to be updated

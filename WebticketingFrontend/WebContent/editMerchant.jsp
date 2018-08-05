@@ -41,6 +41,14 @@
 	<div class="wrapper">
 		<%@include file="AdminSideBar.jsp"%>
 		<div id="content">
+			<div class="alert alert-success" id="successUpdate">
+				<a href="#" class="close" data-dismiss="alert">&times;</a> <strong>Sucess!
+				</strong> Merchant is updated successfully
+			</div>
+			<div class="alert alert-danger" id="errorUpdate">
+				<a href="#" class="close" data-dismiss="alert">&times;</a> <strong>Warning!
+				</strong> Couldn't update merchant!
+			</div>
 			<div class="panel-group" id="accordion">
 
 				<div class="panel panel-primary" id="panel1">
@@ -150,8 +158,11 @@
 								<div class="col-sm-8">
 									<select name="sCurrency" id="sCurrency">
 										<option value="none"></option>
-										<option value="EUR">EUR</option>
-
+										<option value="EGP">EGP</option>
+										<option value="USD">USD</option>
+										<option value="GBP">GBP</option>
+										<option value="AUD">AUD</option>
+										<option value="AED">AED</option>
 									</select>
 								</div>
 							</div>
@@ -168,9 +179,10 @@
 							</div>
 							<div class="form-group ">
 								<div class="col-sm-offset-4 col-sm-8">
-									<input type="submit" value="Submit" name="submit"
-										class="btn btn-primary" /> <input type="reset" value="Cancel"
-										name="cancel" onclick="Formreset()" class="btn btn-danger" />
+									<input type="button" value="Submit" name="submit"
+										class="btn btn-primary" onclick="updateMerchant()" /> <input
+										type="reset" value="Cancel" name="cancel"
+										onclick="Formreset()" class="btn btn-danger" />
 								</div>
 							</div>
 
@@ -187,6 +199,8 @@
 	<script src="assets/js/operations/admin/merchants.js"></script>
 	<script>
 		$(document).ready(function() {
+			$("#successUpdate").hide();
+			$("#errorUpdate").hide();
 			var merchantId = getURLParameter('merchantId');
 			populateEditMerchantForm(merchantId);
 		});

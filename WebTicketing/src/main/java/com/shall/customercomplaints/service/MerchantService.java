@@ -2,11 +2,13 @@ package com.shall.customercomplaints.service;
 
 import java.util.List;
 
+import org.apache.commons.beanutils.PropertyUtils;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
+import com.shall.common.core.config.WebTicketingBeanUtils;
 import com.shall.customercomplaints.model.Complaint;
 import com.shall.customercomplaints.model.Merchant;
 import com.shall.customercomplaints.repository.MerchantRepository;
@@ -49,11 +51,19 @@ public class MerchantService implements GenericService<Merchant, Integer> {
 
 	public Merchant updateMerchant(Merchant merchant) {
 		if (merchant.getMerchantId() != null) {
-			Merchant existing = merchantRepository.findOne(merchant.getMerchantId());
-			if (existing != null) {
-				merchant.setMerchantId((existing.getMerchantId()));
-				dozerMapper.map(merchant, existing);
-				Merchant updatedMerchant = merchantRepository.save(existing);
+			Merchant existingMerchant = merchantRepository.findOne(merchant.getMerchantId());
+			if (existingMerchant != null) {
+				/*if(merchant.getAmexMerchantId() != null){
+					existingMerchant.setAmexMerchantId(merchant.getAmexMerchantId());
+				}
+				if(merchant.getCity() != null){
+					existingMerchant.setCity(merchant.getCity());
+				}
+				if(merchant.getContactPerson() != null){
+					
+				}*/
+				dozerMapper.map(merchant, existingMerchant);
+				Merchant updatedMerchant = merchantRepository.save(existingMerchant);
 				return updatedMerchant;
 			} else {// This merchant doesn't exist
 				return null;

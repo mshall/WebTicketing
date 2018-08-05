@@ -23,20 +23,19 @@ public class Merchant {
 	@Column(name = "merchant_name")
 	private String merchantName;
 	private String email;
-	private int MCC;
+	private String MCC;
 	private boolean status;
 	private String city;
 	private String street;
 	private String phone1;
 	private String phone2;
-	private String currancy;
 	private String vendor;
 	@Column(name = "contact_person")
 	private String contactPerson;
 	@Column(name = "amex_merchant_id")
-	private int amexMerchantId;
+	private String amexMerchantId;
 	@Column(name = "premium_id")
-	private int premiumId;
+	private String premiumId;
 	@Column(name = "class")
 	private String merchantClass;
 	private String currency;

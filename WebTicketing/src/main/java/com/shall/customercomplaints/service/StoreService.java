@@ -2,6 +2,8 @@ package com.shall.customercomplaints.service;
 
 import java.util.List;
 
+import org.apache.commons.beanutils.PropertyUtils;
+import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
@@ -16,6 +18,8 @@ public class StoreService implements GenericService<Store, Integer> {
 
 	@Autowired
 	private StoreRepository usersRepository;
+	@Autowired
+	private DozerBeanMapper dozerMapper;
 
 	@Override
 	public CrudRepository<Store, Integer> getRepository() {
@@ -31,8 +35,13 @@ public class StoreService implements GenericService<Store, Integer> {
 	public Store updateStore(Store store) {
 		Store existingStore = usersRepository.findOne(store.getStoreId());
 		if (existingStore != null) {
-			store.setStoreId(existingStore.getStoreId());
-			Store updatedStore = usersRepository.save(store);
+			try {
+				dozerMapper.map(store, existingStore);
+				// PropertyUtils.copyProperties(store, existingStore);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			Store updatedStore = usersRepository.save(existingStore);
 			return updatedStore;
 		} else {// This user doesn't exist to be updated
 			return null;

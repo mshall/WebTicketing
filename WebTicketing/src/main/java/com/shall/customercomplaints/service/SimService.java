@@ -1,6 +1,8 @@
 package com.shall.customercomplaints.service;
 
 import java.util.List;
+
+import org.apache.commons.beanutils.PropertyUtils;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
@@ -56,7 +58,7 @@ public class SimService implements GenericService<Sim, Integer> {
 		// Where false means new
 		return simRepository.findByOperator(operator);
 	}
-	
+
 	public List<Sim> findByStoreId(int storeId) {
 		return simRepository.findByStoreId(storeId);
 	}
@@ -71,11 +73,15 @@ public class SimService implements GenericService<Sim, Integer> {
 
 	public Sim updateSim(Sim sim) {
 		if (sim.getSimSerial() != null) {
-			Sim existing = simRepository.findOne(sim.getSimSerial());
-			if (existing != null) {
-				sim.setSimSerial(existing.getSimSerial());
-				dozerMapper.map(sim, existing);
-				Sim updatedSim = simRepository.save(existing);
+			Sim existingSim = simRepository.findOne(sim.getSimSerial());
+			if (existingSim != null) {
+				try {
+					dozerMapper.map(sim, existingSim);
+//					PropertyUtils.copyProperties(sim, existingSim);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				Sim updatedSim = simRepository.save(existingSim);
 				return updatedSim;
 			} else {// This sim doesn't exist
 				return null;

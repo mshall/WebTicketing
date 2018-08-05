@@ -54,7 +54,7 @@ public class RollpaperController {
 	@RequestMapping(value = "/update/", produces = "application/json; charset=UTF-8", method = RequestMethod.POST)
 	public ResponseEntity<ResponseVO<Rollpaper>> updateStore(@RequestBody Rollpaper store) {
 		ResponseVO<Rollpaper> response = null;
-		Rollpaper updatedComplaint = ((RollpaperService) service).updateStore(store);
+		Rollpaper updatedComplaint = ((RollpaperService) service).updateRollpaper(store);
 		if (updatedComplaint == null) {
 			response = new ResponseVO<Rollpaper>(Constants.ERROR_CODE_GENERAL, Constants.ERROR_MESSAGE_UPDATE,
 					updatedComplaint);

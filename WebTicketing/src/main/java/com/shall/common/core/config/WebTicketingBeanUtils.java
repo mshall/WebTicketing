@@ -1,5 +1,6 @@
 package com.shall.common.core.config;
 
+import java.lang.reflect.Field;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -25,6 +26,21 @@ public class WebTicketingBeanUtils {
 
 	// then use Spring BeanUtils to copy and ignore null
 	public static void myCopyProperties(Object src, Object target) {
+
 		BeanUtils.copyProperties(src, target, getNullPropertyNames(src));
+	}
+
+	// ---------------------------- Generic way to read params and via
+	// reflection
+	public static <T> void copyFields(T source, T target) throws Exception {
+		Class<?> clazz = source.getClass();
+
+		for (Field field : clazz.getFields()) {
+			Object value = field.get(source);
+			if (value != null) {
+				field.set(target, value);
+			}
+
+		}
 	}
 }

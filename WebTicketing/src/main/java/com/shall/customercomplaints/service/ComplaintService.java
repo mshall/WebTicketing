@@ -2,6 +2,7 @@ package com.shall.customercomplaints.service;
 
 import java.util.List;
 
+import org.apache.commons.beanutils.PropertyUtils;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
@@ -56,11 +57,16 @@ public class ComplaintService implements GenericService<Complaint, Long> {
 
 	public Complaint updateComplaint(Complaint complaint) {
 		if (complaint.getComplaintId() != null) {
-			Complaint existing = complaintsRepository.findOne(complaint.getComplaintId());
-			if (existing != null) {
-				complaint.setComplaintId(existing.getComplaintId());
-				dozerMapper.map(complaint, existing);
-				Complaint updatdComplaint = complaintsRepository.save(existing);
+			Complaint existingComplaint = complaintsRepository.findOne(complaint.getComplaintId());
+			if (existingComplaint != null) {
+				try {
+					dozerMapper.map(complaint, existingComplaint);
+					// PropertyUtils.copyProperties(complaint,
+					// existingComplaint);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				Complaint updatdComplaint = complaintsRepository.save(existingComplaint);
 				return updatdComplaint;
 			} else {// This complaint doesn't exist
 				return null;
