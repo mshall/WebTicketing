@@ -7,11 +7,11 @@ function getAllComplaints() {
 		data : {},
 		dataType : 'json',
 		success : function(response) {
-			processResponse(response);
+			processGetAllComplaintsResponse(response);
 		}
 	});
 }
-function processResponse(response) {
+function processGetAllComplaintsResponse(response) {
 	console.log(response);
 	var ticketstable = $('#allTickets');
 
@@ -91,9 +91,9 @@ function goTomaintenancePage(complaintId) {
 	window.location
 			.replace("TicketsMaintenance.jsp?complaintId=" + complaintId);
 }
-
-// //////////////////////////// maintenance ticket
-// ///////////////////////////////////////
+// -------------------------------------------------------------------------------------
+// ------------------------------- maintenance ticket
+// -------------------------------------------------------------------------------------
 function updateComplaint() {
 	var data = new FormData();
 
@@ -106,10 +106,10 @@ function updateComplaint() {
 		"complaintNote" : note,
 		"status" : status
 	}
-	sendData(JSON.stringify(complaint));
+	sendUpdateComplaintData(JSON.stringify(complaint));
 
 }
-function sendData(data) {
+function sendUpdateComplaintData(data) {
 	$.ajax({
 		url : 'http://localhost:8082/v1/complaint/update/',
 		type : 'POST',
@@ -136,5 +136,70 @@ function processUpdateComplaintResponse(response) {
 		window.location.replace("TicketsHistory.jsp");
 	} else {
 		formMessage.css("color", "red");
+	}
+}
+
+// -------------------------------------------------------------------------------------
+// ---------------------------------------- Get complaints by status
+// -------------------------------------------------------------------------------------
+function getAllComplaintsByStatus() {
+	// 
+	$.ajax({
+		url : 'http://localhost:8082/v1/complaint//status/Open',
+		type : 'GET',
+		contentType : "application/json; charset=utf-8",
+		data : {},
+		dataType : 'json',
+		success : function(response) {
+			processGetAllComplaintsByStatusResponse(response);
+		}
+	});
+}
+
+function processGetAllComplaintsByStatusResponse(response) {
+	console.log("ticket.processGetAllComplaintsByStatusResponse -> Response:\n"
+			+ JSON.stringify(response));
+	var dTickets = $("#dTickets");
+	var output = "<div><select name='sTickets' id='sTickets' style='width:150px;'>";
+	for ( var i in response.results) {
+		output += " <option value='" + response.results[i].complaintId + "'>"
+				+ response.results[i].complaintId + "</option>"
+	}
+	output += "</select> </div>";
+	dTickets.html(output);
+}
+
+// -----------------------------------------------------------------------------------------
+// Assign a ticket
+// -----------------------------------------------------------------------------------------
+function assignTicket() {
+	var complaintId = $("#sTickets").val();
+	var technicianId = $("#sTechnicians").val();
+	var complaint = {
+		"complaintId" : Number(complaintId),
+		"technicianId" : Number(technicianId)
+	}
+	sendAssingTicketData(JSON.stringify(complaint));
+
+}
+function sendAssingTicketData(data) {
+	$.ajax({
+		url : 'http://localhost:8082/v1/complaint/update/',
+		type : 'POST',
+		contentType : "application/json; charset=utf-8",
+		data : data,
+		dataType : 'json',
+		success : function(response) {
+			processAssignTicketResponse(response);
+		}
+	});
+}
+function processAssignTicketResponse(response) {
+	var status = response.code;
+	if (status == 200) {
+		$("#successUpdate").show();
+
+	} else {
+		$("#errorUpdate").show();
 	}
 }

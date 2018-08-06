@@ -29,6 +29,12 @@ public class ComplaintController {
 		return ResponseEntity.ok(new ResponseVO<>(service.findAll()));
 	}
 
+	@RequestMapping(value = "/status/{complaintStatus}", produces = "application/json; charset=UTF-8", method = RequestMethod.GET)
+	public ResponseEntity<ResponseVO<Iterable<Complaint>>> findComplaintsByStatusd(
+			@PathVariable("complaintStatus") String complaintStatus) {
+		return ResponseEntity.ok(new ResponseVO<>(((ComplaintService) service).findByStatus(complaintStatus)));
+	}
+
 	@RequestMapping(value = "/{complaintId}", produces = "application/json; charset=UTF-8", method = RequestMethod.GET)
 	public ResponseEntity<ResponseVO<Complaint>> findComplaintById(@PathVariable("complaintId") String complaintId) {
 		return ResponseEntity.ok(new ResponseVO<>(service.find(Long.parseLong(complaintId))));
@@ -64,8 +70,7 @@ public class ComplaintController {
 		}
 		return ResponseEntity.ok(response);
 	}
-	
-	
+
 	@RequestMapping(value = "/{complaintId}", produces = "application/json; charset=UTF-8", method = RequestMethod.DELETE)
 	public ResponseEntity<ResponseVO<Boolean>> deleteComplaint(@PathVariable("complaintId") Long complaintId) {
 		ResponseVO<Boolean> response = new ResponseVO<>(service.delete(complaintId));

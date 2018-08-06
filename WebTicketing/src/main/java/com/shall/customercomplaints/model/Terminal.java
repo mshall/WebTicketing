@@ -90,4 +90,8 @@ public class Terminal {
 	private boolean manualEntry;
 
 	private String branch;
+
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	@Column(name = "created_date", columnDefinition = "DATETIME")
+	private Date createdDate;
 }

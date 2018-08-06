@@ -41,7 +41,7 @@ public class Complaint {
 	private Date complaintClosingTime;
 
 	@Column(name = "status")
-	private int status;
+	private String status;
 
 	private String comments;
 

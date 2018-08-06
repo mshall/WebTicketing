@@ -55,12 +55,17 @@ public class ComplaintService implements GenericService<Complaint, Long> {
 		return complaintsRepository.findByTechnicianId(technicianId);
 	}
 
+	public List<Complaint> findByStatus(String status) {
+		return complaintsRepository.findByStatus(status);
+	}
+
 	public Complaint updateComplaint(Complaint complaint) {
 		if (complaint.getComplaintId() != null) {
 			Complaint existingComplaint = complaintsRepository.findOne(complaint.getComplaintId());
 			if (existingComplaint != null) {
 				try {
-					dozerMapper.map(complaint, existingComplaint);
+					existingComplaint = mapComplaints(complaint, existingComplaint);
+					// dozerMapper.map(complaint, existingComplaint);
 					// PropertyUtils.copyProperties(complaint,
 					// existingComplaint);
 				} catch (Exception e) {
@@ -75,6 +80,47 @@ public class ComplaintService implements GenericService<Complaint, Long> {
 			return null;
 		}
 
+	}
+
+	public Complaint mapComplaints(Complaint source, Complaint target) {
+		if (source.getComments() != null && !source.getComments().isEmpty()) {
+			target.setComments(source.getComments());
+		}
+		if (source.getComplaintClosingTime() != null) {
+			target.setComplaintClosingTime(source.getComplaintClosingTime());
+		}
+		if (source.getComplaintNote() != null && !source.getComplaintNote().isEmpty()) {
+			target.setComplaintNote(source.getComplaintNote());
+		}
+		if (source.getComplaintOpeningTime() != null) {
+			target.setComplaintOpeningTime(source.getComplaintOpeningTime());
+		}
+		if (source.getComplaintSolution() != null && !source.getComplaintSolution().isEmpty()) {
+			target.setComplaintSolution(source.getComplaintSolution());
+		}
+
+		if (source.getCustomerEmail() != null && !source.getCustomerEmail().isEmpty()) {
+			target.setCustomerEmail(source.getCustomerEmail());
+		}
+
+		if (source.getMerchantId() != 0) {
+			target.setMerchantId(source.getMerchantId());
+		}
+		if (source.getPhoneNumber() != null && !source.getPhoneNumber().isEmpty()) {
+			target.setPhoneNumber(source.getPhoneNumber());
+		}
+		if (source.getStatus() != null && !source.getStatus().isEmpty()) {
+			target.setStatus(source.getStatus());
+		}
+
+		if (source.getTechnicianId() != 0) {
+			target.setTechnicianId(source.getTechnicianId());
+		}
+		if (source.getTerminalId() != 0) {
+			target.setStatus(source.getStatus());
+		}
+
+		return target;
 	}
 
 	public long countComplaints() {
