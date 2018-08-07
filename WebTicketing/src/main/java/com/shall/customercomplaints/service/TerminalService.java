@@ -20,7 +20,7 @@ public class TerminalService implements GenericService<Terminal, Integer> {
 
 	@Autowired
 	private DozerBeanMapper dozerMapper;
-	
+
 	@Override
 	public CrudRepository<Terminal, Integer> getRepository() {
 		// TODO Auto-generated method stub
@@ -44,8 +44,9 @@ public class TerminalService implements GenericService<Terminal, Integer> {
 		Terminal existingTerminal = terminalRepository.findOne(terminal.getTerminalId());
 		if (existingTerminal != null) {
 			try {
-				dozerMapper.map(terminal, existingTerminal);
-//				PropertyUtils.copyProperties(terminal, existingTerminal);
+				// dozerMapper.map(terminal, existingTerminal);
+
+				existingTerminal = mapTerminal(terminal, existingTerminal);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -55,5 +56,49 @@ public class TerminalService implements GenericService<Terminal, Integer> {
 			return null;
 		}
 
+	}
+
+	public Terminal mapTerminal(Terminal source, Terminal destination) {
+		if (source.getBranch() != null && !source.getBranch().isEmpty()) {
+			destination.setBranch(source.getBranch());
+		}
+		if (source.getCondition() != null && !source.getCondition().isEmpty()) {
+			destination.setCondition(source.getCondition());
+		}
+		if (source.getCreatedDate() != null) {
+			destination.setCreatedDate(source.getCreatedDate());
+		}
+		if (source.getCurrency() != null && !source.getCurrency().isEmpty()) {
+			destination.setCurrency(source.getCurrency());
+		}
+		if (source.getDeploymentDate() != null) {
+			destination.setDeploymentDate(source.getDeploymentDate());
+		}
+		if (source.getFirstSimSerial() != 0) {
+			destination.setFirstSimSerial(source.getFirstSimSerial());
+		}
+		if (source.getMerchantId() != 0) {
+			destination.setMerchantId(source.getMerchantId());
+		}
+		if (source.getModel() != null && !source.getModel().isEmpty()) {
+			destination.setModel(source.getModel());
+		}
+		if (source.getSecondSimSerial() != 0) {
+			destination.setSecondSimSerial(source.getSecondSimSerial());
+		}
+		if (source.getStatus() != null && !source.getStatus().isEmpty()) {
+			destination.setStatus(source.getStatus());
+		}
+		if (source.getStoreId() != 0) {
+			destination.setStoreId(source.getStoreId());
+		}
+		if (source.getTerminalClass() != null && !source.getTerminalClass().isEmpty()) {
+			destination.setTerminalClass(source.getTerminalClass());
+		}
+		if (source.getTerminalSerialNumber() != null && !source.getTerminalSerialNumber().isEmpty()) {
+			destination.setTerminalSerialNumber(source.getTerminalSerialNumber());
+		}
+
+		return destination;
 	}
 }
