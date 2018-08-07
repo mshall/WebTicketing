@@ -7,20 +7,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <script src="BootStrap/js/glm-ajax.js" type="text/javascript"></script>
-    <a href="BootStrap/fonts/glyphicons-halflings-regular.svg"></a>
-    <link href="BootStrap/css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
-    <link href="BootStrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <link href="BootStrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
-    <link href="BootStrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
-    <link href="BootStrap/css/mstyle.css" rel="stylesheet" type="text/css"/>
-    <script src="BootStrap/jquery-1.12.0.min.js" type="text/javascript"></script>
-    <script src="BootStrap/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="BootStrap/js/npm.js" type="text/javascript"></script>
-    <script src="BootStrap/js/bootstrap.js" type="text/javascript"></script>
-
     <title>Roll Paper To Merchant</title> 
     <style>
 
@@ -35,13 +21,13 @@
                 <div class="panel panel-primary" id="panel1">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            Total-In-Roll-Papers 
+                            Total In Roll Papers 
                         </h4>
                     </div>
                 </div> 
                 <div >
                     <div class="panel-body   ">
-                        <div id ="RP">
+                        <div id ="allRollPapers">
                         </div>
                     </div>
                 </div> 
@@ -112,29 +98,15 @@
 
         </div> 
     </div>
+    <script src="assets/js/operations/admin/roll.js"></script>
     <script>
         function Formreset() {
             document.getElementById("myForm").reset();
         }
         $(document).ready(function () {
-
-            $.ajax({
-                url: 'RollPaper',
-                success: function (responseText) {
-                    $('#RP').html(responseText);
-                }
-            });
+        	getAllRollPapers();
         });
 
-        $(document).ready(function () {
-
-            $.ajax({
-                url: 'MerchantforRP',
-                success: function (responseText) {
-                    $('#Merchants').html(responseText);
-                }
-            });
-        });
 
     </script>
 </body>
