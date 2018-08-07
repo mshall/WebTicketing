@@ -20,6 +20,7 @@ function processAllRollPapersResponse(response) {
 			+ "<th>rollpaper Size</th>"
 			+ "<th>total In</th>"
 			+ "<th>store Id</th>"
+			+ "<th>Tender</th>"
 			+ "<th> </th>"
 			+ " </tr></thead>";
 	for ( var i in response.results) {
@@ -27,8 +28,11 @@ function processAllRollPapersResponse(response) {
 				+ response.results[i].rollpaperSize + "</td><td>"
 				+ response.results[i].totalIn + "</td><td>"
 				+ response.results[i].storeId + "</td><td> Tender </td><td>"
-				+ "<a href=\"#\" onclick=\"goToUpdateRollPage("
-				+ response.results[i].rollpaperId + ")\" >edit</a></td></tr>";
+				+ "<button type='button' class='btn btn-warning' onclick='goToUpdateRollPage("
+				+ response.results[i].rollpaperId
+				+ ")'>Edit</button>"
+				+ "&nbsp;&nbsp;&nbsp;<button type='button' class='btn btn-danger'>Delete</button>"
+				+ "</td></tr>";
 	}
 	output += "</tbody></body></div>";
 

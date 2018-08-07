@@ -29,13 +29,7 @@
 
 
 							<div>
-								<input type="text" name="ID" value="" placeholder="Sim serial "
-									class="input-sm" /> <a
-									href="SimControll?action=search&search=<c:out value="ID"/>">
-									<button type="submit" class="btn bg-primary">
-										<span class="glyphicon glyphicon-search"></span> Search
-									</button>
-								</a> <a href="SimControll?action=insert">
+								</a> <a href="addSIM.jsp">
 									<button class="btn btn-default">
 										<span class="glyphicon glyphicon-plus"></span> SIM
 									</button>
