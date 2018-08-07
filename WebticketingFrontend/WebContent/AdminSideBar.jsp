@@ -10,22 +10,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <a href="BootStrap/fonts/glyphicons-halflings-regular.svg"></a>
-<!-- <script src="BootStrap/jquery-1.12.0.min.js" type="text/javascript"></script> -->
-<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-<link href="BootStrap/css/bootstrap-theme.css" rel="stylesheet"
-	type="text/css" />
-<link href="BootStrap/css/bootstrap.min.css" rel="stylesheet"
-	type="text/css" />
-<link href="BootStrap/css/bootstrap.css" rel="stylesheet"
-	type="text/css" />
-<link href="BootStrap/css/bootstrap-theme.min.css" rel="stylesheet"
-	type="text/css" />
-<link href="BootStrap/css/mstyle.css" rel="stylesheet" type="text/css" />
-<!-- <script src="BootStrap/jquery-1.12.0.min.js" type="text/javascript"></script> -->
-<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="BootStrap/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="BootStrap/js/npm.js" type="text/javascript"></script>
-<script src="BootStrap/js/bootstrap.js" type="text/javascript"></script>
 </head>
 
 
@@ -43,7 +27,7 @@
 			</a></li>
 
 			<li><a href="#homeSubmenu" data-toggle="collapse"
-				aria-expanded="false"> <i class="glyphicon glyphicon-briefcase"></i>
+				aria-expanded="false" aria-controls="homeSubmenu"> <i class="glyphicon glyphicon-briefcase"></i>
 					Accounts
 			</a>
 				<ul class="collapse list-unstyled" id="homeSubmenu">
@@ -52,13 +36,12 @@
 					<li><a href="Store.jsp"> Store</a></li>
 					<li><a href="ChangePassword.jsp">Change Password</a></li>
 				</ul></li>
-			<li><a href="#Terminal" data-toggle="collapse"
-				aria-expanded="false"> <i class="glyphicon glyphicon-phone"></i>
+			<li><a href="#Terminal" data-toggle="collapse" data-target="#TerminalC" aria-expanded="false" aria-controls="TerminalC"> <i class="glyphicon glyphicon-phone"></i>
 					Terminal
 			</a>
-				<ul class="collapse list-unstyled" id="Terminal">
+				<ul class="collapse list-unstyled" id="TerminalC">
 					<li><a href="Terminals.jsp">Terminals</a></li>
-					<li><a href="DeploymentIndex.jsp">Deployment</a></li>
+					<li><a href="Deployment.jsp">Deployment</a></li>
 					<li><a href="TerminalUpdate.jsp">Update Deployment </a></li>
 
 				</ul></li>
