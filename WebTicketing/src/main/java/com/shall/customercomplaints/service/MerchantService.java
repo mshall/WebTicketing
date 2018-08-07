@@ -62,10 +62,8 @@ public class MerchantService implements GenericService<Merchant, Integer> {
 				try {
 					MyBeanUtils.copyPropertiesNotNull(existingMerchant, merchant);
 				} catch (InvocationTargetException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (IllegalAccessException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				// dozerMapper.map(merchant, existingMerchant);
