@@ -190,7 +190,7 @@ function sendAssingTicketData(data) {
 		data : data,
 		dataType : 'json',
 		success : function(response) {
-			processAssignTicketResponse(response);
+			processWithdrawTerminalResponse(response);
 		}
 	});
 }

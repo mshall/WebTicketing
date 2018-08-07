@@ -70,15 +70,26 @@ function withdrawTerminal() {
 	var merchantId = $("#sMerchantId").val();
 	// 2018-07-27 19:12:06
 	var currentdate = new Date();
-	var timeNow = currentdate.getFullYear() + "-"
-			+ (currentdate.getMonth() + 1) + "-" + currentdate.getDate() + " "
-			+ currentdate.getHours() + ":" + currentdate.getMinutes() + ":"
-			+ currentdate.getSeconds();
+	var currentMonth = (currentdate.getMonth() + 1);
+	if (currentMonth < 10) {
+		currentMonth = "0" + currentMonth;
+	}
+	var currentDay = currentdate.getDate();
+	if (currentDay < 10) {
+		currentDay = "0" + currentDay;
+	}
+	var timeNow = currentdate.getFullYear() + "-" + currentMonth + "-"
+			+ currentDay;
 	for ( var i in allTerminalsResponse.results) {
 		if (allTerminalsResponse.results[i].terminalSerialNumber == terminalSerialNumber) {
 			targetedTerminalId = allTerminalsResponse.results[i].terminalId;
 		}
 	}
+	var d = new Date();
+	// d is "Sun Oct 13 2013 20:32:01 GMT+0530 (India Standard Time)"
+	datetext = d.toTimeString();
+	datetext = datetext.split(' ')[0];
+	timeNow = timeNow + " " + datetext;
 	var terminal = {
 		"terminalId" : targetedTerminalId,
 		"terminalSerialNumber" : terminalSerialNumber,
@@ -98,11 +109,11 @@ function sendWithdrawTerminalData(data) {
 		data : data,
 		dataType : 'json',
 		success : function(response) {
-			processAssignTicketResponse(response);
+			processWithdrawTerminalResponse(response);
 		}
 	});
 }
-function processAssignTicketResponse(response) {
+function processWithdrawTerminalResponse(response) {
 	var status = response.code;
 	if (status == 200) {
 		$("#successUpdate").show();
@@ -110,4 +121,49 @@ function processAssignTicketResponse(response) {
 	} else {
 		$("#errorUpdate").show();
 	}
+}
+
+// -----------------------------------------------------------------------------------------
+// Get withdrawal history
+// -----------------------------------------------------------------------------------------
+function getWithdrawalsLogs() {
+	$.ajax({
+		url : 'http://localhost:8082/v1/terminal/?status=Defected',
+		type : 'GET',
+		contentType : "application/json; charset=utf-8",
+		data : {},
+		dataType : 'json',
+		success : function(response) {
+			processWithdrawalLogsResponse(response);
+		}
+	});
+}
+function processWithdrawalLogsResponse(response) {
+	console.log('withdrawals.processWithdrawalLogsResponse -> Response: '
+			+ JSON.stringify(response));
+
+	var dWithdrawalsLogs = $('#dWithdrawalsLogs');
+
+	var output = "<div ><table id='tWithdrawals' class=\"table responsive\" border=\"1\"> "
+			+ "<thead> <tr>"
+			+ "<th>Vendor</th>"
+			+ "<th>Model</th>"
+			+ "<th>Serial number</th>"
+			+ "<th>TID</th>"
+			+ "<th>MID</th"
+			+ "><th>Sim 1</th>" + "<th>Sim 2</th></tr></thead>";
+	for ( var i in response.results) {
+		var merchantId = response.results[i].merchantId;
+		output += "<tr><td>" + "Spectre" + "</td><td>"
+				+ response.results[i].model + "</td>" + "<td>"
+				+ response.results[i].terminalSerialNumber + "</td><td>"
+				+ response.results[i].terminalId + "</td><td>"
+				+ response.results[i].merchantId + "</td><td>"
+				+ response.results[i].firstSimSerial + "</td>" + "<td>"
+				+ response.results[i].secondSimSerial + "</td></tr>";
+	}
+	output += "</tbody></body></div>";
+
+	dWithdrawalsLogs.html(output);
+	$('#tWithdrawals').DataTable();
 }
