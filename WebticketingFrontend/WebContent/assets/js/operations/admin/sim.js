@@ -38,14 +38,14 @@ function getAllSimNew() {
 
 function processAllSimResponse(response) {
 	console.log(response);
-	var simtable = $('#allSim');
+	var simDiv = $('#allSim');
 
 	output = "<div ><table id=\"simTable\" class=\"table responsive\" border=\"1\"> "
 			+ "<thead> <tr><th>Sim Serial</th>"
 			+ "<th>operator</th>"
 			+ "<th>Sim Condition</th>"
 			+ "<th>status</th>"
-			+ +"<th>Store</th>"
+			+ "<th>Store</th>"
 			+ "<th>merchant</th>" 
 			+ "<th>terminal</th>" +
 					" <th> edit </th></tr></thead>";
@@ -56,20 +56,25 @@ function processAllSimResponse(response) {
 				+ response.results[i].status + "</td><td>"
 				+ response.results[i].storeId + "</td><td>"
 				+ response.results[i].merchantId + "</td><td>"
-				+ response.results[i].terminalId + "</td>" +
-				+"<td><a href='#' onclick=''> edit </a></td></tr>";
+				+ response.results[i].terminalId + "</td><td>" +
+				+ "<button type='button' class='btn btn-warning' onclick='navigateToSimPage("+ response.results[i].simSerial+");'>Edit</button>"
+				+ "&nbsp;&nbsp;&nbsp;<button type='button' class='btn btn-danger'>Delete</button>"
+				+ "</td></tr>";
 	}
 	output += "</tbody></body></div>";
-	console.log($('#allSim').html());
-	$('#allSim').html(output);
+	simDiv.html(output);
 	
 	$('#simTable').DataTable();
 }
+/////////////////////////////////////////
 
+function navigateToSimPage(simId) {
+	window.location.replace("addSIM.jsp?simId=" + simId);
+}
 ////////////////////////////////////////////
-function getSimById(id) {
+function getSimById() {
 	$.ajax({
-		url : 'http://localhost:8082/v1/sim/' + id,
+		url : 'http://localhost:8082/v1/sim/' + $.urlParam('simId'),
 		type : 'GET',
 		contentType : "application/json; charset=utf-8",
 		data : {},
@@ -82,18 +87,18 @@ function getSimById(id) {
 function processGetSimByResponse(response) {
 	console.log('sim.processGetSimByResponse -> Response: ' + response);
 
-	$("#simSerial").val(response.simSerial);
-	$("#operator").val(response.operator);
-	$("#simCondition").val(response.simCondition);
-	$("#status").val(response.status);
-	$("#storeId").val(response.storeId);
-	$("#merchantId").val(response.merchantId);
-	$("#terminalId").val(response.terminalId);
+	$("#simSerial").val(response.results.simSerial);
+	$("#operator").val(response.results.operator);
+	$("#simCondition").val(response.results.simCondition);
+	$("#status").val(response.results.status);
+	$("#storeId").val(response.results.storeId);
+	$("#merchantId").val(response.results.merchantId);
+	$("#terminalId").val(response.results.terminalId);
 
 }
 
 // //////////////////////////////////////////
-function saveSim() {
+function saveSim(url) {
 	var data = new FormData();
 
 	var simSerial = $("#simSerial").val();
@@ -112,12 +117,12 @@ function saveSim() {
 		"merchantId" : merchantId,
 		"terminalId" : terminalId
 	}
-	sendData(JSON.stringify(sim));
+	sendData(JSON.stringify(sim),url);
 
 }
-function sendData(data) {
+function sendData(data,url) {
 	$.ajax({
-		url : 'http://localhost:8082/v1/sim/',
+		url : url,
 		type : 'POST',
 		contentType : "application/json; charset=utf-8",
 		data : data,
@@ -169,4 +174,18 @@ function processSimDDResponse(response,divId,SimNo) {
 	}
 	output += "</select>";
 	html_.html(output);
+}
+
+
+
+
+//////////////////////////////////////////////////////
+$.urlParam = function(name) {
+	var results = new RegExp('[\?&]' + name + '=([^]*)')
+			.exec(window.location.href);
+	if (results == null) {
+		return null;
+	} else {
+		return results[1] || 0;
+	}
 }
