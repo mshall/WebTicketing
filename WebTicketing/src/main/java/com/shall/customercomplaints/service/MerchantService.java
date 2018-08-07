@@ -1,15 +1,12 @@
 package com.shall.customercomplaints.service;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
-
-import org.apache.commons.beanutils.PropertyUtils;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
-
-import com.shall.common.core.config.WebTicketingBeanUtils;
-import com.shall.customercomplaints.model.Complaint;
+import com.shall.common.core.config.MyBeanUtils;
 import com.shall.customercomplaints.model.Merchant;
 import com.shall.customercomplaints.repository.MerchantRepository;
 
@@ -53,16 +50,25 @@ public class MerchantService implements GenericService<Merchant, Integer> {
 		if (merchant.getMerchantId() != null) {
 			Merchant existingMerchant = merchantRepository.findOne(merchant.getMerchantId());
 			if (existingMerchant != null) {
-				/*if(merchant.getAmexMerchantId() != null){
-					existingMerchant.setAmexMerchantId(merchant.getAmexMerchantId());
+				/*
+				 * if(merchant.getAmexMerchantId() != null){
+				 * existingMerchant.setAmexMerchantId(merchant.getAmexMerchantId
+				 * ()); } if(merchant.getCity() != null){
+				 * existingMerchant.setCity(merchant.getCity()); }
+				 * if(merchant.getContactPerson() != null){
+				 * 
+				 * }
+				 */
+				try {
+					MyBeanUtils.copyPropertiesNotNull(existingMerchant, merchant);
+				} catch (InvocationTargetException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IllegalAccessException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
-				if(merchant.getCity() != null){
-					existingMerchant.setCity(merchant.getCity());
-				}
-				if(merchant.getContactPerson() != null){
-					
-				}*/
-				dozerMapper.map(merchant, existingMerchant);
+				// dozerMapper.map(merchant, existingMerchant);
 				Merchant updatedMerchant = merchantRepository.save(existingMerchant);
 				return updatedMerchant;
 			} else {// This merchant doesn't exist

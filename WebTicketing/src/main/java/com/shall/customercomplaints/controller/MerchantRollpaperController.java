@@ -7,13 +7,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.shall.customercomplaints.model.MerchantRollpaper;
-import com.shall.customercomplaints.model.Rollpaper;
 import com.shall.customercomplaints.network.response.ResponseVO;
 import com.shall.customercomplaints.service.GenericService;
 import com.shall.customercomplaints.service.MerchantRollpaperService;
-import com.shall.customercomplaints.service.RollpaperService;
 import com.webticketing.util.Constants;
 
 @RestController
@@ -44,7 +41,7 @@ public class MerchantRollpaperController {
 	}
 
 	@RequestMapping(value = "/", produces = "application/json; charset=UTF-8", method = RequestMethod.POST)
-	public ResponseEntity<ResponseVO<MerchantRollpaper>> saveMerchantRollpaper(
+	public ResponseEntity<ResponseVO<MerchantRollpaper>> saveMerchantRosllpaper(
 			@RequestBody MerchantRollpaper merchantRollpaper) {
 		return ResponseEntity.ok(new ResponseVO<>(service.save(merchantRollpaper)));
 	}

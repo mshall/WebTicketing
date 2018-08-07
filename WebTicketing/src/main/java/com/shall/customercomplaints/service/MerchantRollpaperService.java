@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.shall.customercomplaints.model.MerchantRollpaper;
 import com.shall.customercomplaints.model.Rollpaper;
 import com.shall.customercomplaints.model.Store;
+import com.shall.customercomplaints.model.User;
 import com.shall.customercomplaints.repository.MerchantRollpaperRepository;
 import com.shall.customercomplaints.repository.RollpaperRepository;
 import com.shall.customercomplaints.repository.StoreRepository;
@@ -17,17 +18,18 @@ import com.shall.customercomplaints.repository.StoreRepository;
 public class MerchantRollpaperService implements GenericService<MerchantRollpaper, Integer> {
 
 	@Autowired
-	private MerchantRollpaperRepository rollpaperRepository;
+	private MerchantRollpaperRepository merchantRollpaperRepository;
 
+	@Autowired
+	private RollpaperRepository rollpaperRepository;
 
 	@Autowired
 	private DozerBeanMapper dozerMapper;
-	
-	
+
 	@Override
 	public CrudRepository<MerchantRollpaper, Integer> getRepository() {
 		// TODO Auto-generated method stub
-		return rollpaperRepository;
+		return merchantRollpaperRepository;
 	}
 
 	@Override
@@ -35,8 +37,27 @@ public class MerchantRollpaperService implements GenericService<MerchantRollpape
 		return entity.getId();
 	}
 
+	@Override
+	public MerchantRollpaper save(MerchantRollpaper entity) {
+		MerchantRollpaper savedUser = merchantRollpaperRepository.findOne(entity.getId());
+		if (savedUser == null) {
+
+			// ------------- Now also update the rollpaper entity to decerease
+			// the amount of ordered rollpapers
+			Rollpaper rollpaper = rollpaperRepository.findOne(entity.getRollpaperId());
+			int rollpapersCount = rollpaper.getTotalIn();
+			rollpapersCount = rollpapersCount - entity.getRollpaperOutNumber();
+			rollpaper.setTotalIn(rollpapersCount);
+			rollpaperRepository.save(rollpaper);
+			return GenericService.super.save(entity);
+		} else {
+			return null;
+		}
+
+	}
+
 	public MerchantRollpaper updateStore(MerchantRollpaper merchantRollpaper) {
-		MerchantRollpaper existingMerchantRollpaper = rollpaperRepository.findOne(merchantRollpaper.getId());
+		MerchantRollpaper existingMerchantRollpaper = merchantRollpaperRepository.findOne(merchantRollpaper.getId());
 		if (existingMerchantRollpaper != null) {
 			try {
 				dozerMapper.map(merchantRollpaper, existingMerchantRollpaper);
@@ -45,7 +66,7 @@ public class MerchantRollpaperService implements GenericService<MerchantRollpape
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			MerchantRollpaper updatedMerchantRollpaper = rollpaperRepository.save(existingMerchantRollpaper);
+			MerchantRollpaper updatedMerchantRollpaper = merchantRollpaperRepository.save(existingMerchantRollpaper);
 			return updatedMerchantRollpaper;
 		} else {// This user doesn't exist to be updated
 			return null;
