@@ -54,6 +54,7 @@ public class Terminal {
 
 	private String model;
 
+	@Column(name = "\"condition\"")
 	private String condition;
 
 	private boolean sale;

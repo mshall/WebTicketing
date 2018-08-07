@@ -172,7 +172,8 @@ function processAddTerminalResponse(response) {
 	// ----
 	formMessage.text(message);
 
-	if (code == 200) {
+	if (code == 200||code == 0) {
+		
 		window.location.replace("Terminals.jsp");
 	} else {
 		formMessage.css("color", "red");
