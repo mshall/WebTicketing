@@ -32,8 +32,11 @@ function processAllTerminalsResponse(response) {
 				+ response.results[i].terminalSerialNumber + "</td><td>"
 				+ response.results[i].model + "</td><td>"
 				+ response.results[i].status + "</td><td> Tender </td><td>"
-				+ "<a href=\"#\" onclick=\"goToUpdateTerminalPage("
-				+ response.results[i].terminalId + ")\" >edit</a></td></tr>";
+				+ "<button type='button' class='btn btn-warning' onclick='goToUpdateTerminalPage("
+				+ response.results[i].terminalId
+				+ ")'>Edit</button>"
+				+ "&nbsp;&nbsp;&nbsp;<button type='button' class='btn btn-danger'>Delete</button>"
+				+ "</td></tr>";
 
 		/*
 		 * + response.results[i].condition + "</td><td>" +
@@ -75,36 +78,37 @@ function getTerminalById() {
 		data : {},
 		dataType : 'json',
 		success : function(response) {
+			
 			processGetTerminalByResponse(response);
 		}
 	});
 }
-function processGetTerminalByResponse(response) {
-	console.log('terminal.processGetTerminalByResponse -> Response: '
-			+ response);
 
-	$("#terminalId").val(response.terminalId);
-	$("#terminalSerialNumber").val(response.terminalSerialNumber);
-	$("#storesList").val(response.storeId);
-	$("#currency").val(response.currency);
-	$("#terminalClass").val(response.terminalClass);
-	$("#status").val(response.status);
-	$("#model").val(response.model);
-	$("#condition").val(response.condition);
-	$("#sale").val(response.sale);
-	$("#onlineRefund").val(response.onlineRefund);
-	$("#offlineRefund").val(response.offlineRefund);
-	$("#offlineSale").val(response.offlineSale);
-	$("#onlineVoid").val(response.onlineVoid);
-	$("#offlineVoid").val(response.offlineVoid);
-	$("#preauth").val(response.preauth);
-	$("#amex").val(response.amex);
-	$("#installments").val(response.installments);
-	$("#prepaidServices").val(response.prepaidServices);
-	$("#diners").val(response.diners);
-	$("#premuim").val(response.premuim);
-	$("#manualEntry").val(response.manualEntry);
-	$("#tender").val(response.tender);
+function processGetTerminalByResponse(response) {
+	console.log(response);
+
+	$("#terminalId").val(response.results.terminalId);
+	$("#terminalSerialNumber").val(response.results.terminalSerialNumber);
+	$("#storesList").val(response.results.storeId);
+	$("#currency").val(response.results.currency);
+	$("#terminalClass").val(response.results.terminalClass);
+	$("#status").val(response.results.status);
+	$("#model").val(response.results.model);
+	$("#condition").val(response.results.condition);
+	$("#sale").val(response.results.sale);
+	$("#onlineRefund").val(response.results.onlineRefund);
+	$("#offlineRefund").val(response.results.offlineRefund);
+	$("#offlineSale").val(response.results.offlineSale);
+	$("#onlineVoid").val(response.results.onlineVoid);
+	$("#offlineVoid").val(response.results.offlineVoid);
+	$("#preauth").val(response.results.preauth);
+	$("#amex").val(response.results.amex);
+	$("#installments").val(response.results.installments);
+	$("#prepaidServices").val(response.results.prepaidServices);
+	$("#diners").attr('checked', response.results.diners);
+	$("#premuim").val(response.results.premuim);
+	$("#manualEntry").val(response.results.manualEntry);
+	$("#tender").val(response.results.tender);
 
 }
 
@@ -253,7 +257,7 @@ function sendData(data, url) {
 
 function getTerminalsByStatus(status){
 	$.ajax({
-		url : 'http://localhost:8082/v1/terminal/all/'+status,
+		url : 'http://localhost:8082/v1/terminal/?status='+status,
 		type : 'GET',
 		contentType : "application/json; charset=utf-8",
 		data : {},

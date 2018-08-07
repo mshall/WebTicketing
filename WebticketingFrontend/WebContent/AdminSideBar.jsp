@@ -41,7 +41,7 @@
 			</a>
 				<ul class="collapse list-unstyled" id="TerminalC">
 					<li><a href="Terminals.jsp">Terminals</a></li>
-					<li><a href="DeploymentIndex.jsp">Deployment</a></li>
+					<li><a href="Deployment.jsp">Deployment</a></li>
 					<li><a href="TerminalUpdate.jsp">Update Deployment </a></li>
 
 				</ul></li>
