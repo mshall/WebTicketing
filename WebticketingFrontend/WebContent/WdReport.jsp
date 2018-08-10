@@ -31,7 +31,7 @@
 <script src="BootStrap/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="BootStrap/js/npm.js" type="text/javascript"></script>
 <script src="BootStrap/js/bootstrap.js" type="text/javascript"></script>
-<link href="MyCss.css" rel="stylesheet" type="text/css" />
+<link href="BootStrap/MyCss.css" rel="stylesheet" type="text/css" />
 <link href="Report.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -44,29 +44,45 @@
 
 		<div id="content">
 
+			<div class="panel-group" id="accordion">
+				<div class="panel panel-primary" id="panel1">
+					<div class="panel-heading">
+						<h4 class="panel-title">Withdrawal report</h4>
+					</div>
 
 
-			<%
-				//connect c = new connect();
-				//  Connection con = c.getConn();
-				//Statement s = con.createStatement();
-				//ResultSet rs = s.executeQuery("SELECT * from terminal");
-				//RowSetDynaClass resultSet = new RowSetDynaClass(rs, false);
-				//            s.close();
-				//            con.close();
-				//request.setAttribute("results", resultSet);
-			%>
-
-			<display:table name="requestScope.results.rows" export="true">
-
-
-				<display:setProperty name="export.excel.filename"
-					value="ActorDetails.xls" />
-				<display:setProperty name="export.pdf.filename"
-					value="ActorDetails.pdf" />
-				<display:setProperty name="export.pdf" value="true" />
-			</display:table>
+				</div>
+				<br>
+				<div class="row">
+					<label class="col-sm-2">Serial number</label> <input type="text"
+						required="true" id="uname" name="uname"
+						placeholder="Serial number..." class="col-sm-4"
+						style="border-radius: 1rem" id="itSerialNumber">
+				</div>
+				<br>
+				<div class="row">
+					<label class="col-sm-2">TID</label> <input type="text"
+						required="true" id="uname" name="uname"
+						placeholder="Serial number..." class="col-sm-4"
+						style="border-radius: 1rem" id="itSerialNumber">
+				</div>
+				<br>
+				<div class="row">
+					<label class="col-sm-2">Merchant</label> <select id="sMerchants"
+						name="sMerchants" class="col-sm-4">
+					</select>
+				</div>
+				<br>
+				<button class="btn btn-primary" onclick="exportToExcel()">Export
+					Excel</button>
+				<button class="btn btn-success"
+					onclick="print($('#dWithdrawalsLogs'))">Print Report</button>
+				<div class="panel-body" id="dWithdrawalsLogs"></div>
+				<textarea id="taWithdrawalsJson" style="visibility: hidden;"></textarea>
+			</div>
 		</div>
+
+	</div>
 	</div>
 
 
@@ -75,7 +91,12 @@
 
 
 
-
-
+	<script src="assets/js/operations/admin/reports/reports-util.js"></script>
+	<script src="assets/js/operations/admin/reports/withdrawals-report.js"></script>
+	<script>
+		$(document).ready(function() {
+			getWithdrawalsLogs();
+		});
+	</script>
 </body>
 </html>
