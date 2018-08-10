@@ -54,12 +54,13 @@
 									
 							</div>	
 						<div>	
-								<button type="button" class="btn bg-primary" onclick="">
-									<span class="glyphicon glyphicon-search"></span> Search
-								</button>
-								<button type="button" class="btn bg-primary" onclick="">
-									<span class="glyphicon glyphicon-search"></span> Print All
-								</button>
+									<br>
+				<button class="btn btn-primary" onclick="exportToExcel()">Export
+					Excel</button>
+				<button class="btn btn-success"
+					onclick="print($('#allTerminals'))">Print Report</button>
+		
+				<textarea id="taDeploymentsJson" style="visibility: hidden;"></textarea>
 						</div>
 						
 						<br> <br> <br>
@@ -69,6 +70,7 @@
 				<div></div>
 			</div>
 		</div>
+		<script src="assets/js/operations/admin/reports/reports-util.js"></script>
 		<script src="assets/js/operations/admin/reports/terminals-report.js"></script>
 		<script>
 			$(document).ready(function() {

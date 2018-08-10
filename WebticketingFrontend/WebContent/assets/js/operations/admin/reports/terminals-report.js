@@ -14,7 +14,10 @@ function getAllTerminals() {
 function processAllTerminalsResponse(response) {
 	console.log(response);
 	var terminalstable = $('#allTerminals');
-
+	
+	var taDeploymentsJson = $("#taDeploymentsJson");
+	taDeploymentsJson.val(JSON.stringify(response.results));
+	
 	var output = "<div ><table id='terminalsTable' class=\"table responsive\" border=\"1\"> "
 			+ "<thead> <tr><th>vendor</th>"
 			+ "<th>model</th>"
@@ -283,4 +286,57 @@ $.urlParam = function(name) {
 	} else {
 		return results[1] || 0;
 	}
+}
+
+
+//////////////////////////////////////////////////
+//-------------------------------------------------------------------------------------
+//---------------------------------------- Get All merchants for select
+//-------------------------------------------------------------------------------------
+function getAllMerchantsForDeplyment() {
+	// 
+	$.ajax({
+		url : 'http://localhost:8082/v1/merchant/all',
+		type : 'GET',
+		contentType : "application/json; charset=utf-8",
+		data : {},
+		dataType : 'json',
+		success : function(response) {
+			processGetAllMerchantsForDeplyment(response);
+		}
+	});
+}
+
+function processGetAllMerchantsForDeplyment(response) {
+	console
+			.log("withdrawals.processGetAllMerchantsForDeplyment -> Response:\n"
+					+ JSON.stringify(response));
+	var dMerchantId = $("#dMerchantId");
+	var output = "<label class='col-sm-2'>Merchant</label>  <select name='sMerchantId' id='sMerchantId' style='width:150px;' class='form-control'>";
+	for ( var i in response.results) {
+		output += " <option value='" + response.results[i].merchantId + "'>"
+				+ response.results[i].merchantId + "</option>"
+	}
+	output += "</select>";
+	dMerchantId.html(output);
+}
+
+//-----------------------------------------------------------------------------------------
+//Download Excel
+//-----------------------------------------------------------------------------------------
+function exportToExcel() {
+	var data = $('#taDeploymentsJson').val();
+	if (data == '')
+		return;
+
+	JSONToCSVConvertor(data, "Deplyments report", true);
+}
+//-----------------------------------------------------------------------------------------
+//Print table
+//-----------------------------------------------------------------------------------------
+function printData(divToPrint) {
+	newWin = window.open("");
+	newWin.document.write(divToPrint.outerHTML);
+	newWin.print();
+	newWin.close();
 }

@@ -14,7 +14,8 @@ function getAllComplaints() {
 function processGetAllComplaintsResponse(response) {
 	console.log(response);
 	var ticketstable = $('#allTickets');
-
+	var taTicketsJson = $("#taTicketsJson");
+	taTicketsJson.val(JSON.stringify(response.results));
 	var output = "<div > <table id=\"allTicketsTable\" class=\"table responsive\" border=\"1\"> <thead> " +
 			"<tr><th> Ticket-id </th>"
 			+ "<th>status</th>"
@@ -213,4 +214,24 @@ function processAssignTicketResponse(response) {
 	} else {
 		$("#errorUpdate").show();
 	}
+}
+
+//-----------------------------------------------------------------------------------------
+//Download Excel
+//-----------------------------------------------------------------------------------------
+function exportToExcel() {
+	var data = $('#taTicketsJson').val();
+	if (data == '')
+		return;
+
+	JSONToCSVConvertor(data, "Tickets report", true);
+}
+//-----------------------------------------------------------------------------------------
+//Print table
+//-----------------------------------------------------------------------------------------
+function printData(divToPrint) {
+	newWin = window.open("");
+	newWin.document.write(divToPrint.outerHTML);
+	newWin.print();
+	newWin.close();
 }

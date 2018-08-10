@@ -40,6 +40,9 @@ function processAllSimResponse(response) {
 	console.log(response);
 	var simDiv = $('#allSim');
 
+	var taSimJson = $("#taSimJson");
+	taSimJson.val(JSON.stringify(response.results));
+
 	output = "<div ><table id=\"simTable\" class=\"table responsive\" border=\"1\"> "
 			+ "<thead> <tr><th>Sim Serial</th>"
 			+ "<th>Store</th>"
@@ -184,3 +187,27 @@ $.urlParam = function(name) {
 		return results[1] || 0;
 	}
 }
+
+
+
+
+//-----------------------------------------------------------------------------------------
+//Download Excel
+//-----------------------------------------------------------------------------------------
+function exportToExcel() {
+	var data = $('#taSimJson').val();
+	if (data == '')
+		return;
+
+	JSONToCSVConvertor(data, "sim report", true);
+}
+//-----------------------------------------------------------------------------------------
+//Print table
+//-----------------------------------------------------------------------------------------
+function printData(divToPrint) {
+	newWin = window.open("");
+	newWin.document.write(divToPrint.outerHTML);
+	newWin.print();
+	newWin.close();
+}
+

@@ -58,12 +58,16 @@
 								</select>	
 							</div>	
 						<div>	
-								<button type="button" class="btn bg-primary" onclick="">
-									<span class="glyphicon glyphicon-search"></span> Search
-								</button>
-								<button type="button" class="btn bg-primary" onclick="">
-									<span class="glyphicon glyphicon-search"></span> Print All
-								</button>
+								<br>
+				<button class="btn btn-primary" onclick="exportToExcel()">Export
+					Excel</button>
+				<button class="btn btn-success"
+					onclick="print($('#allSim'))">Print Report</button>
+		
+				<textarea id="taSimJson" style="visibility: hidden;"></textarea>
+						</div>
+						
+						<br> <br> <br>
 						</div>
 						
 							
@@ -71,7 +75,7 @@
 							<br> <br>
 
 							<div id="allSim" style="align-content: center">
-								<div class="allSim"></div>
+								
 							</div>
 						</div>
 					</div>
@@ -79,7 +83,7 @@
 			</div>
 		</div>
 	</div>
-
+<script src="assets/js/operations/admin/reports/reports-util.js"></script>
 	<script src="assets/js/operations/admin/reports/sim-report.js"></script>
 		<script>
 			$(document).ready(function() {
