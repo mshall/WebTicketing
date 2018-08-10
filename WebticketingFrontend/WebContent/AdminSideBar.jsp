@@ -82,12 +82,13 @@
 					Reports
 			</a>
 				<ul class="collapse list-unstyled" id="Reports">
-					<li><a href="TechnicalReport.jsp.jsp">Technical Report</a></li>
+					<li><a href="TechnicalReport.jsp">Technical Report</a></li>
 					<li><a href="MerchantReport.jsp">Merchant Report</a></li>
 					<li><a href="MnReport.jsp">Maintenance Report</a></li>
 					<li><a href="TicketReport.jsp">Tickets Report</a></li>
 					<li><a href="WdReport.jsp">Withdraw Report</a></li>
 					<li><a href="WithdrawReport.jsp">Store Report</a></li>
+					<li><a href="DeploymentReport.jsp">Deployment Report</a></li>
 					<li><a href="SimReport.jsp">SIM Report</a></li>
 					<li><a href="TerminalReport.jsp">Terminal Report</a></li>
 					<li><a href="RpReport.jsp">Roll Paper Report</a></li>

@@ -15,8 +15,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Sim Report</title>
+<title>Deployment Report</title>
 <link href="Report.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -27,35 +26,27 @@
 
 		<%@include file="AdminSideBar.jsp"%>
 
-<div id="content">
-
+		<div id="content">
 			<div class="panel-group" id="accordion">
-
 				<div class="panel panel-primary" id="panel1">
 					<div class="panel-heading">
-						<h4 class="panel-title">
-							<a data-toggle="collapse" data-target="#collapseOne"
-								href="#collapseOne"> All SIM </a>
-						</h4>
+						<h4 class="panel-title">Deployments</h4>
 					</div>
-					<div id="collapseOne" class="panel-collapse collapse in">
-						<div class="panel-body">
-						
-						
-							<div>
-						<label class="control-label col-sm-2">Sim Number</label>
+
+					<div class="panel-body">
+						<div>
+						<label class="control-label col-sm-2">Serial</label>
 							<input type="text" id="serialNum"
-								placeholder="Enter Terminal ID " class="input-sm" /> 
+								placeholder="Enter Terminal serial " class="input-sm" /> 
 						</div>
 						<div>
-							<label class="control-label col-sm-2">operator</label>
-								<select id="operator">
-									<option value=""></option>
-									<option value="vodafon">vodafon</option>
-									<option value="etisalat">etisalat</option>
-									<option value="orange">orange</option>
-									<option value="we">we</option>
-								</select>	
+						<label class="control-label col-sm-2">TID</label>
+							<input type="text" id="terminalId"
+								placeholder="Enter Terminal serial " class="input-sm" /> 
+						</div>
+						<div>
+									<label class="control-label col-sm-2">Merchant</label>
+									
 							</div>	
 						<div>	
 								<button type="button" class="btn bg-primary" onclick="">
@@ -66,26 +57,18 @@
 								</button>
 						</div>
 						
-							
-
-							<br> <br>
-
-							<div id="allSim" style="align-content: center">
-								<div class="allSim"></div>
-							</div>
-						</div>
+						<br> <br> <br>
+						<div id="allTerminals"></div>
 					</div>
 				</div>
+				<div></div>
 			</div>
 		</div>
-	</div>
-
-	<script src="assets/js/operations/admin/reports/sim-report.js"></script>
+		<script src="assets/js/operations/admin/reports/terminals-report.js"></script>
 		<script>
 			$(document).ready(function() {
-				getAllSim();
+				getTerminalsByStatus('Deployed');
 			});
 		</script>
-
 </body>
 </html>
