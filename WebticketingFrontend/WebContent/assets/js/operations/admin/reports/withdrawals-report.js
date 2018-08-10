@@ -41,7 +41,8 @@ function processWithdrawalLogsResponse(response) {
 	output += "</tbody></body></div>";
 
 	dWithdrawalsLogs.html(output);
-	$('#tWithdrawals').DataTable();
+	var table = $('#tWithdrawals').DataTable();
+
 }
 
 // -----------------------------------------------------------------------------------------
@@ -93,4 +94,25 @@ function processGetAllMerchantsForWithdrawal(response) {
 	}
 	output += "</select>";
 	dMerchantId.html(output);
+}
+
+// ---------------------------------------------------------------------
+/*
+ * Custom filtering function which will search data in column four between two
+ * values
+ */
+// ---------------------------------------------------------------------
+function activateSearch(inputText, columnIndex) {
+	// Setup - add a text input to each footer cell
+	// DataTable
+	var table = $('#tWithdrawals').DataTable();
+
+	// Apply the search
+	/*
+	 * table.columns().every(function() { var that = this; if (that.search() !==
+	 * inputText.value) { that.search(inputText.value).draw(); } });
+	 */
+	console.log(inputText.value);
+	table.search('');
+	table.column(columnIndex).search(inputText.value).draw();
 }
