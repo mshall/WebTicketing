@@ -1,4 +1,4 @@
-package com.shall.customercomplaints.model;
+package com.shall.customercomplaints.network.response;
 
 import java.util.Date;
 import javax.persistence.Column;
@@ -20,7 +20,7 @@ import lombok.ToString;
 @EqualsAndHashCode
 @ToString
 @Entity
-public class Complaint {
+public class ComplaintVO {
 
 	@Id
 	@GeneratedValue
@@ -53,26 +53,14 @@ public class Complaint {
 
 	@Column(name = "phone_number")
 	private String phoneNumber;
-
+	
 	@Column(name = "technician_id")
 	private int technicianId;
-
+	
 	@Column(name = "complaint_solution")
 	private String complaintSolution;
-
+	
 	@Column(name = "complaint_note")
 	private String complaintNote;
-
-	@Column(name = "merchant_name")
-	private String merchantName;
-
-	@Column(name = "merchantCity")
-	private String merchantCity;
-
-	@Column(name = "merchantAddress")
-	private String merchantAddress;
-
-	@Column(name = "terminal_serial")
-	private String terminalSerial;
-
+	
 }

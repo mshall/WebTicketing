@@ -1,4 +1,4 @@
-package com.shall.customercomplaints.model;
+package com.shall.customercomplaints.network.response;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,7 +15,7 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode
 @Entity
-public class Rollpaper {
+public class RollpaperVO {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "roll_paper_id")
@@ -30,6 +30,4 @@ public class Rollpaper {
 	@Column(name = "store_id")
 	private int storeId;
 
-	@Column(name = "store_name")
-	private String storeName;
 }

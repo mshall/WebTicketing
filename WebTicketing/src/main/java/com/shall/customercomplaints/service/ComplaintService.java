@@ -8,13 +8,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 import com.shall.customercomplaints.model.Complaint;
+import com.shall.customercomplaints.model.Merchant;
+import com.shall.customercomplaints.model.Terminal;
 import com.shall.customercomplaints.repository.ComplaintsRepository;
+import com.shall.customercomplaints.repository.MerchantRepository;
+import com.shall.customercomplaints.repository.TerminalRepository;
 
 @Service
 public class ComplaintService implements GenericService<Complaint, Long> {
 
 	@Autowired
 	private ComplaintsRepository complaintsRepository;
+
+	@Autowired
+	MerchantRepository merchantRepository;
+
+	@Autowired
+	TerminalRepository terminalRepository;
 
 	@Autowired
 	private DozerBeanMapper dozerMapper;
@@ -32,7 +42,22 @@ public class ComplaintService implements GenericService<Complaint, Long> {
 
 	@Override
 	public Complaint save(Complaint entity) {
+		Merchant merchant = merchantRepository.findOne(entity.getMerchantId());
+		Terminal terminal = terminalRepository.findOne(entity.getTerminalId());
+		entity = fillComplaintExtraFields(entity, merchant, terminal);
 		return GenericService.super.save(entity);
+	}
+
+	private Complaint fillComplaintExtraFields(Complaint entity, Merchant merchant, Terminal terminal) {
+		if (merchant != null) {
+			entity.setMerchantName(merchant.getMerchantName());
+			entity.setMerchantCity(merchant.getCity());
+			entity.setMerchantAddress(merchant.getStreet());
+		}
+		if (terminal != null) {
+			entity.setTerminalSerial(entity.getTerminalSerial());
+		}
+		return entity;
 	}
 
 	public List<Complaint> findByCustomerEmail(String email) {

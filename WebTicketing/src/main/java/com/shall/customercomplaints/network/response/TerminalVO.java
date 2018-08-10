@@ -1,4 +1,4 @@
-package com.shall.customercomplaints.model;
+package com.shall.customercomplaints.network.response;
 
 import java.util.Date;
 
@@ -20,7 +20,7 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode
 @Entity
-public class Terminal {
+public class TerminalVO {
 	@Id
 	@Column(name = "terminal_id")
 	private Integer terminalId;
@@ -96,7 +96,4 @@ public class Terminal {
 	@Column(name = "created_date", columnDefinition = "DATETIME(3)")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date createdDate;
-
-	@Column(name = "store_name")
-	private String storeName;
 }
