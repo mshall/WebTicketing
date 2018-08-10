@@ -67,7 +67,7 @@
 						style="border-radius: 1rem" id="itSerialNumber">
 				</div>
 				<br>
-				<div class="row">
+				<div class="row" id="dMerchantId">
 					<label class="col-sm-2">Merchant</label> <select id="sMerchants"
 						name="sMerchants" class="col-sm-4">
 					</select>
@@ -95,6 +95,7 @@
 	<script src="assets/js/operations/admin/reports/withdrawals-report.js"></script>
 	<script>
 		$(document).ready(function() {
+			getAllMerchantsForWithdrawal();
 			getWithdrawalsLogs();
 		});
 	</script>
