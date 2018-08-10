@@ -58,7 +58,7 @@
 						required="true" id="itSerialNumber" name="itSerialNumber"
 						placeholder="Serial number..." class="col-sm-4"
 						style="border-radius: 1rem" id="itSerialNumber"
-						onchange="activateSearch(this,2)" />
+						oninput="activateSearch(this,2)" />
 				</div>
 				<br>
 				<div class="row">
@@ -66,7 +66,7 @@
 						required="true" id="itTid" name="itTid"
 						placeholder="Terminal id..." class="col-sm-4"
 						style="border-radius: 1rem" id="itSerialNumber"
-						onchange="activateSearch(this,3)" />
+						oninput="activateSearch(this,3)" />
 				</div>
 				<br>
 				<div class="row" id="dMerchantId">
