@@ -16,22 +16,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script src="BootStrap/js/glm-ajax.js" type="text/javascript"></script>
-<a href="BootStrap/fonts/glyphicons-halflings-regular.svg"></a>
-<link href="BootStrap/css/bootstrap-theme.css" rel="stylesheet"
-	type="text/css" />
-<link href="BootStrap/css/bootstrap.min.css" rel="stylesheet"
-	type="text/css" />
-<link href="BootStrap/css/bootstrap.css" rel="stylesheet"
-	type="text/css" />
-<link href="BootStrap/css/bootstrap-theme.min.css" rel="stylesheet"
-	type="text/css" />
-<link href="BootStrap/css/mstyle.css" rel="stylesheet" type="text/css" />
-<script src="BootStrap/jquery-1.12.0.min.js" type="text/javascript"></script>
-<script src="BootStrap/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="BootStrap/js/npm.js" type="text/javascript"></script>
-<script src="BootStrap/js/bootstrap.js" type="text/javascript"></script>
-<link href="MyCss.css" rel="stylesheet" type="text/css" />
+<title>Ticket Report</title>
 <link href="Report.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -42,40 +27,57 @@
 
 		<%@include file="AdminSideBar.jsp"%>
 
+
 		<div id="content">
+			<div class="panel-group" id="accordion">
+				<div class="panel panel-primary" id="panel1">
+					<div class="panel-heading">
+						<h4 class="panel-title">Tickets</h4>
+					</div>
 
-
-
-			<%
-				//connect c = new connect();
-				//  Connection con = c.getConn();
-				//Statement s = con.createStatement();
-				//ResultSet rs = s.executeQuery("SELECT * from terminal");
-				//RowSetDynaClass resultSet = new RowSetDynaClass(rs, false);
-				//            s.close();
-				//            con.close();
-				//request.setAttribute("results", resultSet);
-			%>
-
-			<display:table name="requestScope.results.rows" export="true">
-
-
-				<display:setProperty name="export.excel.filename"
-					value="ActorDetails.xls" />
-				<display:setProperty name="export.pdf.filename"
-					value="ActorDetails.pdf" />
-				<display:setProperty name="export.pdf" value="true" />
-			</display:table>
+					<div class="panel-body">
+						<div>
+						<label class="control-label col-sm-2">Terminal Id</label>
+							<input type="text" id="terminalId"
+								placeholder="Enter Terminal id" class="input-sm" /> 
+						</div>
+						<div>
+						<label class="control-label col-sm-2">Ticket Id</label>
+							<input type="text" id="ticketId"
+								placeholder="Enter Ticket Id " class="input-sm" /> 
+						</div>
+						<div>
+							<label class="control-label col-sm-2">Status</label>
+								<select id="status">
+									<option value=""></option>
+									<option value="open">open</option>
+									<option value="closed">closed</option>
+								</select>	
+							</div>		
+						<div>	
+									<br>
+				<button class="btn btn-primary" onclick="exportToExcel()">Export
+					Excel</button>
+				<button class="btn btn-success"
+					onclick="print($('#allTickets'))">Print Report</button>
+		
+				<textarea id="taTicketsJson" style="visibility: hidden;"></textarea>
+						</div>
+						
+						<br> <br> <br>
+						<div class="panel-body" id="allTickets"></div>
+					</div>
+					</div>
+				</div>
+				<div></div>
+			</div>
 		</div>
-	</div>
-
-
-
-
-
-
-
-
-
+		<script src="assets/js/operations/admin/reports/reports-util.js"></script>
+		<script src="assets/js/operations/admin/reports/tickets-report.js"></script>
+		<script>
+			$(document).ready(function() {
+				getAllComplaints();
+			});
+		</script>
 </body>
 </html>

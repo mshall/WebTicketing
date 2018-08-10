@@ -15,7 +15,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Terminal Report</title>
+<title>Deployment Report</title>
 <link href="Report.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -27,42 +27,44 @@
 		<%@include file="AdminSideBar.jsp"%>
 
 		<div id="content">
+		
 			<div class="panel-group" id="accordion">
+		
 				<div class="panel panel-primary" id="panel1">
 					<div class="panel-heading">
-						<h4 class="panel-title">All Terminals</h4>
+						<h4 class="panel-title">Deployments</h4>
 					</div>
-
+					</div>
+					<br>
+					
 					<div class="panel-body">
-						<div>
-						<label class="control-label col-sm-2">serial</label>
+						<div class="row">
+						<label class="control-label col-sm-2">Serial</label>
 							<input type="text" id="serialNum"
-								placeholder="Enter Terminal serial" class="input-sm" /> 
+								placeholder="Enter Terminal serial " class="input-sm" /> 
 						</div>
-						<div>
-									<label class="control-label col-sm-2">Status</label>
-									
-										<select name="status">
-											<option value=""></option>
-											<option value="EUR">Deployed</option>
-											<option value="ss">Stock</option>
-											<option value="pp">Defected</option>
-											<option value="sss">Lost</option>
-											<option value="pp">Transited</option>
-											<option value="sss">Under Preparation</option>
-										</select>
-									
-							</div>	
-						<div>	
-									<br>
+						<br>
+						<div class="row">
+						<label class="control-label col-sm-2">TID</label>
+							<input type="text" id="terminalId"
+								placeholder="Enter Terminal serial " class="input-sm" /> 
+						</div>
+						<br>
+				<div class="row" id="dMerchantId">
+					<label class="col-sm-2">Merchant</label> <select id="sMerchants"
+						name="sMerchants" class="col-sm-4">
+					</select>
+				</div>
+				<br>	
+						<br>
 				<button class="btn btn-primary" onclick="exportToExcel()">Export
 					Excel</button>
 				<button class="btn btn-success"
 					onclick="print($('#allTerminals'))">Print Report</button>
 		
 				<textarea id="taDeploymentsJson" style="visibility: hidden;"></textarea>
-						</div>
-						
+				
+				
 						<br> <br> <br>
 						<div id="allTerminals"></div>
 					</div>
@@ -70,11 +72,12 @@
 				<div></div>
 			</div>
 		</div>
-		<script src="assets/js/operations/admin/reports/reports-util.js"></script>
+			<script src="assets/js/operations/admin/reports/reports-util.js"></script>
 		<script src="assets/js/operations/admin/reports/terminals-report.js"></script>
 		<script>
 			$(document).ready(function() {
-				getAllTerminals();
+				getTerminalsByStatus('Deployed');
+				getAllMerchantsForDeplyment();
 			});
 		</script>
 </body>
