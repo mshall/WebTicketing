@@ -36,20 +36,20 @@
 						<label class="control-label col-sm-2">Terminal Id</label> <input
 							type="text" id="terminalId" placeholder="Enter Terminal id"
 							class="col-sm-4" style="border-radius: .5rem"
-							oninput="activateSearch(this,$('#allTicketsTable'),4);" />
+							oninput="activateSearch(this,$('#allTicketsTable'),3);" />
 					</div>
 					<br>
 					<div class="row">
 						<label class="control-label col-sm-2">Ticket Id</label> <input
 							type="text" id="ticketId" placeholder="Enter Ticket Id "
 							class="col-sm-4" style="border-radius: .5rem"
-							oninput="activateSearch(this,$('#allTicketsTable'),4);" />
+							oninput="activateSearch(this,$('#allTicketsTable'),0);" />
 					</div>
 					<br>
 					<div class="row">
 						<label class="control-label col-sm-2">Status</label> <select
 							id="status" class="col-sm-4" style="border-radius: .5rem"
-							onchange="activateSearch(this,$('#allTicketsTable'),4);">
+							onchange="activateSearch(this,$('#allTicketsTable'),1);">
 							<option value="">Select status</option>
 							<option value="Open">Open</option>
 							<option value="Closed">Closed</option>
