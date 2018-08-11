@@ -1,7 +1,7 @@
 <%-- 
     Document   : AdminSideBar
     Created on : May 23, 2018, 7:39:48 PM
-    Author     : shimaa
+    Author     : Mohamed S. El-Shall
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

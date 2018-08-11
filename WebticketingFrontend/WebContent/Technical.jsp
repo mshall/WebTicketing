@@ -1,7 +1,7 @@
 <%-- 
     Document   : Technical
     Created on : May 24, 2018, 2:05:57 AM
-    Author     : shimaa
+    Author     : Mohamed S. El-Shall
 --%>
 
 <%@page import="java.sql.*"%>

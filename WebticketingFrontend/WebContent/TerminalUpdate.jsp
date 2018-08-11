@@ -1,7 +1,7 @@
 <%-- 
     Document   : TerminalUpdate
     Created on : May 25, 2018, 7:03:36 AM
-    Author     : shimaa
+    Author     : Mohamed S. El-Shall
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
