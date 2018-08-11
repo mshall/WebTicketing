@@ -1,3 +1,35 @@
+// -------------------------------------------------------------------------------------
+// ---------------------------------------- Get All merchants for select
+// -------------------------------------------------------------------------------------
+function getAllMerchantsForWithdrawal() {
+	// 
+	$.ajax({
+		url : 'http://localhost:8082/v1/merchant/all',
+		type : 'GET',
+		contentType : "application/json; charset=utf-8",
+		data : {},
+		dataType : 'json',
+		success : function(response) {
+			processGetAllMerchantsForWithdrawal(response);
+		}
+	});
+}
+
+function processGetAllMerchantsForWithdrawal(response) {
+	console
+			.log("withdrawals.processGetAllMerchantsForWithdrawal -> Response:\n"
+					+ JSON.stringify(response));
+	var dMerchantId = $("#dMerchantId");
+	var output = "<label class='col-sm-2'>Merchant</label>  <select name='sMerchantId' id='sMerchantId'  class='col-sm-4' style='border-radius:.5rem;' onchange='activateSearch(this,4)'>"
+			+ "<option value=''>Select merchant</option>";
+	for ( var i in response.results) {
+		output += " <option value='" + response.results[i].merchantId + "'>"
+				+ response.results[i].merchantId + "</option>"
+	}
+	output += "</select>";
+	dMerchantId.html(output);
+}
+
 // -----------------------------------------------------------------------------------------
 // Get withdrawal history
 // -----------------------------------------------------------------------------------------
@@ -41,7 +73,8 @@ function processWithdrawalLogsResponse(response) {
 	output += "</tbody></body></div>";
 
 	dWithdrawalsLogs.html(output);
-	$('#tWithdrawals').DataTable();
+	var table = $('#tWithdrawals').DataTable();
+
 }
 
 // -----------------------------------------------------------------------------------------
@@ -64,33 +97,23 @@ function printData(divToPrint) {
 	newWin.close();
 }
 
-// -------------------------------------------------------------------------------------
-// ---------------------------------------- Get All merchants for select
-// -------------------------------------------------------------------------------------
-function getAllMerchantsForWithdrawal() {
-	// 
-	$.ajax({
-		url : 'http://localhost:8082/v1/merchant/all',
-		type : 'GET',
-		contentType : "application/json; charset=utf-8",
-		data : {},
-		dataType : 'json',
-		success : function(response) {
-			processGetAllMerchantsForWithdrawal(response);
-		}
-	});
-}
+// ---------------------------------------------------------------------
+/*
+ * Custom filtering function which will search data in column four between two
+ * values
+ */
+// ---------------------------------------------------------------------
+function activateSearch(inputText, columnIndex) {
+	// Setup - add a text input to each footer cell
+	// DataTable
+	var table = $('#tWithdrawals').DataTable();
 
-function processGetAllMerchantsForWithdrawal(response) {
-	console
-			.log("withdrawals.processGetAllMerchantsForWithdrawal -> Response:\n"
-					+ JSON.stringify(response));
-	var dMerchantId = $("#dMerchantId");
-	var output = "<label class='col-sm-2'>Merchant</label>  <select name='sMerchantId' id='sMerchantId' style='width:150px;' class='form-control'>";
-	for ( var i in response.results) {
-		output += " <option value='" + response.results[i].merchantId + "'>"
-				+ response.results[i].merchantId + "</option>"
-	}
-	output += "</select>";
-	dMerchantId.html(output);
+	// Apply the search
+	/*
+	 * table.columns().every(function() { var that = this; if (that.search() !==
+	 * inputText.value) { that.search(inputText.value).draw(); } });
+	 */
+	console.log(inputText.value);
+	table.search('');
+	table.column(columnIndex).search(inputText.value).draw();
 }

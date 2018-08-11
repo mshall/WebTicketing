@@ -1,4 +1,4 @@
-package com.shall.customercomplaints.model;
+package com.shall.customercomplaints.network.response;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,7 +15,7 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode
 @Entity
-public class Sim {
+public class SimVO {
 	@Id
 	@Column(name = "sim_serial")
 	private Integer simSerial;
@@ -40,14 +40,5 @@ public class Sim {
 
 	@Column(name = "terminal_id")
 	private int terminalId;
-
-	@Column(name = "store_name")
-	private String storeName;
-
-	@Column(name = "terminal_serial")
-	private String terminalSerial;
-
-	@Column(name = "merchant_name")
-	private String merchantName;
 
 }

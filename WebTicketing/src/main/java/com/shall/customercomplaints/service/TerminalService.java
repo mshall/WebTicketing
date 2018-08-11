@@ -2,14 +2,18 @@ package com.shall.customercomplaints.service;
 
 import java.util.List;
 
-import org.apache.commons.beanutils.PropertyUtils;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
-import com.shall.common.core.config.WebTicketingBeanUtils;
+import com.shall.customercomplaints.model.Merchant;
+import com.shall.customercomplaints.model.Sim;
+import com.shall.customercomplaints.model.Store;
 import com.shall.customercomplaints.model.Terminal;
+import com.shall.customercomplaints.repository.MerchantRepository;
+import com.shall.customercomplaints.repository.SimRepository;
+import com.shall.customercomplaints.repository.StoreRepository;
 import com.shall.customercomplaints.repository.TerminalRepository;
 
 @Service
@@ -19,11 +23,19 @@ public class TerminalService implements GenericService<Terminal, Integer> {
 	private TerminalRepository terminalRepository;
 
 	@Autowired
+	private StoreRepository StoreRepository;
+
+	@Autowired
+	MerchantRepository merchantRepository;
+
+	@Autowired
+	SimRepository simRepository;
+
+	@Autowired
 	private DozerBeanMapper dozerMapper;
 
 	@Override
 	public CrudRepository<Terminal, Integer> getRepository() {
-		// TODO Auto-generated method stub
 		return terminalRepository;
 	}
 
@@ -33,6 +45,8 @@ public class TerminalService implements GenericService<Terminal, Integer> {
 	}
 
 	public Terminal save(Terminal entity) {
+		Store store = StoreRepository.findOne(entity.getStoreId());
+		entity.setStoreName(store.getStoreName());
 		return GenericService.super.save(entity);
 	}
 
@@ -42,6 +56,7 @@ public class TerminalService implements GenericService<Terminal, Integer> {
 
 	public Terminal updateTerminal(Terminal terminal) {
 		Terminal existingTerminal = terminalRepository.findOne(terminal.getTerminalId());
+		
 		if (existingTerminal != null) {
 			try {
 				// dozerMapper.map(terminal, existingTerminal);
@@ -51,6 +66,7 @@ public class TerminalService implements GenericService<Terminal, Integer> {
 				e.printStackTrace();
 			}
 			Terminal updatedTerminal = terminalRepository.save(existingTerminal);
+			updateSimForTerminalDeployment(terminal);
 			return updatedTerminal;
 		} else {// This user doesn't exist to be updated
 			return null;
@@ -100,5 +116,27 @@ public class TerminalService implements GenericService<Terminal, Integer> {
 		}
 
 		return destination;
+	}
+
+	public void updateSimForTerminalDeployment(Terminal terminal) {
+		Merchant merchant = merchantRepository.findOne(terminal.getMerchantId());
+		Sim firstSim = simRepository.findOne(terminal.getFirstSimSerial());
+		Sim secondSim = simRepository.findOne(terminal.getSecondSimSerial());
+
+		secondSim.setTerminalId(terminal.getTerminalId());
+		secondSim.setTerminalSerial(terminal.getTerminalSerialNumber());
+		firstSim.setTerminalId(terminal.getTerminalId());
+		firstSim.setTerminalSerial(terminal.getTerminalSerialNumber());
+
+		if (merchant != null) {
+			firstSim.setMerchantName(merchant.getMerchantName());
+			firstSim.setMerchantId(merchant.getMerchantId());
+			// ---------------------
+
+			secondSim.setMerchantName(merchant.getMerchantName());
+			secondSim.setMerchantId(merchant.getMerchantId());
+		}
+		simRepository.save(firstSim);
+		simRepository.save(secondSim);
 	}
 }

@@ -2,19 +2,24 @@ package com.shall.customercomplaints.service;
 
 import java.util.List;
 
-import org.apache.commons.beanutils.PropertyUtils;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
+
 import com.shall.customercomplaints.model.Sim;
+import com.shall.customercomplaints.model.Store;
 import com.shall.customercomplaints.repository.SimRepository;
+import com.shall.customercomplaints.repository.StoreRepository;
 
 @Service
 public class SimService implements GenericService<Sim, Integer> {
 
 	@Autowired
 	private SimRepository simRepository;
+
+	@Autowired
+	private StoreRepository StoreRepository;
 
 	@Autowired
 	private DozerBeanMapper dozerMapper;
@@ -31,6 +36,8 @@ public class SimService implements GenericService<Sim, Integer> {
 
 	@Override
 	public Sim save(Sim entity) {
+		Store store = StoreRepository.findOne(entity.getStoreId());
+		entity.setStoreName(store.getStoreName());
 		return GenericService.super.save(entity);
 	}
 
@@ -77,7 +84,7 @@ public class SimService implements GenericService<Sim, Integer> {
 			if (existingSim != null) {
 				try {
 					dozerMapper.map(sim, existingSim);
-//					PropertyUtils.copyProperties(sim, existingSim);
+					// PropertyUtils.copyProperties(sim, existingSim);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

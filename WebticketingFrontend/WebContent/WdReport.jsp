@@ -55,16 +55,18 @@
 				<br>
 				<div class="row">
 					<label class="col-sm-2">Serial number</label> <input type="text"
-						required="true" id="uname" name="uname"
+						required="true" id="itSerialNumber" name="itSerialNumber"
 						placeholder="Serial number..." class="col-sm-4"
-						style="border-radius: 1rem" id="itSerialNumber">
+						style="border-radius: 1rem" id="itSerialNumber"
+						oninput="activateSearch(this,2)" />
 				</div>
 				<br>
 				<div class="row">
 					<label class="col-sm-2">TID</label> <input type="text"
-						required="true" id="uname" name="uname"
-						placeholder="Serial number..." class="col-sm-4"
-						style="border-radius: 1rem" id="itSerialNumber">
+						required="true" id="itTid" name="itTid"
+						placeholder="Terminal id..." class="col-sm-4"
+						style="border-radius: 1rem" id="itSerialNumber"
+						oninput="activateSearch(this,3)" />
 				</div>
 				<br>
 				<div class="row" id="dMerchantId">
