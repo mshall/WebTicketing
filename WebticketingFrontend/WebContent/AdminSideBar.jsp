@@ -27,8 +27,8 @@
 			</a></li>
 
 			<li><a href="#homeSubmenu" data-toggle="collapse"
-				aria-expanded="false" aria-controls="homeSubmenu"> <i class="glyphicon glyphicon-briefcase"></i>
-					Accounts
+				aria-expanded="false" aria-controls="homeSubmenu"> <i
+					class="glyphicon glyphicon-briefcase"></i> Accounts
 			</a>
 				<ul class="collapse list-unstyled" id="homeSubmenu">
 					<li><a href="Technical.jsp"> Technical</a></li>
@@ -36,7 +36,9 @@
 					<li><a href="Store.jsp"> Store</a></li>
 					<li><a href="ChangePassword.jsp">Change Password</a></li>
 				</ul></li>
-			<li><a href="#Terminal" data-toggle="collapse" data-target="#TerminalC" aria-expanded="false" aria-controls="TerminalC"> <i class="glyphicon glyphicon-phone"></i>
+			<li><a href="#Terminal" data-toggle="collapse"
+				data-target="#TerminalC" aria-expanded="false"
+				aria-controls="TerminalC"> <i class="glyphicon glyphicon-phone"></i>
 					Terminal
 			</a>
 				<ul class="collapse list-unstyled" id="TerminalC">
@@ -82,15 +84,12 @@
 					Reports
 			</a>
 				<ul class="collapse list-unstyled" id="Reports">
-					<li><a href="TechnicalReport.jsp">Technical Report</a></li>
-					<li><a href="MerchantReport.jsp">Merchant Report</a></li>
-					<li><a href="MnReport.jsp">Maintenance Report</a></li>
-					<li><a href="TicketReport.jsp">Tickets Report</a></li>
-					<li><a href="WdReport.jsp">Withdraw Report</a></li>
-					<li><a href="WithdrawReport.jsp">Store Report</a></li>
-					<li><a href="DeploymentReport.jsp">Deployment Report</a></li>
+					<li><a href="TerminalReport.jsp">POS Report</a></li>
 					<li><a href="SimReport.jsp">SIM Report</a></li>
-					<li><a href="TerminalReport.jsp">Terminal Report</a></li>
+					<li><a href="MnReport.jsp">Maintenance Report</a></li>
+					<li><a href="DeploymentReport.jsp">Deployment Report</a></li>
+					<li><a href="TicketReport.jsp">Tickets Report</a></li>
+					<li><a href="WdReport.jsp">Withdrawals Report</a></li>
 					<li><a href="RpReport.jsp">Roll Paper Report</a></li>
 				</ul></li>
 

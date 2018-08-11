@@ -49,7 +49,7 @@ function processAllSimResponse(response) {
 			+ "<th>Condition</th>"
 			+ "<th>status</th>"
 			+ "<th>Pos Serial</th>"
-			+ "<th>operator</th></tr></thead>";
+			+ "<th>Operator</th></tr></thead>";
 	for ( var i in response.results) {
 		output += "<tr><td>" + response.results[i].simSerial + "</td><td>"
 		+ response.results[i].storeId + "</td><td>"

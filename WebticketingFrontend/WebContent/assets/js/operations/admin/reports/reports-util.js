@@ -73,3 +73,24 @@ function JSONToCSVConvertor(JSONData, ReportTitle, ShowLabel) {
 	link.click();
 	document.body.removeChild(link);
 }
+
+// ---------------------------------------------------------------------
+/*
+ * Custom filtering function which will search data in column four between two
+ * values
+ */
+// ---------------------------------------------------------------------
+function activateSearch(inputText, tableObject, columnIndex) {
+	// Setup - add a text input to each footer cell
+	// DataTable
+	var table = tableObject.DataTable();
+
+	// Apply the search
+	/*
+	 * table.columns().every(function() { var that = this; if (that.search() !==
+	 * inputText.value) { that.search(inputText.value).draw(); } });
+	 */
+	console.log(inputText.value);
+	table.search('');
+	table.column(columnIndex).search(inputText.value).draw();
+}

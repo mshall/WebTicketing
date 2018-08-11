@@ -57,7 +57,7 @@
 					<label class="col-sm-2">Serial number</label> <input type="text"
 						required="true" id="itSerialNumber" name="itSerialNumber"
 						placeholder="Serial number..." class="col-sm-4"
-						style="border-radius: 1rem" id="itSerialNumber"
+						style="border-radius: .5rem" id="itSerialNumber"
 						oninput="activateSearch(this,2)" />
 				</div>
 				<br>

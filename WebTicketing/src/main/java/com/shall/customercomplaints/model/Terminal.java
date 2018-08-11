@@ -99,4 +99,7 @@ public class Terminal {
 
 	@Column(name = "store_name")
 	private String storeName;
+	
+	@Column(name = "tender")
+	private String tender;
 }
