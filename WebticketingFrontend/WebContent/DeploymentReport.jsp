@@ -4,11 +4,6 @@
     Author     : shimaa
 --%>
 
-<%@page import="org.apache.commons.beanutils.RowSetDynaClass"%>
-<%@page import="java.sql.ResultSet"%>
-<%@page import="java.sql.Statement"%>
-<%@page import="java.sql.Connection"%>
-<%@taglib uri="http://displaytag.sf.net" prefix="display"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
