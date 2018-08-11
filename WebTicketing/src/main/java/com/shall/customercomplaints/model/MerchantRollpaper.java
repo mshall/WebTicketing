@@ -1,10 +1,17 @@
 package com.shall.customercomplaints.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -35,4 +42,14 @@ public class MerchantRollpaper {
 
 	private String note;
 
+	@Column(name = "merchant_name")
+	private String merchantName;
+
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	@Column(name = "action_date", columnDefinition = "DATETIME")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date actionDate;
+
+	@Column(name = "rollpaper_size")
+	private String rollpaperSize;
 }
