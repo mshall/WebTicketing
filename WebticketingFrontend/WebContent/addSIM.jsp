@@ -36,7 +36,7 @@
 									<label class="control-label col-sm-4"> Serial Number</label>
 									<div class="col-sm-8">
 										<input class="form-control" type="text" id="simSerial"
-											name="serial" placeholder="Serial" required="" />
+											name="serial" placeholder="Serial" required/>
 									</div>
 								</div>
 								<div class="form-group">
@@ -65,7 +65,7 @@
 									<label class="control-label col-sm-4">Condition</label>
 									<div class="col-sm-8">
 										<input class="form-control" type="text"
-											id="condition" placeholder="Condition" required="" />
+											id="condition" placeholder="Condition" required/>
 									</div>
 								</div>
 									
@@ -73,7 +73,7 @@
 									<label class="control-label col-sm-4">Terminal Id</label>
 									<div class="col-sm-8">
 										<input class="form-control" type="text" id="terminalId"
-									 placeholder="terminalId" required="" />
+									 placeholder="terminalId" required />
 									</div>
 								</div>
 									
@@ -87,8 +87,7 @@
 								
 								<div class="form-group ">
 									<label class="control-label col-sm-4">Merchant</label>
-									<div class="col-sm-8" id="merchantList">
-										
+									<div class="col-sm-8" id="merchantList">										
 									</div>
 								</div>
 								
@@ -112,6 +111,7 @@
 
 <script src="assets/js/operations/admin/sim.js"></script>
 <script src="assets/js/operations/admin/stores.js"></script>
+<script src="assets/js/operations/admin/merchants.js"></script>
 	<script>
 	
 	$(document).ready(function() {
@@ -120,6 +120,7 @@
 			getSimById();
 		}
 		getStoresDropdown();
+		getMerchantsDropdown();
 	});
 	
 		function Formreset() {

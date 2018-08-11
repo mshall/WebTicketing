@@ -240,7 +240,7 @@ function updateTerminal() {
 }
 
 function sendData(data, url) {
-	console.log(data);
+//	console.log(data);
 	$.ajax({
 		url : url,
 		type : 'POST',

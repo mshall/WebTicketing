@@ -10,19 +10,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <script src="BootStrap/js/glm-ajax.js" type="text/javascript"></script>
-    <a href="BootStrap/fonts/glyphicons-halflings-regular.svg"></a>
-    <link href="BootStrap/css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
-    <link href="BootStrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <link href="BootStrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
-    <link href="BootStrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
-    <link href="BootStrap/css/mstyle.css" rel="stylesheet" type="text/css"/>
-    <script src="BootStrap/jquery-1.12.0.min.js" type="text/javascript"></script>
-    <script src="BootStrap/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="BootStrap/js/npm.js" type="text/javascript"></script>
-    <script src="BootStrap/js/bootstrap.js" type="text/javascript"></script>
-
     <title>add Merchant</title> 
     <style>
 

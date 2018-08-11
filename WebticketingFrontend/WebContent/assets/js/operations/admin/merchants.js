@@ -188,3 +188,30 @@ function processUpdateMerchantResponse(response) {
 	}
 
 }
+//---------------------------- get store drop down list
+//---------------------------------------------------------------------------------------------------
+
+function getMerchantsDropdown(){
+	$.ajax({
+		url : 'http://localhost:8082/v1/merchant/all/',
+		type : 'GET',
+		contentType : "application/json; charset=utf-8",
+		data : {},
+		dataType : 'json',
+		success : function(response) {
+			processMerchantsDDResponse(response);
+		}
+	});
+}
+
+function processMerchantsDDResponse(response) {
+	console.log('merchant.processMerchantsDDResponse -> Response: ' + response);
+	merchantList = $('#merchantList');
+
+	output = "<select id=\"merchantId\"><option value=\"none\"></option>";
+	for ( var i in response.results) {
+		output += "<option value="+response.results[i].merchantId+">"+response.results[i].merchantName+"</option>";
+	}
+	output += "</select>";
+	merchantList.html(output);
+}
