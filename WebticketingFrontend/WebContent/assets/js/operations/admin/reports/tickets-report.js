@@ -12,15 +12,17 @@ function getAllComplaints() {
 	});
 }
 function processGetAllComplaintsResponse(response) {
-	console.log("tickets-report.processGetAllComplaintsResponse--->"+response);
+	console
+			.log("tickets-report.processGetAllComplaintsResponse--->"
+					+ response);
 	var ticketstable = $('#allTickets');
 	var taTicketsJson = $("#taTicketsJson");
 	taTicketsJson.val(JSON.stringify(response.results));
-	var output = "<div > <table id=\"allTicketsTable\" class=\"table responsive\" border=\"1\"> <thead> " +
-			"<tr><th> Ticket-id </th>"
-			+ "<th>status</th>"
-			+ "<th>srial num</th>"
-			+ "<th>Terminal Id</th>"
+	var output = "<div > <table id=\"allTicketsTable\" class=\"table responsive\" border=\"1\"> <thead> "
+			+ "<tr><th> Ticket Id </th>"
+			+ "<th>Status</th>"
+			+ "<th>Serial Number</th>"
+			+ "<th>TID</th>"
 			+ "<th>Merchant Name</th>"
 			+ "<th>Merchant ID</th>"
 			+ "<th>Merchant Address</th>"
@@ -29,12 +31,12 @@ function processGetAllComplaintsResponse(response) {
 	for ( var i in response.results) {
 		output += "<tr><td>" + response.results[i].complaintId + "</td><td>"
 				+ response.results[i].status + "</td><td>"
-				+ "serial num" + "</td><td>"
+				+ response.results[i].terminalSerial + "</td><td>"
 				+ response.results[i].terminalId + "</td><td>"
-				+ "merchant name" + "</td><td>"
+				+ response.results[i].merchantName + "</td><td>"
 				+ response.results[i].merchantId + "</td><td>"
-				+ "merchant address" + "</td><td>"
-				+ "city" + "</td><td>"
+				+ response.results[i].merchantAddress + "</td><td>"
+				+ response.results[i].merchantCity + "</td><td>"
 				+ response.results[i].comments + "</td></tr>";
 	}
 	output += "</tbody></body></div>";
@@ -157,7 +159,7 @@ function processUpdateComplaintResponse(response) {
 function getAllComplaintsByStatus(status) {
 	// 
 	$.ajax({
-		url : 'http://localhost:8082/v1/complaint//status/'+status,
+		url : 'http://localhost:8082/v1/complaint//status/' + status,
 		type : 'GET',
 		contentType : "application/json; charset=utf-8",
 		data : {},
@@ -174,8 +176,8 @@ function processGetAllComplaintsByStatusResponse(response) {
 	var ticketstable = $('#allTickets');
 	var taTicketsJson = $("#taTicketsJson");
 	taTicketsJson.val(JSON.stringify(response.results));
-	var output = "<div > <table id=\"allTicketsTable\" class=\"table responsive\" border=\"1\"> <thead> " +
-			"<tr><th> Ticket-id </th>"
+	var output = "<div > <table id=\"allTicketsTable\" class=\"table responsive\" border=\"1\"> <thead> "
+			+ "<tr><th> Ticket-id </th>"
 			+ "<th>status</th>"
 			+ "<th>srial num</th>"
 			+ "<th>Terminal Id</th>"
@@ -186,13 +188,11 @@ function processGetAllComplaintsByStatusResponse(response) {
 			+ "<th>Problem</th></tr></thead>";
 	for ( var i in response.results) {
 		output += "<tr><td>" + response.results[i].complaintId + "</td><td>"
-				+ response.results[i].status + "</td><td>"
-				+ "serial num" + "</td><td>"
-				+ response.results[i].terminalId + "</td><td>"
+				+ response.results[i].status + "</td><td>" + "serial num"
+				+ "</td><td>" + response.results[i].terminalId + "</td><td>"
 				+ "merchant name" + "</td><td>"
 				+ response.results[i].merchantName + "</td><td>"
-				+ "merchant address" + "</td><td>"
-				+ "city" + "</td><td>"
+				+ "merchant address" + "</td><td>" + "city" + "</td><td>"
 				+ response.results[i].comments + "</td></tr>";
 	}
 	output += "</tbody></body></div>";
@@ -237,9 +237,9 @@ function processAssignTicketResponse(response) {
 	}
 }
 
-//-----------------------------------------------------------------------------------------
-//Download Excel
-//-----------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------------
+// Download Excel
+// -----------------------------------------------------------------------------------------
 function exportToExcel() {
 	var data = $('#taTicketsJson').val();
 	if (data == '')
@@ -247,9 +247,9 @@ function exportToExcel() {
 
 	JSONToCSVConvertor(data, "Tickets report", true);
 }
-//-----------------------------------------------------------------------------------------
-//Print table
-//-----------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------------
+// Print table
+// -----------------------------------------------------------------------------------------
 function printData(divToPrint) {
 	newWin = window.open("");
 	newWin.document.write(divToPrint.outerHTML);

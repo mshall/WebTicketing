@@ -1,7 +1,7 @@
 <%-- 
     Document   : TechnicalIndex
     Created on : Jun 13, 2018, 11:18:59 PM
-    Author     : shimaa
+    Author     : Mohamed S. El-Shall
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

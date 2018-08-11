@@ -1,7 +1,7 @@
 <%-- 
     Document   : DeployToMerchant
     Created on : May 27, 2018, 10:24:35 PM
-    Author     : shimaa
+    Author     : Mohamed S. El-Shall
 --%>
 <%@page import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

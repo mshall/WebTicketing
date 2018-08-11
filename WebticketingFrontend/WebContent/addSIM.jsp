@@ -1,7 +1,7 @@
 <%-- 
     Document   : addSIM
     Created on : May 24, 2018, 6:25:24 PM
-    Author     : shimaa
+    Author     : Mohamed S. El-Shall
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

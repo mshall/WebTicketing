@@ -1,7 +1,7 @@
 <%-- 
     Document   : addstore
     Created on : May 17, 2018, 4:05:50 AM
-    Author     : shimaa
+    Author     : Mohamed S. El-Shall
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

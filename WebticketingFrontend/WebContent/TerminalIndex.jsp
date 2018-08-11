@@ -1,7 +1,7 @@
 <%-- 
     Document   : TerminalIndex
     Created on : Jun 20, 2018, 4:38:36 PM
-    Author     : shimaa
+    Author     : Mohamed S. El-Shall
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

@@ -1,7 +1,7 @@
 <%-- 
     Document   : SimIndex
     Created on : Jun 18, 2018, 7:45:27 AM
-    Author     : shimaa
+    Author     : Mohamed S. El-Shall
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

@@ -1,7 +1,7 @@
 <%-- 
     Document   : ChooseLang
     Created on : May 16, 2018, 2:55:15 AM
-    Author     : shimaa
+    Author     : Mohamed S. El-Shall
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
