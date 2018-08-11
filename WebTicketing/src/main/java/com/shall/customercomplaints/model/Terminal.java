@@ -93,7 +93,7 @@ public class Terminal {
 	private String branch;
 
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	@Column(name = "created_date", columnDefinition = "DATETIME(3)")
+	@Column(name = "created_date", columnDefinition = "DATETIME")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date createdDate;
 
