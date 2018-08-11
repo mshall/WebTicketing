@@ -63,7 +63,7 @@ function processComplaintsByTechnicainResponse(response) {
 		output += "<tr><td>"
 				+ response.results[i].complaintId
 				+ "</td><td>"
-				+ response.results[i].merchantId
+				+ response.results[i].merchantName
 				+ "</td><td>"
 				+ response.results[i].terminalId
 				+ "</td><td>"
@@ -145,10 +145,10 @@ function processUpdateComplaintResponse(response) {
 // -------------------------------------------------------------------------------------
 // ---------------------------------------- Get complaints by status
 // -------------------------------------------------------------------------------------
-function getAllComplaintsByStatus() {
+function getAllComplaintsByStatus(status) {
 	// 
 	$.ajax({
-		url : 'http://localhost:8082/v1/complaint//status/Open',
+		url : 'http://localhost:8082/v1/complaint//status/'+status,
 		type : 'GET',
 		contentType : "application/json; charset=utf-8",
 		data : {},
