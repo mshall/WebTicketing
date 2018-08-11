@@ -83,7 +83,7 @@ CREATE TABLE `marchent_rollpaper` (
 
 LOCK TABLES `marchent_rollpaper` WRITE;
 /*!40000 ALTER TABLE `marchent_rollpaper` DISABLE KEYS */;
-INSERT INTO `marchent_rollpaper` VALUES (1,1,1,10,NULL,NULL);
+INSERT INTO `marchent_rollpaper` VALUES (1,1,1,10,'Yes','note 2');
 /*!40000 ALTER TABLE `marchent_rollpaper` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -125,34 +125,6 @@ LOCK TABLES `merchant` WRITE;
 /*!40000 ALTER TABLE `merchant` DISABLE KEYS */;
 INSERT INTO `merchant` VALUES (1,'Mr. Merchant','merchant@gmail.com','2222','','Dubai','Dubai st','505338183','2010155959','Spectra','Mohamed S. El-Shall','5589','438888','A','USD'),(2,'Mr. Merchant 2','merchant2@gmail.com','2222','','Dubai','Dubai st','505338184','2010155958','Spectra','Mohamed S. El-Shall','5588','438889','A','USD');
 /*!40000 ALTER TABLE `merchant` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `merchant_rollpaper`
---
-
-DROP TABLE IF EXISTS `merchant_rollpaper`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `merchant_rollpaper` (
-  `id` int(11) NOT NULL auto_increment,
-  `meet_sla` varchar(255) default NULL,
-  `merchant_id` int(11) default NULL,
-  `note` varchar(255) default NULL,
-  `roll_paper_id` int(11) default NULL,
-  `roll_paper_out_number` int(11) default NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `merchant_rollpaper`
---
-
-LOCK TABLES `merchant_rollpaper` WRITE;
-/*!40000 ALTER TABLE `merchant_rollpaper` DISABLE KEYS */;
-INSERT INTO `merchant_rollpaper` VALUES (1,'just a test',1,'just note',1,10);
-/*!40000 ALTER TABLE `merchant_rollpaper` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -210,7 +182,7 @@ CREATE TABLE `sim` (
 
 LOCK TABLES `sim` WRITE;
 /*!40000 ALTER TABLE `sim` DISABLE KEYS */;
-INSERT INTO `sim` VALUES (123456,'vodafone','','',1,1,1,NULL,NULL,NULL);
+INSERT INTO `sim` VALUES (123456,'Vodafone','','',1,1,1,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `sim` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -328,4 +300,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-08-11 19:08:52
+-- Dump completed on 2018-08-11 20:40:39
