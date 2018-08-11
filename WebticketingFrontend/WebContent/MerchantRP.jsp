@@ -17,6 +17,14 @@
     <div class="wrapper">
         <%@include  file="AdminSideBar.jsp" %>
         <div  id="content">
+        <div class="alert alert-success" id="successUpdate">
+				<a href="#" class="close" data-dismiss="alert">&times;</a> <strong>Sucess!
+				</strong>updated successfully
+			</div>
+			<div class="alert alert-danger" id="errorUpdate">
+				<a href="#" class="close" data-dismiss="alert">&times;</a> <strong>Warning!
+				</strong> Couldn't update
+			</div>
             <div class="panel-group" id="accordion">
                 <div class="panel panel-primary" id="panel1">
                     <div class="panel-heading">
@@ -48,25 +56,9 @@
                             <form name="assign" action="AssignRPtoMerchant" method="POST" class="form-horizontal">
                                 <div class="form-group">
                                     <label class="control-label col-sm-4"> Merchant Name </label>
-                                    <div class="col-sm-8"  size="50%">
-                                        <select name="Mname" id="Merchants">
-
-                                        </select>
-                                    </div>
+                                    <div class="col-sm-8" id="merchantList"></div>
                                 </div>
-
-                                <div class="form-group">
-                                    <label class="control-label col-sm-4">Size </label> 
-                                    <div class="col-sm-8" size="50%">  <select name="Size">
-                                            <option value="none"> select roll paper</option>
-                                            <option vlaue="large"> Large</option>
-                                            <option vlaue="medium"> Medium</option>
-                                            <option vlaue="small"> Small</option>
-                                        </select> 
-
-                                    </div> </div>
-
-
+                                
                                 <div class="form-group">
                                     <label class="control-label col-sm-4">Total In  </label> 
                                     <div class="col-sm-8"> 
@@ -81,7 +73,7 @@
 
                                 <div class="form-group ">
                                     <div class="col-sm-offset-4 col-sm-8">      
-                                        <input type="submit" value="Submit" name="submit" class="btn btn-primary" />
+                                        <input type="button" value="Submit" class="btn btn-primary" onclick="save()" />
                                         <input type="reset" value="Cancel" name="cancel" onclick="Formreset()"  class="btn btn-danger"/>
                                     </div> 
                                 </div>
@@ -92,20 +84,32 @@
                 </div> 
             </div>
 
-
-
-
-
         </div> 
     </div>
     <script src="assets/js/operations/admin/roll.js"></script>
+    <script src="assets/js/operations/admin/merchants.js"></script>
+    <script src="assets/js/operations/admin/merchant-roll.js"></script>
     <script>
         function Formreset() {
             document.getElementById("myForm").reset();
         }
         $(document).ready(function () {
+        	$("#successUpdate").hide();
+			$("#errorUpdate").hide();
         	getAllRollPapers();
+        	getMerchantsDropdown();
+        	
         });
+        
+        function save(){
+        	$('input[type=checkbox]').each(function () {
+        	    if(this.checked){
+        	    	console.log ($(this).val());
+        	    	saveMerchantRoll($(this).val());
+        	    }
+        	});
+        	getAllRollPapers();
+        }
 
 
     </script>

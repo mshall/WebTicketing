@@ -198,8 +198,9 @@
 	
             <script>
         $(document).ready(function () {
+        	getStoresDropdown();
         	getTerminalById();
-           
+        	
         });
 
         function Formreset() {

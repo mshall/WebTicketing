@@ -12,7 +12,7 @@ function getAllComplaints() {
 	});
 }
 function processGetAllComplaintsResponse(response) {
-	console.log(response);
+	console.log("tickets-report.processGetAllComplaintsResponse--->"+response);
 	var ticketstable = $('#allTickets');
 	var taTicketsJson = $("#taTicketsJson");
 	taTicketsJson.val(JSON.stringify(response.results));
@@ -75,7 +75,7 @@ function processComplaintsByTechnicainResponse(response) {
 		output += "<tr><td>"
 				+ response.results[i].complaintId
 				+ "</td><td>"
-				+ response.results[i].merchantId
+				+ response.results[i].merchantName
 				+ "</td><td>"
 				+ response.results[i].terminalId
 				+ "</td><td>"
@@ -154,10 +154,10 @@ function processUpdateComplaintResponse(response) {
 // -------------------------------------------------------------------------------------
 // ---------------------------------------- Get complaints by status
 // -------------------------------------------------------------------------------------
-function getAllComplaintsByStatus() {
+function getAllComplaintsByStatus(status) {
 	// 
 	$.ajax({
-		url : 'http://localhost:8082/v1/complaint//status/Open',
+		url : 'http://localhost:8082/v1/complaint//status/'+status,
 		type : 'GET',
 		contentType : "application/json; charset=utf-8",
 		data : {},
@@ -171,14 +171,35 @@ function getAllComplaintsByStatus() {
 function processGetAllComplaintsByStatusResponse(response) {
 	console.log("ticket.processGetAllComplaintsByStatusResponse -> Response:\n"
 			+ JSON.stringify(response));
-	var dTickets = $("#dTickets");
-	var output = "<div><select name='sTickets' id='sTickets' style='width:150px;'>";
+	var ticketstable = $('#allTickets');
+	var taTicketsJson = $("#taTicketsJson");
+	taTicketsJson.val(JSON.stringify(response.results));
+	var output = "<div > <table id=\"allTicketsTable\" class=\"table responsive\" border=\"1\"> <thead> " +
+			"<tr><th> Ticket-id </th>"
+			+ "<th>status</th>"
+			+ "<th>srial num</th>"
+			+ "<th>Terminal Id</th>"
+			+ "<th>Merchant Name</th>"
+			+ "<th>Merchant ID</th>"
+			+ "<th>Merchant Address</th>"
+			+ "<th>City</th>"
+			+ "<th>Problem</th></tr></thead>";
 	for ( var i in response.results) {
-		output += " <option value='" + response.results[i].complaintId + "'>"
-				+ response.results[i].complaintId + "</option>"
+		output += "<tr><td>" + response.results[i].complaintId + "</td><td>"
+				+ response.results[i].status + "</td><td>"
+				+ "serial num" + "</td><td>"
+				+ response.results[i].terminalId + "</td><td>"
+				+ "merchant name" + "</td><td>"
+				+ response.results[i].merchantName + "</td><td>"
+				+ "merchant address" + "</td><td>"
+				+ "city" + "</td><td>"
+				+ response.results[i].comments + "</td></tr>";
 	}
-	output += "</select> </div>";
-	dTickets.html(output);
+	output += "</tbody></body></div>";
+
+	ticketstable.html(output);
+
+	$('#allTicketsTable').DataTable();
 }
 
 // -----------------------------------------------------------------------------------------

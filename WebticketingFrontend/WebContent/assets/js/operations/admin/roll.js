@@ -24,10 +24,11 @@ function processAllRollPapersResponse(response) {
 			+ "<th> </th>"
 			+ " </tr></thead>";
 	for ( var i in response.results) {
-		output += "<tr><td>" + response.results[i].rollpaperId + "</td><td>"
+		output += "<tr><td><input type=\"checkbox\" value='"+response.results[i].rollpaperId+"' />" 
+				+ response.results[i].rollpaperId + "</td><td>"
 				+ response.results[i].rollpaperSize + "</td><td>"
 				+ response.results[i].totalIn + "</td><td>"
-				+ response.results[i].storeId + "</td><td> Tender </td><td>"
+				+ response.results[i].storeName + "</td><td> Tender </td><td>"
 				+ "<button type='button' class='btn btn-warning' onclick='goToUpdateRollPage("
 				+ response.results[i].rollpaperId
 				+ ")'>Edit</button>"

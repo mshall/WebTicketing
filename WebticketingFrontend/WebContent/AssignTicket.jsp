@@ -93,7 +93,7 @@
 		$(document).ready(function() {
 			$("#successUpdate").hide();
 			$("#errorUpdate").hide();
-			getAllComplaintsByStatus();
+			getAllComplaintsByStatus('Open');
 			getAllTechniciansForTicketing();
 		});
 

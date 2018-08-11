@@ -86,7 +86,7 @@
 				<ul class="collapse list-unstyled" id="Reports">
 					<li><a href="TerminalReport.jsp">POS Report</a></li>
 					<li><a href="SimReport.jsp">SIM Report</a></li>
-					<li><a href="MnReport.jsp">Maintenance Report</a></li>
+					<li><a href="MaintenanceReport.jsp">Maintenance Report</a></li>
 					<li><a href="DeploymentReport.jsp">Deployment Report</a></li>
 					<li><a href="TicketReport.jsp">Tickets Report</a></li>
 					<li><a href="WdReport.jsp">Withdrawals Report</a></li>
