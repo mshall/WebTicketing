@@ -104,7 +104,7 @@
                                 <label class="control-label col-sm-4" >Class</label>
                                 <div class="col-sm-8">
                                     <select name="Class">
-                                        <option value="none"></option>
+                                        <option value="">select...</option>
                                         <option value="A">A</option>
                                         <option value="B">B</option>
                                         <option value="C">C</option>
@@ -116,16 +116,25 @@
                                 <label class="control-label col-sm-4" >Currency</label>
                                 <div class="col-sm-8">
                                     <select name="Currency">
-                                        <option value="none"> </option>
-                                        <option value="EUR">EUR</option>
-                              
+                                        <option value="">select... </option>
+                                         <option value="EGP">EGP</option>
+                                         <option value="EUR">EUR</option>
+                                         <option value="USD">USD</option>
+                                         <option value="SAR">SAR</option>
+                                         <option value="AED">AED</option>
+                                         <option value="JPY">JPY</option>
+                                         <option value="HKD">HKD</option>
+                                         <option value="MOP">MOP</option>
+                                         <option value="CNY">CNY</option>
+                                         <option value="GBP">GBP</option>
+                                                      
                                     </select>
                                 </div>
                             </div><div class="form-group ">
                                 <label class="control-label col-sm-4" >Status</label>
                                 <div class="col-sm-8">
                                     <select name="Status">
-                                        <option value="none">   </option>
+                                        <option value="">select...</option>
                                         <option value="active">Active</option>
                                         <option value="inactive">In Active</option>
 

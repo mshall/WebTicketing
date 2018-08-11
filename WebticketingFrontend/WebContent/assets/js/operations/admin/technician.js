@@ -26,7 +26,9 @@ function processAllTechnicians(response) {
 				+ "<button type='button' class='btn btn-warning' onclick='navigateToAddTechnical("
 				+ response.results[i].userId
 				+ ")'>Edit</button>"
-				+ "&nbsp;&nbsp;&nbsp;<button type='button' class='btn btn-danger'>Delete</button>"
+				+ "&nbsp;&nbsp;&nbsp;<button type='button' class='btn btn-danger' onclick='deleteTechnical("
+				+ response.results[i].userId
+				+">Delete</button>"
 				+ "</td></tr>";
 	}
 	output += "</tbody></div>";
@@ -41,6 +43,21 @@ function navigateToAddTechnical(technicianId){
 	var edittechnical = "addTechnical.jsp?technicianId=" + technicianId;
 	window.location.replace(edittechnical);
 		
+}
+//-------------------------------------------------------------------------------------
+//---------------------------------------- delete technical
+//-------------------------------------------------------------------------------------
+function deleteTechnical(technicianId){
+	$.ajax({
+		url : 'http://localhost:8082/v1/user/' + technicianId,
+		type : 'DELETE',
+		contentType : "application/json; charset=utf-8",
+		data : {},
+		dataType : 'json',
+		success : function(response) {
+			processSaveUserResponse(response);
+		}
+	});	
 }
 //-------------------------------------------------------------------------------------
 //---------------------------------------- get technician by id

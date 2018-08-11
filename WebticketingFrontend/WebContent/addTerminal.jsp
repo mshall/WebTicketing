@@ -87,7 +87,7 @@
 									<label class="control-label col-sm-4">Class</label>
 									<div class="col-sm-8">
 										<select id="terminalClass">
-											<option value="none"></option>
+											<option value="">select...</option>
 											<option value="A">A</option>
 											<option value="B">B</option>
 											<option value="C">C</option>
@@ -99,11 +99,18 @@
 									<label class="control-label col-sm-4">Currency</label>
 									<div class="col-sm-8">
 										<select name="currency">
-											<option value="none"></option>
-											<option value="EUR">EUR</option>
-											<option value="ss">dsd</option>
-											<option value="pp">sd</option>
-											<option value="sss">sds</option>
+										 <option value="">select... </option>
+                                         <option value="EGP">EGP</option>
+                                         <option value="EUR">EUR</option>
+                                         <option value="USD">USD</option>
+                                         <option value="SAR">SAR</option>
+                                         <option value="AED">AED</option>
+                                         <option value="JPY">JPY</option>
+                                         <option value="HKD">HKD</option>
+                                         <option value="MOP">MOP</option>
+                                         <option value="CNY">CNY</option>
+                                         <option value="GBP">GBP</option>
+                                        
 										</select>
 									</div>
 								</div>

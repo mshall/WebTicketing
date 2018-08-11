@@ -53,20 +53,7 @@
 									placeholder="Store Address">
 							</div>
 						</div>
-						<div class="form-group ">
-							<label class="control-label col-sm-4"> Phone 1</label>
-							<div class="col-sm-8">
-								<input type="number" class="form-control" id="phone1"
-									placeholder="Phone 1">
-							</div>
-						</div>
-						<div class="form-group ">
-							<label class="control-label col-sm-4">Phone 2</label>
-							<div class="col-sm-8">
-								<input type="number" class="form-control" id="phone2"
-									placeholder="Phone 2">
-							</div>
-						</div>
+						
 
 						<div class="form-group ">
 							<label class="control-label col-sm-4"> Status</label>

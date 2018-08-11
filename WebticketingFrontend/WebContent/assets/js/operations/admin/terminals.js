@@ -35,7 +35,9 @@ function processAllTerminalsResponse(response) {
 				+ "<button type='button' class='btn btn-warning' onclick='goToUpdateTerminalPage("
 				+ response.results[i].terminalId
 				+ ")'>Edit</button>"
-				+ "&nbsp;&nbsp;&nbsp;<button type='button' class='btn btn-danger'>Delete</button>"
+				+ "&nbsp;&nbsp;&nbsp;<button type='button' class='btn btn-danger' onclick='deleteTerminal("
+				+ response.results[i].terminalId
+				+ ")'>Delete</button>"
 				+ "</td></tr>";
 
 		/*
@@ -68,6 +70,22 @@ function processAllTerminalsResponse(response) {
 // ///////////////////////////////////////
 function goToUpdateTerminalPage(terminalId) {
 	window.location.replace("TerminalUpdate.jsp?terminalId=" + terminalId);
+}
+//---------------------------------------------------------------------------------------------------
+//----------------------------delete terminal
+//---------------------------------------------------------------------------------------------------
+function deleteTerminal(objectId) {
+	var deleteObject = "http://localhost:8082/v1/terminal/" + objectId;
+	$.ajax({
+		url : deleteObject,
+		type : 'DELETE',
+		contentType : "application/json; charset=utf-8",
+		data : {},
+		dataType : 'json',
+		success : function(response) {
+			processAddTerminalResponse(response);
+		}
+	});	
 }
 // //////////////////////////////////////////
 function getTerminalById() {

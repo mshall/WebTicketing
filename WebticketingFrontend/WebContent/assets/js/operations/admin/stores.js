@@ -26,7 +26,9 @@ function processAdminAllStoresResponse(response) {
 				+ "<button type='button' class='btn btn-warning' onclick='navigateToEditStore("
 				+ response.results[i].storeId
 				+ ")'>Edit</button>"
-				+ "&nbsp;&nbsp;&nbsp;<button type='button' class='btn btn-danger'>Delete</button>"
+				+ "&nbsp;&nbsp;&nbsp;<button type='button' class='btn btn-danger' onclick=\"deleteStore("
+				+ response.results[i].storeId
+				+")>Delete</button>"
 				+ "</td></tr>";;
 	}
 	output += "</tbody></body></div>";
@@ -46,7 +48,17 @@ function navigateToEditStore(storeId) {
 //----------------------------delete store
 //---------------------------------------------------------------------------------------------------
 function deleteStore(storeId) {
-	var deleteStore = "http://localhost:8082/v1/store/" + storeId;
+	var deleteObject = "http://localhost:8082/v1/store/" + storeId;
+	$.ajax({
+		url : deleteObject,
+		type : 'DELETE',
+		contentType : "application/json; charset=utf-8",
+		data : {},
+		dataType : 'json',
+		success : function(response) {
+			processSaveStoreResponse(response);
+		}
+	});	
 }
 // ---------------------------------------------------------------------------------------------------
 // ---------------------------- get store by id
@@ -69,8 +81,7 @@ function processGetStoreByIdResponse(response) {
 	$("#storeName").val(response.results.storeName);
 	$("#store_address").val(response.results.store_address);
 	$("#storeDetails").val(response.results.storeDetails);
-	$("#phone1").val(response.results.phone1);
-	$("#phone2").val(response.results.phone2);
+	
 	$("#status").val(response.results.status);
 }
 
@@ -83,8 +94,7 @@ function addStore() {
 	storeName=$("#storeName").val();
 	store_address=$("#store_address").val();
 	storeDetails=$("#storeDetails").val();
-	phone1=$("#phone1").val();
-	phone2=$("#phone2").val();
+	
 	status=$("#status").val();
 	
 	var terminal = {
@@ -92,8 +102,7 @@ function addStore() {
 		"storeName":storeName,
 		"store_address":store_address,
 		"storeDetails":storeDetails,
-		"phone1":phone1,
-		"phone2":phone2,
+		
 		"status":status
 	}
 	sendDataSaveStore(JSON.stringify(terminal), 'http://localhost:8082/v1/store/');
@@ -138,8 +147,7 @@ function updateStore() {
 	storeName=$("#storeName").val();
 	store_address=$("#store_address").val();
 	storeDetails=$("#storeDetails").val();
-	phone1=$("#phone1").val();
-	phone2=$("#phone2").val();
+
 	status=$("#status").val();
 	
 	var terminal = {
@@ -147,8 +155,7 @@ function updateStore() {
 		"storeName":storeName,
 		"store_address":store_address,
 		"storeDetails":storeDetails,
-		"phone1":phone1,
-		"phone2":phone2,
+		
 		"status":status
 	}
 	sendDataSaveStore(JSON.stringify(terminal), 'http://localhost:8082/v1/store/update');
