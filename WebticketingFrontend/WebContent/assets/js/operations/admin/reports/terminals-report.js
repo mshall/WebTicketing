@@ -14,33 +14,30 @@ function getAllTerminals() {
 function processAllTerminalsResponse(response) {
 	console.log(response);
 	var terminalstable = $('#allTerminals');
-	
+
 	var taDeploymentsJson = $("#taDeploymentsJson");
 	taDeploymentsJson.val(JSON.stringify(response.results));
-	
+
 	var output = "<div ><table id='terminalsTable' class=\"table responsive\" border=\"1\"> "
-			+ "<thead> <tr><th>vendor</th>"
-			+ "<th>model</th>"
-			+ "<th>serial number</th>"
-			+ "<th>store</th>"
-			+ "<th>condition</th>"
-			+ "<th>status</th>"
-			+ "<th>tender</th>"
-			+ "<th>created Date </th>"
+			+ "<thead> <tr><th>Vendor</th>"
+			+ "<th>Model</th>"
+			+ "<th>Serial number</th>"
+			+ "<th>TID</th>"
+			+ "<th>MID</th>"
+			+ "<th>SIM 1</th>" + "<th>tender</th>" + "<th>created Date </th>"
 			/*
 			 * + "<th>condition</th>" + "<th>currency</th>" + "<th>MCC</th>" + "<th>Terminal
 			 * Class</th>" + "<th>Sale</th>" + +"<th>OnlineReturned</th>" + "<th>OfflineReturned</th>" + "<th>offlineSale</th>" + "<th>onlineVoid</th>" + "<th>offlineVoid</th>" + +"<th>preauth</th>" + "<th>amex</th>" + "<th>instatiment</th>" + "<th>prepaidservices</th>" + "<th>diners</th>" + +"<th>premuim</th>" + "<th>manualEntry</th>" + "<th>storeId</th>"
 			 */
 			+ " </tr></thead>";
 	for ( var i in response.results) {
-		output += "<tr><td>" + response.results[i].merchantId + "</td><td>"
-				+ response.results[i].model + "</td><td>"
-				+ response.results[i].terminalSerialNumber + "</td><td>"
-				+ response.results[i].storeId + "</td><td>"
-				+ response.results[i].condition + "</td><td>"
-				+ response.results[i].status + "</td><td>"
-				+ "tender" + "</td><td>"
-				+ response.results[i].createdDate +"</td></tr>";
+		output += "<tr><td>Spectra</td><td>" + response.results[i].model
+				+ "</td><td>" + response.results[i].terminalSerialNumber
+				+ "</td><td>" + response.results[i].terminalId + "</td><td>"
+				+ response.results[i].merchantId + "</td><td>"
+				+ response.results[i].firstSimSerial + "</td><td>"
+				+ response.results[i].tender + "</td><td>"
+				+ response.results[i].createdDate + "</td></tr>";
 
 		/*
 		 * + response.results[i].condition + "</td><td>" +
@@ -82,7 +79,7 @@ function getTerminalById() {
 		data : {},
 		dataType : 'json',
 		success : function(response) {
-			
+
 			processGetTerminalByResponse(response);
 		}
 	});
@@ -180,8 +177,8 @@ function processAddTerminalResponse(response) {
 	// ----
 	formMessage.text(message);
 
-	if (code == 200||code == 0) {
-		
+	if (code == 200 || code == 0) {
+
 		window.location.replace("Terminals.jsp");
 	} else {
 		formMessage.css("color", "red");
@@ -259,9 +256,9 @@ function sendData(data, url) {
 }
 // ////////////////////////////////////////////////////
 
-function getTerminalsByStatus(status){
+function getTerminalsByStatus(status) {
 	$.ajax({
-		url : 'http://localhost:8082/v1/terminal/?status='+status,
+		url : 'http://localhost:8082/v1/terminal/?status=' + status,
 		type : 'GET',
 		contentType : "application/json; charset=utf-8",
 		data : {},
@@ -271,13 +268,9 @@ function getTerminalsByStatus(status){
 		}
 	});
 }
-////////////////////////////////////////////////////
+// //////////////////////////////////////////////////
 
-
-
-
-
-//////////////////////////////////////////////////////
+// ////////////////////////////////////////////////////
 $.urlParam = function(name) {
 	var results = new RegExp('[\?&]' + name + '=([^]*)')
 			.exec(window.location.href);
@@ -288,11 +281,10 @@ $.urlParam = function(name) {
 	}
 }
 
-
-//////////////////////////////////////////////////
-//-------------------------------------------------------------------------------------
-//---------------------------------------- Get All merchants for select
-//-------------------------------------------------------------------------------------
+// ////////////////////////////////////////////////
+// -------------------------------------------------------------------------------------
+// ---------------------------------------- Get All merchants for select
+// -------------------------------------------------------------------------------------
 function getAllMerchantsForDeplyment() {
 	// 
 	$.ajax({
@@ -308,11 +300,11 @@ function getAllMerchantsForDeplyment() {
 }
 
 function processGetAllMerchantsForDeplyment(response) {
-	console
-			.log("withdrawals.processGetAllMerchantsForDeplyment -> Response:\n"
-					+ JSON.stringify(response));
+	console.log("withdrawals.processGetAllMerchantsForDeplyment -> Response:\n"
+			+ JSON.stringify(response));
 	var dMerchantId = $("#dMerchantId");
-	var output = "<label class='col-sm-2'>Merchant</label>  <select name='sMerchantId' id='sMerchantId' style='width:150px;' class='form-control'>";
+	var output = "<label class='col-sm-2'>Merchant</label>  " +
+			"<select name='sMerchantId' id='sMerchantId' class='col-sm-4' style='border-radius: .5rem' oninput=\"activateSearch(this,$('#terminalsTable'),4);\" ><option value=''>Select Merchant</option>";
 	for ( var i in response.results) {
 		output += " <option value='" + response.results[i].merchantId + "'>"
 				+ response.results[i].merchantId + "</option>"
@@ -321,9 +313,9 @@ function processGetAllMerchantsForDeplyment(response) {
 	dMerchantId.html(output);
 }
 
-//-----------------------------------------------------------------------------------------
-//Download Excel
-//-----------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------------
+// Download Excel
+// -----------------------------------------------------------------------------------------
 function exportToExcel() {
 	var data = $('#taDeploymentsJson').val();
 	if (data == '')
@@ -331,9 +323,9 @@ function exportToExcel() {
 
 	JSONToCSVConvertor(data, "Deplyments report", true);
 }
-//-----------------------------------------------------------------------------------------
-//Print table
-//-----------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------------
+// Print table
+// -----------------------------------------------------------------------------------------
 function printData(divToPrint) {
 	newWin = window.open("");
 	newWin.document.write(divToPrint.outerHTML);
