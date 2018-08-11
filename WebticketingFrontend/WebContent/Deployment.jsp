@@ -30,11 +30,6 @@
                     </div>
 
                     <div class="panel-body" >
-                        <div>
-                            <input type="text" name="TID" value="" placeholder="Enter Terminal ID " class="input-sm"/>
-
-
-                        </div>
                         <br> <br> <br> 
                         <div id="allTerminals"></div>
 

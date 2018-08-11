@@ -73,6 +73,18 @@ public class UserController {
 		}
 		return ResponseEntity.ok(response);
 	}
+	
+	@RequestMapping(value = "/id/{userId}", produces = "application/json; charset=UTF-8", method = RequestMethod.GET)
+	public ResponseEntity<ResponseVO<User>> findUserById(@PathVariable("userId") int userId) {
+		ResponseVO<User> response = null;
+		User user = ((UserService) service).find(userId);
+		if (user == null) {
+			response = new ResponseVO<User>(Constants.ERROR_CODE_GENERAL, Constants.ERROR_MESSAGE_NO_USERS, user);
+		} else {
+			response = new ResponseVO<User>(Constants.SUCCESS_CODE, Constants.SUCCESS_MESSAGE_SELECT, user);
+		}
+		return ResponseEntity.ok(response);
+	}
 
 	@RequestMapping(value = "/", produces = "application/json; charset=UTF-8", method = RequestMethod.GET)
 	public ResponseEntity<ResponseVO<User>> findUserByEmail(@RequestParam("email") String email) {

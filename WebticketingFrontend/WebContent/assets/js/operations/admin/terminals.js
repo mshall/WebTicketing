@@ -95,19 +95,19 @@ function processGetTerminalByResponse(response) {
 	$("#status").val(response.results.status);
 	$("#model").val(response.results.model);
 	$("#condition").val(response.results.condition);
-	$("#sale").val(response.results.sale);
-	$("#onlineRefund").val(response.results.onlineRefund);
-	$("#offlineRefund").val(response.results.offlineRefund);
-	$("#offlineSale").val(response.results.offlineSale);
-	$("#onlineVoid").val(response.results.onlineVoid);
-	$("#offlineVoid").val(response.results.offlineVoid);
-	$("#preauth").val(response.results.preauth);
-	$("#amex").val(response.results.amex);
-	$("#installments").val(response.results.installments);
-	$("#prepaidServices").val(response.results.prepaidServices);
+	$("#sale").attr('checked',response.results.sale);
+	$("#onlineRefund").attr('checked',response.results.onlineRefund);
+	$("#offlineRefund").attr('checked',response.results.offlineRefund);
+	$("#offlineSale").attr('checked',response.results.offlineSale);
+	$("#onlineVoid").attr('checked',response.results.onlineVoid);
+	$("#offlineVoid").attr('checked',response.results.offlineVoid);
+	$("#preauth").attr('checked',response.results.preauth);
+	$("#amex").attr('checked',response.results.amex);
+	$("#installments").attr('checked',response.results.installments);
+	$("#prepaidServices").attr('checked',response.results.prepaidServices);
 	$("#diners").attr('checked', response.results.diners);
-	$("#premuim").val(response.results.premuim);
-	$("#manualEntry").val(response.results.manualEntry);
+	$("#premuim").attr('checked',response.results.premuim);
+	$("#manualEntry").attr('checked',response.results.manualEntry);
 	$("#tender").val(response.results.tender);
 
 }
@@ -123,19 +123,19 @@ function addTerminal() {
 	status = $("#status").val();
 	model = $("#model").val();
 	condition = $("#condition").val();
-	sale = $("#sale").val();
-	onlineRefund = $("#onlineRefund").val();
-	offlineRefund = $("#offlineRefund").val();
-	offlineSale = $("#offlineSale").val();
-	onlineVoid = $("#onlineVoid").val();
-	offlineVoid = $("#offlineVoid").val();
-	preauth = $("#preauth").val();
-	amex = $("#amex").val();
-	installments = $("#installments").val();
-	prepaidServices = $("#prepaidServices").val();
-	diners = $("#diners").val();
-	premuim = $("#premuim").val();
-	manualEntry = $("#manualEntry").val();
+	sale = $("#sale").is(":checked") ? "true" : "false";
+	onlineRefund = $("#onlineRefund").is(":checked") ? "true" : "false";
+	offlineRefund = $("#offlineRefund").is(":checked") ? "true" : "false";
+	offlineSale = $("#offlineSale").is(":checked") ? "true" : "false";
+	onlineVoid = $("#onlineVoid").is(":checked") ? "true" : "false";
+	offlineVoid = $("#offlineVoid").is(":checked") ? "true" : "false";
+	preauth = $("#preauth").is(":checked") ? "true" : "false";
+	amex = $("#amex").is(":checked") ? "true" : "false";
+	installments = $("#installments").is(":checked") ? "true" : "false";
+	prepaidServices = $("#prepaidServices").is(":checked") ? "true" : "false";
+	diners = $("#diners").is(":checked") ? "true" : "false";
+	premuim = $("#premuim").is(":checked") ? "true" : "false";
+	manualEntry = $("#manualEntry").is(":checked") ? "true" : "false";
 	tender = $("#tender").val();
 
 	var terminal = {
@@ -177,7 +177,6 @@ function processAddTerminalResponse(response) {
 	formMessage.text(message);
 
 	if (code == 200||code == 0) {
-		
 		window.location.replace("Terminals.jsp");
 	} else {
 		formMessage.css("color", "red");
@@ -196,19 +195,19 @@ function updateTerminal() {
 	status = $("#status").val();
 	model = $("#model").val();
 	condition = $("#condition").val();
-	sale = $("#sale").val();
-	onlineRefund = $("#onlineRefund").val();
-	offlineRefund = $("#offlineRefund").val();
-	offlineSale = $("#offlineSale").val();
-	onlineVoid = $("#onlineVoid").val();
-	offlineVoid = $("#offlineVoid").val();
-	preauth = $("#preauth").val();
-	amex = $("#amex").val();
-	installments = $("#installments").val();
-	prepaidServices = $("#prepaidServices").val();
-	diners = $("#diners").val();
-	premuim = $("#premuim").val();
-	manualEntry = $("#manualEntry").val();
+	sale = $("#sale").is(":checked") ? "true" : "false";
+	onlineRefund = $("#onlineRefund").is(":checked") ? "true" : "false";
+	offlineRefund = $("#offlineRefund").is(":checked") ? "true" : "false";
+	offlineSale = $("#offlineSale").is(":checked") ? "true" : "false";
+	onlineVoid = $("#onlineVoid").is(":checked") ? "true" : "false";
+	offlineVoid = $("#offlineVoid").is(":checked") ? "true" : "false";
+	preauth = $("#preauth").is(":checked") ? "true" : "false";
+	amex = $("#amex").is(":checked") ? "true" : "false";
+	installments = $("#installments").is(":checked") ? "true" : "false";
+	prepaidServices = $("#prepaidServices").is(":checked") ? "true" : "false";
+	diners = $("#diners").is(":checked") ? "true" : "false";
+	premuim = $("#premuim").is(":checked") ? "true" : "false";
+	manualEntry = $("#manualEntry").is(":checked") ? "true" : "false";
 	tender = $("#tender").val();
 
 	var terminal = {

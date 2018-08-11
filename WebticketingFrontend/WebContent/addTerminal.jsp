@@ -11,11 +11,7 @@
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Add Terminal</title>
-
 </head>
-
-
-
 <body>
 	<script>
 		$(function() {
@@ -119,59 +115,59 @@
 										<table class="table responsive ">
 											<tr>
 												<td clas="col-sm-4"><input type="checkbox" id="sale"
-													value="true" /> <label>Sale</label></td>
+													 /> <label>Sale</label></td>
 												<td clas="col-sm-4"><input type="checkbox"
-													id="onlineRefund" value="true" /> <label>online
+													id="onlineRefund"  /> <label>online
 														Refund</label></td>
 											</tr>
 
 											<tr>
 												<td clas="col-sm-4"><input type="checkbox"
-													id="offlineRefund" value="true" /> <label> offline
+													id="offlineRefund"  /> <label> offline
 														Refund </label></td>
 
 
 												<td clas="col-sm-4"><input type="checkbox"
-													name="Feature" id="offlineSale" value="true" /> <label>
+													name="Feature" id="offlineSale"  /> <label>
 														offline Sale </label></td>
 											</tr>
 											<tr>
 												<td clas="col-sm-4"><input type="checkbox"
-													name="Feature" id="onlineVoid" value="true" /><label>
+													name="Feature" id="onlineVoid"  /><label>
 														OnLine Void </label></td>
 												<td clas="col-sm-4"><input type="checkbox"
-													name="Feature" id="offlineVoid" value="true" /> <label>
+													name="Feature" id="offlineVoid"  /> <label>
 														OffLine Void </label></td>
 											</tr>
 											<tr>
 												<td clas="col-sm-4"><input type="checkbox"
-													name="Feature" id="preauth" value="true" /> <label>
+													name="Feature" id="preauth"  /> <label>
 														Preauth </label></td>
 												<td clas="col-sm-4"><input type="checkbox"
-													name="Feature" id="amex" value="true" /><label>
+													name="Feature" id="amex"  /><label>
 														Amex </label></td>
 											</tr>
 											<tr>
 												<td clas="col-sm-4"><input type="checkbox"
-													name="Feature" id="installments" value="true" /> <label>
+													name="Feature" id="installments"  /> <label>
 														Instatiment </label></td>
 
 												<td clas="col-sm-4"><input type="checkbox"
-													name="Feature" id="prepaidServices" value="true" /> <label>
+													name="Feature" id="prepaidServices"  /> <label>
 														Prepaid Services </label></td>
 											</tr>
 											<tr>
 												<td clas="col-sm-4"><input type="checkbox"
-													name="Feature" id="diners" value="true" /> <label>
+													name="Feature" id="diners"  /> <label>
 														Diners </label></td>
 												<td clas="col-sm-4"><input type="checkbox"
-													name="Feature" id="premuim" value="true" /> <label>
+													name="Feature" id="premuim"  /> <label>
 														Premuim </label></td>
 											</tr>
 											<tr>
 												<td clas="col-sm-4"><input type="checkbox"
 													name="Feature" id="manualEntry" clas="col-sm-1"
-													value="true" /> <label clas="col-sm-3"> Manual
+													 /> <label clas="col-sm-3"> Manual
 														Entry </label></td>
 											</tr>
 

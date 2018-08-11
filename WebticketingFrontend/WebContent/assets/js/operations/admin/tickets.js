@@ -86,6 +86,9 @@ function processComplaintsByTechnicainResponse(response) {
 
 	$('#allTicketsByTechnicianTable').DataTable();
 }
+//-------------------------------------------------------------------------------------
+//------------------------------- navigate to maintenance page 
+//-------------------------------------------------------------------------------------
 
 function goTomaintenancePage(complaintId) {
 	window.location

@@ -146,7 +146,7 @@
                                 </div>
                             </div><div class="form-group ">
                                 <div class="col-sm-offset-4 col-sm-8">      
-                                    <input type="submit" value="Submit" name="submit" class="btn btn-primary" />
+                                    <input type="button" value="Submit" id="submit" class="btn btn-primary" onclick="updateMerchant()"/>
                                     <input type="reset" value="Cancel" name="cancel" onclick="Formreset()"  class="btn btn-danger"/>
                                 </div> 
                             </div>

@@ -22,18 +22,38 @@ function processAdminAllStoresResponse(response) {
 		output += "<tr><td>" + response.results[i].storeId + "</td><td>"
 				+ response.results[i].storeName + "</td>" + "<td>"
 				+ response.results[i].store_address + "</td><td>"
-				+ response.results[i].storeDetails + "</td></tr>";
+				+ response.results[i].storeDetails + "</td><td>"
+				+ "<button type='button' class='btn btn-warning' onclick='navigateToEditStore("
+				+ response.results[i].storeId
+				+ ")'>Edit</button>"
+				+ "&nbsp;&nbsp;&nbsp;<button type='button' class='btn btn-danger'>Delete</button>"
+				+ "</td></tr>";;
 	}
 	output += "</tbody></body></div>";
 
 	storestable.html(output);
 	$('#storesTable').DataTable();
 }
+//---------------------------------------------------------------------------------------------------
+//----------------------------navigate to edit store
+//---------------------------------------------------------------------------------------------------
+function navigateToEditStore(storeId) {
+	var editStore = "addstore.jsp?storeId=" + storeId;
+	window.location.replace(editStore);
+}
 
-// ///////////////////////////////////////////////////////////////
-function getStoreById(id) {
+//---------------------------------------------------------------------------------------------------
+//----------------------------delete store
+//---------------------------------------------------------------------------------------------------
+function deleteStore(storeId) {
+	var deleteStore = "http://localhost:8082/v1/store/" + storeId;
+}
+// ---------------------------------------------------------------------------------------------------
+// ---------------------------- get store by id
+// ---------------------------------------------------------------------------------------------------
+function getStoreById(storeId) {
 	$.ajax({
-		url : 'http://localhost:8082/v1/store/' + id,
+		url : 'http://localhost:8082/v1/store/' + storeId,
 		type : 'GET',
 		contentType : "application/json; charset=utf-8",
 		data : {},
@@ -45,9 +65,98 @@ function getStoreById(id) {
 }
 function processGetStoreByIdResponse(response) {
 	console.log('store.getStoreById -> Response: ' + response);
+	$("#storeId").val(response.results.storeId);
+	$("#storeName").val(response.results.storeName);
+	$("#store_address").val(response.results.store_address);
+	$("#storeDetails").val(response.results.storeDetails);
+	$("#phone1").val(response.results.phone1);
+	$("#phone2").val(response.results.phone2);
+	$("#status").val(response.results.status);
 }
 
-/////////////////////////////////////////////////////
+//---------------------------------------------------------------------------------------------------
+//---------------------------- add/edit store
+//---------------------------------------------------------------------------------------------------
+function addStore() {
+	var data = new FormData();
+//	storeId=$("#storeId").val();
+	storeName=$("#storeName").val();
+	store_address=$("#store_address").val();
+	storeDetails=$("#storeDetails").val();
+	phone1=$("#phone1").val();
+	phone2=$("#phone2").val();
+	status=$("#status").val();
+	
+	var terminal = {
+//		"storeId":storeId,
+		"storeName":storeName,
+		"store_address":store_address,
+		"storeDetails":storeDetails,
+		"phone1":phone1,
+		"phone2":phone2,
+		"status":status
+	}
+	sendDataSaveStore(JSON.stringify(terminal), 'http://localhost:8082/v1/store/');
+
+}
+
+function sendDataSaveStore(data, url) {
+	console.log(data);
+	$.ajax({
+		url : url,
+		type : 'POST',
+		contentType : "application/json; charset=utf-8",
+		data : data,
+		dataType : 'json',
+		success : function(response) {
+			processSaveStoreResponse(response);
+		}
+	});
+}
+
+function processSaveStoreResponse(response) {
+	console.log(response);
+	var formMessage = $("#form-message");
+	var code = response.code;
+	var message = response.message;
+	var results = response.results;
+
+	// ----
+	formMessage.text(message);
+
+	if (code == 200||code == 0) {
+		window.location.replace("Store.jsp");
+	} else {
+		formMessage.css("color", "red");
+	}
+}
+
+
+function updateStore() {
+	var data = new FormData();
+	storeId=$("#storeId").val();
+	storeName=$("#storeName").val();
+	store_address=$("#store_address").val();
+	storeDetails=$("#storeDetails").val();
+	phone1=$("#phone1").val();
+	phone2=$("#phone2").val();
+	status=$("#status").val();
+	
+	var terminal = {
+		"storeId":storeId,
+		"storeName":storeName,
+		"store_address":store_address,
+		"storeDetails":storeDetails,
+		"phone1":phone1,
+		"phone2":phone2,
+		"status":status
+	}
+	sendDataSaveStore(JSON.stringify(terminal), 'http://localhost:8082/v1/store/update');
+}
+
+//---------------------------- get store drop down list
+//---------------------------------------------------------------------------------------------------
+
 function getStoresDropdown(){
 	$.ajax({
 		url : 'http://localhost:8082/v1/store/all',
