@@ -56,8 +56,10 @@ function processAllSimResponse(response) {
 				+ response.results[i].status + "</td><td>"
 				+ response.results[i].storeId + "</td><td>"
 				+ response.results[i].merchantId + "</td><td>"
-				+ response.results[i].terminalId + "</td><td>" +
-				+ "<button type='button' class='btn btn-warning' onclick='navigateToSimPage("+ response.results[i].simSerial+");'>Edit</button>"
+				+ response.results[i].terminalId + "</td><td>"
+				+ "<button type='button' class='btn btn-warning' onclick='navigateToSimPage("
+				+ response.results[i].simSerial
+				+ ")'>Edit</button>"
 				+ "&nbsp;&nbsp;&nbsp;<button type='button' class='btn btn-danger'>Delete</button>"
 				+ "</td></tr>";
 	}
