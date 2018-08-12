@@ -98,7 +98,7 @@
 								<div class="form-group ">
 									<label class="control-label col-sm-4">Currency</label>
 									<div class="col-sm-8">
-										<select name="currency">
+										<select id="currency">
 										 <option value="">select... </option>
                                          <option value="EGP">EGP</option>
                                          <option value="EUR">EUR</option>

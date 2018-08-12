@@ -1,7 +1,7 @@
 <%-- 
     Document   : TerminalUpdate
     Created on : May 25, 2018, 7:03:36 AM
-    Author     : Mohamed S. El-Shall
+    Author     : shimaa
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -92,12 +92,18 @@
 								<div class="form-group ">
 									<label class="control-label col-sm-4">Currency</label>
 									<div class="col-sm-8">
-										<select name="currency">
-											<option value="none"></option>
-											<option value="EUR">EUR</option>
-											<option value="ss">dsd</option>
-											<option value="pp">sd</option>
-											<option value="sss">sds</option>
+										<select id="currency">
+											<option value="">select...</option>
+										 <option value="EGP">EGP</option>
+                                         <option value="EUR">EUR</option>
+                                         <option value="USD">USD</option>
+                                         <option value="SAR">SAR</option>
+                                         <option value="AED">AED</option>
+                                         <option value="JPY">JPY</option>
+                                         <option value="HKD">HKD</option>
+                                         <option value="MOP">MOP</option>
+                                         <option value="CNY">CNY</option>
+                                         <option value="GBP">GBP</option>
 										</select>
 									</div>
 								</div>

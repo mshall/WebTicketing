@@ -181,7 +181,7 @@ function processStoresDDResponse(response) {
 	console.log('store.getStoresDropdown -> Response: ' + response);
 	storesList = $('#storesList');
 
-	output = "<select id=\"terminalClass\"><option value=\"none\"></option>";
+	output = "<select id=\"storeId\"><option value=\"none\"></option>";
 	for ( var i in response.results) {
 		output += "<option value="+response.results[i].storeId+">"+response.results[i].storeName+"</option>";
 	}

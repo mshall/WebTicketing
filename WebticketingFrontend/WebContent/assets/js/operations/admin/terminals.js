@@ -107,7 +107,7 @@ function processGetTerminalByResponse(response) {
 
 	$("#terminalId").val(response.results.terminalId);
 	$("#terminalSerialNumber").val(response.results.terminalSerialNumber);
-	$("#storesList").val(response.results.storeId);
+	$("#storeId").val(response.results.storeId);
 	$("#currency").val(response.results.currency);
 	$("#terminalClass").val(response.results.terminalClass);
 	$("#status").val(response.results.status);
@@ -135,7 +135,7 @@ function addTerminal() {
 	var data = new FormData();
 	terminalId = $("#terminalId").val();
 	terminalSerialNumber = $("#terminalSerialNumber").val();
-	storeId = $("#storesList").val();
+	storeId = $("#storeId").val();
 	currency = $("#currency").val();
 	terminalClass = $("#terminalClass").val();
 	status = $("#status").val();
@@ -207,7 +207,7 @@ function updateTerminal() {
 	var data = new FormData();
 	terminalId = $("#terminalId").val();
 	terminalSerialNumber = $("#terminalSerialNumber").val();
-	storeId = $("#storesList").val();
+	storeId = $("#storeId").val();
 	currency = $("#currency").val();
 	terminalClass = $("#terminalClass").val();
 	status = $("#status").val();

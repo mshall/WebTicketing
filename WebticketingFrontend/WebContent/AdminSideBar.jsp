@@ -44,7 +44,6 @@
 				<ul class="collapse list-unstyled" id="TerminalC">
 					<li><a href="Terminals.jsp">Terminals</a></li>
 					<li><a href="Deployment.jsp">Deployment</a></li>
-					<li><a href="TerminalUpdate.jsp">Update Deployment </a></li>
 
 				</ul></li>
 			<li><a href="#SIM" data-toggle="collapse" aria-expanded="false">
