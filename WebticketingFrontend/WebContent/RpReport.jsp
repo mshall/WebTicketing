@@ -4,12 +4,6 @@
     Author     : Mohamed S. El-Shall
 --%>
 
-<%@page import="org.apache.commons.beanutils.RowSetDynaClass"%>
-<%@page import="java.sql.ResultSet"%>
-<%@page import="java.sql.Statement"%>
-<%@page import="java.sql.Connection"%>
-<%@taglib uri="http://displaytag.sf.net" prefix="display"%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -31,7 +25,7 @@
 <script src="BootStrap/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="BootStrap/js/npm.js" type="text/javascript"></script>
 <script src="BootStrap/js/bootstrap.js" type="text/javascript"></script>
-<link href="MyCss.css" rel="stylesheet" type="text/css" />
+<link href="BootStrap/MyCss.css" rel="stylesheet" type="text/css" />
 <link href="Report.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -46,36 +40,50 @@
 
 
 
-			<%
-				//connect c = new connect();
-				//Connection con = c.getConn();
-				//Statement s = con.createStatement();
-				//ResultSet rs = s.executeQuery("SELECT * from terminal");
-				// RowSetDynaClass resultSet = new RowSetDynaClass(rs, false);
-				//            s.close();
-				//            con.close();
-				//request.setAttribute("results", resultSet);
-			%>
-
-			<display:table name="requestScope.results.rows" export="true">
 
 
-				<display:setProperty name="export.excel.filename"
-					value="ActorDetails.xls" />
-				<display:setProperty name="export.pdf.filename"
-					value="ActorDetails.pdf" />
-				<display:setProperty name="export.pdf" value="true" />
-			</display:table>
+			<div class="panel-group" id="accordion">
+
+				<div class="panel panel-primary" id="panel1">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion"
+								href="#dAllRollpapersForVendors"> All Rollpapers Logs For
+								Vendors </a>
+						</h4>
+					</div>
+				</div>
+				<div class="panel-body">
+					<div class="collapse" id="dAllRollpapersForVendors"
+						style="align-content: center" data-parent="#accordion"></div>
+				</div>
+
+			</div>
+			<!-- ------------------ All roll papers for merchants ------------------------ -->
+			<div class="panel-group" id="accordion">
+
+				<div class="panel panel-primary" id="panel1">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion"
+								href="#dAllRollpapersForMerchants"> All Rollpapers Logs For
+								Merchants </a>
+						</h4>
+					</div>
+				</div>
+				<div class="panel-body">
+					<div class="collapse" id="dAllRollpapersForMerchants"
+						style="align-content: center" data-parent="#accordion"></div>
+				</div>
+
+			</div>
 		</div>
-	</div>
-
-
-
-
-
-
-
-
-
+		<script src="assets/js/operations/admin/reports/rollpaper-reports.js"></script>
+		<script>
+			$(document).ready(function() {
+				getAllRollpapersForVendors();
+				getAllRollpapersForMerchants();
+			});
+		</script>
 </body>
 </html>
