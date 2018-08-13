@@ -15,15 +15,23 @@ function processGetAllComplaintsResponse(response) {
 	console.log(response);
 	var ticketstable = $('#allTickets');
 
-	var output = "<div > <table id=\"allTicketsTable\" class=\"table responsive\" border=\"1\"> <thead> <tr><th> Ticket-id </th>"
+	var output = "<div > <table id=\"allTicketsTable\" class=\"table responsive\" border=\"1\">" +
+			" <thead> <tr><th> Ticket-id </th>"
 			+ "<th> Ticket-Date</th>"
 			+ "<th> Ticket-Details</th> "
 			+ "<th></th></tr></thead>";
+	
 	for ( var i in response.results) {
 		output += "<tr><td>" + response.results[i].complaintId + "</td><td>"
 				+ response.results[i].complaintOpeningTime + "</td><td>"
 				+ response.results[i].comments + "</td><td>"
-				+ response.results[i].phoneNumber + "</td></tr>";
+				+ "<button type='button' class='btn btn-warning' onclick='goTomaintenancePage("
+				+ response.results[i].complaintId
+				+ ")'>Edit</button>"
+				+ "&nbsp;<button type='button' class='btn btn-danger' onclick='deleteTicketById("
+				+ response.results[i].complaintId
+				+ ")'>Delete</button>"
+				+ "</td></tr>";
 	}
 	output += "</tbody></body></div>";
 
@@ -32,8 +40,10 @@ function processGetAllComplaintsResponse(response) {
 	$('#allTicketsTable').DataTable();
 }
 
-// ///////////////////////// ticket history
-// ///////////////////////////////////////
+//---------------------------------------------------------------------------------------------------
+//----------------------------getComplaintsByTechnician
+//---------------------------------------------------------------------------------------------------
+
 function getComplaintsByTechnician() {
 	var userId = $.session.get('userId');
 	$.ajax({
@@ -93,6 +103,23 @@ function processComplaintsByTechnicainResponse(response) {
 function goTomaintenancePage(complaintId) {
 	window.location
 			.replace("TicketsMaintenance.jsp?complaintId=" + complaintId);
+}
+//---------------------------------------------------------------------------------------------------
+//----------------------------delete ticket by id
+//---------------------------------------------------------------------------------------------------
+function deleteTicketById(objectId){
+		var deleteObject = "http://localhost:8082/v1/complaint/" + objectId;
+		$.ajax({
+			url : deleteObject,
+			type : 'DELETE',
+			contentType : "application/json; charset=utf-8",
+			data : {},
+			dataType : 'json',
+			success : function(response) {
+				processUpdateComplaintResponse(response);
+			}
+		});	
+	
 }
 // -------------------------------------------------------------------------------------
 // ------------------------------- maintenance ticket

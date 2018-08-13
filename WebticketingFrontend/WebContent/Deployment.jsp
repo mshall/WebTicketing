@@ -9,43 +9,50 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
-    <head>
-    <title>Deployment</title>
+<head>
+<title>Deployment</title>
 </head>
 <body>
-    <%@include file="Header.jsp" %>
+	<%@include file="Header.jsp"%>
 
-    <div class="wrapper ">    
-        <%@include  file="AdminSideBar.jsp" %>
+	<div class="wrapper ">
+		<%@include file="AdminSideBar.jsp"%>
 
-        <%-- page Contenct --%>
+		<%-- page Contenct --%>
 
-        <div id="content">
-            <div class="panel-group" id="accordion" >
-                <div class="panel panel-primary" id="panel1" >
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            Deployment Terminals
-                        </h4>
-                    </div>
+		<div id="content">
+			<div class="panel-group" id="accordion">
+				<div class="panel panel-primary" id="panel1">
+					<div class="panel-heading">
+						<h4 class="panel-title">Deployment Terminals</h4>
+					</div>
 
-                    <div class="panel-body" >
-                        <br> <br> <br> 
-                        <div id="allTerminals"></div>
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+					<div>
+						</a> <a href="DeployToMerchant.jsp">
+							<button class="btn btn-default">
+								<span class="glyphicon glyphicon-plus"></span> Deploy
+							</button>
+						</a>
+					</div>
 
-<script src="assets/js/operations/admin/terminals.js"></script>
-		<script>
-			$(document).ready(function() {
-				getTerminalsByStatus('Deployed');
-			});
-		</script>
+					<div class="panel-body">
+						<br> <br> <br>
+						<div id="allTerminals"></div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+
+	<script src="assets/js/operations/admin/deployment.js"></script>
+	<script>
+		$(document).ready(function() {
+			getTerminalsByStatus('Deployed');
+		});
+	</script>
 
 </body>
 </html>

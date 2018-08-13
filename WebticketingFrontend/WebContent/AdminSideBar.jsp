@@ -67,7 +67,7 @@
 					<li><a href="InboxTickets.jsp">Inbox Tickets</a></li>
 					<li><a href="AssignTicket.jsp">Assign Ticket</a></li>
 					<li><a href="TicketsHistory.jsp">Tickets History</a></li>
-					<li><a href="TicketsMaintenance.jsp">Tickets Maintenance</a></li>
+					<!-- <li><a href="TicketsMaintenance.jsp">Tickets Maintenance</a></li> -->
 				</ul></li>
 			<li><a href="#Withdraw" data-toggle="collapse"
 				aria-expanded="false"> <i class="glyphicon glyphicon-ban-circle"></i>

@@ -170,7 +170,7 @@ function processSimDDResponse(response,divId,SimNo) {
 	console.log('processSimDDResponse -> Response: ' + response);
 	html_ = $('#'+divId+"");
 
-	output = "<select id=\""+SimNo+"\"><option value=\"none\"></option>";
+	output = "<select id=\""+SimNo+"\"><option value=\"\">Select...</option>";
 	for ( var i in response.results) {
 		output += "<option value="+response.results[i].simSerial+">"+response.results[i].simSerial+"</option>";
 	}

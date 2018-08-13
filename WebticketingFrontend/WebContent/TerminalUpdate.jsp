@@ -7,27 +7,25 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
-        <title> Deployed Terminals </title>
+<head>
+<title>Deployed Terminals</title>
 </head>
 <body>
-    <%@include file="Header.jsp" %>
+	<%@include file="Header.jsp"%>
 
-    <div class="wrapper ">    
-        <%@include  file="AdminSideBar.jsp" %>
+	<div class="wrapper ">
+		<%@include file="AdminSideBar.jsp"%>
 
-        <%-- page Contenct --%>
+		<%-- page Contenct --%>
 
-        <div id="content">
-            <div class="panel-group" id="accordion">
-                <div class="panel panel-primary" id="panel1">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            Update Terminals
-                        </h4>
-                    </div>
+		<div id="content">
+			<div class="panel-group" id="accordion">
+				<div class="panel panel-primary" id="panel1">
+					<div class="panel-heading">
+						<h4 class="panel-title">Update Terminals</h4>
+					</div>
 
-                    					<div id="collapseTwo" class="panel-collapse collapse in">
+					<div id="collapseTwo" class="panel-collapse collapse in">
 						<div class="panel-body   ">
 							<form action="TerminalControll" method="POST"
 								class="form-horizontal">
@@ -42,11 +40,9 @@
 
 								<div class="form-group ">
 									<label class="control-label col-sm-4">Store</label>
-									<div class="col-sm-8" id="storesList">
-										
-									</div>
+									<div class="col-sm-8" id="storesList"></div>
 								</div>
-								
+
 								<div class="form-group ">
 									<label class="control-label col-sm-4">Tender</label>
 									<div class="col-sm-8">
@@ -94,16 +90,16 @@
 									<div class="col-sm-8">
 										<select id="currency">
 											<option value="">select...</option>
-										 <option value="EGP">EGP</option>
-                                         <option value="EUR">EUR</option>
-                                         <option value="USD">USD</option>
-                                         <option value="SAR">SAR</option>
-                                         <option value="AED">AED</option>
-                                         <option value="JPY">JPY</option>
-                                         <option value="HKD">HKD</option>
-                                         <option value="MOP">MOP</option>
-                                         <option value="CNY">CNY</option>
-                                         <option value="GBP">GBP</option>
+											<option value="EGP">EGP</option>
+											<option value="EUR">EUR</option>
+											<option value="USD">USD</option>
+											<option value="SAR">SAR</option>
+											<option value="AED">AED</option>
+											<option value="JPY">JPY</option>
+											<option value="HKD">HKD</option>
+											<option value="MOP">MOP</option>
+											<option value="CNY">CNY</option>
+											<option value="GBP">GBP</option>
 										</select>
 									</div>
 								</div>
@@ -114,78 +110,66 @@
 									<div class="col-sm-8 col-sm-offset-2">
 										<table class="table responsive ">
 											<tr>
-												<td clas="col-sm-4"><input type="checkbox" id="sale"
-													 /> <label>Sale</label></td>
+												<td clas="col-sm-4"><input type="checkbox" id="sale" />
+													<label>Sale</label></td>
 												<td clas="col-sm-4"><input type="checkbox"
-													id="onlineRefund"  /> <label>online
-														Refund</label></td>
+													id="onlineRefund" /> <label>online Refund</label></td>
 											</tr>
 
 											<tr>
 												<td clas="col-sm-4"><input type="checkbox"
-													id="offlineRefund"  /> <label> offline
-														Refund </label></td>
+													id="offlineRefund" /> <label> offline Refund </label></td>
 
 
 												<td clas="col-sm-4"><input type="checkbox"
-													name="Feature" id="offlineSale"  /> <label>
+													name="Feature" id="offlineSale" /> <label>
 														offline Sale </label></td>
 											</tr>
 											<tr>
 												<td clas="col-sm-4"><input type="checkbox"
-													name="Feature" id="onlineVoid"  /><label>
-														OnLine Void </label></td>
+													name="Feature" id="onlineVoid" /><label> OnLine
+														Void </label></td>
 												<td clas="col-sm-4"><input type="checkbox"
-													name="Feature" id="offlineVoid"  /> <label>
+													name="Feature" id="offlineVoid" /> <label>
 														OffLine Void </label></td>
 											</tr>
 											<tr>
 												<td clas="col-sm-4"><input type="checkbox"
-													name="Feature" id="preauth"  /> <label>
-														Preauth </label></td>
+													name="Feature" id="preauth" /> <label> Preauth </label></td>
 												<td clas="col-sm-4"><input type="checkbox"
-													name="Feature" id="amex"  /><label>
-														Amex </label></td>
+													name="Feature" id="amex" /><label> Amex </label></td>
 											</tr>
 											<tr>
 												<td clas="col-sm-4"><input type="checkbox"
-													name="Feature" id="installments"  /> <label>
+													name="Feature" id="installments" /> <label>
 														Instatiment </label></td>
 
 												<td clas="col-sm-4"><input type="checkbox"
-													name="Feature" id="prepaidServices"  /> <label>
+													name="Feature" id="prepaidServices" /> <label>
 														Prepaid Services </label></td>
 											</tr>
 											<tr>
 												<td clas="col-sm-4"><input type="checkbox"
-													name="Feature" id="diners"  /> <label>
-														Diners </label></td>
+													name="Feature" id="diners" /> <label> Diners </label></td>
 												<td clas="col-sm-4"><input type="checkbox"
-													name="Feature" id="premuim"  /> <label>
-														Premuim </label></td>
+													name="Feature" id="premuim" /> <label> Premuim </label></td>
 											</tr>
 											<tr>
 												<td clas="col-sm-4"><input type="checkbox"
-													name="Feature" id="manualEntry" clas="col-sm-1"
-													 /> <label clas="col-sm-3"> Manual
-														Entry </label></td>
+													name="Feature" id="manualEntry" clas="col-sm-1" />
+													<label clas="col-sm-3"> Manual Entry </label></td>
 											</tr>
 
 										</table>
-
-
 									</div>
-
-
-
 								</div>
 
 
 								<div class="form-group ">
 									<div class="col-sm-offset-4 col-sm-8">
 										<input type="button" value="update" id="submit"
-											class="btn btn-primary" onclick="updateTerminal()" /> 
-										<input type="reset" value="cancel" name="cancel"
+											class="btn btn-primary" onclick="updateTerminal()" /> <input
+											type="reset" value="cancel" name="cancel"
 											onclick="Formreset()" class="btn btn-danger" />
 									</div>
 								</div>
@@ -195,25 +179,25 @@
 						</div>
 
 					</div>
-                </div>
-            </div>
-        </div>
-    </div>
-        	<script src="assets/js/operations/admin/terminals.js"></script>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="assets/js/operations/admin/terminals.js"></script>
 	<script src="assets/js/operations/admin/stores.js"></script>
-	
-            <script>
-        $(document).ready(function () {
-        	getStoresDropdown();
-        	getTerminalById();
-        	
-        });
 
-        function Formreset() {
+	<script>
+		$(document).ready(function() {
+			getStoresDropdown();
+			getTerminalById();
+
+		});
+
+		function Formreset() {
 			/* document.getElementById("myForm").reset(); */
 			window.location.replace("Terminals.jsp");
 		}
-    </script>
+	</script>
 
 </body>
 </html>

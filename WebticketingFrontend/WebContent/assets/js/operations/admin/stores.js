@@ -17,7 +17,7 @@ function processAdminAllStoresResponse(response) {
 	var output = "<div ><table id='storesTable' class=\"table responsive\" border=\"1\"> "
 			+ "<thead> <tr><th>Store-id</th>"
 			+ "<th>Store Name</th>"
-			+ "<th>Address</th>" + "<th>Details</th></tr></thead>";
+			+ "<th>Address</th>" + "<th>Details</th><th></th></tr></thead>";
 	for ( var i in response.results) {
 		output += "<tr><td>" + response.results[i].storeId + "</td><td>"
 				+ response.results[i].storeName + "</td>" + "<td>"
@@ -181,7 +181,7 @@ function processStoresDDResponse(response) {
 	console.log('store.getStoresDropdown -> Response: ' + response);
 	storesList = $('#storesList');
 
-	output = "<select id=\"storeId\"><option value=\"none\"></option>";
+	output = "<select id=\"storeId\"><option value=\"\">Select...</option>";
 	for ( var i in response.results) {
 		output += "<option value="+response.results[i].storeId+">"+response.results[i].storeName+"</option>";
 	}

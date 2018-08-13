@@ -31,7 +31,8 @@ function processAllTerminalsResponse(response) {
 		output += "<tr><td>" + response.results[i].terminalId + "</td><td>"
 				+ response.results[i].terminalSerialNumber + "</td><td>"
 				+ response.results[i].model + "</td><td>"
-				+ response.results[i].status + "</td><td> Tender </td><td>"
+				+ response.results[i].status + "</td><td>" 
+				+response.results[i].tender+"</td><td>"
 				+ "<button type='button' class='btn btn-warning' onclick='goToUpdateTerminalPage("
 				+ response.results[i].terminalId
 				+ ")'>Edit</button>"
