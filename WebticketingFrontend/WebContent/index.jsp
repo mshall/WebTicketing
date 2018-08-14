@@ -26,7 +26,7 @@
                             <div class="form-top">
                                 <div class="form-top-left">
                                     <img src="Image/Spectralogo.jpg " width="400">
-                                    <h2>Welcome to Spectra Technologies Company </h2>
+                                    <h2><fmt:message key="welcome" /></h2>
                                 </div>
                                 <div class="form-top-right">
                                     <i class="fa fa-home"></i>

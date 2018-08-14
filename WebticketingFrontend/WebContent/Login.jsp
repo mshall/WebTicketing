@@ -17,7 +17,7 @@
 	type="text/css" />
 <link href="assets/font-awesome/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css" />
-<title>Login</title>
+<title><fmt:message key="login" /></title>
 
 
 </head>
@@ -33,7 +33,7 @@
 						<div class="form-top">
 							<div class="form-top-left">
 								<img src="Image/Spectralogo.jpg " width="400">
-								<h3>Login to our site</h3>
+								<h3><fmt:message key="login_to_our_site" /></h3>
 
 							</div>
 							<div class="form-top-right">
@@ -47,21 +47,21 @@
 						<div class="form-bottom">
 							<form action="Login" Method="POST" class="login-form">
 								<div class="form-label-group">
-									<label class="sr-only">Username</label> <input type="text"
+									<label class="sr-only"><fmt:message key="username" /></label> <input type="text"
 										required="true" id="uname" name="uname"
 										placeholder="Username..." class="form-username form-control"
 										id="form-username">
 								</div>
 								<br>
 								<div class="form-label-group">
-									<label class="sr-only">Password</label> <input type="password"
+									<label class="sr-only"><fmt:message key="password" /></label> <input type="password"
 										required="true" id="password" name="psw"
 										placeholder="Password..." class="form-password form-control"
 										id="form-password">
 								</div>
 								<br>
 								<button type="button" onclick="performLogin()"
-									class="btn btn-lg btn-primary btn-block">Sign in!</button>
+									class="btn btn-lg btn-primary btn-block"><fmt:message key="signin" /></button>
 
 
 							</form>

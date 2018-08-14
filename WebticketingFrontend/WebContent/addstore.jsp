@@ -12,7 +12,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Store</title>
+<title><fmt:message key="store" /></title>
 </head>
 <body>
 
@@ -24,7 +24,7 @@
 
 				<div class="panel panel-primary" id="panel1">
 					<div class="panel-heading">
-						<h4 class="panel-title">Store</h4>
+						<h4 class="panel-title"><fmt:message key="store" /></h4>
 					</div>
 
 				</div>
@@ -32,7 +32,7 @@
 				<div class="panel-body   ">
 					<form action="StoreControll" method="POST" class="form-horizontal">
 						<div class="form-group ">
-							<label class="control-label col-sm-4"> Store ID</label>
+							<label class="control-label col-sm-4"><fmt:message key="store_id" /> </label>
 							<div class="col-sm-8">
 								<input type="text" class="form-control" id="storeId"
 									placeholder="Store ID" readonly="readonly">
@@ -40,14 +40,14 @@
 						</div>
 
 						<div class="form-group ">
-							<label class="control-label col-sm-4"> Store Name</label>
+							<label class="control-label col-sm-4"><fmt:message key="store_name" /></label>
 							<div class="col-sm-8">
 								<input type="text" class="form-control" id="storeName"
 									placeholder="Store Name">
 							</div>
 						</div>
 						<div class="form-group ">
-							<label class="control-label col-sm-4">Store Address</label>
+							<label class="control-label col-sm-4"><fmt:message key="store_address" /></label>
 							<div class="col-sm-8">
 								<input type="text" class="form-control" id="store_address"
 									placeholder="Store Address">
@@ -56,7 +56,7 @@
 						
 
 						<div class="form-group ">
-							<label class="control-label col-sm-4"> Status</label>
+							<label class="control-label col-sm-4"><fmt:message key="status" /></label>
 							<div class="col-sm-8">
 								<select id="status" style="width: 50%">
 									<option value="active">Active</option>
@@ -67,9 +67,10 @@
 						</div>
 						<div class="form-group">
 							<div class="col-sm-offset-4 col-sm-8">
-								<input type="button" value="Submit" name="submit"
-									class="btn btn-primary" onclick="save()" /> <input type="reset"
-									value="Cancel" name="cancel" onclick="Formreset()"
+								<input type="button" value="<fmt:message key="submit" />" name="submit"
+									class="btn btn-primary" onclick="save()" />
+							 <input type="reset"
+									value="<fmt:message key="cancel" />" name="cancel" onclick="Formreset()"
 									class="btn btn-danger" />
 							</div>
 						</div>

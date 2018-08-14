@@ -23,77 +23,77 @@
 		</div>
 		<ul class="list-unstyled components">
 			<li class="active"><a href="AdminHome.jsp"> <i
-					class="glyphicon glyphicon-home"></i> Home
+					class="glyphicon glyphicon-home"></i><fmt:message key="home" /> 
 			</a></li>
 
 			<li><a href="#homeSubmenu" data-toggle="collapse"
 				aria-expanded="false" aria-controls="homeSubmenu"> <i
-					class="glyphicon glyphicon-briefcase"></i> Accounts
+					class="glyphicon glyphicon-briefcase"></i><fmt:message key="accounts" /> 
 			</a>
 				<ul class="collapse list-unstyled" id="homeSubmenu">
-					<li><a href="Technical.jsp"> Technical</a></li>
-					<li><a href="Merchant.jsp"> Merchant</a></li>
-					<li><a href="Store.jsp"> Store</a></li>
-					<li><a href="ChangePassword.jsp">Change Password</a></li>
+					<li><a href="Technical.jsp"> <fmt:message key="technical" /></a></li>
+					<li><a href="Merchant.jsp"><fmt:message key="merchant" /> </a></li>
+					<li><a href="Store.jsp"><fmt:message key="store" /> </a></li>
+					<li><a href="ChangePassword.jsp"><fmt:message key="change_password" /></a></li>
 				</ul></li>
+				
 			<li><a href="#Terminal" data-toggle="collapse"
 				data-target="#TerminalC" aria-expanded="false"
 				aria-controls="TerminalC"> <i class="glyphicon glyphicon-phone"></i>
-					Terminal
+					<fmt:message key="terminals" />
 			</a>
 				<ul class="collapse list-unstyled" id="TerminalC">
-					<li><a href="Terminals.jsp">Terminals</a></li>
-					<li><a href="Deployment.jsp">Deployment</a></li>
+					<li><a href="Terminals.jsp"><fmt:message key="terminals" /></a></li>
+					<li><a href="Deployment.jsp"><fmt:message key="deployment" /></a></li>
 
 				</ul></li>
 			<li><a href="#SIM" data-toggle="collapse" aria-expanded="false">
-					<i class="glyphicon glyphicon-duplicate"></i> SIM
+					<i class="glyphicon glyphicon-duplicate"></i> <fmt:message key="sim" />
 			</a>
 				<ul class="collapse list-unstyled" id="SIM">
-					<li><a href="SIM.jsp"> SIM </a></li>
+					<li><a href="SIM.jsp"> <fmt:message key="sim" /> </a></li>
 				</ul></li>
 			<li><a href="#RollPaper" data-toggle="collapse"
 				aria-expanded="false"> <i class="glyphicon glyphicon-duplicate"></i>
-					Roll Paper
+					<fmt:message key="roll_paper" />
 			</a>
 				<ul class="collapse list-unstyled" id="RollPaper">
-					<li><a href="MerchantRP.jsp">Store to Merchant</a></li>
+					<li><a href="MerchantRP.jsp"><fmt:message key="store_to_merchant" /></a></li>
 				</ul></li>
 			<li><a href="#Tickets" data-toggle="collapse"
 				aria-expanded="false"> <i class="glyphicon glyphicon-duplicate"></i>
-					Tickets
+					<fmt:message key="tickets" />
 			</a>
 				<ul class="collapse list-unstyled" id="Tickets">
-					<li><a href="InboxTickets.jsp">Inbox Tickets</a></li>
-					<li><a href="AssignTicket.jsp">Assign Ticket</a></li>
-					<li><a href="TicketsHistory.jsp">Tickets History</a></li>
-					<!-- <li><a href="TicketsMaintenance.jsp">Tickets Maintenance</a></li> -->
+					<li><a href="InboxTickets.jsp"><fmt:message key="inbox_tickets" /></a></li>
+					<li><a href="AssignTicket.jsp"><fmt:message key="assign_ticket" /></a></li>
+					<li><a href="TicketsHistory.jsp"><fmt:message key="tickets_history" /></a></li>
 				</ul></li>
 			<li><a href="#Withdraw" data-toggle="collapse"
 				aria-expanded="false"> <i class="glyphicon glyphicon-ban-circle"></i>
-					Withdraw
+					<fmt:message key="withdraw" />
 			</a>
 				<ul class="collapse list-unstyled" id="Withdraw">
 
-					<li><a href="WithDraw.jsp">Add New Withdraw</a></li>
-					<li><a href="WithDrawLogs.jsp">WithDraw Logs </a></li>
+					<li><a href="WithDraw.jsp"><fmt:message key="add_new_withdraw" /></a></li>
+					<li><a href="WithDrawLogs.jsp"><fmt:message key="withDraw_logs" /> </a></li>
 				</ul></li>
 			<li><a href="#Reports" data-toggle="collapse"
 				aria-expanded="false"> <i class="glyphicon glyphicon-envelope"></i>
-					Reports
+					<fmt:message key="reports" />
 			</a>
 				<ul class="collapse list-unstyled" id="Reports">
-					<li><a href="TerminalReport.jsp">POS Report</a></li>
-					<li><a href="SimReport.jsp">SIM Report</a></li>
-					<li><a href="MaintenanceReport.jsp">Maintenance Report</a></li>
-					<li><a href="DeploymentReport.jsp">Deployment Report</a></li>
-					<li><a href="TicketReport.jsp">Tickets Report</a></li>
-					<li><a href="WdReport.jsp">Withdrawals Report</a></li>
-					<li><a href="RpReport.jsp">Roll Paper Report</a></li>
+					<li><a href="TerminalReport.jsp"><fmt:message key="pos_report" /></a></li>
+					<li><a href="SimReport.jsp"><fmt:message key="sim_report" /></a></li>
+					<li><a href="MaintenanceReport.jsp"><fmt:message key="maintenance_report" /></a></li>
+					<li><a href="DeploymentReport.jsp"><fmt:message key="deployment_report" /></a></li>
+					<li><a href="TicketReport.jsp"><fmt:message key="tickets_report" /></a></li>
+					<li><a href="WdReport.jsp"><fmt:message key="withdrawals_report" /></a></li>
+					<li><a href="RpReport.jsp"><fmt:message key="rollpaper_report" /></a></li>
 				</ul></li>
 
 			<li><a onclick="logout()" href="#"> <i
-					class="glyphicon glyphicon-log-out"></i> Log Out
+					class="glyphicon glyphicon-log-out"></i><fmt:message key="logout" />
 			</a></li>
 		</ul>
 

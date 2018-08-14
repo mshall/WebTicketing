@@ -13,23 +13,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script src="BootStrap/js/glm-ajax.js" type="text/javascript"></script>
-<a href="BootStrap/fonts/glyphicons-halflings-regular.svg"></a>
-<link href="BootStrap/css/bootstrap-theme.css" rel="stylesheet"
-	type="text/css" />
-<link href="BootStrap/css/bootstrap.min.css" rel="stylesheet"
-	type="text/css" />
-<link href="BootStrap/css/bootstrap.css" rel="stylesheet"
-	type="text/css" />
-<link href="BootStrap/css/bootstrap-theme.min.css" rel="stylesheet"
-	type="text/css" />
-<link href="BootStrap/css/mstyle.css" rel="stylesheet" type="text/css" />
-<script src="BootStrap/jquery-1.12.0.min.js" type="text/javascript"></script>
-<script src="BootStrap/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="BootStrap/js/npm.js" type="text/javascript"></script>
-<script src="BootStrap/js/bootstrap.js" type="text/javascript"></script>
-
+<titl> <fmt:message key="assign_tickets" /> </title>
 </head>
 <body>
 	<%@include file="Header.jsp"%>
@@ -47,7 +31,7 @@
 			<div class="panel-group">
 				<div class="panel panel-primary" id="panel1">
 					<div class="panel-heading">
-						<h4 class="panel-title">Assign Ticket</h4>
+						<h4 class="panel-title"> <fmt:message key="assign_ticket" /></h4>
 					</div>
 				</div>
 				<div class="panel-body   ">
@@ -55,7 +39,7 @@
 						lass="form-horizontal" id="myForm">
 						<br> <br>
 						<div class="form-group">
-							<label class="control-label col-sm-4"> Ticket ID</label>
+							<label class="control-label col-sm-4"> <fmt:message key="ticket_id" /></label>
 							<div class="col-sm-8" id="dTickets">
 								<select name="sTickets" id="sTickets">
 
@@ -64,7 +48,7 @@
 						</div>
 						<br> <br>
 						<div class="form-group">
-							<label class="control-label col-sm-4"> Technician Name </label>
+							<label class="control-label col-sm-4"><fmt:message key="technician_name" /> </label>
 							<div class="col-sm-8" id="dTechnicians">
 								<select name="sTechnicians" id="sTechnicians">
 
@@ -74,8 +58,8 @@
 						<br> <br>
 						<div class="form-group">
 							<div class="col-sm-offset-4 col-sm-8">
-								<input type="button" value="Submit" name="submit"
-									class="btn btn-primary" onclick="assignTicket()"/> <input type="reset" value="Cancel"
+								<input type="button" value="<fmt:message key="submit" />" name="submit"
+									class="btn btn-primary" onclick="assignTicket()"/> <input type="reset" value="<fmt:message key="cancel" />"
 									name="cancel" onclick="Formreset()" class="btn btn-danger" />
 							</div>
 						</div>

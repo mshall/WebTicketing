@@ -48,7 +48,7 @@
                             <h4 class="panel-title">
                                 <a data-toggle="collapse" data-target="#collapseTwo" 
                                    href="#collapseTwo">
-                                    Tickets Information
+                                    <fmt:message key="tickets" />
                                 </a>
                             </h4>
 

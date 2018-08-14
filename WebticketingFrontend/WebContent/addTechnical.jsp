@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <title>add Technical</title> 
+    <title><fmt:message key="add_technical" /></title> 
 </head>
 <body>
     <script>
@@ -25,7 +25,7 @@
                 <div class="panel panel-primary" id="panel1">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            Add Technical 
+                           <fmt:message key="add_technical" />  
 
                         </h4>
                     </div>
@@ -35,33 +35,33 @@
                     <div class="panel-body   ">
                         <form  action="TechnicalControll" method="POST" class="form-horizontal" >
                             <div class="form-group">
-                                <label class="control-label col-sm-4" > Technical-ID</label>  
+                                <label class="control-label col-sm-4" ><fmt:message key="technical_id" /> </label>  
                                 <div class="col-sm-8"><input class="form-control" type="text" id="userId" readonly=""/></div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-sm-4" > Technical-Name </label>  
+                                <label class="control-label col-sm-4" ><fmt:message key="technical_name" />  </label>  
                                 <div class="col-sm-8"><input class="form-control" type="text" id="name" placeholder="Technical Name" required="true" /></div>
                             </div>
                              <div class="form-group">
-                                <label class="control-label col-sm-4" > Phone 1</label> <div class="col-sm-8"><input class="form-control" type="number" id="phone1" placeholder="Phone1"/> </div>        
+                                <label class="control-label col-sm-4" ><fmt:message key="phone1" /> </label> <div class="col-sm-8"><input class="form-control" type="number" id="phone1" placeholder="Phone1"/> </div>        
                             </div>   <div class="form-group">
-                                <label class="control-label col-sm-4" > Phone 2</label> <div class="col-sm-8"><input class="form-control" type="number" id="phone2" value="" placeholder="Phone2" /></div>  
+                                <label class="control-label col-sm-4" ><fmt:message key="phone2" /> </label> <div class="col-sm-8"><input class="form-control" type="number" id="phone2" value="" placeholder="Phone2" /></div>  
 
                             </div>    <div class="form-group">
-                                <label class="control-label col-sm-4" > E-mail</label> <div class="col-sm-8"><input class="form-control" type="email" id="email" placeholder="@example.com"/></div>        
+                                <label class="control-label col-sm-4" ><fmt:message key="email" /> </label> <div class="col-sm-8"><input class="form-control" type="email" id="email" placeholder="@example.com"/></div>        
                             </div> 
                             <div class="form-group">
-                                <label class="control-label col-sm-4" > City</label> <div class="col-sm-8"><input class="form-control" type="text" id="city" value="" placeholder="City" /></div>  
+                                <label class="control-label col-sm-4" ><fmt:message key="city" /> </label> <div class="col-sm-8"><input class="form-control" type="text" id="city" value="" placeholder="City" /></div>  
                             </div> <div class="form-group">
-                                <label class="control-label col-sm-4" > User-Name </label>  <div class="col-sm-8"> <input class="form-control" type="text" id="username"  placeholder="UserName"/></div>
+                                <label class="control-label col-sm-4" ><fmt:message key="user_name" />  </label>  <div class="col-sm-8"> <input class="form-control" type="text" id="username"  placeholder="UserName"/></div>
                             </div> <div class="form-group">
-                                <label class="control-label col-sm-4" > password </label>  <div class="col-sm-8"> <input class="form-control" type="password" id="password" placeholder="Password"/></div>
+                                <label class="control-label col-sm-4" ><fmt:message key="password" />  </label>  <div class="col-sm-8"> <input class="form-control" type="password" id="password" placeholder="Password"/></div>
                             </div> <div class="form-group">
-                                <label class="control-label col-sm-4" > Confirm-Password </label>  <div class="col-sm-8"> <input class="form-control" type="password"  id="password2" placeholder="Confirm Password"  onkeyup="checkPass(); return false;"/></div>
+                                <label class="control-label col-sm-4" ><fmt:message key="confirm_password" />  </label>  <div class="col-sm-8"> <input class="form-control" type="password"  id="password2" placeholder="Confirm Password"  onkeyup="checkPass(); return false;"/></div>
                             </div>
                             <span id="confirmMessage" class="confirmMessage"></span>
                             <div class="form-group">
-                                <label class="control-label col-sm-4" > Status</label>
+                                <label class="control-label col-sm-4" ><fmt:message key="status" /> </label>
                                 <div class="col-sm-8">
                                     <select id="status">
                                         <option value="active">Active</option>
@@ -71,8 +71,8 @@
                             </div>
                             <div  class="form-group"> 
                                 <div class="col-sm-offset-4 col-sm-8">      
-                                    <input type="button" value="Submit" id="submit" class="btn btn-primary" onclick="updateTechnician()"/>
-                                    <input type="button" value="Cancel" id="cancel" onclick="Formreset()"  class="btn btn-danger"/>
+                                    <input type="button" value="<fmt:message key="submit" />" id="submit" class="btn btn-primary" onclick="updateTechnician()"/>
+                                    <input type="button" value="<fmt:message key="cancel" />" id="cancel" onclick="Formreset()"  class="btn btn-danger"/>
                                 </div> 
                             </div>
 

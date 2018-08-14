@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Deployment</title>
+<title><fmt:message key="deployment" /></title>
 </head>
 <body>
 	<%@include file="Header.jsp"%>
@@ -24,14 +24,14 @@
 			<div class="panel-group" id="accordion">
 				<div class="panel panel-primary" id="panel1">
 					<div class="panel-heading">
-						<h4 class="panel-title">Deployment Terminals</h4>
+						<h4 class="panel-title"><fmt:message key="deployment" /> </h4>
 					</div>
 
 
 					<div>
 						</a> <a href="DeployToMerchant.jsp">
 							<button class="btn btn-default">
-								<span class="glyphicon glyphicon-plus"></span> Deploy
+								<span class="glyphicon glyphicon-plus"></span><fmt:message key="deploy" /> 
 							</button>
 						</a>
 					</div>

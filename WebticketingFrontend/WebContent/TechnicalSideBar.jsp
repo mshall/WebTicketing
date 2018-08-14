@@ -37,23 +37,23 @@
 
 		<ul class="list-unstyled components">
 			<li class="active"><a href="TechnicalHome.jsp"> <i
-					class="glyphicon glyphicon-home"></i> Home
+					class="glyphicon glyphicon-home"></i><fmt:message key="home" />
 			</a></li>
 
 
 			<li><a href="#Terminal" data-toggle="collapse"
 				aria-expanded="false"> <i class="glyphicon glyphicon-phone"></i>
-					Tickets
+					<fmt:message key="tickets" />
 			</a>
 				<ul class="collapse list-unstyled" id="Terminal">
-					<li><a href="TechnicalTickets.jsp">Tickets History</a></li>
-					<li><a href="MaintainedTickets.jsp">Tickets Maintenance</a></li>
+					<li><a href="TechnicalTickets.jsp"><fmt:message key="tickets_history" /></a></li>
+					<li><a href="MaintainedTickets.jsp"><fmt:message key="tickets_maintenance" /></a></li>
 
 				</ul></li>
 
 
 			<li><a onclick="logout()" href=""> <i class="glyphicon glyphicon-log-out"></i>
-					Log Out
+					<fmt:message key="logout" />
 			</a></li>
 		</ul>
 

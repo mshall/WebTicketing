@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Deploy To Merchant</title>
+<title><fmt:message key="deploy_to_merchant" /></title>
 <style>
 </style>
 </head>
@@ -25,7 +25,7 @@
 					<div class="panel-heading">
 						<h4 class="panel-title">
 							<a data-toggle="collapse" data-target="#collapseOne"
-								href="#collapseOne"> Deploy to Merchant </a>
+								href="#collapseOne"><fmt:message key="deploy_to_merchant" /></a>
 						</h4>
 					</div>
 
@@ -36,12 +36,12 @@
 							class="form-horizontal">
 
 							<div class="form-group ">
-								<label class="control-label col-sm-4">MID</label>
+								<label class="control-label col-sm-4"><fmt:message key="mid" /></label>
 								<div class="col-sm-8" id="merchantList"></div>
 							</div>
 
 							<div class="form-group ">
-								<label class="control-label col-sm-4">Currency</label>
+								<label class="control-label col-sm-4"><fmt:message key="currency" /></label>
 								<div class="col-sm-8">
 									<select id="currency">
 										<option value="">select...</option>
@@ -60,7 +60,7 @@
 							</div>
 
 							<div class="form-group ">
-								<label class="control-label col-sm-4">Class</label>
+								<label class="control-label col-sm-4"><fmt:message key="class" /></label>
 								<div class="col-sm-8">
 									<select id="terminalClass">
 										<option value="none"></option>
@@ -73,7 +73,7 @@
 							</div>
 
 							<div class="form-group ">
-								<label class="control-label col-sm-4">ٍStatus</label>
+								<label class="control-label col-sm-4">ٍ<fmt:message key="status" /></label>
 								<div class="col-sm-8">
 									<select id="status">
 										<option value="">Select...</option>
@@ -88,7 +88,7 @@
 							</div>
 
 							<div class="form-group ">
-								<label class="control-label col-sm-4">Terminal-ID</label>
+								<label class="control-label col-sm-4"><fmt:message key="terminal_id" /></label>
 								<div class="col-sm-8">
 									<input type="text" class="form-control" id="terminalId"
 										placeholder="Terminal ID" required="">
@@ -97,7 +97,7 @@
 
 
 							<div class="form-group ">
-								<label class="control-label col-sm-4">Branch</label>
+								<label class="control-label col-sm-4"><fmt:message key="branch" /></label>
 								<div class="col-sm-8">
 									<input type="text" class="form-control" id="branch"
 										placeholder="branch" required="">
@@ -105,7 +105,7 @@
 							</div>
 
 							<div class="form-group ">
-								<label class="control-label col-sm-4">Branch</label>
+								<label class="control-label col-sm-4"><fmt:message key="deployment_date" /></label>
 								<div class="col-sm-8">
 									<input type="datetime-local" class="form-control"
 										id="deploymentDate" placeholder="date" readonly="readonly">
@@ -113,7 +113,7 @@
 							</div>
 
 							<div class="form-group">
-								<label class="control-label col-sm-4">SIM 1</label>
+								<label class="control-label col-sm-4"><fmt:message key="sim1" /></label>
 								<div class="col-sm-7">
 									<select name="sim1" id="firstSimSerialOperator"
 										onchange="getSimByOperatorDropdown($(this).val(),'firstSimSerialList','firstSimSerial')">
@@ -127,7 +127,7 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="control-label col-sm-4">SIM 2</label>
+								<label class="control-label col-sm-4"><fmt:message key="sim2" /></label>
 								<div class="col-sm-7">
 									<select name="sim2" id="secondSimSerialOperator"
 										onchange="getSimByOperatorDropdown($(this).val(),'secondSimSerialList','secondSimSerial')">
@@ -141,75 +141,74 @@
 								</div>
 							</div>
 
-							<div class="form-group ">
-								<div class="col-sm-offset-4 col-sm-8">
-									<input type="button" value="Submit" onclick="addDeployment()"
-										class="btn btn-primary" /> <input type="reset" value="Cancel"
-										name="cancel" onclick="Formreset()" class="btn btn-danger" />
-								</div>
-							</div>
 
 							<div class="form-group ">
-								<label class="control-label col-sm-4">Terminal Feature</label>
+								<label class="control-label col-sm-4"><fmt:message key="terminal_feature" /></label>
 							</div>
 							<div class="form-group ">
 								<div class="col-sm-8 col-sm-offset-2">
 									<table class="table responsive ">
 										<tr>
 											<td clas="col-sm-4"><input type="checkbox" id="sale" />
-												<label>Sale</label></td>
+												<label><fmt:message key="sale" /></label></td>
 											<td clas="col-sm-4"><input type="checkbox"
-												id="onlineRefund" /> <label>online Refund</label></td>
+												id="onlineRefund" /> <label><fmt:message key="online_refund" /></label></td>
 										</tr>
 
 										<tr>
 											<td clas="col-sm-4"><input type="checkbox"
-												id="offlineRefund" /> <label> offline Refund </label></td>
+												id="offlineRefund" /> <label><fmt:message key="offline_refund" /> </label></td>
 
 
 											<td clas="col-sm-4"><input type="checkbox"
-												name="Feature" id="offlineSale" /> <label> offline
-													Sale </label></td>
+												name="Feature" id="offlineSale" /> <label><fmt:message key="offline_sale" />  </label></td>
 										</tr>
 										<tr>
 											<td clas="col-sm-4"><input type="checkbox"
-												name="Feature" id="onlineVoid" /><label> OnLine
-													Void </label></td>
+												name="Feature" id="onlineVoid" /><label><fmt:message key="onLine_void" />
+													 </label></td>
 											<td clas="col-sm-4"><input type="checkbox"
-												name="Feature" id="offlineVoid" /> <label> OffLine
-													Void </label></td>
+												name="Feature" id="offlineVoid" /> <label><fmt:message key="offLine_void" /> 
+													 </label></td>
 										</tr>
 										<tr>
 											<td clas="col-sm-4"><input type="checkbox"
-												name="Feature" id="preauth" /> <label> Preauth </label></td>
+												name="Feature" id="preauth" /> <label><fmt:message key="preauth" /> </label></td>
 											<td clas="col-sm-4"><input type="checkbox"
-												name="Feature" id="amex" /><label> Amex </label></td>
+												name="Feature" id="amex" /><label><fmt:message key="amex" /> </label></td>
 										</tr>
 										<tr>
 											<td clas="col-sm-4"><input type="checkbox"
 												name="Feature" id="installments" /> <label>
-													Instatiment </label></td>
+												<fmt:message key="instatiment" /> </label></td>
 
 											<td clas="col-sm-4"><input type="checkbox"
 												name="Feature" id="prepaidServices" /> <label>
-													Prepaid Services </label></td>
+												<fmt:message key="prepaid_services" /> </label></td>
 										</tr>
 										<tr>
 											<td clas="col-sm-4"><input type="checkbox"
-												name="Feature" id="diners" /> <label> Diners </label></td>
+												name="Feature" id="diners" /> <label><fmt:message key="diners" />  </label></td>
 											<td clas="col-sm-4"><input type="checkbox"
-												name="Feature" id="premuim" /> <label> Premuim </label></td>
+												name="Feature" id="premuim" /> <label><fmt:message key="premuim" />  </label></td>
 										</tr>
 										<tr>
 											<td clas="col-sm-4"><input type="checkbox"
 												name="Feature" id="manualEntry" clas="col-sm-1" /> <label
-												clas="col-sm-3"> Manual Entry </label></td>
+												clas="col-sm-3"><fmt:message key="manual_entry" /> </label></td>
 										</tr>
 
 									</table>
 								</div>
 							</div>
 
+							<div class="form-group ">
+								<div class="col-sm-offset-4 col-sm-8">
+									<input type="button" value="<fmt:message key="submit" />" onclick="addDeployment()"
+										class="btn btn-primary" /> <input type="button" value="<fmt:message key="cancel" />"
+										name="cancel" onclick="Formreset()" class="btn btn-danger" />
+								</div>
+							</div>
 
 						</form>
 

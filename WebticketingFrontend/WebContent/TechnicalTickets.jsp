@@ -1,19 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <link href="BootStrap/css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
-        <link href="BootStrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="BootStrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
-        <link href="BootStrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
-        <script src="BootStrap/jquery-1.12.0.min.js" type="text/javascript"></script>
-        <link href="BootStrap/css/mstyle.css" rel="stylesheet" type="text/css"/>
-        <script src="BootStrap/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="BootStrap/js/npm.js" type="text/javascript"></script>
-        <script src="BootStrap/js/bootstrap.js" type="text/javascript"></script>
-
+<title><fmt:message key="technical_tickets" /></title>
     </head>
     <body>
 
@@ -31,7 +19,7 @@
                             <h4 class="panel-title">
                                 <a data-toggle="collapse" data-target="#collapseTwo" 
                                    href="#collapseTwo">
-                                    Tickets History
+                                    <fmt:message key="tickets_history" />
                                 </a>
                             </h4>
                         </div>

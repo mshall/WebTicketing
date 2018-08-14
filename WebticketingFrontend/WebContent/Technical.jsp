@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Technical</title>
+<title><fmt:message key="technicals" /></title>
 </head>
 <body>
 
@@ -25,7 +25,7 @@
 			<div class="panel-group" id="accordion">
 				<div class="panel panel-primary" id="panel1">
 					<div class="panel-heading">
-						<h4 class="panel-title">All Technical</h4>
+						<h4 class="panel-title"><fmt:message key="technicals" /></h4>
 					</div>
 					<div id="collapseOne" class="panel-collapse collapse in">
 						<div class="panel-body">
@@ -33,14 +33,13 @@
 							<div>
 								<a href="addTechnical.jsp">
 									<button class="btn btn-default">
-										<span class="glyphicon glyphicon-plus"></span> Technical
+										<span class="glyphicon glyphicon-plus"></span><fmt:message key="technical" />
 									</button>
 								</a>
 							</div>
 
 							<br> <br>
 							<div id="allTechnicals"></div>
-
 
 						</div>
 					</div>

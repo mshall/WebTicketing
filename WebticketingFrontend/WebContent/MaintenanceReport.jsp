@@ -15,7 +15,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Maintenance Report</title>
+<title><fmt:message key="maintenance_report" /></title>
 <link href="Report.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -31,34 +31,33 @@
 			<div class="panel-group" id="accordion">
 				<div class="panel panel-primary" id="panel1">
 					<div class="panel-heading">
-						<h4 class="panel-title">Tickets</h4>
+						<h4 class="panel-title"><fmt:message key="tickets" /></h4>
 					</div>
 
 					<div class="panel-body">
 						<div>
-						<label class="control-label col-sm-2">Terminal Id</label>
+						<label class="control-label col-sm-2"><fmt:message key="terminal_id" /></label>
 							<input type="text" id="terminalId"
 								placeholder="Enter Terminal id" class="input-sm" /> 
 						</div>
 						<div>
-						<label class="control-label col-sm-2">Ticket Id</label>
+						<label class="control-label col-sm-2"><fmt:message key="ticket_id" /></label>
 							<input type="text" id="ticketId"
 								placeholder="Enter Ticket Id " class="input-sm" /> 
 						</div>
 						<div>
-							<label class="control-label col-sm-2">Status</label>
+							<label class="control-label col-sm-2"><fmt:message key="status" /></label>
 								<select id="status">
-									<option value=""></option>
+									<option value="">select...</option>
 									<option value="open">open</option>
 									<option value="closed">closed</option>
 								</select>	
 							</div>		
 						<div>	
 									<br>
-				<button class="btn btn-primary" onclick="exportToExcel()">Export
-					Excel</button>
+				<button class="btn btn-primary" onclick="exportToExcel()"><fmt:message key="export_excel" /></button>
 				<button class="btn btn-success"
-					onclick="print($('#allTickets'))">Print Report</button>
+					onclick="print($('#allTickets'))"><fmt:message key="print_report" /></button>
 		
 				<textarea id="taTicketsJson" style="visibility: hidden;"></textarea>
 						</div>

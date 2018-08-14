@@ -27,7 +27,7 @@
         <link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
         <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css"/>
         <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-        <title>Problem Submit</title>
+        <title><fmt:message key="problem_submit" /></title>
 
 
     </head>
@@ -40,7 +40,7 @@
                             <div class="form-top">
                                 <div class="form-top-left ">
                                     <img src="Image/Spectralogo.jpg " width="200">
-                                    <b >   Write Your Issue</b>
+                                    <b ><fmt:message key="write_issue" /></b>
                                 </div>
                                 <div class="form-top-right">
                                     <i class="fa fa-question"></i>
@@ -50,28 +50,28 @@
                             <div class="form-bottom">
                                 <form action="ProbelmSubmit" Method ="POST" class=" form-horizontal">
                                     <div class="form-group">
-                                        <label  name="TID"> <fmt:message key="TID"/> </label>
+                                        <label  name="TID"> <fmt:message key="tid"/> </label>
                                         <input type="text" name="TID" class="form-control">
                                     </div>
 
                                     <div class="form-group">
-                                        <label  name="MID"><fmt:message key="MID"/> </label>
+                                        <label  name="MID"><fmt:message key="mid"/> </label>
                                         <input type="text" name="MID" class=" form-control">
                                     </div>
 
                                     <div class="form-group">
-                                        <label  name="CP">Contact Name </label>
+                                        <label  name="CP"><fmt:message key="contact_name" /></label>
                                         <input type="text" name="CP"  class="form-control" >
                                     </div>
                                     <div class="form-group">
-                                        <label  name="Mob">Mobile</label>
+                                        <label  name="Mob"><fmt:message key="mobile" /></label>
                                         <input type="text" name="Mob" class=" form-control" >
                                     </div>
                                     <div class="form-group">
-                                        <label  name="PD"> Problem Details</label>
+                                        <label  name="PD"><fmt:message key="problem_details" /></label>
                                         <input type="text" name="PD" class=" form-control">
                                     </div>
-                                    <button type="submit" class="btn btn-lg btn-primary btn-block" value="submit">Submit</button>
+                                    <button type="submit" class="btn btn-lg btn-primary btn-block"><fmt:message key="submit" /></button>
                                 </form>
                             </div>
 

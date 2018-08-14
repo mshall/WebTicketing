@@ -11,7 +11,7 @@
 <html>
 <head>
 
-<title>Edit Merchant</title>
+<title><fmt:message key="edit_merchant" /></title>
 <style>
 </style>
 </head>
@@ -39,7 +39,7 @@
 					<div class="panel-heading">
 						<h4 class="panel-title">
 							<a data-toggle="collapse" data-target="#collapseOne"
-								href="#collapseOne"> Edit Merchant </a>
+								href="#collapseOne"><fmt:message key="edit_merchant" /> </a>
 						</h4>
 					</div>
 
@@ -48,63 +48,63 @@
 					<div class="panel-body   ">
 						<form action="" method="POST" class="form-horizontal">
 							<div class="form-group ">
-								<label class="control-label col-sm-4">MID</label>
+								<label class="control-label col-sm-4"><fmt:message key="mid" /></label>
 								<div class="col-sm-8">
 									<input class="form-control" type="text" name="itMerchantId"
 										id="itMerchantId" readonly="">
 								</div>
 							</div>
 							<div class="form-group ">
-								<label class="control-label col-sm-4">Merchant Name</label>
+								<label class="control-label col-sm-4"><fmt:message key="merchant_name" /></label>
 								<div class="col-sm-8">
 									<input type="text" class="form-control" name="itMerchantName"
 										id="itMerchantName" placeholder="Merchant Name" required>
 								</div>
 							</div>
 							<div class="form-group ">
-								<label class="control-label col-sm-4">Contact Person</label>
+								<label class="control-label col-sm-4"><fmt:message key="contact_person" /></label>
 								<div class="col-sm-8">
 									<input type="text" class="form-control" name="itContactPerson"
 										id="itContactPerson" placeholder="Contact Person">
 								</div>
 							</div>
 							<div class="form-group ">
-								<label class="control-label col-sm-4">Phone 1</label>
+								<label class="control-label col-sm-4"><fmt:message key="MID" />phone1</label>
 								<div class="col-sm-8">
 									<input type="text" class="form-control" name="itPhone1"
 										id="itPhone1" placeholder="Phone 1" required>
 								</div>
 							</div>
 							<div class="form-group ">
-								<label class="control-label col-sm-4">Phone 2</label>
+								<label class="control-label col-sm-4"><fmt:message key="phone2" /></label>
 								<div class="col-sm-8">
 									<input type="text" class="form-control" name="itPhone2"
 										id="itPhone2" placeholder="Phone 2">
 								</div>
 							</div>
 							<div class="form-group ">
-								<label class="control-label col-sm-4">Email</label>
+								<label class="control-label col-sm-4"><fmt:message key="email" /></label>
 								<div class="col-sm-8">
 									<input type="email" class="form-control" name="itEmail"
 										id="itEmail" placeholder="@example.com">
 								</div>
 							</div>
 							<div class="form-group ">
-								<label class="control-label col-sm-4">City</label>
+								<label class="control-label col-sm-4"><fmt:message key="city" /></label>
 								<div class="col-sm-8">
 									<input type="text" class="form-control" name="itCity"
 										id="itCity" placeholder="City">
 								</div>
 							</div>
 							<div class="form-group ">
-								<label class="control-label col-sm-4">Street</label>
+								<label class="control-label col-sm-4"><fmt:message key="street" /></label>
 								<div class="col-sm-8">
 									<input type="text" class="form-control" name="itStreet"
 										id="itStreet" placeholder="Street">
 								</div>
 							</div>
 							<div class="form-group ">
-								<label class="control-label col-sm-4">AMex Merchant ID </label>
+								<label class="control-label col-sm-4"><fmt:message key="amex" /></label>
 								<div class="col-sm-8">
 									<input type="number " class="form-control"
 										name="itAmexMerchantId" id="itAmexMerchantId"
@@ -112,21 +112,21 @@
 								</div>
 							</div>
 							<div class="form-group ">
-								<label class="control-label col-sm-4">Premium ID</label>
+								<label class="control-label col-sm-4"><fmt:message key="premium_id" /></label>
 								<div class="col-sm-8">
 									<input type="number" class="form-control" name="itPremiumId"
 										id="itPremiumId" placeholder="Premium ID">
 								</div>
 							</div>
 							<div class="form-group ">
-								<label class="control-label col-sm-4">MCC</label>
+								<label class="control-label col-sm-4"><fmt:message key="mcc" /></label>
 								<div class="col-sm-8">
 									<input type="number" class="form-control" name="itMCC"
 										id="itMCC" placeholder="MCC">
 								</div>
 							</div>
 							<div class="form-group ">
-								<label class="control-label col-sm-4">Class</label>
+								<label class="control-label col-sm-4"><fmt:message key="class" /></label>
 								<div class="col-sm-8">
 									<select name="sClass" id="sClass">
 										<option value="none"></option>
@@ -138,7 +138,7 @@
 								</div>
 							</div>
 							<div class="form-group ">
-								<label class="control-label col-sm-4">Currency</label>
+								<label class="control-label col-sm-4"><fmt:message key="currency" /></label>
 								<div class="col-sm-8">
 									<select name="sCurrency" id="sCurrency">
 										<option value="">select...</option>
@@ -157,10 +157,10 @@
 								</div>
 							</div>
 							<div class="form-group ">
-								<label class="control-label col-sm-4">Status</label>
+								<label class="control-label col-sm-4"><fmt:message key="status" /></label>
 								<div class="col-sm-8">
 									<select name="sStatus" id="sStatus">
-										<option value="none"></option>
+										<option value="">select...</option>
 										<option value="active">Active</option>
 										<option value="inactive">In Active</option>
 
@@ -169,9 +169,9 @@
 							</div>
 							<div class="form-group ">
 								<div class="col-sm-offset-4 col-sm-8">
-									<input type="button" value="Submit" name="submit"
+									<input type="button" value="<fmt:message key="submit" />" name="submit"
 										class="btn btn-primary" onclick="updateMerchant()" /> <input
-										type="reset" value="Cancel" name="cancel"
+										type="button" value="<fmt:message key="cancel" />" name="cancel"
 										onclick="Formreset()" class="btn btn-danger" />
 								</div>
 							</div>

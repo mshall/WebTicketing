@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title></title>
+<title><fmt:message key="terminals" /></title>
 
 </head>
 <body>
@@ -25,21 +25,13 @@
 			<div class="panel-group" id="accordion">
 				<div class="panel panel-primary" id="panel1">
 					<div class="panel-heading">
-						<h4 class="panel-title">All Terminals</h4>
+						<h4 class="panel-title"><fmt:message key="terminals" /></h4>
 					</div>
 
 					<div class="panel-body">
-						<div><%-- 
-							<input type="text" name="TID" value=""
-								placeholder="Enter Terminal ID " class="input-sm" /> <a
-								href="TerminalControll?action=search&TID=<c:out value="TID"/>">
-								<button type="submit" class="btn bg-primary">
-									<span class="glyphicon glyphicon-search"></span> Search
-								</button> --%>
 							</a> <a href="addTerminal.jsp">
 								<button class="btn btn-default">
-									<span class="glyphicon glyphicon-plus"></span> Terminal
-								</button>
+									<span class="glyphicon glyphicon-plus"></span><fmt:message key="terminal" /></button>
 							</a>
 						</div>
 						<br> <br> <br>

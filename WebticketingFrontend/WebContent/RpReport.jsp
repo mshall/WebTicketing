@@ -9,23 +9,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script src="BootStrap/js/glm-ajax.js" type="text/javascript"></script>
-<a href="BootStrap/fonts/glyphicons-halflings-regular.svg"></a>
-<link href="BootStrap/css/bootstrap-theme.css" rel="stylesheet"
-	type="text/css" />
-<link href="BootStrap/css/bootstrap.min.css" rel="stylesheet"
-	type="text/css" />
-<link href="BootStrap/css/bootstrap.css" rel="stylesheet"
-	type="text/css" />
-<link href="BootStrap/css/bootstrap-theme.min.css" rel="stylesheet"
-	type="text/css" />
-<link href="BootStrap/css/mstyle.css" rel="stylesheet" type="text/css" />
-<script src="BootStrap/jquery-1.12.0.min.js" type="text/javascript"></script>
-<script src="BootStrap/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="BootStrap/js/npm.js" type="text/javascript"></script>
-<script src="BootStrap/js/bootstrap.js" type="text/javascript"></script>
-<link href="BootStrap/MyCss.css" rel="stylesheet" type="text/css" />
+<title><fmt:message key="roll_paper_report" /></title>
 <link href="Report.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -38,18 +22,13 @@
 
 		<div id="content">
 
-
-
-
-
 			<div class="panel-group" id="accordion">
 
 				<div class="panel panel-primary" id="panel1">
 					<div class="panel-heading">
 						<h4 class="panel-title">
 							<a data-toggle="collapse" data-parent="#accordion"
-								href="#dAllRollpapersForVendors"> All Rollpapers Logs For
-								Vendors </a>
+								href="#dAllRollpapersForVendors"><fmt:message key="all_rollpapers_logs_for_vendors" /></a>
 						</h4>
 					</div>
 				</div>
@@ -66,8 +45,7 @@
 					<div class="panel-heading">
 						<h4 class="panel-title">
 							<a data-toggle="collapse" data-parent="#accordion"
-								href="#dAllRollpapersForMerchants"> All Rollpapers Logs For
-								Merchants </a>
+								href="#dAllRollpapersForMerchants"><fmt:message key="all_rollpapers_logs_for_merchants" /></a>
 						</h4>
 					</div>
 				</div>

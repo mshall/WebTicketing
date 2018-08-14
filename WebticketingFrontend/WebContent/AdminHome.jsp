@@ -7,10 +7,11 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="Header.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
-<title>Home</title>
+<title><fmt:message key="home" /></title>
 <script src="BootStrap/js/glm-ajax.js" type="text/javascript"></script>
 <a href="bootStrap/fonts/glyphicons-halflings-regular.svg"></a>
 
@@ -20,7 +21,7 @@
 
 
 
-	<%@include file="Header.jsp"%>
+	
 
 	<div class="wrapper ">
 
@@ -34,7 +35,7 @@
 					<div class="panel-heading">
 						<h4 class="panel-title">
 							<a data-toggle="collapse" data-target="#collapseOne"
-								href="#collapseOne"> Stores Information </a>
+								href="#collapseOne"><fmt:message key="stores" /> </a>
 						</h4>
 					</div>
 					<div id="collapseOne" class="panel-collapse collapse in">
@@ -42,15 +43,13 @@
 					</div>
 				</div>
 
-
 				<br> <br> <br> <br>
-
 
 				<div class="panel panel-primary" id="panel2">
 					<div class="panel-heading">
 						<h4 class="panel-title">
 							<a data-toggle="collapse" data-target="#collapseTwo"
-								href="#collapseTwo"> Tickets Information </a>
+								href="#collapseTwo"><fmt:message key="tickets" /> </a>
 						</h4>
 
 					</div>
@@ -58,18 +57,10 @@
 						<div class="panel-body" id="allTickets"></div>
 					</div>
 
-
 				</div>
 			</div>
-
-
-
 		</div>
-
-
 	</div>
-
-
 	<script
 		src="https://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
 	<link rel="stylesheet"

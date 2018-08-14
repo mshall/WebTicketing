@@ -7,7 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <title>Roll Paper To Merchant</title> 
+    <title><fmt:message key="roll_paper_to_merchant" /></title> 
     <style>
 
     </style>
@@ -29,7 +29,7 @@
                 <div class="panel panel-primary" id="panel1">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            Total In Roll Papers 
+                           <fmt:message key="total_in_roll_paper" /> 
                         </h4>
                     </div>
                 </div> 
@@ -46,7 +46,7 @@
                 <div class="panel panel-primary" >
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            Assign To Merchant 
+                           <fmt:message key="assign_to_merchant" />
                         </h4>
                     </div>
                 </div> 
@@ -55,17 +55,17 @@
                         <div >
                             <form name="assign" action="AssignRPtoMerchant" method="POST" class="form-horizontal">
                                 <div class="form-group">
-                                    <label class="control-label col-sm-4"> Merchant Name </label>
+                                    <label class="control-label col-sm-4"><fmt:message key="merchant_name" /></label>
                                     <div class="col-sm-8" id="merchantList"></div>
                                 </div>
                                 
                                 <div class="form-group">
-                                    <label class="control-label col-sm-4">Total In  </label> 
+                                    <label class="control-label col-sm-4"><fmt:message key="total_in" /> </label> 
                                     <div class="col-sm-8"> 
                                         <input type="text" name="TotalIn" value="" size="50%" />
                                     </div> </div>
                                 <div class="form-group">
-                                    <label class="control-label col-sm-4">Meet SLA  </label> 
+                                    <label class="control-label col-sm-4"><fmt:message key="meet_sla" /></label> 
                                     <div class="col-sm-8">  
                                         <input type="text" name="SLA" value="" size="50%" />
                                     </div> </div>
@@ -73,8 +73,8 @@
 
                                 <div class="form-group ">
                                     <div class="col-sm-offset-4 col-sm-8">      
-                                        <input type="button" value="Submit" class="btn btn-primary" onclick="save()" />
-                                        <input type="reset" value="Cancel" name="cancel" onclick="Formreset()"  class="btn btn-danger"/>
+                                        <input type="button" value="<fmt:message key="submit" />" class="btn btn-primary" onclick="save()" />
+                                        <input type="button" value="<fmt:message key="cancel" />" name="cancel" onclick="Formreset()"  class="btn btn-danger"/>
                                     </div> 
                                 </div>
 

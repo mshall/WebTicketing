@@ -11,7 +11,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<title>Add SIM</title>
+<title><fmt:message key="add_sim" /></title>
 </head>
 <body>
 
@@ -26,24 +26,24 @@
 					<div class="panel-heading">
 						<h4 class="panel-title">
 							<a data-toggle="collapse" data-target="#collapseOne"
-								href="#collapseOne"> Add Sim </a>
+								href="#collapseOne"><fmt:message key="add_sim" />  </a>
 						</h4>
 					</div>
 					<div id="collapseOne" class="panel-collapse collapse in">
 						<div class="panel-body">
 							<form action="" method="POST" class="form-horizontal">
 								<div class="form-group">
-									<label class="control-label col-sm-4"> Serial Number</label>
+									<label class="control-label col-sm-4"><fmt:message key="serial_number" /> </label>
 									<div class="col-sm-8">
 										<input class="form-control" type="text" id="simSerial"
 											name="serial" placeholder="Serial" required/>
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="control-label col-sm-4">Operator </label>
+									<label class="control-label col-sm-4"><fmt:message key="operator" /> </label>
 									<div class="col-sm-8">
 										<select id="operator">
-											<option value="">Operator</option>
+											<option value="">select...</option>
 											<option value="vodafone">vodafone</option>
 											<option value="orange">Orange</option>
 											<option value="etisalat">Etisalat ></option>
@@ -52,17 +52,17 @@
 									</div>
 								</div>
 								<div class="form-group ">
-									<label class="control-label col-sm-4">Status</label>
+									<label class="control-label col-sm-4"><fmt:message key="status" /></label>
 									<div class="col-sm-8">
 										<select id="status">
-											<option value="">status</option>
+											<option value="">select...</option>
 											<option value="Active">Active</option>
 											<option value="InActive">In Active</option>
 										</select>
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="control-label col-sm-4">Condition</label>
+									<label class="control-label col-sm-4"><fmt:message key="condition" /></label>
 									<div class="col-sm-8">
 										<input class="form-control" type="text"
 											id="condition" placeholder="Condition" required/>
@@ -70,7 +70,7 @@
 								</div>
 									
 								<div class="form-group">
-									<label class="control-label col-sm-4">Terminal Id</label>
+									<label class="control-label col-sm-4"><fmt:message key="terminal_id" /></label>
 									<div class="col-sm-8">
 										<input class="form-control" type="text" id="terminalId"
 									 placeholder="terminalId" required />
@@ -78,7 +78,7 @@
 								</div>
 									
 								<div class="form-group ">
-									<label class="control-label col-sm-4">Store</label>
+									<label class="control-label col-sm-4"><fmt:message key="store" /></label>
 									<div class="col-sm-8" id="storesList">
 										
 									</div>
@@ -86,7 +86,7 @@
 								
 								
 								<div class="form-group ">
-									<label class="control-label col-sm-4">Merchant</label>
+									<label class="control-label col-sm-4"><fmt:message key="merchant" /></label>
 									<div class="col-sm-8" id="merchantList">										
 									</div>
 								</div>
@@ -94,9 +94,9 @@
 									
 								<div class="form-group ">
 									<div class="col-sm-offset-4 col-sm-8">
-										<input type="button" value="Submit" onclick="save()"
+										<input type="button" value="<fmt:message key="Submit" />" onclick="save()"
 											class="btn btn-primary" /> <input type="reset"
-											value="Cancel" name="cancel" onclick="Formreset()"
+											value="<fmt:message key="Cancel" />" name="cancel" onclick="Formreset()"
 											class="btn btn-danger" />
 									</div>
 								</div>

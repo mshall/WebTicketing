@@ -7,7 +7,7 @@
 <html>
 
 <head>
-
+<title><fmt:message key="sim" /></title>
 </head>
 <body>
 	<%@include file="Header.jsp"%>
@@ -21,7 +21,7 @@
 					<div class="panel-heading">
 						<h4 class="panel-title">
 							<a data-toggle="collapse" data-target="#collapseOne"
-								href="#collapseOne"> All SIM </a>
+								href="#collapseOne"><fmt:message key="all_sim" /></a>
 						</h4>
 					</div>
 					<div id="collapseOne" class="panel-collapse collapse in">
@@ -31,8 +31,7 @@
 							<div>
 								</a> <a href="addSIM.jsp">
 									<button class="btn btn-default">
-										<span class="glyphicon glyphicon-plus"></span> SIM
-									</button>
+										<span class="glyphicon glyphicon-plus"></span><fmt:message key="sim" />									</button>
 								</a>
 							</div>
 

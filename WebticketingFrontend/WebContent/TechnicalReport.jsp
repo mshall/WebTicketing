@@ -17,49 +17,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="Report.css" rel="stylesheet" type="text/css" />
-<title>Technical Report</title>
+<title><fmt:message key="technical_report" /></title>
 </head>
 <body>
-
 	<%@include file="Header.jsp"%>
-
 	<div class="wrapper ">
 
 		<%@include file="AdminSideBar.jsp"%>
-
-	<%-- 	<div id="content">
-
-			<%
-				//connect c = new connect();
-				//  Connection con = c.getConn();
-				// Statement s = con.createStatement();
-				//ResultSet rs = s.executeQuery("SELECT * from technical");
-				//RowSetDynaClass resultSet = new RowSetDynaClass(rs, false);
-				//            s.close();
-				//            con.close();
-				//request.setAttribute("results", resultSet);
-			%>
-
-			<display:table name="requestScope.results.rows" export="true">
-
-
-				<display:setProperty name="export.excel.filename"
-					value="ActorDetails.xls" />
-				<display:setProperty name="export.pdf.filename"
-					value="ActorDetails.pdf" />
-				<display:setProperty name="export.pdf" value="true" />
-			</display:table>
-			
-		</div>
-	</div>
- --%>
-
 
 		<div id="content">
 			<div class="panel-group" id="accordion">
 				<div class="panel panel-primary" id="panel1">
 					<div class="panel-heading">
-						<h4 class="panel-title">All Technical</h4>
+						<h4 class="panel-title"><fmt:message key="technicals" /></h4>
 					</div>
 					<div id="collapseOne" class="panel-collapse collapse in">
 						<div class="panel-body">

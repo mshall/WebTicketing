@@ -16,7 +16,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Store</title>
+<title><fmt:message key="stores" /></title>
 
 </head>
 <body>
@@ -33,10 +33,7 @@
 					<div class="panel-heading">
 						<h4 class="panel-title">
 							<a data-toggle="collapse" data-target="#collapseOne"
-								href="#collapseOne"> Stores Information </a>
-
-
-
+								href="#collapseOne"><fmt:message key="stores" /></a>
 						</h4>
 					</div>
 					<div id="collapseOne" class="panel-collapse collapse in">
@@ -45,20 +42,15 @@
 
 								<a href="addstore.jsp">
 									<button class="btn btn-default">
-										<span class="glyphicon glyphicon-plus"></span> Store
+										<span class="glyphicon glyphicon-plus"></span><fmt:message key="store" />
 									</button>
 								</a>
 							</div>
 							<br> <br>
 							<div id="allStores"></div>
 						</div>
-
 					</div>
-
-
 				</div>
-
-
 
 			</div>
 
