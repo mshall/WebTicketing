@@ -83,7 +83,8 @@ public class SimService implements GenericService<Sim, Integer> {
 			Sim existingSim = simRepository.findOne(sim.getSimSerial());
 			if (existingSim != null) {
 				try {
-					dozerMapper.map(sim, existingSim);
+					existingSim = mapSim(sim, existingSim);
+					// dozerMapper.map(sim, existingSim);
 					// PropertyUtils.copyProperties(sim, existingSim);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -97,6 +98,36 @@ public class SimService implements GenericService<Sim, Integer> {
 			return null;
 		}
 
+	}
+
+	Sim mapSim(Sim source, Sim target) {
+		if (source.getMerchantId() > 0) {
+			target.setMerchantId(source.getMerchantId());
+		}
+		if (source.getMerchantName() != null && !source.getMerchantName().isEmpty()) {
+			target.setMerchantName(source.getMerchantName());
+		}
+
+		if (source.getOperator() != null && !source.getOperator().isEmpty()) {
+			target.setOperator(source.getOperator());
+		}
+
+		if (source.getStoreName() != null && !source.getStoreName().isEmpty()) {
+			target.setStoreName(source.getStoreName());
+		}
+
+		if (source.getStoreId() > 0) {
+			target.setStoreId(source.getStoreId());
+		}
+
+		if (source.getTerminalSerial() != null && !source.getTerminalSerial().isEmpty()) {
+			target.setTerminalSerial(source.getTerminalSerial());
+		}
+
+		if (source.getTerminalId() > 0) {
+			target.setTerminalId(source.getTerminalId());
+		}
+		return target;
 	}
 
 	public long countSims() {

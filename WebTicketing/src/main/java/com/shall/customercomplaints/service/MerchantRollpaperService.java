@@ -96,7 +96,9 @@ public class MerchantRollpaperService implements GenericService<MerchantRollpape
 		MerchantRollpaper existingMerchantRollpaper = merchantRollpaperRepository.findOne(merchantRollpaper.getId());
 		if (existingMerchantRollpaper != null) {
 			try {
-				dozerMapper.map(merchantRollpaper, existingMerchantRollpaper);
+				existingMerchantRollpaper = mapMerchantRollpaper(merchantRollpaper, existingMerchantRollpaper);
+				// dozerMapper.map(merchantRollpaper,
+				// existingMerchantRollpaper);
 				// PropertyUtils.copyProperties(merchantRollpaper,
 				// existingMerchantRollpaper);
 			} catch (Exception e) {
@@ -104,9 +106,37 @@ public class MerchantRollpaperService implements GenericService<MerchantRollpape
 			}
 			MerchantRollpaper updatedMerchantRollpaper = merchantRollpaperRepository.save(existingMerchantRollpaper);
 			return updatedMerchantRollpaper;
-		} else {// This user doesn't exist to be updated
+		} else {// This entity doesn't exist to be updated
 			return null;
 		}
 
+	}
+
+	MerchantRollpaper mapMerchantRollpaper(MerchantRollpaper source, MerchantRollpaper target) {
+		if (source.getActionDate() != null) {
+			target.setActionDate(source.getActionDate());
+		}
+		if (source.getMeetSla() != null && !source.getMeetSla().isEmpty()) {
+			target.setMeetSla(source.getMeetSla());
+		}
+		if (source.getMerchantId() > 0) {
+			target.setMerchantId(source.getMerchantId());
+		}
+		if (source.getMerchantName() != null && !source.getMerchantName().isEmpty()) {
+			target.setMerchantName(source.getMerchantName());
+		}
+		if (source.getNote() != null && !source.getNote().isEmpty()) {
+			target.setNote(source.getNote());
+		}
+		if (source.getRollpaperId() > 0) {
+			target.setRollpaperId(source.getRollpaperId());
+		}
+		if (source.getRollpaperOutNumber() > 0) {
+			target.setRollpaperOutNumber(source.getRollpaperOutNumber());
+		}
+		if (source.getRollpaperSize() != null && !source.getRollpaperSize().isEmpty()) {
+			target.setRollpaperSize(source.getRollpaperSize());
+		}
+		return target;
 	}
 }

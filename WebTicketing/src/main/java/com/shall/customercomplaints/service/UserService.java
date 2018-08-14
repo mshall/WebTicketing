@@ -72,7 +72,8 @@ public class UserService implements GenericService<User, Integer> {
 		User existing = usersRepository.findOne(user.getUserId());
 		if (existing != null) {
 			try {
-				dozerMapper.map(user, existing);
+				existing = mapUser(user, existing);
+				// dozerMapper.map(user, existing);
 				// PropertyUtils.copyProperties(user, existing);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -83,6 +84,21 @@ public class UserService implements GenericService<User, Integer> {
 			return null;
 		}
 
+	}
+
+	User mapUser(User source, User target) {
+		if (source.getEmail() != null && !source.getEmail().isEmpty()) {
+			target.setEmail(source.getEmail());
+		}
+
+		if (source.getPassword() != null && !source.getPassword().isEmpty()) {
+			target.setPassword(source.getPassword());
+		}
+
+		if (source.getUsername() != null && !source.getUsername().isEmpty()) {
+			target.setUsername(source.getUsername());
+		}
+		return target;
 	}
 
 	public User findUser(Login login) {

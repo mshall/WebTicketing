@@ -44,7 +44,8 @@ public class RollpaperService implements GenericService<Rollpaper, Integer> {
 		Rollpaper existingRollpaper = rollpaperRepository.findOne(rollpaper.getRollpaperId());
 		if (existingRollpaper != null) {
 			try {
-				dozerMapper.map(rollpaper, existingRollpaper);
+				existingRollpaper = mapRollpaper(rollpaper, existingRollpaper);
+				// dozerMapper.map(rollpaper, existingRollpaper);
 				// PropertyUtils.copyProperties(rollpaper, existingRollpaper);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -55,5 +56,33 @@ public class RollpaperService implements GenericService<Rollpaper, Integer> {
 			return null;
 		}
 
+	}
+
+	Rollpaper mapRollpaper(Rollpaper source, Rollpaper target) {
+		if (source.getActionDate() != null) {
+			target.setActionDate(source.getActionDate());
+		}
+		if (source.getOut() > 0) {
+			target.setOut(source.getOut());
+		}
+		if (source.getRemaining() > 0) {
+			target.setRemaining(source.getRemaining());
+		}
+		if (source.getRollpaperId() > 0) {
+			target.setRollpaperId(source.getRollpaperId());
+		}
+		if (source.getRollpaperSize() != null && !source.getRollpaperSize().isEmpty()) {
+			target.setRollpaperSize(source.getRollpaperSize());
+		}
+		if (source.getStoreId() > 0) {
+			target.setStoreId(source.getStoreId());
+		}
+		if (source.getStoreName() != null && !source.getStoreName().isEmpty()) {
+			target.setStoreName(source.getStoreName());
+		}
+		if (source.getTotalIn() > 0) {
+			target.setTotalIn(source.getTotalIn());
+		}
+		return target;
 	}
 }
