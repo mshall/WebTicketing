@@ -36,7 +36,8 @@ public class StoreService implements GenericService<Store, Integer> {
 		Store existingStore = usersRepository.findOne(store.getStoreId());
 		if (existingStore != null) {
 			try {
-				dozerMapper.map(store, existingStore);
+				existingStore = mapStore(store, existingStore);
+				// dozerMapper.map(store, existingStore);
 				// PropertyUtils.copyProperties(store, existingStore);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -47,5 +48,19 @@ public class StoreService implements GenericService<Store, Integer> {
 			return null;
 		}
 
+	}
+
+	Store mapStore(Store source, Store target) {
+		if (source.getStore_address() != null && !source.getStore_address().isEmpty()) {
+			target.setStore_address(source.getStore_address());
+		}
+		if (source.getStoreDetails() != null && !source.getStoreDetails().isEmpty()) {
+			target.setStoreDetails(source.getStoreDetails());
+		}
+
+		if (source.getStoreName() != null && !source.getStoreName().isEmpty()) {
+			target.setStoreName(source.getStoreName());
+		}
+		return target;
 	}
 }

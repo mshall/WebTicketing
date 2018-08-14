@@ -60,10 +60,10 @@ public class MerchantService implements GenericService<Merchant, Integer> {
 				 * }
 				 */
 				try {
-					MyBeanUtils.copyPropertiesNotNull(existingMerchant, merchant);
-				} catch (InvocationTargetException e) {
-					e.printStackTrace();
-				} catch (IllegalAccessException e) {
+					existingMerchant = mapMerchant(merchant, existingMerchant);
+					// MyBeanUtils.copyPropertiesNotNull(existingMerchant,
+					// merchant);
+				} catch (Exception e) {
 					e.printStackTrace();
 				}
 				// dozerMapper.map(merchant, existingMerchant);
@@ -76,6 +76,57 @@ public class MerchantService implements GenericService<Merchant, Integer> {
 			return null;
 		}
 
+	}
+
+	Merchant mapMerchant(Merchant source, Merchant target) {
+		if (source.getAmexMerchantId() != null && !source.getAmexMerchantId().isEmpty()) {
+			target.setAmexMerchantId(target.getAmexMerchantId());
+		}
+		if (source.getCity() != null && !source.getCity().isEmpty()) {
+			target.setCity(target.getCity());
+		}
+		if (source.getContactPerson() != null && !source.getContactPerson().isEmpty()) {
+			target.setContactPerson(target.getContactPerson());
+		}
+		if (source.getCurrency() != null && !source.getCurrency().isEmpty()) {
+			target.setCurrency(target.getCurrency());
+		}
+		if (source.getEmail() != null && !source.getEmail().isEmpty()) {
+			target.setEmail(target.getEmail());
+		}
+		if (source.getMCC() != null && !source.getMCC().isEmpty()) {
+			target.setMCC(target.getMCC());
+		}
+		if (source.getMerchantClass() != null && !source.getMerchantClass().isEmpty()) {
+			target.setMerchantClass(target.getMerchantClass());
+		}
+		if (source.getMerchantId() > 0) {
+			target.setMerchantId(target.getMerchantId());
+		}
+
+		if (source.getMerchantName() != null && !source.getMerchantName().isEmpty()) {
+			target.setMerchantName(target.getMerchantName());
+		}
+
+		if (source.getPhone1() != null && !source.getPhone1().isEmpty()) {
+			target.setPhone1(target.getPhone1());
+		}
+
+		if (source.getPhone2() != null && !source.getPhone2().isEmpty()) {
+			target.setPhone2(target.getPhone2());
+		}
+
+		if (source.getPremiumId() != null && !source.getPremiumId().isEmpty()) {
+			target.setPremiumId(target.getPremiumId());
+		}
+
+		if (source.getStreet() != null && !source.getStreet().isEmpty()) {
+			target.setStreet(target.getStreet());
+		}
+		if (source.getVendor() != null && !source.getVendor().isEmpty()) {
+			target.setVendor(target.getVendor());
+		}
+		return target;
 	}
 
 	public long countMerchants() {
