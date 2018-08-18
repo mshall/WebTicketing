@@ -103,10 +103,8 @@
                     </div>
                         
                     <div>
-                        <button type="submit">Change</button>
-                        <label>
-                            <input type="checkbox" checked="checked" name="remember"> Remember me
-                        </label>
+                        <button type="button" onclick="changePassword()">Change</button>
+                       
                     </div>
                     </form>
                 </div>
@@ -120,5 +118,6 @@
         </div>
 
     </div>
+    <script src="assets/js/operations/login.js"></script>
 </body>
 </html>
