@@ -56,3 +56,72 @@ function processResponse(response) {
 	}
 
 }
+// ---------------------------------------------------------------------------------------------------
+// ---------------------------- get user by user name
+// ---------------------------------------------------------------------------------------------------
+function getUserByUserName(userName) {
+	$.ajax({
+		url : 'http://localhost:8082/v1/user/' + userName,
+		type : 'GET',
+		contentType : "application/json; charset=utf-8",
+		data : {},
+		dataType : 'json',
+		success : function(response) {
+			return response.results;
+		}
+	});
+}
+
+// ---------------------------------------------------------------------------------------------------
+// ---------------------------- change password
+// ---------------------------------------------------------------------------------------------------
+
+function changePassword() {
+
+	var data = new FormData();
+	var username = $("#uname").val();
+	var password = $("#newpsw").val();
+
+	var results = getUserByUserName(username);
+	var userId = results.userId;
+
+	var user = {
+		"userId" : userId,
+		"username" : username,
+		"password" : password
+	}
+	sendDataChangePassword(JSON.stringify(user));
+
+}
+function sendDataChangePassword(data) {
+	$.ajax({
+		url : 'http://localhost:8082/v1/user/update/',
+		type : 'POST',
+		contentType : "application/json; charset=utf-8",
+		data : data,
+		dataType : 'json',
+		success : function(response) {
+			processChangePasswordResponse(response);
+		}
+	});
+}
+
+function processChangePasswordResponse(response) {
+	console.log(response);
+	var formMessage = $("#form-message");
+
+	var code = response.code;
+	var message = response.message;
+	var results = response.results;
+
+	// ----
+	formMessage.text(message);
+
+	if (code == 200) {
+		window.location.replace("AdminHome.jsp");
+
+	} else {
+		formMessage.css("color", "red");
+	}
+
+}
