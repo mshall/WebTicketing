@@ -5,9 +5,17 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
+<fmt:setLocale value="${language}" />
+<fmt:setBundle basename="messages" />
+
 <!DOCTYPE html>
 <html>
 <head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet"
 	type="text/css" />
 <link href="assets/css/form-elements.css" rel="stylesheet"
@@ -23,7 +31,12 @@
 </head>
 <body>
 
-
+<form>
+            <select id="language" name="language" onchange="submit()">
+                <option value="en_US" ${language == 'en_US' ? 'selected' : ''}>English</option>
+                <option value="ar_EG" ${language == 'ar_EG' ? 'selected' : ''}>Arabic</option>               
+            </select>
+     </form>
 
 	<div class="top-content">
 		<div class="inner-bg">

@@ -5,6 +5,12 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
+<fmt:setLocale value="${language}" />
+<fmt:setBundle basename="messages" />
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,6 +24,12 @@
     </head>
 
     <body >
+    <form>
+            <select id="language" name="language" onchange="submit()">
+                <option value="en_US" ${language == 'en_US' ? 'selected' : ''}>English</option>
+                <option value="ar_EG" ${language == 'ar_EG' ? 'selected' : ''}>Arabic</option>               
+            </select>
+     </form>
         <div class="top-content">
             <div class="inner-bg " >
                 <div class="container" >
@@ -37,7 +49,7 @@
                                         <a href="Login.jsp" class="d-block mb-4 h-100"> <img class="img-fluid img-thumbnail  "  src="Image/Login.jpg " ></a>
                                     </div>
                                     <div class="col-sm-4">
-                                        <a href="ChooseLang.jsp" class="d-block mb-4 h-100" ><img class="img-fluid img-thumbnail "  src="Image/ProblemSub.jpg "></a>
+                                        <a href="ProblemSubmitted.jsp" class="d-block mb-4 h-100" ><img class="img-fluid img-thumbnail "  src="Image/ProblemSub.jpg "></a>
                                     </div>
                                     <div class="col-sm-4 ">
                                         <a href="LiveChat.jsp"  class="d-block mb-4 h-100" > <img  class="img-fluid img-thumbnail "src="Image/LiveChat.png " ></a>

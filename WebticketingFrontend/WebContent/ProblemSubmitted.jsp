@@ -7,20 +7,15 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%
-    String lg = request.getAttribute("Lg").toString();
-%>
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
+<fmt:setLocale value="${language}" />
+<fmt:setBundle basename="messages" />
 
-<c:if test="${not empty lg}">
-    <fmt:setLocale value="${lg}" scope="session"/>
-
-
-</c:if>
-
-<fmt:setBundle  basename="resource.Problem" scope="session"  /> 
 <!DOCTYPE html>
-<html>
+<html lang="${language}">
     <head>
+    
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="BootStrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="assets/css/form-elements.css" rel="stylesheet" type="text/css"/>
@@ -31,7 +26,14 @@
 
 
     </head>
-    <body > 
+    <body >
+    <form>
+            <select id="language" name="language" onchange="submit()">
+                <option value="en_US" ${language == 'en_US' ? 'selected' : ''}>English</option>
+                <option value="ar_EG" ${language == 'ar_EG' ? 'selected' : ''}>Arabic</option>               
+            </select>
+     </form> 
+     
         <div class="top-content">
             <div class="inner-bg">
                 <div class="container">
