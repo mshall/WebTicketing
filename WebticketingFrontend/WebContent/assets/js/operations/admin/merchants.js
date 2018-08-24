@@ -1,6 +1,6 @@
 function getAllMerchants() {
 	$.ajax({
-		url : 'http://localhost:8082/v1/merchant/all',
+		url : link+':8082/v1/merchant/all',
 		type : 'GET',
 		contentType : "application/json; charset=utf-8",
 		data : {},
@@ -47,7 +47,7 @@ function processAdminAllMerchants(response) {
 // ///////////////////////////////////////////////////////////////
 function getMerchantById(id) {
 	$.ajax({
-		url : 'http://localhost:8082/v1/store/' + id,
+		url : link+':8082/v1/store/' + id,
 		type : 'GET',
 		contentType : "application/json; charset=utf-8",
 		data : {},
@@ -166,7 +166,7 @@ function updateMerchant() {
 function sendUpdateMerchantData(data) {
 	console.log('merchant.sendUpdateMerchantData -> Object: \n'+JSON.stringify(data));
 	$.ajax({
-		url : 'http://localhost:8082/v1/merchant/update',
+		url : link+':8082/v1/merchant/update',
 		type : 'POST',
 		contentType : "application/json; charset=utf-8",
 		data : data,
@@ -193,7 +193,7 @@ function processUpdateMerchantResponse(response) {
 
 function getMerchantsDropdown(){
 	$.ajax({
-		url : 'http://localhost:8082/v1/merchant/all/',
+		url : link+':8082/v1/merchant/all/',
 		type : 'GET',
 		contentType : "application/json; charset=utf-8",
 		data : {},

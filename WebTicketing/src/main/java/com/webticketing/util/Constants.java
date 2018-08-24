@@ -5,6 +5,7 @@ public class Constants {
 	public static final String ERROR_MESSAGE_USER_NOT_FOUND = "User doesn't exist!";
 	public static final String ERROR_MESSAGE_USER_ALREADY_EXISTS = "User already exists!";
 	public static final String ERROR_MESSAGE_NO_USERS = "No users are there!";
+	public static final String ERROR_MESSAGE_USERS_BLOCK = "User is blocked, please contact admin";
 	public static final String ERROR_MESSAGE_USER_SAVE = "Unable to save user";
 	public static final String ERROR_MESSAGE_USER_UPDATE = "Unable to update user!";
 	public static final String ERROR_MESSAGE_USER_DELETE = "Unable to delete user!";

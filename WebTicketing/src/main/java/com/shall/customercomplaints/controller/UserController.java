@@ -31,7 +31,9 @@ public class UserController {
 		User loggedinUser = ((UserService) service).findUser(login);
 		if (loggedinUser == null) {
 			response = new ResponseVO<User>(Constants.ERROR_CODE_NOT_FOUND, Constants.ERROR_MESSAGE_NO_USERS, loggedinUser);
-		} else {
+		} else if(loggedinUser.getStatus()==1){
+			response = new ResponseVO<User>(Constants.ERROR_CODE_NOT_FOUND, Constants.ERROR_MESSAGE_NO_USERS, loggedinUser);
+		}else {
 			response = new ResponseVO<User>(Constants.SUCCESS_CODE, Constants.SUCCESS_MESSAGE_USER_LOGIN, loggedinUser);
 		}
 		return ResponseEntity.ok(response);

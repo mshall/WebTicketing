@@ -1,7 +1,7 @@
 function getAllComplaints() {
 
 	$.ajax({
-		url : 'http://localhost:8082/v1/complaint/all',
+		url : link+':8082/v1/complaint/all',
 		type : 'GET',
 		contentType : "application/json; charset=utf-8",
 		data : {},
@@ -14,11 +14,10 @@ function getAllComplaints() {
 function processGetAllComplaintsResponse(response) {
 	console.log(response);
 	var ticketstable = $('#allTickets');
-
 	var output = "<div > <table id=\"allTicketsTable\" class=\"table responsive\" border=\"1\">" +
-			" <thead> <tr><th> Ticket-id </th>"
-			+ "<th> Ticket-Date</th>"
-			+ "<th> Ticket-Details</th> "
+			" <thead> <tr><th>ticket_id</th>"
+			+ "<th><fmt:message key='ticket_date'/></th>"
+			+ "<th><fmt:message key='ticket_details' /></th> "
 			+ "<th></th></tr></thead>";
 	
 	for ( var i in response.results) {
@@ -47,7 +46,7 @@ function processGetAllComplaintsResponse(response) {
 function getComplaintsByTechnician() {
 	var userId = $.session.get('userId');
 	$.ajax({
-		url : 'http://localhost:8082/v1/complaint/?technicianId=' + userId,
+		url : link+':8082/v1/complaint/?technicianId=' + userId,
 		type : 'GET',
 		contentType : "application/json; charset=utf-8",
 		data : {},
@@ -58,7 +57,7 @@ function getComplaintsByTechnician() {
 	});
 }
 
-function processComplaintsByTechnicainResponse(response) {
+function processComplaintsByTechnicianResponse(response) {
 	console.log(response);
 	var ticketstable = $('#allTicketsByTechnician');
 
@@ -141,7 +140,7 @@ function updateComplaint() {
 }
 function sendUpdateComplaintData(data) {
 	$.ajax({
-		url : 'http://localhost:8082/v1/complaint/update/',
+		url : link+':8082/v1/complaint/update/',
 		type : 'POST',
 		contentType : "application/json; charset=utf-8",
 		data : data,
@@ -175,7 +174,7 @@ function processUpdateComplaintResponse(response) {
 function getAllComplaintsByStatus(status) {
 	// 
 	$.ajax({
-		url : 'http://localhost:8082/v1/complaint//status/'+status,
+		url : link+':8082/v1/complaint//status/'+status,
 		type : 'GET',
 		contentType : "application/json; charset=utf-8",
 		data : {},
@@ -214,7 +213,7 @@ function assignTicket() {
 }
 function sendAssingTicketData(data) {
 	$.ajax({
-		url : 'http://localhost:8082/v1/complaint/update/',
+		url : link+':8082/v1/complaint/update/',
 		type : 'POST',
 		contentType : "application/json; charset=utf-8",
 		data : data,

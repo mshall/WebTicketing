@@ -3,11 +3,7 @@
     Created on : May 27, 2018, 10:24:35 PM
     Author     : Mohamed S. El-Shall
 --%>
-<%@page import="java.sql.*"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<!DOCTYPE html>
+<%@include file="Header.jsp"%>
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title><fmt:message key="deploy_to_merchant" /></title>
@@ -15,7 +11,6 @@
 </style>
 </head>
 <body>
-	<%@include file="Header.jsp"%>
 	<div class="wrapper">
 		<%@include file="AdminSideBar.jsp"%>
 		<div id="content">
@@ -73,7 +68,7 @@
 							</div>
 
 							<div class="form-group ">
-								<label class="control-label col-sm-4">ٍ<fmt:message key="status" /></label>
+								<label class="control-label col-sm-4"><fmt:message key="status" /></label>
 								<div class="col-sm-8">
 									<select id="status">
 										<option value="">Select...</option>
@@ -236,6 +231,8 @@
 				window.location.replace("DeployToMerchant.jsp");
 			}
 		</script>
+<jsp:include page="footer.jsp"></jsp:include>
+
 </body>
 
 </html>

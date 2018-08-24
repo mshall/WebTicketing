@@ -4,19 +4,13 @@
     Author     : Mohamed S. El-Shall
 --%>
 
-<%@page import="java.sql.Statement"%>
-<%@page import="jdk.nashorn.internal.ir.TryNode"%>
-<%@page import="java.sql.SQLException"%>
-<%@page import="java.sql.Connection"%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="Header.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
 <titl> <fmt:message key="assign_tickets" /> </title>
 </head>
 <body>
-	<%@include file="Header.jsp"%>
 	<div class="wrapper">
 		<%@include file="AdminSideBar.jsp"%>
 		<div id="content">
@@ -85,6 +79,7 @@
 			document.getElementById("myForm").reset();
 		}
 	</script>
+<jsp:include page="footer.jsp"></jsp:include>
 
 </body>
 </html>

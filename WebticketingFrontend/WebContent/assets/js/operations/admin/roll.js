@@ -1,6 +1,6 @@
 function getAllRollPapers() {
 	$.ajax({
-		url : 'http://localhost:8082/v1/rollpaper/all',
+		url : link+':8082/v1/rollpaper/all',
 		type : 'GET',
 		contentType : "application/json; charset=utf-8",
 		data : {},
@@ -50,7 +50,7 @@ function goToUpdateRollPage(rollpaperId) {
 /////////////////////////////////////////////////////
 function getROllById() {
 	$.ajax({
-		url : 'http://localhost:8082/v1/rollpaper/' + $.urlParam('rollpaperId'),
+		url : link+':8082/v1/rollpaper/' + $.urlParam('rollpaperId'),
 		type : 'GET',
 		contentType : "application/json; charset=utf-8",
 		data : {},
@@ -82,7 +82,7 @@ function addRoll() {
 		"totalIn" : totalIn,
 		"storeId" : storeId
 	}
-	sendData(JSON.stringify(terminal), 'http://localhost:8082/v1/rollpaper/');
+	sendData(JSON.stringify(terminal), link+':8082/v1/rollpaper/');
 
 }
 
@@ -119,7 +119,7 @@ function updateRoll() {
 		"storeId" : storeId
 	}
 	sendData(JSON.stringify(terminal),
-			'http://localhost:8082/v1/rollpaper/update/');
+			link+':8082/v1/rollpaper/update/');
 
 }
 

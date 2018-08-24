@@ -60,7 +60,8 @@
 
 	</nav>
 
-	<script src="assets/js/jquery.session.js"></script>
+	<script src="assets/js/jquerysession.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#sidebarCollapse').on('click', function() {

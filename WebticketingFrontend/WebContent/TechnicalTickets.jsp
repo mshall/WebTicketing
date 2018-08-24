@@ -1,12 +1,10 @@
+<%@include file="Header.jsp"%>
 <!DOCTYPE html>
 <html>
     <head>
 <title><fmt:message key="technical_tickets" /></title>
     </head>
     <body>
-
-        <%@include file="Header.jsp" %>
-
         <div class="wrapper ">    
             <%@include  file="TechnicalSideBar.jsp" %>
 
@@ -24,7 +22,7 @@
                             </h4>
                         </div>
                         <div id="collapseTwo" class="panel-collapse collapse in">
-                            <div class="panel-body" id="ticketsHistory">
+                            <div class="panel-body" id="allTicketsByTechnician" >
                              
                             </div>
                         </div>
@@ -32,11 +30,17 @@
                 </div>
             </div>
         </div>     
-<script src="assets/js/operations/technical/tickets.js"></script>
+<script src="https://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.4/css/jquery.dataTables.min.css">
+
+<script src="assets/js/operations/admin/tickets.js"></script>
         <script>
             $(document).ready(function () {
-            	getTicketsHistory();
+            	getComplaintsByTechnician();
             });
         </script>
+<jsp:include page="footer.jsp"></jsp:include>
+
+
     </body>
 </html>

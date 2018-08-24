@@ -4,9 +4,7 @@
     Author     : Mohamed S. El-Shall
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@include file="Header.jsp"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -22,7 +20,7 @@
             $('input[name=dob]').datepicker();
         });
     </script>
-    <%@include file="Header.jsp" %>
+
     <div class="wrapper">
         <%@include  file="AdminSideBar.jsp" %>
         <div  id="content">
@@ -166,6 +164,8 @@
         }
 
     </script>
+<jsp:include page="footer.jsp"></jsp:include>
+
 </body>
 
 </html>

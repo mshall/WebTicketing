@@ -17,7 +17,7 @@
 </head>
 <body>
 
-Language : <a href="?language=en">English</a>|<a href="?language=ar">Ara</a>|<a href="?language=fr">fr</a>
+Language : <a href="?language=en_US">English</a>|<a href="?language=ar">Ara</a>|<a href="?language=fr">fr</a>
 
 Current Locale : ${pageContext.response.locale}
 <br/>

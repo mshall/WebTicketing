@@ -18,7 +18,7 @@ function saveMerchantRoll(rollpaperId){
 
 function sendData(data) {
 	$.ajax({
-		url : "http://localhost:8082/v1/merchant-rollpaper/",
+		url : link+":8082/v1/merchant-rollpaper/",
 		type : 'POST',
 		contentType : "application/json; charset=utf-8",
 		data : data,

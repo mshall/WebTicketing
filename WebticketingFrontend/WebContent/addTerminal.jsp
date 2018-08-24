@@ -3,10 +3,7 @@
     Created on : May 27, 2018, 10:24:35 PM
     Author     : Mohamed S. El-Shall
 --%>
-<%@page import="java.sql.*"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@include file="Header.jsp"%>
 <!DOCTYPE html>
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -18,7 +15,6 @@
 			$('input[name=dob]').datepicker();
 		});
 	</script>
-	<%@include file="Header.jsp"%>
 	<div class="wrapper">
 		<%@include file="AdminSideBar.jsp"%>
 		<div id="content">
@@ -223,6 +219,9 @@
 			window.location.replace("Terminals.jsp");
 		}
 	</script>
+
+<jsp:include page="footer.jsp"></jsp:include>
+
 </body>
 
 </html>

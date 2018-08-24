@@ -4,14 +4,7 @@
     Author     : Mohamed S. El-Shall
 --%>
 
-<%@page import="org.apache.commons.beanutils.RowSetDynaClass"%>
-<%@page import="java.sql.ResultSet"%>
-<%@page import="java.sql.Statement"%>
-<%@page import="java.sql.Connection"%>
-<%@taglib uri="http://displaytag.sf.net" prefix="display"%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%@include file="Header.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,8 +13,6 @@
 <link href="Report.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-
-	<%@include file="Header.jsp"%>
 
 	<div class="wrapper ">
 
@@ -81,6 +72,7 @@
 			getAllSim();
 		});
 	</script>
+<jsp:include page="footer.jsp"></jsp:include>
 
 </body>
 </html>

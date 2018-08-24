@@ -1,6 +1,6 @@
 function getAllStores() {
 	$.ajax({
-		url : 'http://localhost:8082/v1/store/all',
+		url : link+':8082/v1/store/all',
 		type : 'GET',
 		contentType : "application/json; charset=utf-8",
 		data : {},
@@ -26,9 +26,9 @@ function processAdminAllStoresResponse(response) {
 				+ "<button type='button' class='btn btn-warning' onclick='navigateToEditStore("
 				+ response.results[i].storeId
 				+ ")'>Edit</button>"
-				+ "&nbsp;&nbsp;&nbsp;<button type='button' class='btn btn-danger' onclick=\"deleteStore("
+				+ "&nbsp;&nbsp;&nbsp;<button type='button' class='btn btn-danger' onclick='deleteStore("
 				+ response.results[i].storeId
-				+")>Delete</button>"
+				+")'>Delete</button>"
 				+ "</td></tr>";;
 	}
 	output += "</tbody></body></div>";
@@ -65,7 +65,7 @@ function deleteStore(storeId) {
 // ---------------------------------------------------------------------------------------------------
 function getStoreById(storeId) {
 	$.ajax({
-		url : 'http://localhost:8082/v1/store/' + storeId,
+		url : link+':8082/v1/store/' + storeId,
 		type : 'GET',
 		contentType : "application/json; charset=utf-8",
 		data : {},
@@ -105,7 +105,7 @@ function addStore() {
 		
 		"status":status
 	}
-	sendDataSaveStore(JSON.stringify(terminal), 'http://localhost:8082/v1/store/');
+	sendDataSaveStore(JSON.stringify(terminal), link+':8082/v1/store/');
 
 }
 
@@ -158,7 +158,7 @@ function updateStore() {
 		
 		"status":status
 	}
-	sendDataSaveStore(JSON.stringify(terminal), 'http://localhost:8082/v1/store/update');
+	sendDataSaveStore(JSON.stringify(terminal), link+':8082/v1/store/update');
 }
 
 //---------------------------- get store drop down list
@@ -166,7 +166,7 @@ function updateStore() {
 
 function getStoresDropdown(){
 	$.ajax({
-		url : 'http://localhost:8082/v1/store/all',
+		url : link+':8082/v1/store/all',
 		type : 'GET',
 		contentType : "application/json; charset=utf-8",
 		data : {},

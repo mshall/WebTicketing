@@ -4,15 +4,13 @@
     Author     : Mohamed S. El-Shall
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="Header.jsp"%>
 <!DOCTYPE html>
 <html>
     <head>
 <title><fmt:message key="tickets_history" /></title>
 </head>
 <body>
-    <%@include file="Header.jsp" %>
-
     <div class="wrapper ">    
         <%@include  file="AdminSideBar.jsp" %>
 
@@ -52,6 +50,7 @@
             });
         </script>
 
+<jsp:include page="footer.jsp"></jsp:include>
 
     </body>
 </html>

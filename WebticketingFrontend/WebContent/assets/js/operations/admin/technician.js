@@ -1,6 +1,6 @@
 function manageTechnicians() {
 	$.ajax({
-		url : 'http://localhost:8082/v1/user/all/technician',
+		url : link+':8082/v1/user/all/technician',
 		type : 'GET',
 		contentType : "application/json; charset=utf-8",
 		data : {},
@@ -28,7 +28,7 @@ function processAllTechnicians(response) {
 				+ ")'>Edit</button>"
 				+ "&nbsp;&nbsp;&nbsp;<button type='button' class='btn btn-danger' onclick='deleteTechnical("
 				+ response.results[i].userId
-				+">Delete</button>"
+				+")'>Delete</button>"
 				+ "</td></tr>";
 	}
 	output += "</tbody></div>";
@@ -49,7 +49,7 @@ function navigateToAddTechnical(technicianId){
 //-------------------------------------------------------------------------------------
 function deleteTechnical(technicianId){
 	$.ajax({
-		url : 'http://localhost:8082/v1/user/' + technicianId,
+		url : link+':8082/v1/user/' + technicianId,
 		type : 'DELETE',
 		contentType : "application/json; charset=utf-8",
 		data : {},
@@ -65,7 +65,7 @@ function deleteTechnical(technicianId){
 
 function getTechnicianById(technicianId) {
 	$.ajax({
-		url : 'http://localhost:8082/v1/user/id/' + technicianId,
+		url : link+':8082/v1/user/id/' + technicianId,
 		type : 'GET',
 		contentType : "application/json; charset=utf-8",
 		data : {},
@@ -122,7 +122,7 @@ function addTechnician(){
 function sendData(data, url) {
 	console.log(data);
 	$.ajax({
-		url : 'http://localhost:8082/v1/user/',
+		url : link+':8082/v1/user/',
 		type : 'POST',
 		contentType : "application/json; charset=utf-8",
 		data : data,
@@ -163,7 +163,7 @@ function updateTechnician(){
 function getAllTechniciansForTicketing() {
 
 	$.ajax({
-		url : 'http://localhost:8082/v1/user/all/technician',
+		url : link+':8082/v1/user/all/technician',
 		type : 'GET',
 		contentType : "application/json; charset=utf-8",
 		data : {},

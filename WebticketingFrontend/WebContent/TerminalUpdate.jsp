@@ -4,14 +4,13 @@
     Author     : shimaa
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="Header.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
 <title><fmt:message key="deployed_terminals" /></title>
 </head>
 <body>
-	<%@include file="Header.jsp"%>
 
 	<div class="wrapper ">
 		<%@include file="AdminSideBar.jsp"%>
@@ -198,6 +197,7 @@
 			window.location.replace("Terminals.jsp");
 		}
 	</script>
+<jsp:include page="footer.jsp"></jsp:include>
 
 </body>
 </html>

@@ -4,7 +4,7 @@
 function getAllMerchantsForWithdrawal() {
 	// 
 	$.ajax({
-		url : 'http://localhost:8082/v1/merchant/all',
+		url : link+':8082/v1/merchant/all',
 		type : 'GET',
 		contentType : "application/json; charset=utf-8",
 		data : {},
@@ -37,7 +37,7 @@ var targetedTerminalId = null;
 function getAllTerminalSerialsForWithdrawal() {
 	// 
 	$.ajax({
-		url : 'http://localhost:8082/v1/terminal/all',
+		url : link+':8082/v1/terminal/all',
 		type : 'GET',
 		contentType : "application/json; charset=utf-8",
 		data : {},
@@ -103,7 +103,7 @@ function withdrawTerminal() {
 }
 function sendWithdrawTerminalData(data) {
 	$.ajax({
-		url : 'http://localhost:8082/v1/terminal/update/',
+		url : link+':8082/v1/terminal/update/',
 		type : 'POST',
 		contentType : "application/json; charset=utf-8",
 		data : data,
@@ -128,7 +128,7 @@ function processWithdrawTerminalResponse(response) {
 // -----------------------------------------------------------------------------------------
 function getWithdrawalsLogs() {
 	$.ajax({
-		url : 'http://localhost:8082/v1/terminal/?status=Defected',
+		url : link+':8082/v1/terminal/?status=Defected',
 		type : 'GET',
 		contentType : "application/json; charset=utf-8",
 		data : {},

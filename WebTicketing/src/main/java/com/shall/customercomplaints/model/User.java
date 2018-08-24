@@ -27,6 +27,7 @@ public class User {
 	 * 2: technician
 	 */
 	private String username, email, password;
+	private int status;
 	@Column(name = "user_type")
 	private int userType;
 

@@ -1,17 +1,24 @@
+var loginCount = 0;
+var userTry='';
 function performLogin() {
-	var data = new FormData();
-	var username = $("#uname").val();
-	var password = $("#password").val();
-	var login = {
-		"username" : username,
-		"password" : password
+	loginCount++;
+	if (loginCount < 4) {
+		var data = new FormData();
+		var username = $("#uname").val();
+		var password = $("#password").val();
+		var login = {
+			"username" : username,
+			"password" : password
+		}
+		sendData(JSON.stringify(login));
+	}else {
+		loginCount=0;
+		blockUser();
 	}
-	sendData(JSON.stringify(login));
-
 }
 function sendData(data) {
 	$.ajax({
-		url : 'http://localhost:8082/v1/user/login',
+		url : link + ':8082/v1/user/login',
 		type : 'POST',
 		contentType : "application/json; charset=utf-8",
 		data : data,
@@ -43,7 +50,7 @@ function processResponse(response) {
 		$.session.set('username', username);
 		$.session.set('email', email);
 		$.session.set('userType', userType);
-
+		Cookies.set('user', username);
 		if (userType === 0) {// This is a root admin
 			window.location.replace("AdminHome.jsp");
 		} else if (userType === 1) { // This is an admin
@@ -61,7 +68,7 @@ function processResponse(response) {
 // ---------------------------------------------------------------------------------------------------
 function getUserByUserName(userName) {
 	$.ajax({
-		url : 'http://localhost:8082/v1/user/' + userName,
+		url : link + ':8082/v1/user/' + userName,
 		type : 'GET',
 		contentType : "application/json; charset=utf-8",
 		data : {},
@@ -95,7 +102,7 @@ function changePassword() {
 }
 function sendDataChangePassword(data) {
 	$.ajax({
-		url : 'http://localhost:8082/v1/user/update/',
+		url : link + ':8082/v1/user/update/',
 		type : 'POST',
 		contentType : "application/json; charset=utf-8",
 		data : data,
@@ -120,6 +127,55 @@ function processChangePasswordResponse(response) {
 	if (code == 200) {
 		window.location.replace("AdminHome.jsp");
 
+	} else {
+		formMessage.css("color", "red");
+	}
+
+}
+
+//---------------------------------------------------------------------------------------------------
+//---------------------------- block user
+//---------------------------------------------------------------------------------------------------
+
+function blockUser() {
+
+	var data = new FormData();
+	var username = $("#uname").val();
+	var results = getUserByUserName(username);
+	var userId = results.userId;
+	var user = {
+		"userId" : userId,
+		"username" : username,
+		"status":1
+	}
+	sendDataBlockUser(JSON.stringify(user));
+
+}
+function sendDataBlockUser(data) {
+	$.ajax({
+		url : link + ':8082/v1/user/update/',
+		type : 'POST',
+		contentType : "application/json; charset=utf-8",
+		data : data,
+		dataType : 'json',
+		success : function(response) {
+			processChangeBlockUser(response);
+		}
+	});
+}
+
+function processChangeBlockUser(response) {
+	console.log(response);
+	var formMessage = $("#form-message");
+
+	var code = response.code;
+	var message = response.message;
+	var results = response.results;
+
+	// ----
+	formMessage.text(message);
+	if (code == 200) {
+		formMessage.text("User is blocked, please contact with admin");
 	} else {
 		formMessage.css("color", "red");
 	}

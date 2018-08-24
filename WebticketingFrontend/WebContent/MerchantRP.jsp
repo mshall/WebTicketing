@@ -4,7 +4,7 @@
     Author     : Mohamed S. El-Shall
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="Header.jsp"%>
 <!DOCTYPE html>
 <html>
     <title><fmt:message key="roll_paper_to_merchant" /></title> 
@@ -13,7 +13,6 @@
     </style>
 </head>
 <body>
-    <%@include file="Header.jsp" %>
     <div class="wrapper">
         <%@include  file="AdminSideBar.jsp" %>
         <div  id="content">
@@ -113,5 +112,8 @@
 
 
     </script>
+<jsp:include page="footer.jsp"></jsp:include>
+
+
 </body>
 </html>

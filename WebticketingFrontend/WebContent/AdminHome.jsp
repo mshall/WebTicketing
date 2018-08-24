@@ -1,5 +1,4 @@
 <%@page import="org.omg.PortableServer.REQUEST_PROCESSING_POLICY_ID"%>
-<%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 <%-- 
     Document   : newjsp
     Created on : May 19, 2018, 3:53:11 AM
@@ -15,13 +14,8 @@
 <script src="BootStrap/js/glm-ajax.js" type="text/javascript"></script>
 <a href="bootStrap/fonts/glyphicons-halflings-regular.svg"></a>
 
-
 </head>
 <body>
-
-
-
-	
 
 	<div class="wrapper ">
 
@@ -65,7 +59,8 @@
 		src="https://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
 	<link rel="stylesheet"
 		href="https://cdn.datatables.net/1.10.4/css/jquery.dataTables.min.css">
-	<script src="assets/js/jquery.session.js"></script>
+	<script src="assets/js/jquerysession.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 	<script src="assets/js/operations/admin/admin-home.js"></script>
 	<script src="assets/js/operations/admin/stores.js"></script>
 	<script src="assets/js/operations/admin/tickets.js"></script>
@@ -76,7 +71,7 @@
 		});
 	</script>
 
-
+<jsp:include page="footer.jsp"></jsp:include>
 
 
 

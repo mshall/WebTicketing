@@ -4,14 +4,7 @@
     Author     : Mohamed S. El-Shall
 --%>
 
-<%@page import="org.apache.commons.beanutils.RowSetDynaClass"%>
-<%@page import="java.sql.ResultSet"%>
-<%@page import="java.sql.Statement"%>
-<%@page import="java.sql.Connection"%>
-<%@taglib uri="http://displaytag.sf.net" prefix="display"%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%@include file="Header.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,9 +12,6 @@
 <title><fmt:message key="withdrawal_report" /></title>
 </head>
 <body>
-
-	<%@include file="Header.jsp"%>
-
 	<div class="wrapper ">
 
 		<%@include file="AdminSideBar.jsp"%>
@@ -68,13 +58,6 @@
 
 	</div>
 	</div>
-
-
-
-
-
-
-
 	<script src="assets/js/operations/admin/reports/reports-util.js"></script>
 	<script src="assets/js/operations/admin/reports/withdrawals-report.js"></script>
 	<script>
@@ -83,5 +66,7 @@
 			getWithdrawalsLogs();
 		});
 	</script>
+<jsp:include page="footer.jsp"></jsp:include>
+
 </body>
 </html>

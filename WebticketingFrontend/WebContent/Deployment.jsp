@@ -4,16 +4,13 @@
     Author     : Mohamed S. El-Shall
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@include file="Header.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
 <title><fmt:message key="deployment" /></title>
 </head>
 <body>
-	<%@include file="Header.jsp"%>
 
 	<div class="wrapper ">
 		<%@include file="AdminSideBar.jsp"%>
@@ -28,18 +25,17 @@
 					</div>
 
 
-					<div>
+					<div id="collapseOne" class="panel-collapse collapse in">
+					<div class="panel-body">
 						</a> <a href="DeployToMerchant.jsp">
 							<button class="btn btn-default">
 								<span class="glyphicon glyphicon-plus"></span><fmt:message key="deploy" /> 
 							</button>
 						</a>
-					</div>
-
-					<div class="panel-body">
+					
 						<br> <br> <br>
 						<div id="allTerminals"></div>
-
+					</div>
 					</div>
 				</div>
 			</div>
@@ -53,6 +49,7 @@
 			getTerminalsByStatus('Deployed');
 		});
 	</script>
+<jsp:include page="footer.jsp"></jsp:include>
 
 </body>
 </html>

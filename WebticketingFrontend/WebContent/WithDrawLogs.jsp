@@ -4,7 +4,7 @@
     Author     : Mohamed S. El-Shall
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="Header.jsp"%>
 <!DOCTYPE html>
 <html>
 
@@ -13,8 +13,6 @@
 
 </head>
 <body>
-	<%@include file="Header.jsp"%>
-
 	<div class="wrapper ">
 		<%@include file="AdminSideBar.jsp"%>
 
@@ -39,5 +37,8 @@
 			getWithdrawalsLogs();
 		});
 	</script>
+
+<jsp:include page="footer.jsp"></jsp:include>
+
 </body>
 </html>

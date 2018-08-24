@@ -3,19 +3,13 @@
     Created on : May 25, 2018, 6:31:31 AM
     Author     : Mohamed S. El-Shall
 --%>
-<%@page import="java.sql.PreparedStatement"%>
-<%@page import="java.sql.ResultSet"%>
-<%@page import="java.sql.Statement"%>
-<%@page import="java.sql.Connection"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="Header.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
 <title><fmt:message key="terminal_withdraw" /></title>
 </head>
 <body>
-	<%@include file="Header.jsp"%>
-
 	<div class="wrapper ">
 		<%@include file="AdminSideBar.jsp"%>
 
@@ -86,5 +80,7 @@
 				getAllTerminalSerialsForWithdrawal();
 			});
 		</script>
+<jsp:include page="footer.jsp"></jsp:include>
+
 </body>
 </html>

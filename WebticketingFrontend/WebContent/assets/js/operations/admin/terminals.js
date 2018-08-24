@@ -1,6 +1,6 @@
 function getAllTerminals() {
 	$.ajax({
-		url : 'http://localhost:8082/v1/terminal/all',
+		url : link+':8082/v1/terminal/all',
 		type : 'GET',
 		contentType : "application/json; charset=utf-8",
 		data : {},
@@ -91,7 +91,7 @@ function deleteTerminal(objectId) {
 // //////////////////////////////////////////
 function getTerminalById() {
 	$.ajax({
-		url : 'http://localhost:8082/v1/terminal/' + $.urlParam('terminalId'),
+		url : link+':8082/v1/terminal/' + $.urlParam('terminalId'),
 		type : 'GET',
 		contentType : "application/json; charset=utf-8",
 		data : {},
@@ -181,7 +181,7 @@ function addTerminal() {
 		"manualEntry" : manualEntry,
 		"tender" : tender
 	}
-	sendData(JSON.stringify(terminal), 'http://localhost:8082/v1/terminal/');
+	sendData(JSON.stringify(terminal), link+':8082/v1/terminal/');
 
 }
 
@@ -254,7 +254,7 @@ function updateTerminal() {
 		"tender" : tender
 	}
 	sendData(JSON.stringify(terminal),
-			'http://localhost:8082/v1/terminal/update/');
+			link+':8082/v1/terminal/update/');
 
 }
 
@@ -275,7 +275,7 @@ function sendData(data, url) {
 
 function getTerminalsByStatus(status){
 	$.ajax({
-		url : 'http://localhost:8082/v1/terminal/?status='+status,
+		url : link+':8082/v1/terminal/?status='+status,
 		type : 'GET',
 		contentType : "application/json; charset=utf-8",
 		data : {},

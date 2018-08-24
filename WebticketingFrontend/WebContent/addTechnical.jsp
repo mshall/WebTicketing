@@ -4,19 +4,14 @@
     Author     : Mohamed S. El-Shall
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="Header.jsp"%>
 <!DOCTYPE html>
 <html>
     <head>
     <title><fmt:message key="add_technical" /></title> 
 </head>
 <body>
-    <script>
-        $(function () {
-            $('input[name=dob]').datepicker();
-        });
-    </script>
-    <%@include file="Header.jsp" %>
+    
     <div class="wrapper">
         <%@include  file="AdminSideBar.jsp" %>
         <div  id="content">
@@ -89,41 +84,45 @@
 	<script src="assets/js/operations/admin/technician.js"></script>
     <script>
 
+
+    $(document).ready(function() {
+		var technicianId = getURLParameter('technicianId');
+		console.log("technicianId:"+technicianId);
+		if(technicianId!=null){
+			console.log("getTechnicianById");
+			getTechnicianById(technicianId);	
+		}
+	});
+    
         function checkPass()
         {
-            Â Â Â Â //Store the password field objects into variables ...
-            Â Â Â Â var pass1 = document.getElementById("password");
-            Â Â Â Â var pass2 = document.getElementById("password2");
-            Â Â Â Â //Store the Confimation Message Object ...
-            Â Â Â Â var message = document.getElementById("confirmMessage");
-            Â Â Â Â //Set the colors we will be using ...
-            Â Â Â Â var goodColor = "#66cc66";
-            Â Â Â Â var badColor = "#ff6666";
-            Â Â Â Â //Compare the values in the password field 
-            Â Â Â Â //and the confirmation field
-            Â Â Â Â if (pass1.value === pass2.value) {
-                Â Â Â Â Â Â Â Â //The passwords match. 
-                Â Â Â Â Â Â Â Â //Set the color to the good color and inform
-                Â Â Â Â Â Â Â Â //the user that they have entered the correct password 
-                Â Â Â Â Â Â Â Â pass2.style.backgroundColor = goodColor;
-                Â Â Â Â Â Â Â Â message.style.color = goodColor;
-                Â Â Â Â Â Â Â Â message.innerHTML = "Passwords Match!";
-            Â Â Â Â } else {
-                Â Â Â Â Â Â Â Â //The passwords do not match.
-                Â Â Â Â Â Â Â Â //Set the color to the bad color and
-                Â Â Â Â Â Â Â Â //notify the user.
-                Â Â Â Â Â Â Â Â pass2.style.backgroundColor = badColor;
-                Â Â Â Â Â Â Â Â message.style.color = badColor;
-                Â Â Â Â Â Â Â Â message.innerHTML = "Passwords Do Not Match!";
-            Â Â Â Â }
-        }Â  
+                //Store the password field objects into variables ...
+                var pass1 = document.getElementById("password");
+                var pass2 = document.getElementById("password2");
+                //Store the Confimation Message Object ...
+                var message = document.getElementById("confirmMessage");
+                //Set the colors we will be using ...
+                var goodColor = "#66cc66";
+                var badColor = "#ff6666";
+                //Compare the values in the password field 
+                //and the confirmation field
+                if (pass1.value === pass2.value) {
+                        //The passwords match. 
+                        //Set the color to the good color and inform
+                        //the user that they have entered the correct password 
+                        pass2.style.backgroundColor = goodColor;
+                        message.style.color = goodColor;
+                        message.innerHTML = "Passwords Match!";
+                } else {
+                        //The passwords do not match.
+                        //Set the color to the bad color and
+                        //notify the user.
+                        pass2.style.backgroundColor = badColor;
+                        message.style.color = badColor;
+                        message.innerHTML = "Passwords Do Not Match!";
+                }
+        }  
 
-        $(document).ready(function() {
-			var technicianId = getURLParameter('technicianId');
-			if(technicianId!=null){
-				getTechnicianById(technicianId);	
-			}
-		});
         
         function save(){
         	var technicianId = getURLParameter('technicianId');
@@ -138,5 +137,7 @@
         	window.location.replace("Technical.jsp");
         }
     </script>
+<jsp:include page="footer.jsp"></jsp:include>
+
 </body>
 </html>
