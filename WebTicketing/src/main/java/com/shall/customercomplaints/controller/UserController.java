@@ -30,35 +30,42 @@ public class UserController {
 		ResponseVO<User> response = null;
 		User loggedinUser = ((UserService) service).findUser(login);
 		if (loggedinUser == null) {
-			response = new ResponseVO<User>(Constants.ERROR_CODE_NOT_FOUND, Constants.ERROR_MESSAGE_NO_USERS, loggedinUser);
-		} else if(loggedinUser.getStatus()==1){
-			response = new ResponseVO<User>(Constants.ERROR_CODE_NOT_FOUND, Constants.ERROR_MESSAGE_NO_USERS, loggedinUser);
-		}else {
+			response = new ResponseVO<User>(Constants.ERROR_CODE_NOT_FOUND, Constants.ERROR_MESSAGE_NO_USERS,
+					loggedinUser);
+		} else if (loggedinUser.getStatus() == 1) {
+			response = new ResponseVO<User>(Constants.ERROR_CODE_NOT_FOUND, Constants.ERROR_MESSAGE_NO_USERS,
+					loggedinUser);
+		} else {
 			response = new ResponseVO<User>(Constants.SUCCESS_CODE, Constants.SUCCESS_MESSAGE_USER_LOGIN, loggedinUser);
 		}
 		return ResponseEntity.ok(response);
 	}
-	
+
 	@RequestMapping(value = "/all", produces = "application/json; charset=UTF-8", method = RequestMethod.GET)
 	public ResponseEntity<ResponseVO<Iterable<User>>> getAllUsers() {
 		return ResponseEntity.ok(new ResponseVO<>(100, "Ok", ((UserService) service).getAllUsers()));
+	}
+
+	@RequestMapping(value = "/status/{status}", produces = "application/json; charset=UTF-8", method = RequestMethod.GET)
+	public ResponseEntity<ResponseVO<Iterable<User>>> getAllUsersByStatus(@PathVariable("status") int status) {
+		return ResponseEntity.ok(new ResponseVO<>(100, "Ok", ((UserService) service).getAllUsersByStatus(status)));
 	}
 
 	@RequestMapping(value = "/all/{userType}", produces = "application/json; charset=UTF-8", method = RequestMethod.GET)
 	public ResponseEntity<ResponseVO<Iterable<User>>> getAllUsersOfType(@PathVariable("userType") int userType) {
 		return ResponseEntity.ok(new ResponseVO<>(100, "Ok", ((UserService) service).getAllUsersOfType(userType)));
 	}
-	
+
 	@RequestMapping(value = "/all/admin/root", produces = "application/json; charset=UTF-8", method = RequestMethod.GET)
 	public ResponseEntity<ResponseVO<Iterable<User>>> getAllRootAdmins() {
 		return ResponseEntity.ok(new ResponseVO<>(100, "Ok", ((UserService) service).getAllUsersOfType(0)));
 	}
-	
+
 	@RequestMapping(value = "/all/admin", produces = "application/json; charset=UTF-8", method = RequestMethod.GET)
 	public ResponseEntity<ResponseVO<Iterable<User>>> getAllAdmins() {
 		return ResponseEntity.ok(new ResponseVO<>(100, "Ok", ((UserService) service).getAllUsersOfType(1)));
 	}
-	
+
 	@RequestMapping(value = "/all/technician", produces = "application/json; charset=UTF-8", method = RequestMethod.GET)
 	public ResponseEntity<ResponseVO<Iterable<User>>> getAllTechnicians() {
 		return ResponseEntity.ok(new ResponseVO<>(100, "Ok", ((UserService) service).getAllUsersOfType(2)));
@@ -75,7 +82,7 @@ public class UserController {
 		}
 		return ResponseEntity.ok(response);
 	}
-	
+
 	@RequestMapping(value = "/id/{userId}", produces = "application/json; charset=UTF-8", method = RequestMethod.GET)
 	public ResponseEntity<ResponseVO<User>> findUserById(@PathVariable("userId") int userId) {
 		ResponseVO<User> response = null;
@@ -117,7 +124,8 @@ public class UserController {
 		ResponseVO<User> response = null;
 		User updatedUser = ((UserService) service).updateUser(user);
 		if (updatedUser == null) {
-			response = new ResponseVO<User>(Constants.ERROR_CODE_GENERAL, Constants.ERROR_MESSAGE_USER_UPDATE, updatedUser);
+			response = new ResponseVO<User>(Constants.ERROR_CODE_GENERAL, Constants.ERROR_MESSAGE_USER_UPDATE,
+					updatedUser);
 		} else {
 			response = new ResponseVO<User>(Constants.SUCCESS_CODE, Constants.SUCCESS_MESSAGE_UPDATE, updatedUser);
 		}

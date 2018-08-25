@@ -30,5 +30,4 @@ public class User {
 	private int status;
 	@Column(name = "user_type")
 	private int userType;
-
 }
