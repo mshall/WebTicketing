@@ -40,15 +40,7 @@ function processAllSimResponse(response) {
 	console.log(response);
 	var simDiv = $('#allSim');
 
-	output = "<div ><table id=\"simTable\" class=\"table responsive\" border=\"1\"> "
-			+ "<thead> <tr><th>Sim Serial</th>"
-			+ "<th>operator</th>"
-			+ "<th>Sim Condition</th>"
-			+ "<th>status</th>"
-			+ "<th>Store</th>"
-			+ "<th>merchant</th>" 
-			+ "<th>terminal</th>" +
-			" <th></th></tr></thead>";
+	output = "";
 	for ( var i in response.results) {
 		output += "<tr><td>" + response.results[i].simSerial + "</td><td>"
 				+ response.results[i].operator + "</td><td>"
@@ -64,7 +56,7 @@ function processAllSimResponse(response) {
 				+ "</td></tr>";
 				
 	}
-	output += "</tbody></body></div>";
+	output += "";
 	simDiv.html(output);
 	
 	$('#simTable').DataTable();

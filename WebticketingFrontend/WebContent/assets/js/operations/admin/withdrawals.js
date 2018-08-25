@@ -144,14 +144,7 @@ function processWithdrawalLogsResponse(response) {
 
 	var dWithdrawalsLogs = $('#dWithdrawalsLogs');
 
-	var output = "<div ><table id='tWithdrawals' class=\"table responsive\" border=\"1\"> "
-			+ "<thead> <tr>"
-			+ "<th>Vendor</th>"
-			+ "<th>Model</th>"
-			+ "<th>Serial number</th>"
-			+ "<th>TID</th>"
-			+ "<th>MID</th"
-			+ "><th>Sim 1</th>" + "<th>Sim 2</th></tr></thead>";
+	var output = "";
 	for ( var i in response.results) {
 		var merchantId = response.results[i].merchantId;
 		output += "<tr><td>" + "Spectre" + "</td><td>"
@@ -162,7 +155,7 @@ function processWithdrawalLogsResponse(response) {
 				+ response.results[i].firstSimSerial + "</td>" + "<td>"
 				+ response.results[i].secondSimSerial + "</td></tr>";
 	}
-	output += "</tbody></body></div>";
+	output += "";
 
 	dWithdrawalsLogs.html(output);
 	$('#tWithdrawals').DataTable();

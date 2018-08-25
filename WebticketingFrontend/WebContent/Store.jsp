@@ -7,7 +7,7 @@
     Author     : Mohamed S. El-Shall
 --%>
 
-
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="Header.jsp"%>
 <!DOCTYPE html>
 
@@ -39,12 +39,28 @@
 
 								<a href="addstore.jsp">
 									<button class="btn btn-default">
-										<span class="glyphicon glyphicon-plus"></span><fmt:message key="store" />
+										<span class="glyphicon glyphicon-plus"></span>
+										<fmt:message key="store" />
 									</button>
 								</a>
 							</div>
 							<br> <br>
-							<div id="allStores"></div>
+							<div class="panel-body">
+								<table id='storesTable' class="table responsive" border="1">
+									<thead>
+										<tr>
+											<th><fmt:message key="store_id" /></th>
+											<th><fmt:message key="store_name" /></th>
+											<th><fmt:message key="address" /></th>
+											<th><fmt:message key="details" /></th>
+											<th></th>
+										</tr>
+									</thead>
+									<tbody id="allStores">
+										<!-- <div class="panel-body" id="allStores"></div> -->
+									</tbody>
+								</table>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -54,13 +70,13 @@
 			<div class="col-sm-2"></div>
 
 		</div>
+		</div>
+		<script src="assets/js/operations/admin/stores.js"></script>
 		<script>
 			$(document).ready(function() {
 				getAllStores();
 			});
 		</script>
-<jsp:include page="footer.jsp"></jsp:include>
-
-
+		<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

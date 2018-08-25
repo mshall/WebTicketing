@@ -16,10 +16,7 @@ function processAdminAllMerchants(response) {
 
 	var merchantsTable = $('#allMerchants');
 
-	var output = "<div ><table id='merchantsTable' class=\"table responsive\" border=\"1\"> "
-			+ "<thead> <tr><th>Merchant name</th>"
-			+ "<th>Active</th>"
-			+ "<th>MCC</th>" + "<th>Class</th><th>Operations</th></tr></thead>";
+	var output = "";
 	for ( var i in response.results) {
 		var merchantId = response.results[i].merchantId;
 		output += "<tr><td>"
@@ -38,7 +35,7 @@ function processAdminAllMerchants(response) {
 				+ "&nbsp;&nbsp;&nbsp;<button type='button' class='btn btn-danger'>Delete</button>"
 				+ "</td></tr>";
 	}
-	output += "</tbody></body></div>";
+	output += "";
 
 	merchantsTable.html(output);
 	$('#merchantsTable').DataTable();

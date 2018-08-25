@@ -1,4 +1,4 @@
-
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="Header.jsp"%>
 <html>
 
@@ -26,14 +26,31 @@
 							<div>
 								</a> <a href="addSIM.jsp">
 									<button class="btn btn-default">
-										<span class="glyphicon glyphicon-plus"></span><fmt:message key="sim" />									</button>
+										<span class="glyphicon glyphicon-plus"></span>
+										<fmt:message key="sim" />
+									</button>
 								</a>
 							</div>
 
 							<br> <br>
 
-							<div id="allSim" style="align-content: center">
-								<div class="allSim"></div>
+							<div class="panel-body">
+								<table id='simTable' class='table responsive' border='1'>
+									<thead>
+										<tr>
+											<th><fmt:message key="sim_serial" /></th>
+											<th><fmt:message key="operator" /></th>
+											<th><fmt:message key="condition" /></th>
+											<th><fmt:message key="status" /></th>
+											<th><fmt:message key="store" /></th>
+											<th><fmt:message key="merchant" /></th>
+											<th><fmt:message key="terminal" /></th>
+											<th></th>
+										</tr>
+									</thead>
+									<tbody id="allSim">
+									</tbody>
+								</table>
 							</div>
 						</div>
 					</div>
@@ -43,12 +60,12 @@
 	</div>
 
 	<script src="assets/js/operations/admin/sim.js"></script>
-		<script>
-			$(document).ready(function() {
-				getAllSim();
-			});
-		</script>
-<jsp:include page="footer.jsp"></jsp:include>
+	<script>
+		$(document).ready(function() {
+			getAllSim();
+		});
+	</script>
+	<jsp:include page="footer.jsp"></jsp:include>
 
 </body>
 </html>

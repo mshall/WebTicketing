@@ -14,12 +14,8 @@ function getAllComplaints() {
 function processGetAllComplaintsResponse(response) {
 	console.log(response);
 	var ticketstable = $('#allTickets');
-	var output = "<div > <table id=\"allTicketsTable\" class=\"table responsive\" border=\"1\">" +
-			" <thead> <tr><th>ticket_id</th>"
-			+ "<th><fmt:message key='ticket_date'/></th>"
-			+ "<th><fmt:message key='ticket_details' /></th> "
-			+ "<th></th></tr></thead>";
-	
+
+	var output = "";
 	for ( var i in response.results) {
 		output += "<tr><td>" + response.results[i].complaintId + "</td><td>"
 				+ response.results[i].complaintOpeningTime + "</td><td>"
@@ -32,10 +28,7 @@ function processGetAllComplaintsResponse(response) {
 				+ ")'>Delete</button>"
 				+ "</td></tr>";
 	}
-	output += "</tbody></body></div>";
-
 	ticketstable.html(output);
-
 	$('#allTicketsTable').DataTable();
 }
 
@@ -61,13 +54,7 @@ function processComplaintsByTechnicianResponse(response) {
 	console.log(response);
 	var ticketstable = $('#allTicketsByTechnician');
 
-	var output = "<div > <table id=\"allTicketsByTechnicianTable\" class=\"table responsive\" border=\"1\"> <thead> <tr><th> Ticket-id </th>"
-			+ "<th>Vendore Name</th>"
-			+ "<th>Serial number</th>"
-			+ "<th> Ticket-Date</th>"
-			+ "<th>Problem</th>"
-			+ "<th>Mobile</th>"
-			+ "<th>Status</th>" + "<th></th></tr></thead>";
+	var output = "";
 	for ( var i in response.results) {
 		output += "<tr><td>"
 				+ response.results[i].complaintId
@@ -89,7 +76,7 @@ function processComplaintsByTechnicianResponse(response) {
 				+ response.results[i].complaintId
 				+ ");\" class=\"btn btn-lg btn-primary btn-block\">Maintenance</button></td></tr>";
 	}
-	output += "</tbody></body></div>";
+	output += "";
 
 	ticketstable.html(output);
 

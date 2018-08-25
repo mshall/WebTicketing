@@ -1,6 +1,6 @@
 function getAllTerminals() {
 	$.ajax({
-		url : 'http://localhost:8082/v1/terminal/all',
+		url : link+':8082/v1/terminal/all',
 		type : 'GET',
 		contentType : "application/json; charset=utf-8",
 		data : {},
@@ -18,18 +18,7 @@ function processAllTerminalsResponse(response) {
 	var taDeploymentsJson = $("#taDeploymentsJson");
 	taDeploymentsJson.val(JSON.stringify(response.results));
 
-	var output = "<div ><table id='terminalsTable' class=\"table responsive\" border=\"1\"> "
-			+ "<thead> <tr><th>Vendor</th>"
-			+ "<th>Model</th>"
-			+ "<th>Serial number</th>"
-			+ "<th>TID</th>"
-			+ "<th>MID</th>"
-			+ "<th>SIM 1</th>" + "<th>tender</th>" + "<th>created Date </th>"
-			/*
-			 * + "<th>condition</th>" + "<th>currency</th>" + "<th>MCC</th>" + "<th>Terminal
-			 * Class</th>" + "<th>Sale</th>" + +"<th>OnlineReturned</th>" + "<th>OfflineReturned</th>" + "<th>offlineSale</th>" + "<th>onlineVoid</th>" + "<th>offlineVoid</th>" + +"<th>preauth</th>" + "<th>amex</th>" + "<th>instatiment</th>" + "<th>prepaidservices</th>" + "<th>diners</th>" + +"<th>premuim</th>" + "<th>manualEntry</th>" + "<th>storeId</th>"
-			 */
-			+ " </tr></thead>";
+	var output = "";
 	for ( var i in response.results) {
 		output += "<tr><td>Spectra</td><td>" + response.results[i].model
 				+ "</td><td>" + response.results[i].terminalSerialNumber
@@ -38,32 +27,8 @@ function processAllTerminalsResponse(response) {
 				+ response.results[i].firstSimSerial + "</td><td>"
 				+ response.results[i].tender + "</td><td>"
 				+ response.results[i].createdDate + "</td></tr>";
-
-		/*
-		 * + response.results[i].condition + "</td><td>" +
-		 * response.results[i].currency + "</td><td>" +
-		 * response.results[i].MCC + "</td><td>" +
-		 * response.results[i].terminalClass + "</td><td>" +
-		 * response.results[i].sale + "</td><td>" +
-		 * response.results[i].onlineReturned + "</td><td>" +
-		 * response.results[i].offlineReturned + "</td><td>" +
-		 * response.results[i].offlineSale + "</td><td>" +
-		 * response.results[i].onlineVoid + "</td><td>" +
-		 * response.results[i].offlineVoid + "</td><td>" +
-		 * response.results[i].preauth + "</td><td>" +
-		 * response.results[i].amex + "</td><td>" +
-		 * response.results[i].instatiment + "</td><td>" +
-		 * response.results[i].prepaidservices + "</td><td>" +
-		 * response.results[i].diners + "</td><td>" +
-		 * response.results[i].premuim + "</td><td>" +
-		 * response.results[i].manualEntry + "</td><td>" +
-		 * response.results[i].storeId + "</td></tr>";
-		 */
 	}
-	output += "</tbody></body></div>";
-
 	terminalstable.html(output);
-
 	$('#terminalsTable').DataTable();
 }
 // ///////////////////////////////////////
@@ -73,7 +38,7 @@ function goToUpdateTerminalPage(terminalId) {
 // //////////////////////////////////////////
 function getTerminalById() {
 	$.ajax({
-		url : 'http://localhost:8082/v1/terminal/' + $.urlParam('terminalId'),
+		url : link+':8082/v1/terminal/' + $.urlParam('terminalId'),
 		type : 'GET',
 		contentType : "application/json; charset=utf-8",
 		data : {},
@@ -163,7 +128,7 @@ function addTerminal() {
 		"manualEntry" : manualEntry,
 		"tender" : tender
 	}
-	sendData(JSON.stringify(terminal), 'http://localhost:8082/v1/terminal/');
+	sendData(JSON.stringify(terminal), link+':8082/v1/terminal/');
 
 }
 
@@ -237,7 +202,7 @@ function updateTerminal() {
 		"tender" : tender
 	}
 	sendData(JSON.stringify(terminal),
-			'http://localhost:8082/v1/terminal/update/');
+			link+':8082/v1/terminal/update/');
 
 }
 
@@ -258,7 +223,7 @@ function sendData(data, url) {
 
 function getTerminalsByStatus(status) {
 	$.ajax({
-		url : 'http://localhost:8082/v1/terminal/?status=' + status,
+		url : link+':8082/v1/terminal/?status=' + status,
 		type : 'GET',
 		contentType : "application/json; charset=utf-8",
 		data : {},
@@ -288,7 +253,7 @@ $.urlParam = function(name) {
 function getAllMerchantsForDeplyment() {
 	// 
 	$.ajax({
-		url : 'http://localhost:8082/v1/merchant/all',
+		url : link+':8082/v1/merchant/all',
 		type : 'GET',
 		contentType : "application/json; charset=utf-8",
 		data : {},
