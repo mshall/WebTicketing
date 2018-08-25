@@ -85,6 +85,7 @@
 				<div></div>
 			</div>
 		</div>
+		</div>
 		<script src="assets/js/operations/admin/reports/reports-util.js"></script>
 		<script src="assets/js/operations/admin/reports/tickets-report.js"></script>
 		<script>

@@ -3,7 +3,7 @@
     Created on : May 25, 2018, 6:22:11 AM
     Author     : Mohamed S. El-Shall
 --%>
-
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="Header.jsp"%>
 <!DOCTYPE html>
 <html>
@@ -15,6 +15,7 @@
         <%@include  file="TechnicalSideBar.jsp" %>
 
         <div  id="content">
+        <jsp:include page="AlertMessage.jsp"></jsp:include>
             <div class="panel-group" >
                 <div class="panel panel-primary" id="panel1">
                     <div class="panel-heading">
@@ -34,8 +35,8 @@
                 <form name="Maintainenace" action="Maintainenace" method="POST"  lass="form-horizontal" id="myForm">
                 <div class="panel-body">    
 					<div class="row">
-						<label class="control-label col-sm-4" ><fmt:message key="status" />: </label>
-						 <select  style="width: 50%" id="status" name="status"  class="col-sm-4" style="border-radius: .5rem">
+						<label class="control-label col-sm-2" ><fmt:message key="status" />: </label>
+						 <select id="status" name="status"  class="col-sm-4" style="border-radius: .5rem">
                                 <option value="0">Select... </option>
                                 <option value="1">Solved Soft</option>
                                 <option value="2">Solved Hard</option>
@@ -45,16 +46,16 @@
                         <br> 
                         <br>
                         <div class="row">
-                            <label class="control-label col-sm-4" ><fmt:message key="solution" />: </label> 
-                            <div class="col-sm-8">
-                                <input class="col-sm-4" type="text" id="solution" name="solution" placeholder="write your  Solution" /></div>
+                            <label class="control-label col-sm-2" ><fmt:message key="solution" />: </label> 
+                           
+                                <input class="col-sm-4" type="text" id="solution" name="solution" placeholder="write your  Solution" />
                         </div>
                         <br> 
                         <br>
                         <div class="row">
-                            <label class="control-label col-sm-4" ><fmt:message key="notes" /> </label>
-                            <div class="col-sm-4"><input class="form-control" type="text" id="note" name="note" placeholder=" write your Notes" />
-                            </div>
+                            <label class="control-label col-sm-2" ><fmt:message key="notes" /> </label>
+                            <input class="col-sm-4" type="text" id="note" name="note" placeholder=" write your Notes" />
+                           
                         </div>
                         <br> 
                         <br>

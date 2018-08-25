@@ -3,7 +3,7 @@
     Created on : May 24, 2018, 2:05:57 AM
     Author     : Mohamed S. El-Shall
 --%>
-
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="Header.jsp"%>
 
 <!DOCTYPE html>
@@ -20,6 +20,7 @@
 		<%@include file="AdminSideBar.jsp"%>
 
 		<div id="content">
+		<jsp:include page="AlertMessage.jsp"></jsp:include>
 			<div class="panel-group" id="accordion">
 				<div class="panel panel-primary" id="panel1">
 					<div class="panel-heading">

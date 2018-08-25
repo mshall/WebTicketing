@@ -9,7 +9,7 @@
 	<div class="wrapper">
 		<%@include file="AdminSideBar.jsp"%>
 		<div id="content">
-
+	<jsp:include page="AlertMessage.jsp"></jsp:include>
 			<div class="panel-group" id="accordion">
 
 				<div class="panel panel-primary" id="panel1">

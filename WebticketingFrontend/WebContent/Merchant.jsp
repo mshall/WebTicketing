@@ -26,7 +26,7 @@ table {
 		<%@include file="AdminSideBar.jsp"%>
 
 		<div id="content">
-
+			<jsp:include page="AlertMessage.jsp"></jsp:include>
 
 			<div class="panel-group" id="accordion">
 
@@ -69,6 +69,7 @@ table {
 					</div>
 				</div>
 			</div>
+		</div>
 		</div>
 		<script src="assets/js/operations/admin/merchants.js"></script>
 		<script>

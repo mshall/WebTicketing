@@ -3,6 +3,7 @@
     Created on : May 27, 2018, 10:24:35 PM
     Author     : Mohamed S. El-Shall
 --%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="Header.jsp"%>
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -14,6 +15,7 @@
 	<div class="wrapper">
 		<%@include file="AdminSideBar.jsp"%>
 		<div id="content">
+		<jsp:include page="AlertMessage.jsp"></jsp:include>
 			<div class="panel-group" id="accordion">
 
 				<div class="panel panel-primary" id="panel1">
@@ -211,6 +213,7 @@
 					</div>
 				</div>
 			</div>
+		</div>
 		</div>
 		<script src="assets/js/operations/util.js"></script>
 		<script src="assets/js/operations/admin/deployment.js"></script>

@@ -1,5 +1,3 @@
-<%@page import="java.sql.Statement"%>
-<%@page import="java.sql.ResultSet"%>
 
 <%-- 
     Document   : newjsp
@@ -23,7 +21,7 @@
 		<%@include file="AdminSideBar.jsp"%>
 
 		<div id="content">
-
+		<jsp:include page="AlertMessage.jsp"></jsp:include>
 			<div class="panel-group" id="accordion">
 
 				<div class="panel panel-primary" id="panel1">

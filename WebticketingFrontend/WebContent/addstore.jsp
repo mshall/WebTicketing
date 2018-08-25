@@ -4,6 +4,7 @@
     Author     : Mohamed S. El-Shall
 --%>
 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="Header.jsp"%>
 <!DOCTYPE html>
 <html>
@@ -15,6 +16,7 @@
 	<div class="wrapper">
 		<%@include file="AdminSideBar.jsp"%>
 		<div id="content">
+		<jsp:include page="AlertMessage.jsp"></jsp:include>
 			<div class="panel-group">
 
 				<div class="panel panel-primary" id="panel1">

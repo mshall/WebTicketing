@@ -38,6 +38,7 @@ table {
 		<%-- page Contenct --%>
 
 		<div id="content">
+		<jsp:include page="AlertMessage.jsp"></jsp:include>
 			<div class="panel-group" id="accordion">
 
 
