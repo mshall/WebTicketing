@@ -15,14 +15,7 @@ function processAllTerminalsResponse(response) {
 	console.log("deploymet.processAllTerminalsResponse->"+response);
 	var terminalstable = $('#allTerminals');
 
-	var output = "<div ><table id='terminalsTable' class=\"table responsive\" border=\"1\"> "
-			+ "<thead> "
-			+ "<th>serial number</th>"
-			+ "<th>model</th>"
-			+ "<th>status</th>"
-			+ "<th>Tender</th>"
-			+ "<th> </th>"
-			+ " </tr></thead>";
+	var output = "";
 	for ( var i in response.results) {
 		output += "<tr><td>"
 				+ response.results[i].terminalSerialNumber + "</td><td>"
@@ -38,8 +31,6 @@ function processAllTerminalsResponse(response) {
 				+ "</td></tr>";
 
 	}
-	output += "</tbody></body></div>";
-
 	terminalstable.html(output);
 
 	$('#terminalsTable').DataTable();

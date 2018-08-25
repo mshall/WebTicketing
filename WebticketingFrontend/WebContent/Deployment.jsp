@@ -4,6 +4,7 @@
     Author     : Mohamed S. El-Shall
 --%>
 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="Header.jsp"%>
 <!DOCTYPE html>
 <html>
@@ -34,7 +35,17 @@
 						</a>
 					
 						<br> <br> <br>
-						<div id="allTerminals"></div>
+						<div class="panel-body">
+							<table id='terminalsTable' class="table responsive" border="1">
+										<thead> <th><fmt:message key="serial_number"/></th>
+										<th><fmt:message key="model"/></th>
+										<th><fmt:message key="status"/></th>
+										<th><fmt:message key="tender"/></th>
+										<th> </th></thead>
+							<tbody id="allTerminals">		
+							</tbody>
+							</table>
+						</div>	
 					</div>
 					</div>
 				</div>

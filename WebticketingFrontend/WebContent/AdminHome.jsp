@@ -33,7 +33,18 @@
 						</h4>
 					</div>
 					<div id="collapseOne" class="panel-collapse collapse in">
-						<div class="panel-body" id="allStores"></div>
+						<div class="panel-body">
+							<table id="storesTable" class="table responsive" border="1"> 
+										<thead> <tr><th><fmt:message key="store_id"/></th>
+											<th><fmt:message key="store_name"/></th>
+											<th><fmt:message key="address"/></th>
+												<th><fmt:message key="details"/></th>
+												<th></th></tr>
+												</thead>
+									<tbody id="allStores">	
+							</tbody>
+							</table>
+						</div>	
 					</div>
 				</div>
 
@@ -48,7 +59,16 @@
 
 					</div>
 					<div id="collapseTwo" class="panel-collapse collapse in">
-						<div class="panel-body" id="allTickets"></div>
+						<div class="panel-body">
+							 <table id="allTicketsTable" class="table responsive" border="1">
+										<thead> <tr><th><fmt:message key='ticket_id' /></th>
+										<th><fmt:message key='ticket_date' /></th>
+										<th><fmt:message key="details"/></th> 
+										<th></th></tr></thead>
+								<tbody id="allTickets">		
+							</tbody>
+							</table>
+							</div>	
 					</div>
 
 				</div>

@@ -1,7 +1,7 @@
 function getAllComplaints() {
 
 	$.ajax({
-		url : 'http://localhost:8082/v1/complaint/all',
+		url : link+':8082/v1/complaint/all',
 		type : 'GET',
 		contentType : "application/json; charset=utf-8",
 		data : {},
@@ -18,16 +18,7 @@ function processGetAllComplaintsResponse(response) {
 	var ticketstable = $('#allTickets');
 	var taTicketsJson = $("#taTicketsJson");
 	taTicketsJson.val(JSON.stringify(response.results));
-	var output = "<div > <table id=\"allTicketsTable\" class=\"table responsive\" border=\"1\"> <thead> "
-			+ "<tr><th> Ticket Id </th>"
-			+ "<th>Status</th>"
-			+ "<th>Serial Number</th>"
-			+ "<th>TID</th>"
-			+ "<th>Merchant Name</th>"
-			+ "<th>Merchant ID</th>"
-			+ "<th>Merchant Address</th>"
-			+ "<th>City</th>"
-			+ "<th>Problem</th></tr></thead>";
+	var output = "";
 	for ( var i in response.results) {
 		output += "<tr><td>" + response.results[i].complaintId + "</td><td>"
 				+ response.results[i].status + "</td><td>"
@@ -39,10 +30,8 @@ function processGetAllComplaintsResponse(response) {
 				+ response.results[i].merchantCity + "</td><td>"
 				+ response.results[i].comments + "</td></tr>";
 	}
-	output += "</tbody></body></div>";
-
+	output += "";
 	ticketstable.html(output);
-
 	$('#allTicketsTable').DataTable();
 }
 
@@ -51,7 +40,7 @@ function processGetAllComplaintsResponse(response) {
 function getComplaintsByTechnician() {
 	var userId = $.session.get('userId');
 	$.ajax({
-		url : 'http://localhost:8082/v1/complaint/?technicianId=' + userId,
+		url : link+':8082/v1/complaint/?technicianId=' + userId,
 		type : 'GET',
 		contentType : "application/json; charset=utf-8",
 		data : {},
@@ -125,7 +114,7 @@ function updateComplaint() {
 }
 function sendUpdateComplaintData(data) {
 	$.ajax({
-		url : 'http://localhost:8082/v1/complaint/update/',
+		url : link+':8082/v1/complaint/update/',
 		type : 'POST',
 		contentType : "application/json; charset=utf-8",
 		data : data,
@@ -159,7 +148,7 @@ function processUpdateComplaintResponse(response) {
 function getAllComplaintsByStatus(status) {
 	// 
 	$.ajax({
-		url : 'http://localhost:8082/v1/complaint//status/' + status,
+		url : link+':8082/v1/complaint//status/' + status,
 		type : 'GET',
 		contentType : "application/json; charset=utf-8",
 		data : {},
@@ -176,16 +165,7 @@ function processGetAllComplaintsByStatusResponse(response) {
 	var ticketstable = $('#allTickets');
 	var taTicketsJson = $("#taTicketsJson");
 	taTicketsJson.val(JSON.stringify(response.results));
-	var output = "<div > <table id=\"allTicketsTable\" class=\"table responsive\" border=\"1\"> <thead> "
-			+ "<tr><th> Ticket-id </th>"
-			+ "<th>status</th>"
-			+ "<th>srial num</th>"
-			+ "<th>Terminal Id</th>"
-			+ "<th>Merchant Name</th>"
-			+ "<th>Merchant ID</th>"
-			+ "<th>Merchant Address</th>"
-			+ "<th>City</th>"
-			+ "<th>Problem</th></tr></thead>";
+	var output = "";
 	for ( var i in response.results) {
 		output += "<tr><td>" + response.results[i].complaintId + "</td><td>"
 				+ response.results[i].status + "</td><td>" + "serial num"
@@ -195,7 +175,7 @@ function processGetAllComplaintsByStatusResponse(response) {
 				+ "merchant address" + "</td><td>" + "city" + "</td><td>"
 				+ response.results[i].comments + "</td></tr>";
 	}
-	output += "</tbody></body></div>";
+	output += "";
 
 	ticketstable.html(output);
 
@@ -217,7 +197,7 @@ function assignTicket() {
 }
 function sendAssingTicketData(data) {
 	$.ajax({
-		url : 'http://localhost:8082/v1/complaint/update/',
+		url : link+':8082/v1/complaint/update/',
 		type : 'POST',
 		contentType : "application/json; charset=utf-8",
 		data : data,

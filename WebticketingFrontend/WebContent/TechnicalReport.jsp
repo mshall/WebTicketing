@@ -3,6 +3,7 @@
     Created on : Jun 24, 2018, 3:46:11 AM
     Author     : Mohamed S. El-Shall
 --%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="Header.jsp"%>
 <!DOCTYPE html>
 <html>

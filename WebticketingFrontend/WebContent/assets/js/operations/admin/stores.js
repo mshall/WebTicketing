@@ -13,11 +13,7 @@ function getAllStores() {
 function processAdminAllStoresResponse(response) {
 	console.log('store.processResponse -> Response: ' + response);
 	var storestable = $('#allStores');
-
-	var output = "<div ><table id='storesTable' class=\"table responsive\" border=\"1\"> "
-			+ "<thead> <tr><th>Store-id</th>"
-			+ "<th>Store Name</th>"
-			+ "<th>Address</th>" + "<th>Details</th><th></th></tr></thead>";
+	var output="";
 	for ( var i in response.results) {
 		output += "<tr><td>" + response.results[i].storeId + "</td><td>"
 				+ response.results[i].storeName + "</td>" + "<td>"
@@ -29,11 +25,10 @@ function processAdminAllStoresResponse(response) {
 				+ "&nbsp;&nbsp;&nbsp;<button type='button' class='btn btn-danger' onclick='deleteStore("
 				+ response.results[i].storeId
 				+")'>Delete</button>"
-				+ "</td></tr>";;
+				+ "</td></tr>";
 	}
-	output += "</tbody></body></div>";
-
 	storestable.html(output);
+
 	$('#storesTable').DataTable();
 }
 //---------------------------------------------------------------------------------------------------

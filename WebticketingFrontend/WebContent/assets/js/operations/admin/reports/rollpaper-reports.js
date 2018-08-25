@@ -1,7 +1,7 @@
 function getAllRollpapersForVendors() {
 
 	$.ajax({
-		url : 'http://localhost:8082/v1/rollpaper/all',
+		url : link+':8082/v1/rollpaper/all',
 		type : 'GET',
 		contentType : "application/json; charset=utf-8",
 		data : {},
@@ -16,13 +16,7 @@ function processGetAllRollpapersForVendors(response) {
 			.log("tickets-report.processGetAllComplaintsResponse--->"
 					+ response);
 	var ticketstable = $('#dAllRollpapersForVendors');
-	var output = "<div > <table id=\"tAllRollpapersForVendors\" class=\"table responsive\" border=\"1\"> <thead> "
-			+ "<tr><th>Store Name</th>"
-			+ "<th>Roll Size</th>"
-			+ "<th>Total</th>"
-			+ "<th>Out</th>"
-			+ "<th>Rest</th>"
-			+ "<th>Date</th>" + "</tr></thead>";
+	var output = "";
 	for ( var i in response.results) {
 		output += "<tr><td>" + response.results[i].storeName + "</td><td>"
 				+ response.results[i].rollpaperSize + "</td><td>"
@@ -31,7 +25,7 @@ function processGetAllRollpapersForVendors(response) {
 				+ response.results[i].remaining + "</td><td>"
 				+ response.results[i].actionDate + "</td></tr>";
 	}
-	output += "</tbody></body></div>";
+	output += "";
 
 	ticketstable.html(output);
 
@@ -45,7 +39,7 @@ function processGetAllRollpapersForVendors(response) {
 function getAllRollpapersForMerchants() {
 
 	$.ajax({
-		url : 'http://localhost:8082/v1/merchant-rollpaper/all',
+		url : link+':8082/v1/merchant-rollpaper/all',
 		type : 'GET',
 		contentType : "application/json; charset=utf-8",
 		data : {},
@@ -60,13 +54,7 @@ function processGetAllRollpapersForMerchants(response) {
 			.log("tickets-report.processGetAllComplaintsResponse--->"
 					+ response);
 	var ticketstable = $('#dAllRollpapersForMerchants');
-	var output = "<div > <table id=\"tAllRollpapersForMerchants\" class=\"table responsive\" border=\"1\"> <thead> "
-			+ "<tr><th>Merchant Name</th>"
-			+ "<th>Roll Size</th>"
-			+ "<th>Out</th>"
-			+ "<th>Meet SLA</th>"
-			+ "<th>Note</th>"
-			+ "<th>Date</th>" + "</tr></thead>";
+	var output = "";
 	for ( var i in response.results) {
 		output += "<tr><td>" + response.results[i].merchantName + "</td><td>"
 				+ response.results[i].rollpaperSize + "</td><td>"
@@ -75,7 +63,7 @@ function processGetAllRollpapersForMerchants(response) {
 				+ response.results[i].note + "</td><td>"
 				+ response.results[i].actionDate + "</td></tr>";
 	}
-	output += "</tbody></body></div>";
+	output += "";
 
 	ticketstable.html(output);
 

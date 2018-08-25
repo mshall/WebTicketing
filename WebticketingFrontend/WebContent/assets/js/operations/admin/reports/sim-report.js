@@ -15,24 +15,24 @@ function getSimApi(apiUrl) {
 // ///////////////////////////////////////////
 
 function getAllSim() {
-		getSimApi('http://localhost:8082/v1/sim/all');
+		getSimApi(link+':8082/v1/sim/all');
 }
 
 ///////////////////////////////////////////////
 function getAllSimDeployed() {
-	getSimApi('http://localhost:8082/v1/sim/deployed');
+	getSimApi(link+':8082/v1/sim/deployed');
 }
 ////////////////////////////////////////////
 function getAllSimStocked() {
-	getSimApi('http://localhost:8082/v1/sim/stocked');
+	getSimApi(link+':8082/v1/sim/stocked');
 }
 ////////////////////////////////////////////
 function getAllSimUsed() {
-	getSimApi('http://localhost:8082/v1/sim/used');
+	getSimApi(link+':8082/v1/sim/used');
 }
 ////////////////////////////////////////////
 function getAllSimNew() {
-	getSimApi('http://localhost:8082/v1/sim/new');
+	getSimApi(link+':8082/v1/sim/new');
 }
 ////////////////////////////////////////////
 
@@ -43,13 +43,7 @@ function processAllSimResponse(response) {
 	var taSimJson = $("#taSimJson");
 	taSimJson.val(JSON.stringify(response.results));
 
-	output = "<div ><table id=\"simTable\" class=\"table responsive\" border=\"1\"> "
-			+ "<thead> <tr><th>Sim Serial</th>"
-			+ "<th>Store</th>"
-			+ "<th>Condition</th>"
-			+ "<th>status</th>"
-			+ "<th>Pos Serial</th>"
-			+ "<th>Operator</th></tr></thead>";
+	output = "";
 	for ( var i in response.results) {
 		output += "<tr><td>" + response.results[i].simSerial + "</td><td>"
 		+ response.results[i].storeId + "</td><td>"
@@ -59,7 +53,7 @@ function processAllSimResponse(response) {
 		+ response.results[i].operator + "</td></tr>";
 				
 	}
-	output += "</tbody></body></div>";
+	output += "";
 	simDiv.html(output);
 	
 	$('#simTable').DataTable();
@@ -72,7 +66,7 @@ function navigateToSimPage(simId) {
 ////////////////////////////////////////////
 function getSimById() {
 	$.ajax({
-		url : 'http://localhost:8082/v1/sim/' + $.urlParam('simId'),
+		url : link+':8082/v1/sim/' + $.urlParam('simId'),
 		type : 'GET',
 		contentType : "application/json; charset=utf-8",
 		data : {},
@@ -151,7 +145,7 @@ function processSaveSimResponse(response) {
 // /////////////////////////////////
 function getSimByOperatorDropdown(operator,divId,SimNo){
 	$.ajax({
-		url : 'http://localhost:8082/v1/sim/?operator='+operator,
+		url : link+':8082/v1/sim/?operator='+operator,
 		type : 'GET',
 		contentType : "application/json; charset=utf-8",
 		data : {},

@@ -3,6 +3,7 @@
     Created on : May 25, 2018, 6:31:31 AM
     Author     : Mohamed S. El-Shall
 --%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="Header.jsp"%>
 <!DOCTYPE html>
 <html>
@@ -16,14 +17,7 @@
 		<%-- page Contenct --%>
 
 		<div id="content">
-			<div class="alert alert-success" id="successUpdate">
-				<a href="#" class="close" data-dismiss="alert">&times;</a> <strong>Sucess!
-				</strong> Terminal has been withdrawn successfully
-			</div>
-			<div class="alert alert-danger" id="errorUpdate">
-				<a href="#" class="close" data-dismiss="alert">&times;</a> <strong>Warning!
-				</strong> Couldn't withdraw terminal!
-			</div>
+			<jsp:include page="AlertMessage.jsp"></jsp:include>
 			<div class="panel-group" id="accordion">
 				<div class="panel panel-primary" id="panel1">
 					<div class="panel-heading">
