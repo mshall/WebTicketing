@@ -63,7 +63,7 @@
                         <div  class="form-group"> 
                             <div class="col-sm-offset-4 col-sm-8">      
                                 <input type="button" value="<fmt:message key="submit" />" name="submit" class="btn btn-primary" />
-                                <input type="button" value="<fmt:message key="cancel" />" name="cancel" onclick="Formreset()"  class="btn btn-danger"/>
+                                <input type="button" value="<fmt:message key="cancel" />" name="cancel" onclick="window.history.go(-1);"  class="btn btn-danger"/>
                             </div> 
                         </div>
                         <br> 

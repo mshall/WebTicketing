@@ -38,7 +38,7 @@
 								<a href="addstore.jsp">
 									<button class="btn btn-default">
 										<span class="glyphicon glyphicon-plus"></span>
-										<fmt:message key="store" />
+										<fmt:message key="add_store" />
 									</button>
 								</a>
 							</div>

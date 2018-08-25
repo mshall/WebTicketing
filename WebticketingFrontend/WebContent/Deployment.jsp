@@ -31,7 +31,7 @@
 					<div class="panel-body">
 						</a> <a href="DeployToMerchant.jsp">
 							<button class="btn btn-default">
-								<span class="glyphicon glyphicon-plus"></span><fmt:message key="deploy" /> 
+								<span class="glyphicon glyphicon-plus"></span><fmt:message key="add_deployment" /> 
 							</button>
 						</a>
 					

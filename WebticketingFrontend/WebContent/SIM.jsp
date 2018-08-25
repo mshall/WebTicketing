@@ -27,7 +27,7 @@
 								</a> <a href="addSIM.jsp">
 									<button class="btn btn-default">
 										<span class="glyphicon glyphicon-plus"></span>
-										<fmt:message key="sim" />
+										<fmt:message key="add_sim" />
 									</button>
 								</a>
 							</div>

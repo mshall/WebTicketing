@@ -203,7 +203,7 @@
 								<div class="col-sm-offset-4 col-sm-8">
 									<input type="button" value="<fmt:message key="submit" />" onclick="addDeployment()"
 										class="btn btn-primary" /> <input type="button" value="<fmt:message key="cancel" />"
-										name="cancel" onclick="Formreset()" class="btn btn-danger" />
+										name="cancel" onclick="window.history.go(-1);" class="btn btn-danger" />
 								</div>
 							</div>
 
