@@ -41,6 +41,17 @@
 								key="change_password" /></a></li>
 				</ul></li>
 
+
+			<li><a href="#blockedUser" data-toggle="collapse"
+				data-target="#blockedUser" aria-expanded="false"
+				aria-controls="blockedUser"> <i class="glyphicon glyphicon-phone"></i>
+					<fmt:message key="users" />
+				</a>
+				<ul class="collapse list-unstyled" id="blockedUser">
+					<li><a href="BlockedUsers.jsp"><fmt:message key="blocked_users" /></a></li>
+				</ul></li>
+
+
 			<li><a href="#Terminal" data-toggle="collapse"
 				data-target="#TerminalC" aria-expanded="false"
 				aria-controls="TerminalC"> <i class="glyphicon glyphicon-phone"></i>

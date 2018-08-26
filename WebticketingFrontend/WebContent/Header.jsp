@@ -92,7 +92,7 @@ header {
 			var u = Cookies.get('user');
 			var headerTitle = $("#header-title");
 			var username = $.session.get('username');
-			/*if (username == null) {
+			if (username == null) {
 				if (u != null) {
 					username = u;
 					headerTitle.text('Welcome ' + username);
@@ -101,7 +101,7 @@ header {
 				}
 			} else {
 				headerTitle.text('Welcome ' + username);
-			}*/
+			}
 
 		});
 	</script>
