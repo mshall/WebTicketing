@@ -25,7 +25,10 @@ function sendData(data) {
 		dataType : 'json',
 		success : function(response) {
 			processResponse(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 
@@ -75,7 +78,10 @@ function getUserByUserName(userName) {
 		dataType : 'json',
 		success : function(response) {
 			return response.results;
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 
@@ -109,7 +115,10 @@ function sendDataChangePassword(data) {
 		dataType : 'json',
 		success : function(response) {
 			processChangePasswordResponse(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 
@@ -160,7 +169,10 @@ function sendDataBlockUser(data) {
 		dataType : 'json',
 		success : function(response) {
 			processChangeBlockUser(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 

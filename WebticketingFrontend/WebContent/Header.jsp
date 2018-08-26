@@ -85,6 +85,10 @@ header {
 	<script src="assets/js/operations/util.js"></script>
 	<script>
 		$(document).ready(function() {
+
+            $("#successUpdate").hide();
+            $("#errorUpdate").hide();
+
 			var u = Cookies.get('user');
 			var headerTitle = $("#header-title");
 			var username = $.session.get('username');

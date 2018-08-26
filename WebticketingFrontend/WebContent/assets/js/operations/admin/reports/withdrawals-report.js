@@ -11,7 +11,10 @@ function getAllMerchantsForWithdrawal() {
 		dataType : 'json',
 		success : function(response) {
 			processGetAllMerchantsForWithdrawal(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 
@@ -42,7 +45,10 @@ function getWithdrawalsLogs() {
 		dataType : 'json',
 		success : function(response) {
 			processWithdrawalLogsResponse(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 function processWithdrawalLogsResponse(response) {

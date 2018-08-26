@@ -9,7 +9,10 @@ function getSimApi(apiUrl) {
 		success : function(response) {
 			//console.log(response);
 			processAllSimResponse(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 // ///////////////////////////////////////////
@@ -52,7 +55,9 @@ function processAllSimResponse(response) {
 				+ "<button type='button' class='btn btn-warning' onclick='navigateToSimPage("
 				+ response.results[i].simSerial
 				+ ")'>Edit</button>"
-				+ "&nbsp;&nbsp;&nbsp;<button type='button' class='btn btn-danger'>Delete</button>"
+				+ "&nbsp;&nbsp;&nbsp;<button type='button' class='btn btn-danger' onclick='deleteSim(" +
+            	+ response.results[i].simSerial
+            	+")'>Delete</button>"
 				+ "</td></tr>";
 				
 	}
@@ -76,7 +81,10 @@ function getSimById() {
 		dataType : 'json',
 		success : function(response) {
 			processGetSimByResponse(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 function processGetSimByResponse(response) {
@@ -124,7 +132,10 @@ function sendData(data,url) {
 		dataType : 'json',
 		success : function(response) {
 			processSaveSimResponse(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 
@@ -155,7 +166,10 @@ function getSimByOperatorDropdown(operator,divId,SimNo){
 		dataType : 'json',
 		success : function(response) {
 			processSimDDResponse(response,divId,SimNo);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 
@@ -183,4 +197,24 @@ $.urlParam = function(name) {
 	} else {
 		return results[1] || 0;
 	}
+}
+
+//---------------------------------------------------------------------------------------------------
+//----------------------------delete sim
+//---------------------------------------------------------------------------------------------------
+function deleteSim(simId) {
+    var deleteObject = link+':8082/v1/sim/' + simId;
+    $.ajax({
+        url : deleteObject,
+        type : 'DELETE',
+        contentType : "application/json; charset=utf-8",
+        data : {},
+        dataType : 'json',
+        success : function(response) {
+            processDeleteResponse(response);
+        },
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
+    });
 }

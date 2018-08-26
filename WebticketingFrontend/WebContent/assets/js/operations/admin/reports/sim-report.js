@@ -9,7 +9,10 @@ function getSimApi(apiUrl) {
 		success : function(response) {
 			//console.log(response);
 			processAllSimResponse(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 // ///////////////////////////////////////////
@@ -73,7 +76,10 @@ function getSimById() {
 		dataType : 'json',
 		success : function(response) {
 			processGetSimByResponse(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 function processGetSimByResponse(response) {
@@ -121,7 +127,13 @@ function sendData(data,url) {
 		dataType : 'json',
 		success : function(response) {
 			processSaveSimResponse(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        },
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 
@@ -152,7 +164,10 @@ function getSimByOperatorDropdown(operator,divId,SimNo){
 		dataType : 'json',
 		success : function(response) {
 			processSimDDResponse(response,divId,SimNo);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 

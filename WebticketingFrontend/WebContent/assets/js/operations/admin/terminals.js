@@ -7,7 +7,10 @@ function getAllTerminals() {
 		dataType : 'json',
 		success : function(response) {
 			processAllTerminalsResponse(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 
@@ -52,8 +55,11 @@ function deleteTerminal(objectId) {
 		data : {},
 		dataType : 'json',
 		success : function(response) {
-			processAddTerminalResponse(response);
-		}
+            processDeleteResponse(response);
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});	
 }
 // //////////////////////////////////////////
@@ -67,7 +73,10 @@ function getTerminalById() {
 		success : function(response) {
 			
 			processGetTerminalByResponse(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 
@@ -236,7 +245,10 @@ function sendData(data, url) {
 		dataType : 'json',
 		success : function(response) {
 			processAddTerminalResponse(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 // ////////////////////////////////////////////////////
@@ -250,7 +262,10 @@ function getTerminalsByStatus(status){
 		dataType : 'json',
 		success : function(response) {
 			processAllTerminalsResponse(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 ////////////////////////////////////////////////////

@@ -7,7 +7,10 @@ function getAllRollPapers() {
 		dataType : 'json',
 		success : function(response) {
 			processAllRollPapersResponse(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 
@@ -32,7 +35,9 @@ function processAllRollPapersResponse(response) {
 				+ "<button type='button' class='btn btn-warning' onclick='goToUpdateRollPage("
 				+ response.results[i].rollpaperId
 				+ ")'>Edit</button>"
-				+ "&nbsp;&nbsp;&nbsp;<button type='button' class='btn btn-danger'>Delete</button>"
+				+ "&nbsp;&nbsp;&nbsp;<button type='button' class='btn btn-danger' onclick='deleteRoll("+
+            	+ response.results[i].rollpaperId
+            	+")'>Delete</button>"
 				+ "</td></tr>";
 	}
 	output += "</tbody></body></div>";
@@ -57,7 +62,10 @@ function getROllById() {
 		dataType : 'json',
 		success : function(response) {
 			processGetRollByResponse(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 function processGetRollByResponse(response) {
@@ -133,7 +141,10 @@ function sendData(data, url) {
 		dataType : 'json',
 		success : function(response) {
 			processAddRollResponse(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 
@@ -146,4 +157,23 @@ $.urlParam = function(name) {
 	} else {
 		return results[1] || 0;
 	}
+}
+//---------------------------------------------------------------------------------------------------
+//----------------------------delete roll
+//---------------------------------------------------------------------------------------------------
+function deleteRoll(rollId) {
+    var deleteObject = link+':8082/v1/rollId/' + rollId;
+    $.ajax({
+        url : deleteObject,
+        type : 'DELETE',
+        contentType : "application/json; charset=utf-8",
+        data : {},
+        dataType : 'json',
+        success : function(response) {
+            processDeleteResponse(response);
+        },
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
+    });
 }
