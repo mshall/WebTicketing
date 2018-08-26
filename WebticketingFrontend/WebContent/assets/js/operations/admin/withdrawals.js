@@ -11,7 +11,10 @@ function getAllMerchantsForWithdrawal() {
 		dataType : 'json',
 		success : function(response) {
 			processGetAllMerchantsForWithdrawal(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 
@@ -44,7 +47,10 @@ function getAllTerminalSerialsForWithdrawal() {
 		dataType : 'json',
 		success : function(response) {
 			processGetAllTerminalForWithdrawal(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 
@@ -110,7 +116,10 @@ function sendWithdrawTerminalData(data) {
 		dataType : 'json',
 		success : function(response) {
 			processWithdrawTerminalResponse(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 function processWithdrawTerminalResponse(response) {
@@ -135,7 +144,10 @@ function getWithdrawalsLogs() {
 		dataType : 'json',
 		success : function(response) {
 			processWithdrawalLogsResponse(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 function processWithdrawalLogsResponse(response) {

@@ -7,7 +7,10 @@ function getAllMerchants() {
 		dataType : 'json',
 		success : function(response) {
 			processAdminAllMerchants(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 function processAdminAllMerchants(response) {
@@ -32,7 +35,9 @@ function processAdminAllMerchants(response) {
 				+ "<button type='button' class='btn btn-warning' onclick='navigateToEditMerchant("
 				+ merchantId
 				+ ")'>Edit</button>"
-				+ "&nbsp;&nbsp;&nbsp;<button type='button' class='btn btn-danger'>Delete</button>"
+				+ "&nbsp;&nbsp;&nbsp;<button type='button' class='btn btn-danger' onclick='deleteMerchant("
+				+ merchantId
+				+")'>Delete</button>"
 				+ "</td></tr>";
 	}
 	output += "";
@@ -51,7 +56,10 @@ function getMerchantById(id) {
 		dataType : 'json',
 		success : function(response) {
 			processGetStoreByIdResponse(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 function processGetStoreByIdResponse(response) {
@@ -64,17 +72,31 @@ function navigateToEditMerchant(merchantId) {
 	// window.alert('dont call automatically');
 	window.location.replace(editMerchant);
 }
-
+//---------------------------------------------------------------------------------------------------
+//----------------------------delete Merchant
+//---------------------------------------------------------------------------------------------------
 function deleteMerchant(merchantId) {
-	var deleteMerchant = "http://localhost:8082/v1/merchant/" + merchantId;
+    var deleteObject = link+':8082/v1/merchant/' + merchantId;
+    $.ajax({
+        url : deleteObject,
+        type : 'DELETE',
+        contentType : "application/json; charset=utf-8",
+        data : {},
+        dataType : 'json',
+        success : function(response) {
+            processDeleteResponse(response);
+        },
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
+    });
 }
-
 // ---------------------------------------------------------------------------------------------------
 // ---------------------------- Edit merchant operations
 // ---------------------------------------------------------------------------------------------------
 
 function populateEditMerchantForm(merchantId) {
-	var merchantDetailsUrl = "http://localhost:8082/v1/merchant/" + merchantId;
+	var merchantDetailsUrl = link+':8082/v1/merchant/' + merchantId;
 	$.ajax({
 		url : merchantDetailsUrl,
 		type : 'GET',
@@ -83,7 +105,10 @@ function populateEditMerchantForm(merchantId) {
 		dataType : 'json',
 		success : function(response) {
 			processMerchantDetails(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 
 }
@@ -170,7 +195,10 @@ function sendUpdateMerchantData(data) {
 		dataType : 'json',
 		success : function(response) {
 			processUpdateMerchantResponse(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 
@@ -197,7 +225,10 @@ function getMerchantsDropdown(){
 		dataType : 'json',
 		success : function(response) {
 			processMerchantsDDResponse(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 

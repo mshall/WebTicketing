@@ -7,7 +7,10 @@ function getTerminalsByStatus(status){
 		dataType : 'json',
 		success : function(response) {
 			processAllTerminalsResponse(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 
@@ -43,7 +46,7 @@ function goToDeployToMerchant(terminalId) {
 //----------------------------delete terminal
 //---------------------------------------------------------------------------------------------------
 function deleteTerminal(objectId) {
-	var deleteObject = "http://localhost:8082/v1/terminal/" + objectId;
+	var deleteObject = link+':8082/v1/terminal/' + objectId;
 	$.ajax({
 		url : deleteObject,
 		type : 'DELETE',
@@ -51,8 +54,11 @@ function deleteTerminal(objectId) {
 		data : {},
 		dataType : 'json',
 		success : function(response) {
-			processAddTerminalResponse(response);
-		}
+            processDeleteResponse(response);
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});	
 }
 // //////////////////////////////////////////
@@ -65,7 +71,10 @@ function getTerminalById(terminalId) {
 		dataType : 'json',
 		success : function(response) {
 			processGetTerminalByResponse(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 
@@ -194,7 +203,10 @@ function sendData(data, url) {
 		dataType : 'json',
 		success : function(response) {
 			processAddTerminalResponse(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 // ////////////////////////////////////////////////////

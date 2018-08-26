@@ -8,7 +8,10 @@ function getAllRollpapersForVendors() {
 		dataType : 'json',
 		success : function(response) {
 			processGetAllRollpapersForVendors(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 function processGetAllRollpapersForVendors(response) {
@@ -46,7 +49,10 @@ function getAllRollpapersForMerchants() {
 		dataType : 'json',
 		success : function(response) {
 			processGetAllRollpapersForMerchants(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 function processGetAllRollpapersForMerchants(response) {

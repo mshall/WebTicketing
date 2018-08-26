@@ -8,7 +8,10 @@ function getAllComplaints() {
 		dataType : 'json',
 		success : function(response) {
 			processGetAllComplaintsResponse(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 function processGetAllComplaintsResponse(response) {
@@ -46,7 +49,10 @@ function getComplaintsByTechnician() {
 		dataType : 'json',
 		success : function(response) {
 			processComplaintsByTechnicianResponse(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 
@@ -94,7 +100,7 @@ function goTomaintenancePage(complaintId) {
 //----------------------------delete ticket by id
 //---------------------------------------------------------------------------------------------------
 function deleteTicketById(objectId){
-		var deleteObject = "http://localhost:8082/v1/complaint/" + objectId;
+		var deleteObject = link+':8082/v1/complaint/' + objectId;
 		$.ajax({
 			url : deleteObject,
 			type : 'DELETE',
@@ -102,8 +108,11 @@ function deleteTicketById(objectId){
 			data : {},
 			dataType : 'json',
 			success : function(response) {
-				processUpdateComplaintResponse(response);
-			}
+                processDeleteResponse(response);
+			},
+            error: function(data, textStatus, jqXHR) {
+                handleAjaxError(data, textStatus, jqXHR);
+            }
 		});	
 	
 }
@@ -134,7 +143,10 @@ function sendUpdateComplaintData(data) {
 		dataType : 'json',
 		success : function(response) {
 			processUpdateComplaintResponse(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 
@@ -168,7 +180,10 @@ function getAllComplaintsByStatus(status) {
 		dataType : 'json',
 		success : function(response) {
 			processGetAllComplaintsByStatusResponse(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 
@@ -207,7 +222,10 @@ function sendAssingTicketData(data) {
 		dataType : 'json',
 		success : function(response) {
 			processWithdrawTerminalResponse(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 function processAssignTicketResponse(response) {

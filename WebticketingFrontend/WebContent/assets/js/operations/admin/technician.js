@@ -7,7 +7,10 @@ function manageTechnicians() {
 		dataType : 'json',
 		success : function(response) {
 			processAllTechnicians(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 function processAllTechnicians(response) {
@@ -55,8 +58,11 @@ function deleteTechnical(technicianId){
 		data : {},
 		dataType : 'json',
 		success : function(response) {
-			processSaveUserResponse(response);
-		}
+            processDeleteResponse(response);
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});	
 }
 //-------------------------------------------------------------------------------------
@@ -72,7 +78,10 @@ function getTechnicianById(technicianId) {
 		dataType : 'json',
 		success : function(response) {
 			processGetTechnicianByResponse(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 
@@ -129,7 +138,10 @@ function sendData(data, url) {
 		dataType : 'json',
 		success : function(response) {
 			processSaveUserResponse(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 
@@ -170,7 +182,10 @@ function getAllTechniciansForTicketing() {
 		dataType : 'json',
 		success : function(response) {
 			processAllTechniciansSelect(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 function processAllTechniciansSelect(response) {

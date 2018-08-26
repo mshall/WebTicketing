@@ -8,7 +8,10 @@ function getAllComplaints() {
 		dataType : 'json',
 		success : function(response) {
 			processGetAllComplaintsResponse(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 function processGetAllComplaintsResponse(response) {
@@ -47,7 +50,10 @@ function getComplaintsByTechnician() {
 		dataType : 'json',
 		success : function(response) {
 			processComplaintsByTechnicianResponse(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 
@@ -121,7 +127,10 @@ function sendUpdateComplaintData(data) {
 		dataType : 'json',
 		success : function(response) {
 			processUpdateComplaintResponse(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 
@@ -155,7 +164,10 @@ function getAllComplaintsByStatus(status) {
 		dataType : 'json',
 		success : function(response) {
 			processGetAllComplaintsByStatusResponse(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 
@@ -204,7 +216,10 @@ function sendAssingTicketData(data) {
 		dataType : 'json',
 		success : function(response) {
 			processWithdrawTerminalResponse(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 function processAssignTicketResponse(response) {

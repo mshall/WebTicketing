@@ -25,7 +25,10 @@ function sendData(data) {
 		dataType : 'json',
 		success : function(response) {
 			processSaveMerchantRollResponse(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 

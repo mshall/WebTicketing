@@ -7,7 +7,10 @@ function getAllStores() {
 		dataType : 'json',
 		success : function(response) {
 			processAdminAllStoresResponse(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 function processAdminAllStoresResponse(response) {
@@ -43,7 +46,7 @@ function navigateToEditStore(storeId) {
 //----------------------------delete store
 //---------------------------------------------------------------------------------------------------
 function deleteStore(storeId) {
-	var deleteObject = "http://localhost:8082/v1/store/" + storeId;
+	var deleteObject = link+':8082/v1/store/' + storeId;
 	$.ajax({
 		url : deleteObject,
 		type : 'DELETE',
@@ -51,8 +54,11 @@ function deleteStore(storeId) {
 		data : {},
 		dataType : 'json',
 		success : function(response) {
-			processSaveStoreResponse(response);
-		}
+            processDeleteResponse(response);
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});	
 }
 // ---------------------------------------------------------------------------------------------------
@@ -67,7 +73,10 @@ function getStoreById(storeId) {
 		dataType : 'json',
 		success : function(response) {
 			processGetStoreByIdResponse(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 function processGetStoreByIdResponse(response) {
@@ -114,7 +123,10 @@ function sendDataSaveStore(data, url) {
 		dataType : 'json',
 		success : function(response) {
 			processSaveStoreResponse(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 
@@ -168,7 +180,10 @@ function getStoresDropdown(){
 		dataType : 'json',
 		success : function(response) {
 			processStoresDDResponse(response);
-		}
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
 	});
 }
 
