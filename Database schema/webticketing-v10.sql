@@ -283,6 +283,7 @@ CREATE TABLE `user` (
   `email` varchar(45) default NULL,
   `user_type` int(11) default NULL,
   `password` varchar(244) NOT NULL,
+  `status` int(11) default NULL,
   PRIMARY KEY  (`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -293,7 +294,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'shall','mohamed.s.elshall2011@gmail.com',1,'shall'),(2,'mohamed','mohamed.s.elshall@gmail.com',2,'mohamed'),(3,'mostafa','mostafa.rady@gmail.com',0,'mostafa'),(4,'emad','emad@gmail.com',2,'emad');
+INSERT INTO `user` VALUES (1,'shall','mohamed.s.elshall2011@gmail.com',1,'shall',0),(2,'mohamed','mohamed.s.elshall@gmail.com',2,'mohamed',1),(3,'mostafa','mostafa.rady@gmail.com',0,'mostafa',0),(4,'emad','emad@gmail.com',2,'emad',1);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -306,4 +307,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-08-11 23:51:16
+-- Dump completed on 2018-08-26 17:59:32
