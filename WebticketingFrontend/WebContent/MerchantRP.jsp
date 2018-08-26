@@ -93,8 +93,8 @@
             document.getElementById("myForm").reset();
         }
         $(document).ready(function () {
-        	$("#successUpdate").hide();
-			$("#errorUpdate").hide();
+        //	$("#successUpdate").hide();
+		//	$("#errorUpdate").hide();
         	getAllRollPapers();
         	getMerchantsDropdown();
         	

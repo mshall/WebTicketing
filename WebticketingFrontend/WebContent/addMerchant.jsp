@@ -181,6 +181,10 @@
 
 <script>
 
+   /* $(document).ready(function() {
+        $("#successUpdate").hide();
+        $("#errorUpdate").hide();
+    });*/
 
     function Formreset() {
         document.getElementById("myForm").reset();

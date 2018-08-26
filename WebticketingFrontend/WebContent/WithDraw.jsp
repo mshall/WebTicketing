@@ -70,8 +70,8 @@
 		<script src="assets/js/operations/admin/withdrawals.js"></script>
 		<script>
 			$(document).ready(function() {
-				$("#successUpdate").hide();
-				$("#errorUpdate").hide();
+			//	$("#successUpdate").hide();
+			//	$("#errorUpdate").hide();
 				getAllMerchantsForWithdrawal();
 				getAllTerminalSerialsForWithdrawal();
 			});

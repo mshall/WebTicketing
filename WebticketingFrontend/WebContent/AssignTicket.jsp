@@ -69,8 +69,8 @@
 	<script src="assets/js/operations/admin/technician.js"></script>
 	<script>
 		$(document).ready(function() {
-			$("#successUpdate").hide();
-			$("#errorUpdate").hide();
+			//$("#successUpdate").hide();
+			//$("#errorUpdate").hide();
 			getAllComplaintsByStatus('Open');
 			getAllTechniciansForTicketing();
 		});

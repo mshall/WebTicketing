@@ -182,8 +182,8 @@
 	<script src="assets/js/operations/admin/merchants.js"></script>
 	<script>
 		$(document).ready(function() {
-			$("#successUpdate").hide();
-			$("#errorUpdate").hide();
+			//$("#successUpdate").hide();
+			//$("#errorUpdate").hide();
 			var merchantId = getURLParameter('merchantId');
 			populateEditMerchantForm(merchantId);
 		});
