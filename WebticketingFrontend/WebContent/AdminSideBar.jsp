@@ -23,14 +23,13 @@
 		</div>
 		<ul class="list-unstyled components">
 			<li class="active"><a href="AdminHome.jsp"> <i
-					class="glyphicon glyphicon-home"></i>
-				<fmt:message key="home" />
+					class="glyphicon glyphicon-home"></i> <fmt:message key="home" />
 			</a></li>
 
 			<li><a href="#homeSubmenu" data-toggle="collapse"
 				aria-expanded="false" aria-controls="homeSubmenu"> <i
-					class="glyphicon glyphicon-briefcase"></i>
-				<fmt:message key="accounts" />
+					class="glyphicon glyphicon-briefcase"></i> <fmt:message
+						key="accounts" />
 			</a>
 				<ul class="collapse list-unstyled" id="homeSubmenu">
 					<li><a href="Technical.jsp"> <fmt:message key="technical" /></a></li>
@@ -40,6 +39,18 @@
 					<li><a href="ChangePassword.jsp"><fmt:message
 								key="change_password" /></a></li>
 				</ul></li>
+
+
+			<li><a href="#blockedUser" data-toggle="collapse"
+				data-target="#blockedUser" aria-expanded="false"
+				aria-controls="blockedUser"> <i
+					class="glyphicon glyphicon-phone"></i> <fmt:message key="users" />
+			</a>
+				<ul class="collapse list-unstyled" id="blockedUser">
+					<li><a href="BlockedUsers.jsp"><fmt:message
+								key="blocked_users" /></a></li>
+				</ul></li>
+
 
 			<li><a href="#Terminal" data-toggle="collapse"
 				data-target="#TerminalC" aria-expanded="false"
@@ -109,9 +120,21 @@
 								key="rollpaper_report" /></a></li>
 				</ul></li>
 
+			<li><a href="#doc" data-toggle="collapse"
+				data-target="#docu" aria-expanded="false"
+				aria-controls="docu"> <i
+					class="glyphicon glyphicon-phone"></i> <fmt:message key="guide" />
+			</a>
+				<ul class="collapse list-unstyled" id="docu">
+					<li><a href="WebTeckitingAdmainGuide.docx"><fmt:message
+								key="admin_doc" /></a></li>
+					
+					<li><a href="WebTicketingTechnicianGuide.docx"><fmt:message
+								key="technician_doc" /></a></li>
+				</ul></li>
+
 			<li><a onclick="logout()" href="#"> <i
-					class="glyphicon glyphicon-log-out"></i>
-				<fmt:message key="logout" />
+					class="glyphicon glyphicon-log-out"></i> <fmt:message key="logout" />
 			</a></li>
 		</ul>
 
@@ -125,7 +148,8 @@
 	<link rel="stylesheet"
 		href="https://cdn.datatables.net/1.10.4/css/jquery.dataTables.min.css">
 	<script src="assets/js/jquerysession.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 	<script src="assets/js/operations/admin/admin-home.js"></script>
 	<script src="assets/js/operations/admin/stores.js"></script>
 	<script src="assets/js/operations/admin/tickets.js"></script>

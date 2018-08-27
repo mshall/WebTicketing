@@ -18,10 +18,7 @@ function processAllTechnicians(response) {
 			+ JSON.stringify(response));
 	var technicalTable = $('#allTechnicals');
 
-	var output = "<div ><table id='techniciansTable' class=\"table responsive\" border=\"1\"> "
-			+ "<thead> <tr><th>Technician id</th>"
-			+ "<th>username</th>"
-			+ "<th>email</th>" + "<th></th></tr></thead><tbody>";
+	var output = "";
 	for ( var i in response.results) {
 		output += "<tr><td>" + response.results[i].userId + "</td><td>"
 				+ response.results[i].username + "</td>" + "<td>"
@@ -34,7 +31,7 @@ function processAllTechnicians(response) {
 				+")'>Delete</button>"
 				+ "</td></tr>";
 	}
-	output += "</tbody></div>";
+	output += "";
 
 	technicalTable.html(output);
 	$('#techniciansTable').DataTable();
@@ -100,7 +97,7 @@ function processGetTechnicianByResponse(response) {
 	var userType=response.results.userType;
 }
 //-------------------------------------------------------------------------------------
-//---------------------------------------- ADd technician
+//---------------------------------------- Add technician
 //-------------------------------------------------------------------------------------
 function addTechnician(){
 	var data = new FormData();
@@ -128,7 +125,7 @@ function addTechnician(){
 	sendDataSaveUser(JSON.stringify(technician));
 }
 
-function sendData(data, url) {
+function sendDataSaveUser(data, url) {
 	console.log(data);
 	$.ajax({
 		url : link+':8082/v1/user/',

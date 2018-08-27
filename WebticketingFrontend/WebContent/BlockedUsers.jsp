@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title><fmt:message key="technicals" /></title>
+<title><fmt:message key="blocked_users" /></title>
 </head>
 <body>
 
@@ -25,47 +25,39 @@
 				<div class="panel panel-primary" id="panel1">
 					<div class="panel-heading">
 						<h4 class="panel-title">
-							<fmt:message key="technicals" />
+							<fmt:message key="blocked_users" />
 						</h4>
 					</div>
 					<div id="collapseOne" class="panel-collapse collapse in">
+
 						<div class="panel-body">
-
-							<div>
-								<a href="addTechnical.jsp">
-									<button class="btn btn-default">
-										<span class="glyphicon glyphicon-plus"></span>
-										<fmt:message key="technical" />
-									</button>
-								</a>
-							</div>
-
-							<br> <br>
-							<div class="panel-body">
-								<table id='techniciansTable' class='table responsive' border='1'>
-									<thead>
-										<tr>
-											<th><fmt:message key="user_id" /></th>
-											<th><fmt:message key="user_name" /></th>
-											<th><fmt:message key="email" /></th>
-											<th></th>
-										</tr>
-									</thead>
-									<tbody id="allTechnicals">
-									</tbody>
-								</table>
-							</div>
-
+							<table id='usersTable' class='table responsive' border='1'>
+								<thead>
+									<tr>
+										<th><fmt:message key="user_id" /></th>
+										<th><fmt:message key="user_name" /></th>
+										<th><fmt:message key="email" /></th>
+										<th><fmt:message key="user_type" /></th>
+										<th><fmt:message key="status" /></th>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody id="allUsers">
+								</tbody>
+							</table>
 						</div>
+
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<script src="assets/js/operations/admin/technician.js"></script>
+	</div>
+
+	<script src="assets/js/operations/admin/users.js"></script>
 	<script>
 		$(document).ready(function() {
-			manageTechnicians();
+			getUsersByStatus(1);
 		});
 	</script>
 
