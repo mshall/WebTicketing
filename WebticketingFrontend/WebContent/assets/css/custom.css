@@ -86,6 +86,7 @@
 	top: auto;
 	bottom: 0;
 	opacity: 0;
+	text-align: left;
 	-webkit-transform: translateY(100%);
 	-moz-transform: translateY(100%);
 	-ms-transform: translateY(100%);
@@ -417,8 +418,21 @@ margin:0 auto
 }
 
 .HomeLogo {
-width:100%; text-align:center; background-color:#f6f6f6;padding:10px 0; border-bottom:5px #ccc solid
+width:100%; text-align:center; background-color:#f6f6f6;padding:10px 0;
+overflow: hidden;
 }
+
+.HomeLogo img {
+    float: left;
+}
+
+.HomeLogo > form {
+    float: right;
+    box-shadow: none;
+    border: none;
+    margin: 35px 0 0;
+}
+
 *:after,
 *::before {
     -webkit-box-sizing: border-box;
