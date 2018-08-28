@@ -151,6 +151,7 @@
 	top: auto;
 	bottom: 0;
 	opacity: 0;
+	text-align: left;
 	-webkit-transform: translateY(100%);
 	-moz-transform: translateY(100%);
 	-ms-transform: translateY(100%);
