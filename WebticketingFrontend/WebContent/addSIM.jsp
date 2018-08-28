@@ -92,9 +92,9 @@
 									
 								<div class="form-group ">
 									<div class="col-sm-offset-4 col-sm-8">
-										<input type="button" value="<fmt:message key="Submit" />" onclick="save()"
+										<input type="button" value="<fmt:message key="submit" />" onclick="save()"
 											class="btn btn-primary" /> <input type="reset"
-											value="<fmt:message key="Cancel" />" name="cancel" onclick="Formreset()"
+											value="<fmt:message key="cancel" />" name="cancel" onclick="Formreset()"
 											class="btn btn-danger" />
 									</div>
 								</div>

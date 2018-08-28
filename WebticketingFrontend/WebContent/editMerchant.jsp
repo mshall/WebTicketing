@@ -62,7 +62,7 @@
 								</div>
 							</div>
 							<div class="form-group ">
-								<label class="control-label col-sm-4"><fmt:message key="MID" />phone1</label>
+								<label class="control-label col-sm-4"><fmt:message key="phone1" /></label>
 								<div class="col-sm-8">
 									<input type="text" class="form-control" name="itPhone1"
 										id="itPhone1" placeholder="Phone 1" required>
@@ -178,17 +178,28 @@
 			</div>
 		</div>
 	</div>
-	<script src="assets/js/operations/util.js"></script>
 	<script src="assets/js/operations/admin/merchants.js"></script>
 	<script>
 		$(document).ready(function() {
-			//$("#successUpdate").hide();
-			//$("#errorUpdate").hide();
 			var merchantId = getURLParameter('merchantId');
-			populateEditMerchantForm(merchantId);
+			if (merchantId != null) {
+				populateEditMerchantForm(merchantId);
+			}
+			
 		});
+		
+	/*	function save() {
+			var merchantId = getURLParameter('merchantId');
+			if (merchantId != null) {
+				updateStore();
+			} else {
+				addStore();
+			}
+		}*/
+
+		
 		function Formreset() {
-			document.getElementById("myForm").reset();
+			window.location.replace("Merchant.jsp");
 		}
 	</script>
 <jsp:include page="footer.jsp"></jsp:include>

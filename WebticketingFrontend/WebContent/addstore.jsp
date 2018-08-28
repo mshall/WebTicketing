@@ -44,7 +44,7 @@
 							</div>
 						</div>
 						<div class="form-group ">
-							<label class="control-label col-sm-4"><fmt:message key="store_address" /></label>
+							<label class="control-label col-sm-4"><fmt:message key="address" /></label>
 							<div class="col-sm-8">
 								<input type="text" class="form-control" id="store_address"
 									placeholder="Store Address">
@@ -53,13 +53,10 @@
 						
 
 						<div class="form-group ">
-							<label class="control-label col-sm-4"><fmt:message key="status" /></label>
+							<label class="control-label col-sm-4"><fmt:message key="details" /></label>
 							<div class="col-sm-8">
-								<select id="status" style="width: 50%">
-									<option value="active">Active</option>
-									<option value="inactive">In Active</option>
-
-								</select>
+								<input type="text" class="form-control" id="storeDetails"
+									placeholder="Store Details">
 							</div>
 						</div>
 						<div class="form-group">

@@ -189,10 +189,22 @@
 	<script>
 		$(document).ready(function() {
 			getStoresDropdown();
-			getTerminalById();
+			var terminalId = getURLParameter('terminalId');
+			if (terminalId != null) {
+				getTerminalById(terminalId);
+			}
 
 		});
 
+		function save() {
+			var terminalId = getURLParameter('terminalId');
+			if (terminalId != null) {
+				updateTerminal();
+			} else {
+				addTerminal();
+			}
+		}
+		
 		function Formreset() {
 			/* document.getElementById("myForm").reset(); */
 			window.location.replace("Terminals.jsp");

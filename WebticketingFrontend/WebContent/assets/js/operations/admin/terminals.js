@@ -41,7 +41,7 @@ function processAllTerminalsResponse(response) {
 }
 // ///////////////////////////////////////
 function goToUpdateTerminalPage(terminalId) {
-	window.location.replace("TerminalUpdate.jsp?terminalId=" + terminalId);
+	window.location.replace("editTerminal.jsp?terminalId=" + terminalId);
 }
 //---------------------------------------------------------------------------------------------------
 //----------------------------delete terminal
@@ -63,9 +63,9 @@ function deleteTerminal(objectId) {
 	});	
 }
 // //////////////////////////////////////////
-function getTerminalById() {
+function getTerminalById(terminalId) {
 	$.ajax({
-		url : link+':8082/v1/terminal/' + $.urlParam('terminalId'),
+		url : link+':8082/v1/terminal/' + terminalId,
 		type : 'GET',
 		contentType : "application/json; charset=utf-8",
 		data : {},

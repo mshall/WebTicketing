@@ -98,8 +98,7 @@ function addStore() {
 	storeName=$("#storeName").val();
 	store_address=$("#store_address").val();
 	storeDetails=$("#storeDetails").val();
-	
-	status=$("#status").val();
+
 	
 	var terminal = {
 //		"storeId":storeId,
@@ -107,7 +106,6 @@ function addStore() {
 		"store_address":store_address,
 		"storeDetails":storeDetails,
 		
-		"status":status
 	}
 	sendDataSaveStore(JSON.stringify(terminal), link+':8082/v1/store/');
 
@@ -154,8 +152,6 @@ function updateStore() {
 	storeName=$("#storeName").val();
 	store_address=$("#store_address").val();
 	storeDetails=$("#storeDetails").val();
-
-	status=$("#status").val();
 	
 	var terminal = {
 		"storeId":storeId,
@@ -163,7 +159,6 @@ function updateStore() {
 		"store_address":store_address,
 		"storeDetails":storeDetails,
 		
-		"status":status
 	}
 	sendDataSaveStore(JSON.stringify(terminal), link+':8082/v1/store/update');
 }

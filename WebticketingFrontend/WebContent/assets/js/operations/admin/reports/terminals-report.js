@@ -36,7 +36,7 @@ function processAllTerminalsResponse(response) {
 }
 // ///////////////////////////////////////
 function goToUpdateTerminalPage(terminalId) {
-	window.location.replace("TerminalUpdate.jsp?terminalId=" + terminalId);
+	window.location.replace("editTerminal.jsp?terminalId=" + terminalId);
 }
 // //////////////////////////////////////////
 function getTerminalById() {

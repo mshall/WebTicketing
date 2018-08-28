@@ -29,10 +29,10 @@
 					</div>
 					<div id="collapseOne" class="panel-collapse collapse in">
 						<div class="panel-body">
-							</a> <a href="addTerminal.jsp">
+							</a> <a href="editTerminal.jsp">
 								<button class="btn btn-default">
 									<span class="glyphicon glyphicon-plus"></span>
-									<fmt:message key="terminal" />
+									<fmt:message key="add_terminal" />
 								</button>
 							</a> <br> <br> <br>
 							<div class="panel-body">

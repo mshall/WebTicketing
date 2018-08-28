@@ -35,7 +35,7 @@
 								<a href="addTechnical.jsp">
 									<button class="btn btn-default">
 										<span class="glyphicon glyphicon-plus"></span>
-										<fmt:message key="technical" />
+										<fmt:message key="add_technical" />
 									</button>
 								</a>
 							</div>

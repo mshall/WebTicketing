@@ -41,10 +41,10 @@ table {
 						<div class="panel-body">
 							<div>
 								<div>
-									<a href="addMerchant.jsp">
+									<a href="editMerchant.jsp">
 										<button class="btn btn-default">
 											<span class="glyphicon glyphicon-plus"></span>
-											<fmt:message key="merchant" />
+											<fmt:message key="add_merchant" />
 										</button>
 									</a>
 								</div>
