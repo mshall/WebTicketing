@@ -34,12 +34,12 @@
 </head>
 <body>
 
-	<form>
+	<%-- <form>
 		<select id="language" name="language" onchange="submit()">
 			<option value="en_US" ${language == 'en_US' ? 'selected' : ''}>English</option>
 			<option value="ar_EG" ${language == 'ar_EG' ? 'selected' : ''}>Arabic</option>
 		</select>
-	</form>
+	</form> --%>
 
 	<div class="top-content">
 		<div class="inner-bg">

@@ -34,12 +34,13 @@
 </head>
 
 <body>
-	<form>
+	<%-- <form>
 		<select id="language" name="language" onchange="submit()">
 			<option value="en_US" ${language == 'en_US' ? 'selected' : ''}>English</option>
 			<option value="ar_EG" ${language == 'ar_EG' ? 'selected' : ''}>Arabic</option>
 		</select>
-	</form>
+	</form> --%>
+	<%@include file="Header.jsp"%>
 	<div class="top-content">
 		<div class="inner-bg ">
 			<div class="container">
@@ -105,7 +106,16 @@
             <script src="assets/js/placeholder.js"></script>
         <![endif]-->
 	<jsp:include page="footer.jsp"></jsp:include>
-
+	<script type="text/javascript">
+$(document).ready(function() {
+		$.session.remove('userId');
+			$.session.remove('username');
+			$.session.remove('email');
+			$.session.remove('userType');
+			$.session.clear();
+			Cookies.remove('user');
+	});
+	</script>
 
 </body>
 </html>

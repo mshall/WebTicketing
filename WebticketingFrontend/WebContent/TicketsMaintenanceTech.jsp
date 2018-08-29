@@ -12,9 +12,9 @@
 </head>
 <body>
  <div class="wrapper">
- 
-  <%@include  file="AdminSideBar.jsp" %>
 
+  <%@include  file="TechnicalSideBar.jsp" %>
+ 
         
 
         <div  id="content">
@@ -78,7 +78,12 @@
     </div>
 
     <script>
-        function Formreset() {
+    
+    $(document).ready(function() {
+    	u=$.session.get('userType');
+    	alert(u);
+    });
+    function Formreset() {
             document.getElementById("myForm").reset();
         }
     </script>

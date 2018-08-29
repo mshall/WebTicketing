@@ -93,8 +93,13 @@ function processComplaintsByTechnicianResponse(response) {
 //-------------------------------------------------------------------------------------
 
 function goTomaintenancePage(complaintId) {
+	if( $.session.get('userType')!=2){
 	window.location
 			.replace("TicketsMaintenance.jsp?complaintId=" + complaintId);
+	}else{
+		window.location
+		.replace("TicketsMaintenanceTech.jsp?complaintId=" + complaintId);
+	}
 }
 //---------------------------------------------------------------------------------------------------
 //----------------------------delete ticket by id

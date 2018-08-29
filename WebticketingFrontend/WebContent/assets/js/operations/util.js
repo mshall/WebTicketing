@@ -1,5 +1,5 @@
-//var link="http://210.3.29.89";
-var link="http://localhost";
+var link="http://210.3.29.89";
+//var link="http://localhost";
 function getURLParameter(sParam) {
 	var sPageURL = window.location.search.substring(1);
 	var sURLVariables = sPageURL.split('&');
