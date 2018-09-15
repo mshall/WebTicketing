@@ -6,8 +6,12 @@ public class Constants {
 	public static final String ERROR_MESSAGE_USER_ALREADY_EXISTS = "User already exists!";
 	public static final String ERROR_MESSAGE_NO_USERS = "No users are there!";
 	public static final String ERROR_MESSAGE_USERS_BLOCK = "User is blocked, please contact admin";
-	public static final String ERROR_MESSAGE_USER_SAVE = "Unable to save user";
+	public static final String ERROR_MESSAGE_USER_SAVE = "Unable to save user!";
+	public static final String ERROR_MESSAGE_MERCHANT_SAVE = "Unable to save merchant!";
+	public static final String ERROR_MESSAGE_STORE_SAVE = "Unable to save Store!";
 	public static final String ERROR_MESSAGE_USER_UPDATE = "Unable to update user!";
+	public static final String ERROR_MESSAGE_MERCHANT_UPDATE = "Unable to update merchant, maybe merchant doesn't exist with this Id";
+	public static final String ERROR_MESSAGE_STORE_UPDATE = "Unable to update store, maybe store doesn't exist with this Id";
 	public static final String ERROR_MESSAGE_USER_DELETE = "Unable to delete user!";
 	public static final String ERROR_MESSAGE_UPDATE = "Unable to perform update!";
 	public static final String ERROR_MESSAGE_DELETE = "Unable to delete the record";
