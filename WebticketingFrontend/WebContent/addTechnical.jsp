@@ -67,7 +67,7 @@
                             </div>
                             <div  class="form-group"> 
                                 <div class="col-sm-offset-4 col-sm-8">      
-                                    <input type="button" value="<fmt:message key="submit" />" id="submit" class="btn btn-primary" onclick="updateTechnician()"/>
+                                    <input type="button" value="<fmt:message key="submit" />" id="submit" class="btn btn-primary" onclick="save()"/>
                                     <input type="button" value="<fmt:message key="cancel" />" id="cancel" onclick="Formreset()"  class="btn btn-danger"/>
                                 </div> 
                             </div>
