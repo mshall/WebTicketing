@@ -56,7 +56,7 @@ public class TerminalService implements GenericService<Terminal, Integer> {
 
 	public Terminal updateTerminal(Terminal terminal) {
 		Terminal existingTerminal = terminalRepository.findOne(terminal.getTerminalId());
-		
+
 		if (existingTerminal != null) {
 			try {
 				// dozerMapper.map(terminal, existingTerminal);
@@ -122,21 +122,19 @@ public class TerminalService implements GenericService<Terminal, Integer> {
 		Merchant merchant = merchantRepository.findOne(terminal.getMerchantId());
 		Sim firstSim = simRepository.findOne(terminal.getFirstSimSerial());
 		Sim secondSim = simRepository.findOne(terminal.getSecondSimSerial());
-
-		secondSim.setTerminalId(terminal.getTerminalId());
-		secondSim.setTerminalSerial(terminal.getTerminalSerialNumber());
-		firstSim.setTerminalId(terminal.getTerminalId());
-		firstSim.setTerminalSerial(terminal.getTerminalSerialNumber());
-
-		if (merchant != null) {
+		if (merchant != null && firstSim != null && secondSim != null) {
 			firstSim.setMerchantName(merchant.getMerchantName());
 			firstSim.setMerchantId(merchant.getMerchantId());
 			// ---------------------
-
 			secondSim.setMerchantName(merchant.getMerchantName());
 			secondSim.setMerchantId(merchant.getMerchantId());
+			secondSim.setTerminalId(terminal.getTerminalId());
+			secondSim.setTerminalSerial(terminal.getTerminalSerialNumber());
+			firstSim.setTerminalId(terminal.getTerminalId());
+			firstSim.setTerminalSerial(terminal.getTerminalSerialNumber());
+			simRepository.save(firstSim);
+			simRepository.save(secondSim);
 		}
-		simRepository.save(firstSim);
-		simRepository.save(secondSim);
+
 	}
 }
