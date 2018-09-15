@@ -12,11 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.shall.customercomplaints.model.Sim;
-import com.shall.customercomplaints.model.Terminal;
 import com.shall.customercomplaints.network.response.ResponseVO;
 import com.shall.customercomplaints.service.GenericService;
 import com.shall.customercomplaints.service.SimService;
-import com.shall.customercomplaints.service.TerminalService;
 import com.webticketing.util.Constants;
 
 @CrossOrigin

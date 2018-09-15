@@ -9,11 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.shall.customercomplaints.model.Complaint;
 import com.shall.customercomplaints.model.Merchant;
 import com.shall.customercomplaints.network.response.ResponseVO;
-import com.shall.customercomplaints.service.ComplaintService;
 import com.shall.customercomplaints.service.GenericService;
 import com.shall.customercomplaints.service.MerchantService;
 import com.webticketing.util.Constants;
@@ -57,7 +54,15 @@ public class MerchantController {
 
 	@RequestMapping(value = "/", produces = "application/json; charset=UTF-8", method = RequestMethod.POST)
 	public ResponseEntity<ResponseVO<Merchant>> saveMerchant(@RequestBody Merchant merchant) {
-		return ResponseEntity.ok(new ResponseVO<>(service.save(merchant)));
+		ResponseVO<Merchant> response = null;
+		Merchant savedMerchant = ((MerchantService) service).save(merchant);
+		if (savedMerchant == null) {
+			response = new ResponseVO<Merchant>(Constants.ERROR_CODE_GENERAL, Constants.ERROR_MESSAGE_MERCHANT_SAVE,
+					savedMerchant);
+		} else {
+			response = new ResponseVO<Merchant>(Constants.SUCCESS_CODE, Constants.SUCCESS_MESSAGE_SAVE, savedMerchant);
+		}
+		return ResponseEntity.ok(response);
 	}
 
 	@RequestMapping(value = "/update", produces = "application/json; charset=UTF-8", method = RequestMethod.POST)
@@ -65,7 +70,7 @@ public class MerchantController {
 		ResponseVO<Merchant> response = null;
 		Merchant updatedMerchant = ((MerchantService) service).updateMerchant(merchant);
 		if (updatedMerchant == null) {
-			response = new ResponseVO<Merchant>(Constants.ERROR_CODE_GENERAL, Constants.ERROR_MESSAGE_USER_UPDATE,
+			response = new ResponseVO<Merchant>(Constants.ERROR_CODE_GENERAL, Constants.ERROR_MESSAGE_MERCHANT_UPDATE,
 					updatedMerchant);
 		} else {
 			response = new ResponseVO<Merchant>(Constants.SUCCESS_CODE, Constants.SUCCESS_MESSAGE_UPDATE,
@@ -79,7 +84,7 @@ public class MerchantController {
 		ResponseVO<Boolean> response = new ResponseVO<>(service.delete(merchantId));
 		if (response.getResults()) {
 			response.setCode(Constants.SUCCESS_CODE);
-			response.setMessage(Constants.SUCCESS_MESSAGE_SAVE);
+			response.setMessage(Constants.SUCCESS_MESSAGE_DELETE);
 		} else {
 			response.setCode(Constants.ERROR_CODE_GENERAL);
 			response.setMessage(Constants.ERROR_MESSAGE_DELETE);

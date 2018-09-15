@@ -2,6 +2,7 @@ package com.shall.customercomplaints.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,7 @@ import com.shall.customercomplaints.service.GenericService;
 import com.shall.customercomplaints.service.MerchantRollpaperService;
 import com.webticketing.util.Constants;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/v1/merchant-rollpaper")
 public class MerchantRollpaperController {

@@ -2,22 +2,19 @@ package com.shall.customercomplaints.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.shall.customercomplaints.model.Complaint;
 import com.shall.customercomplaints.model.Store;
 import com.shall.customercomplaints.network.response.ResponseVO;
-import com.shall.customercomplaints.service.ComplaintService;
 import com.shall.customercomplaints.service.GenericService;
 import com.shall.customercomplaints.service.StoreService;
-import com.shall.customercomplaints.service.UserService;
 import com.webticketing.util.Constants;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/v1/store")
 public class StoreController {
@@ -31,7 +28,6 @@ public class StoreController {
 		if (response.getResults() == null || response.getResults().spliterator().getExactSizeIfKnown() == 0) {
 			response.setCode(Constants.ERROR_CODE_NOT_FOUND);
 			response.setMessage(Constants.ERROR_MESSAGE_NO_FOUND);
-
 		} else {
 			response.setCode(Constants.SUCCESS_CODE);
 			response.setMessage(Constants.SUCCESS_MESSAGE_SELECT);
@@ -41,20 +37,36 @@ public class StoreController {
 
 	@RequestMapping(value = "/{storeId}", produces = "application/json; charset=UTF-8", method = RequestMethod.GET)
 	public ResponseEntity<ResponseVO<Store>> findStoreById(@PathVariable("storeId") String storeId) {
-		return ResponseEntity.ok(new ResponseVO<>(service.find(Integer.parseInt(storeId))));
+		ResponseVO<Store> response = new ResponseVO<>(service.find(Integer.parseInt(storeId)));
+		if (response.getResults() == null) {
+			response.setCode(Constants.ERROR_CODE_NOT_FOUND);
+			response.setMessage(Constants.ERROR_MESSAGE_NO_FOUND);
+		} else {
+			response.setCode(Constants.SUCCESS_CODE);
+			response.setMessage(Constants.SUCCESS_MESSAGE_SELECT);
+		}
+		return ResponseEntity.ok(response);
 	}
 
 	@RequestMapping(value = "/", produces = "application/json; charset=UTF-8", method = RequestMethod.POST)
 	public ResponseEntity<ResponseVO<Store>> saveStoret(@RequestBody Store store) {
-		return ResponseEntity.ok(new ResponseVO<>(service.save(store)));
+		ResponseVO<Store> response = null;
+		Store savedStore = ((StoreService) service).save(store);
+		if (savedStore == null) {
+			response = new ResponseVO<Store>(Constants.ERROR_CODE_GENERAL, Constants.ERROR_MESSAGE_MERCHANT_SAVE,
+					savedStore);
+		} else {
+			response = new ResponseVO<Store>(Constants.SUCCESS_CODE, Constants.SUCCESS_MESSAGE_SAVE, savedStore);
+		}
+		return ResponseEntity.ok(response);
 	}
 
-	@RequestMapping(value = "/update/", produces = "application/json; charset=UTF-8", method = RequestMethod.POST)
+	@RequestMapping(value = "/update", produces = "application/json; charset=UTF-8", method = RequestMethod.POST)
 	public ResponseEntity<ResponseVO<Store>> updateStore(@RequestBody Store store) {
 		ResponseVO<Store> response = null;
 		Store updatedComplaint = ((StoreService) service).updateStore(store);
 		if (updatedComplaint == null) {
-			response = new ResponseVO<Store>(Constants.ERROR_CODE_GENERAL, Constants.ERROR_MESSAGE_UPDATE,
+			response = new ResponseVO<Store>(Constants.ERROR_CODE_GENERAL, Constants.ERROR_MESSAGE_STORE_UPDATE,
 					updatedComplaint);
 		} else {
 			response = new ResponseVO<Store>(Constants.SUCCESS_CODE, Constants.SUCCESS_MESSAGE_UPDATE,
