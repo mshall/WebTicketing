@@ -54,19 +54,21 @@
 									<div class="col-sm-8">
 										<select id="status">
 											<option value="">select...</option>
-											<option value="Active">Active</option>
-											<option value="InActive">In Active</option>
+											<option value="true">Stocked</option>
+											<option value="false">Deployed</option>
 										</select>
 									</div>
 								</div>
-								<div class="form-group">
+								<div class="form-group ">
 									<label class="control-label col-sm-4"><fmt:message key="condition" /></label>
 									<div class="col-sm-8">
-										<input class="form-control" type="text"
-											id="condition" placeholder="Condition" required/>
+										<select id="condition">
+											<option value="">select...</option>
+											<option value="true">Active</option>
+											<option value="false">In Active</option>
+										</select>
 									</div>
-								</div>
-									
+								</div>	
 								<div class="form-group">
 									<label class="control-label col-sm-4"><fmt:message key="terminal_id" /></label>
 									<div class="col-sm-8">

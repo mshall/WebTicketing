@@ -149,7 +149,7 @@ function processSaveSimResponse(response) {
 	// ----
 	formMessage.text(message);
 
-	if (code == 200) {
+	if (code == 200||code == 0) {
 		window.location.replace("SIM.jsp");
 	} else {
 		formMessage.css("color", "red");

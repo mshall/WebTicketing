@@ -168,7 +168,7 @@
 								<div class="form-group ">
 									<div class="col-sm-offset-4 col-sm-8">
 										<input type="button" value="<fmt:message key="submit" />" id="submit"
-											class="btn btn-primary" onclick="updateTerminal()" /> <input
+											class="btn btn-primary" onclick="save()" /> <input
 											type="reset" value="<fmt:message key="cancel" />" name="cancel"
 											onclick="Formreset()" class="btn btn-danger" />
 									</div>
