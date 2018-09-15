@@ -22,7 +22,7 @@
 			<div class="panel-group" id="accordion">
 				<div class="panel panel-primary" id="panel1">
 					<div class="panel-heading">
-						<h4 class="panel-title"><fmt:message key="update_terminals" /></h4>
+						<h4 id="pageTitle" class="panel-title"></h4>
 					</div>
 
 					<div id="collapseTwo" class="panel-collapse collapse in">
@@ -33,7 +33,7 @@
 								<div class="form-group ">
 									<label class="control-label col-sm-4"><fmt:message key="terminal_id" /></label>
 									<div class="col-sm-8">
-										<input type="number" class="form-control" id="terminalId"
+										<input type="number" readonly="readonly" class="form-control" id="terminalId"
 											placeholder="Terminal ID " />
 									</div>
 								</div>
@@ -191,7 +191,10 @@
 			getStoresDropdown();
 			var terminalId = getURLParameter('terminalId');
 			if (terminalId != null) {
+				$('#pageTitle').html('<fmt:message key="update_terminals" />');
 				getTerminalById(terminalId);
+			}else{
+				$('#pageTitle').html('<fmt:message key="add_terminal" />');
 			}
 
 		});

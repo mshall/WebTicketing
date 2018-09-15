@@ -18,21 +18,13 @@
 		<%@include file="AdminSideBar.jsp"%>
 		<div id="content">
 		<jsp:include page="AlertMessage.jsp"></jsp:include>
-			<div class="alert alert-success" id="successUpdate">
-				<a href="#" class="close" data-dismiss="alert">&times;</a> <strong>Sucess!
-				</strong> Merchant is updated successfully
-			</div>
-			<div class="alert alert-danger" id="errorUpdate">
-				<a href="#" class="close" data-dismiss="alert">&times;</a> <strong>Warning!
-				</strong> Couldn't update merchant!
-			</div>
+			
 			<div class="panel-group" id="accordion">
 
 				<div class="panel panel-primary" id="panel1">
 					<div class="panel-heading">
-						<h4 class="panel-title">
-							<a data-toggle="collapse" data-target="#collapseOne"
-								href="#collapseOne"><fmt:message key="edit_merchant" /> </a>
+						<h4 id="pageTitle" class="panel-title">
+							
 						</h4>
 					</div>
 
@@ -178,12 +170,16 @@
 			</div>
 		</div>
 	</div>
+
 	<script src="assets/js/operations/admin/merchants.js"></script>
 	<script>
 		$(document).ready(function() {
 			var merchantId = getURLParameter('merchantId');
 			if (merchantId != null) {
-				populateEditMerchantForm(merchantId);
+				$('#pageTitle').html('<fmt:message key="edit_merchant" />');
+				getMerchantById(merchantId);
+			}else{
+				$('#pageTitle').html('<fmt:message key="add_merchant" />');
 			}
 			
 		});

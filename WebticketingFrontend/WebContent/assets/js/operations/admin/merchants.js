@@ -46,26 +46,6 @@ function processAdminAllMerchants(response) {
 	$('#merchantsTable').DataTable();
 }
 
-// ///////////////////////////////////////////////////////////////
-function getMerchantById(id) {
-	$.ajax({
-		url : link+':8082/v1/store/' + id,
-		type : 'GET',
-		contentType : "application/json; charset=utf-8",
-		data : {},
-		dataType : 'json',
-		success : function(response) {
-			processGetStoreByIdResponse(response);
-		},
-        error: function(data, textStatus, jqXHR) {
-            handleAjaxError(data, textStatus, jqXHR);
-        }
-	});
-}
-function processGetStoreByIdResponse(response) {
-	console.log('store.getStoreById -> Response: ' + response);
-}
-
 // ///////////////////////////////////////////////////
 function navigateToEditMerchant(merchantId) {
 	var editMerchant = "editMerchant.jsp?merchantId=" + merchantId;
@@ -91,59 +71,71 @@ function deleteMerchant(merchantId) {
         }
     });
 }
+//---------------------------------------------------------------------------------------------------
+//---------------------------- Add merchant operations
+//---------------------------------------------------------------------------------------------------
+function addMerchant() {
+	console.log("merchant.addMerchant -> Request merchant add");
+	var itMerchantId = $("#itMerchantId").val();
+	var itMerchantName = $("#itMerchantName").val();
+	var itContactPerson = $("#itContactPerson").val();
+	var itPhone1 = $("#itPhone1").val();
+	var itPhone2 = $("#itPhone2").val();
+	var itEmail = $("#itEmail").val();
+	var itCity = $("#itCity").val();
+	var itStreet = $("#itStreet").val();
+	var itAmexMerchantId = $("#itAmexMerchantId").val();
+	var itPremiumId = $("#itPremiumId").val();
+	var itMCC = $("#itMCC").val();
+	var sClass = $("#sClass").val();
+	var sCurrency = $("#sCurrency").val();
+	var sStatus = $("#sStatus").val();
+	var status = false;
+	if (sStatus == "active") {
+		status = true;
+	}
+	var updateData = {
+		"merchantId" : Number(itMerchantId),
+		"merchantName" : itMerchantName,
+		"email" : itEmail,
+		"status" : status,
+		"city" : itCity,
+		"street" : itStreet,
+		"phone1" : itPhone1,
+		"phone2" : itPhone2,
+		"vendor" : "Spectra",
+		"contactPerson" : itContactPerson,
+		"amexMerchantId" : itAmexMerchantId,
+		"premiumId" : itPremiumId,
+		"merchantClass" : sClass,
+		"currency" : sCurrency,
+		"mcc" : itMCC
+	}
+	sendAddMerchantData(JSON.stringify(updateData));
+
+}
+
+function sendAddMerchantData(data) {
+	console.log('merchant.sendAddMerchantData -> Object: \n'+JSON.stringify(data));
+	$.ajax({
+		url : link+':8082/v1/merchant/',
+		type : 'POST',
+		contentType : "application/json; charset=utf-8",
+		data : data,
+		dataType : 'json',
+		success : function(response) {
+			processUpdateMerchantResponse(response);
+		},
+     error: function(data, textStatus, jqXHR) {
+         handleAjaxError(data, textStatus, jqXHR);
+     }
+	});
+}
+
+
 // ---------------------------------------------------------------------------------------------------
 // ---------------------------- Edit merchant operations
 // ---------------------------------------------------------------------------------------------------
-
-function populateEditMerchantForm(merchantId) {
-	var merchantDetailsUrl = link+':8082/v1/merchant/' + merchantId;
-	$.ajax({
-		url : merchantDetailsUrl,
-		type : 'GET',
-		contentType : "application/json; charset=utf-8",
-		data : {},
-		dataType : 'json',
-		success : function(response) {
-			processMerchantDetails(response);
-		},
-        error: function(data, textStatus, jqXHR) {
-            handleAjaxError(data, textStatus, jqXHR);
-        }
-	});
-
-}
-
-function processMerchantDetails(response) {
-	console.log("merchants.processMerchantDetails-> "
-			+ JSON.stringify(response));
-
-	$("#sClass").val('A');
-	$("#sCurrency").val('USD');
-	$("#sStatus").val('active');
-	var itMerchantId = $("#itMerchantId");
-	var itMerchantName = $("#itMerchantName");
-	var itContactPerson = $("#itContactPerson");
-	var itPhone1 = $("#itPhone1");
-	var itPhone2 = $("#itPhone2");
-	var itEmail = $("#itEmail");
-	var itCity = $("#itCity");
-	var itStreet = $("#itStreet");
-	var itAmexMerchantId = $("#itAmexMerchantId");
-	var itPremiumId = $("#itPremiumId");
-	var itMCC = $("#itMCC");
-	itMerchantId.val(response.results.merchantId);
-	itMerchantName.val(response.results.merchantName);
-	itContactPerson.val(response.results.contactPerson);
-	itPhone1.val(response.results.phone1);
-	itPhone2.val(response.results.phone2);
-	itEmail.val(response.results.email);
-	itCity.val(response.results.city);
-	itStreet.val(response.results.street);
-	itAmexMerchantId.val(response.results.amexMerchantId);
-	itPremiumId.val(response.results.premiumId);
-	itMCC.val(response.results.mcc);
-}
-
 function updateMerchant() {
 	console.log("merchant.updateMerchant -> Request merchant update");
 	var itMerchantId = $("#itMerchantId").val();
@@ -213,6 +205,61 @@ function processUpdateMerchantResponse(response) {
 	}
 
 }
+//---------------------------------------------------------------------------------------------------
+//----------------------------get merchant by id
+//---------------------------------------------------------------------------------------------------
+
+function getMerchantById(merchantId) {
+	var merchantDetailsUrl = link+':8082/v1/merchant/' + merchantId;
+	$.ajax({
+		url : merchantDetailsUrl,
+		type : 'GET',
+		contentType : "application/json; charset=utf-8",
+		data : {},
+		dataType : 'json',
+		success : function(response) {
+			processMerchantDetails(response);
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
+	});
+
+}
+
+function processMerchantDetails(response) {
+	console.log("merchants.processMerchantDetails-> "
+			+ JSON.stringify(response));
+
+	$("#sClass").val('A');
+	$("#sCurrency").val('USD');
+	$("#sStatus").val('active');
+	var itMerchantId = $("#itMerchantId");
+	var itMerchantName = $("#itMerchantName");
+	var itContactPerson = $("#itContactPerson");
+	var itPhone1 = $("#itPhone1");
+	var itPhone2 = $("#itPhone2");
+	var itEmail = $("#itEmail");
+	var itCity = $("#itCity");
+	var itStreet = $("#itStreet");
+	var itAmexMerchantId = $("#itAmexMerchantId");
+	var itPremiumId = $("#itPremiumId");
+	var itMCC = $("#itMCC");
+	itMerchantId.val(response.results.merchantId);
+	itMerchantName.val(response.results.merchantName);
+	itContactPerson.val(response.results.contactPerson);
+	itPhone1.val(response.results.phone1);
+	itPhone2.val(response.results.phone2);
+	itEmail.val(response.results.email);
+	itCity.val(response.results.city);
+	itStreet.val(response.results.street);
+	itAmexMerchantId.val(response.results.amexMerchantId);
+	itPremiumId.val(response.results.premiumId);
+	itMCC.val(response.results.mcc);
+}
+
+
+
 //---------------------------- get store drop down list
 //---------------------------------------------------------------------------------------------------
 

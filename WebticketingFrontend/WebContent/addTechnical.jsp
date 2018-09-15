@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <title><fmt:message key="add_technical" /></title> 
+    <title><fmt:message key="add_technical" />  </title> 
 </head>
 <body>
     
@@ -20,8 +20,8 @@
 
                 <div class="panel panel-primary" id="panel1">
                     <div class="panel-heading">
-                        <h4 class="panel-title">
-                           <fmt:message key="add_technical" />  
+                        <h4 id="pageTitle" class="panel-title">
+                           
 
                         </h4>
                     </div>
@@ -91,7 +91,10 @@
 		console.log("technicianId:"+technicianId);
 		if(technicianId!=null){
 			console.log("getTechnicianById");
+			$('#pageTitle').html('<fmt:message key="edit_technical" />');
 			getTechnicianById(technicianId);	
+		}else{
+			$('#pageTitle').html('<fmt:message key="add_technical" />');
 		}
 	});
     
