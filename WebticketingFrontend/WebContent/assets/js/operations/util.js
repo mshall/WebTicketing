@@ -12,7 +12,8 @@ function getURLParameter(sParam) {
 }
 
 function handleAjaxError(data, textStatus, jqXHR) {
-	$("#errorUpdate").html("Server Error");
+	console.log('handleAjaxError');
+	$("#errorUpdate").show();
 	console.log(data);
 	console.log(textStatus);
 	console.log(jqXHR);
@@ -21,10 +22,10 @@ function handleAjaxError(data, textStatus, jqXHR) {
 function processDeleteResponse(response) {
     console.log('Return\n' + JSON.stringify(response));
     window.scrollTo(0, 0);
-    if (response.code == 200 ||code == 0) {
+    if (response.code == 200 ||response.code == 0) {
         $("#successUpdate").show();
     } else {
         $("#errorUpdate").show();
     }
-
+    window.location.reload(true);
 }

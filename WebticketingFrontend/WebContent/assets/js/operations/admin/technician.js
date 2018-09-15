@@ -162,8 +162,48 @@ function processSaveUserResponse(response){
 //-------------------------------------------------------------------------------------
 //---------------------------------------- update technician
 //-------------------------------------------------------------------------------------
+
 function updateTechnician(){
+	var data = new FormData();
+	userId=$("#userId").val();
+	name=$("#name").val();
+	phone1=$("#phone1").val();
+	phone2=$("#phone2").val();
+	email=$("#email").val();
+	city=$("#city").val();
+	username=$("#username").val();
+	password=$("#password").val();
+	status=$("#status").val();
 	
+	var technician={
+			"name":name,
+			"phone1":phone1,
+			"phone2":phone2,
+			"email":email,
+			"city":city,
+			"username":username,
+			"password":password,
+			"status":status,
+			"userType":2
+	}
+	sendDataUpdateUser(JSON.stringify(technician));
+}
+
+function sendDataUpdateUser(data, url) {
+	console.log(data);
+	$.ajax({
+		url : link+':8082/v1/user/update/',
+		type : 'POST',
+		contentType : "application/json; charset=utf-8",
+		data : data,
+		dataType : 'json',
+		success : function(response) {
+			processSaveUserResponse(response);
+		},
+        error: function(data, textStatus, jqXHR) {
+            handleAjaxError(data, textStatus, jqXHR);
+        }
+	});
 }
 
 // -------------------------------------------------------------------------------------

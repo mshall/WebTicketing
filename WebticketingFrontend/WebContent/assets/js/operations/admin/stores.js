@@ -111,10 +111,11 @@ function addStore() {
 
 }
 
-function sendDataSaveStore(data, url) {
+function sendDataSaveStore(data, url_new) {
 	console.log(data);
+	console.log(url_new);
 	$.ajax({
-		url : url,
+		url : url_new,
 		type : 'POST',
 		contentType : "application/json; charset=utf-8",
 		data : data,
