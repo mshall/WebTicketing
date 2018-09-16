@@ -126,12 +126,12 @@ function deleteTicketById(objectId){
 // -------------------------------------------------------------------------------------
 function updateComplaint() {
 	var data = new FormData();
-
+	var complaintId=$("#complaintId").val();
 	var status = $("#status").val();
 	var solution = $("#solution").val();
 	var note = $("#note").val();
 	var complaint = {
-		"complaintId" : $.urlParam('complaintId'),
+		"complaintId" : complaintId,
 		"complaintSolution" : solution,
 		"complaintNote" : note,
 		"status" : status
@@ -196,7 +196,8 @@ function processGetAllComplaintsByStatusResponse(response) {
 	console.log("ticket.processGetAllComplaintsByStatusResponse -> Response:\n"
 			+ JSON.stringify(response));
 	var dTickets = $("#dTickets");
-	var output = "<div><select name='sTickets' id='sTickets' style='width:150px;'>";
+	var output = "<div><select name='sTickets' id='sTickets' style='width:150px;'>" +
+			"<option value=''>Select...</option>";
 	for ( var i in response.results) {
 		output += " <option value='" + response.results[i].complaintId + "'>"
 				+ response.results[i].complaintId + "</option>"
@@ -226,7 +227,7 @@ function sendAssingTicketData(data) {
 		data : data,
 		dataType : 'json',
 		success : function(response) {
-			processWithdrawTerminalResponse(response);
+			processAssignTicketResponse(response);
 		},
         error: function(data, textStatus, jqXHR) {
             handleAjaxError(data, textStatus, jqXHR);
@@ -235,10 +236,39 @@ function sendAssingTicketData(data) {
 }
 function processAssignTicketResponse(response) {
 	var status = response.code;
-	if (status == 200) {
+	if (status == 200||status == 0) {
 		$("#successUpdate").show();
 
 	} else {
 		$("#errorUpdate").show();
 	}
+}
+//-------------------------------------------------------------------------------------
+//---------------------------------------- get technician by id
+//-------------------------------------------------------------------------------------
+
+function getTicketById(complaintId) {
+	$.ajax({
+		url : link+':8082/v1/complaint/' + complaintId,
+		type : 'GET',
+		contentType : "application/json; charset=utf-8",
+		data : {},
+		dataType : 'json',
+		success : function(response) {
+			processGetTicketByResponse(response);
+		},
+      error: function(data, textStatus, jqXHR) {
+          handleAjaxError(data, textStatus, jqXHR);
+      }
+	});
+}
+
+function processGetTicketByResponse(response) {
+	console.log("tickets.processGetTicketByResponse:-> "+response);
+
+	$("#complaintId").val(response.results.complaintId);
+	$("#complaintSolution").val(response.results.complaintSolution);
+	$("#complaintNote").val(response.results.complaintNote);
+	$("#status").val(response.results.status);
+	
 }

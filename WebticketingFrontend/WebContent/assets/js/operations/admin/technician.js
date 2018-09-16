@@ -229,7 +229,8 @@ function processAllTechniciansSelect(response) {
 	console.log("technician.processAllTechniciansSelect -> Response:\n"
 			+ JSON.stringify(response));
 	var dTechnicians = $("#dTechnicians");
-	var output = "<div><select name='sTechnicians' id='sTechnicians' style='width:150px;'>";
+	var output = "<div><select name='sTechnicians' id='sTechnicians' style='width:150px;'>" +
+			"<option value=''>Select...</option>";
 	for ( var i in response.results) {
 		output += " <option value='" + response.results[i].userId + "'>"
 				+ response.results[i].username + "</option>"

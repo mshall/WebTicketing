@@ -114,7 +114,7 @@
 								<label class="control-label col-sm-4"><fmt:message key="class" /></label>
 								<div class="col-sm-8">
 									<select name="sClass" id="sClass">
-										<option value="none"></option>
+										<option value="">Select...</option>
 										<option value="A">A</option>
 										<option value="B">B</option>
 										<option value="C">C</option>
@@ -155,16 +155,12 @@
 							<div class="form-group ">
 								<div class="col-sm-offset-4 col-sm-8">
 									<input type="button" value="<fmt:message key="submit" />" name="submit"
-										class="btn btn-primary" onclick="updateMerchant()" /> <input
+										class="btn btn-primary" onclick="save()" /> <input
 										type="button" value="<fmt:message key="cancel" />" name="cancel"
 										onclick="Formreset()" class="btn btn-danger" />
 								</div>
 							</div>
-
-
 						</form>
-
-
 					</div>
 				</div>
 			</div>
@@ -184,15 +180,16 @@
 			
 		});
 		
-	/*	function save() {
+		function save() {
 			var merchantId = getURLParameter('merchantId');
 			if (merchantId != null) {
-				updateStore();
+				console.log("update merchant");
+				updateMerchant();
 			} else {
-				addStore();
+				console.log("add merchant");
+				addMerchant();
 			}
-		}*/
-
+		}
 		
 		function Formreset() {
 			window.location.replace("Merchant.jsp");
