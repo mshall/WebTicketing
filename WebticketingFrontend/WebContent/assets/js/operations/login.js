@@ -70,20 +70,24 @@ function processResponse(response) {
 // ---------------------------- get user by user name
 // ---------------------------------------------------------------------------------------------------
 function getUserByUserName(userName) {
+	var res;
 	$.ajax({
 		url : link + ':8082/v1/user/' + userName,
 		type : 'GET',
+		async: false,
 		contentType : "application/json; charset=utf-8",
 		data : {},
 		dataType : 'json',
 		success : function(response) {
-			return response.results;
+			 res=response;
 		},
         error: function(data, textStatus, jqXHR) {
             handleAjaxError(data, textStatus, jqXHR);
         }
 	});
+	return res;
 }
+
 
 // ---------------------------------------------------------------------------------------------------
 // ---------------------------- change password
@@ -92,14 +96,15 @@ function getUserByUserName(userName) {
 function changePassword() {
 
 	var data = new FormData();
-	var username = $("#uname").val();
-	var password = $("#newpsw").val();
+	var username = $("#userName").val();
+	var password = $("#newPassword").val();
 
-	var results = getUserByUserName(username);
-	var userId = results.userId;
+	var results_ = getUserByUserName(username);
+	console.log(JSON.stringify(results_));
+	var userId_ = results_.results.userId;
 
 	var user = {
-		"userId" : userId,
+		"userId" : userId_,
 		"username" : username,
 		"password" : password
 	}
@@ -150,10 +155,11 @@ function blockUser() {
 
 	var data = new FormData();
 	var username = $("#uname").val();
-	var results = getUserByUserName(username);
-	var userId = results.userId;
+	var results_ = getUserByUserName(username);
+	consoel.log(JSON.stringify(results));
+	var userId_ = results_.results.userId;
 	var user = {
-		"userId" : userId,
+		"userId" : userIduserId_,
 		"username" : username,
 		"status":1
 	}

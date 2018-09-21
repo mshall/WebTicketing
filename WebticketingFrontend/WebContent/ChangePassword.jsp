@@ -90,16 +90,16 @@
                     <form action="ChangePassword" Method ="POST">
                     <div>
                         <label for="uname"><b>Username</b></label>
-                        <input type="text" placeholder="Enter Username" name="uname" required>
+                        <input type="text" placeholder="Enter Username" id="userName" required>
                     </div> 
                     <div>
                         <label for="psw"><b> Old Password</b></label>
-                        <input type="password" placeholder="Enter Old Password" name="psw" required>
+                        <input type="password" placeholder="Enter Old Password" id="password" required>
                         
                     </div>
                          <div>
                         <label for="psw"><b> New Password</b></label>
-                        <input type="password" placeholder="Enter New Password" name="newpsw" required>
+                        <input type="password" placeholder="Enter New Password" id="newPassword" required>
                     </div>
                         
                     <div>
@@ -118,6 +118,7 @@
         </div>
 
     </div>
+    <script src="assets/js/operations/util.js"></script>
     <script src="assets/js/operations/login.js"></script>
 </body>
 </html>

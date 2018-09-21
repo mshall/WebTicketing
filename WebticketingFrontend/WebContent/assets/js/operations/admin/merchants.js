@@ -283,7 +283,7 @@ function processMerchantsDDResponse(response) {
 	console.log('merchant.processMerchantsDDResponse -> Response: ' + response);
 	merchantList = $('#merchantList');
 
-	output = "<select id=\"merchantId\"><option value=\"\">Select...</option>";
+	output = "<select id='merchantId'><option value=\"\">Select...</option>";
 	for ( var i in response.results) {
 		output += "<option value="+response.results[i].merchantId+">"+response.results[i].merchantName+"</option>";
 	}

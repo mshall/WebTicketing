@@ -22,9 +22,8 @@
 
 				<div class="panel panel-primary" id="panel1">
 					<div class="panel-heading">
-						<h4 class="panel-title">
-							<a data-toggle="collapse" data-target="#collapseOne"
-								href="#collapseOne"><fmt:message key="add_sim" />  </a>
+						<h4 id="pageTitle" class="panel-title">
+								
 						</h4>
 					</div>
 					<div id="collapseOne" class="panel-collapse collapse in">
@@ -115,12 +114,19 @@
 	<script>
 	
 	$(document).ready(function() {
-		console.log($.urlParam('simId'));
-		if($.urlParam('simId')!=null||$.urlParam('simId')!=undefined){
-			getSimById();
-		}
+
 		getStoresDropdown();
 		getMerchantsDropdown();
+		
+		console.log($.urlParam('simId'));
+		
+		if($.urlParam('simId')!=null||$.urlParam('simId')!=undefined){
+			console.log("getsim");
+			$('#pageTitle').html('<fmt:message key="edit_sim" />');
+			getSimById();
+		}else{
+			$('#pageTitle').html('<fmt:message key="add_sim" />');
+		}
 	});
 	
 		function Formreset() {

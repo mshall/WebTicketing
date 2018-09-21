@@ -127,11 +127,12 @@
 											</tr>
 											<tr>
 												<td clas="col-sm-4"><input type="checkbox"
-													name="Feature" id="onlineVoid" /><label>
-														<fmt:message key="online_void" /></label></td>
+													name="Feature" id="onlineVoid" />
+													<label>
+														<fmt:message key="onLine_void"/></label></td>
 												<td clas="col-sm-4"><input type="checkbox"
 													name="Feature" id="offlineVoid" /> <label>
-														<fmt:message key="offLine_oid" /> </label></td>
+														<fmt:message key="offLine_void" /> </label></td>
 											</tr>
 											<tr>
 												<td clas="col-sm-4"><input type="checkbox"
