@@ -45,7 +45,14 @@ public class MerchantRollpaperController {
 	@RequestMapping(value = "/", produces = "application/json; charset=UTF-8", method = RequestMethod.POST)
 	public ResponseEntity<ResponseVO<MerchantRollpaper>> saveMerchantRosllpaper(
 			@RequestBody MerchantRollpaper merchantRollpaper) {
-		return ResponseEntity.ok(new ResponseVO<>(service.save(merchantRollpaper)));
+		ResponseVO<MerchantRollpaper> response = new ResponseVO<>();
+		try {
+			response = new ResponseVO<>(((MerchantRollpaperService) service).save(merchantRollpaper));
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return ResponseEntity.ok(response);
 	}
 
 	@RequestMapping(value = "/update/", produces = "application/json; charset=UTF-8", method = RequestMethod.POST)

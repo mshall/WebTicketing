@@ -6,6 +6,7 @@ function saveMerchantRoll(rollpaperId){
 	meetSla = $("#meetSla").val();
 
 	var merchantRoll = {
+		"id":1,
 		"rollpaperId" : rollpaperId,
 		"merchantId" : merchantId,
 		"rollpaperOutNumber" : rollpaperOutNumber,

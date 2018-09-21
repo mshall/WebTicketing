@@ -38,18 +38,20 @@ public class MerchantRollpaperService implements GenericService<MerchantRollpape
 		return entity.getId();
 	}
 
+
+	
 	@Override
 	public MerchantRollpaper save(MerchantRollpaper entity) {
-		MerchantRollpaper savedUser = merchantRollpaperRepository.findOne(entity.getId());
-		if (savedUser == null) {
+		MerchantRollpaper savedMerchantRollPaper = merchantRollpaperRepository.findOne(entity.getId());
+//		if (savedMerchantRollPaper == null) {
 
 			// ------------- Now also update the rollpaper entity to decerease
 			entity = updateRollpaper(entity);
 			entity = updateMerchantRollpaperEntity(entity);
 			return GenericService.super.save(entity);
-		} else {
-			return null;
-		}
+//		} else {
+//			return null;
+//		}
 
 	}
 
