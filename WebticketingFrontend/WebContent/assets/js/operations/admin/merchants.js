@@ -199,7 +199,7 @@ function processUpdateMerchantResponse(response) {
 	window.scrollTo(0, 0);
 	if (response.code == 200) {
 		$("#successUpdate").show();
-
+		window.location.replace("Merchant.jsp");
 	} else {
 		$("#errorUpdate").show();
 	}

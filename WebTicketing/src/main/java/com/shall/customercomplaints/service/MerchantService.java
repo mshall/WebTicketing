@@ -80,40 +80,40 @@ public class MerchantService implements GenericService<Merchant, Integer> {
 
 	Merchant mapMerchant(Merchant source, Merchant target) {
 		if (source.getAmexMerchantId() != null && !source.getAmexMerchantId().isEmpty()) {
-			target.setAmexMerchantId(target.getAmexMerchantId());
+			target.setAmexMerchantId(source.getAmexMerchantId());
 		}
 		if (source.getCity() != null && !source.getCity().isEmpty()) {
-			target.setCity(target.getCity());
+			target.setCity(source.getCity());
 		}
 		if (source.getContactPerson() != null && !source.getContactPerson().isEmpty()) {
-			target.setContactPerson(target.getContactPerson());
+			target.setContactPerson(source.getContactPerson());
 		}
 		if (source.getCurrency() != null && !source.getCurrency().isEmpty()) {
-			target.setCurrency(target.getCurrency());
+			target.setCurrency(source.getCurrency());
 		}
 		if (source.getEmail() != null && !source.getEmail().isEmpty()) {
-			target.setEmail(target.getEmail());
+			target.setEmail(source.getEmail());
 		}
 		if (source.getMCC() != null && !source.getMCC().isEmpty()) {
-			target.setMCC(target.getMCC());
+			target.setMCC(source.getMCC());
 		}
 		if (source.getMerchantClass() != null && !source.getMerchantClass().isEmpty()) {
-			target.setMerchantClass(target.getMerchantClass());
+			target.setMerchantClass(source.getMerchantClass());
 		}
 		if (source.getMerchantId() > 0) {
-			target.setMerchantId(target.getMerchantId());
+			target.setMerchantId(source.getMerchantId());
 		}
 
 		if (source.getMerchantName() != null && !source.getMerchantName().isEmpty()) {
-			target.setMerchantName(target.getMerchantName());
+			target.setMerchantName(source.getMerchantName());
 		}
 
 		if (source.getPhone1() != null && !source.getPhone1().isEmpty()) {
-			target.setPhone1(target.getPhone1());
+			target.setPhone1(source.getPhone1());
 		}
 
 		if (source.getPhone2() != null && !source.getPhone2().isEmpty()) {
-			target.setPhone2(target.getPhone2());
+			target.setPhone2(source.getPhone2());
 		}
 
 		if (source.getPremiumId() != null && !source.getPremiumId().isEmpty()) {
@@ -121,10 +121,10 @@ public class MerchantService implements GenericService<Merchant, Integer> {
 		}
 
 		if (source.getStreet() != null && !source.getStreet().isEmpty()) {
-			target.setStreet(target.getStreet());
+			target.setStreet(source.getStreet());
 		}
 		if (source.getVendor() != null && !source.getVendor().isEmpty()) {
-			target.setVendor(target.getVendor());
+			target.setVendor(source.getVendor());
 		}
 		return target;
 	}

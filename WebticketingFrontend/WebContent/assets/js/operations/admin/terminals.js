@@ -231,7 +231,7 @@ function updateTerminal() {
 		"tender" : tender
 	}
 	sendData(JSON.stringify(terminal),
-			link+':8082/v1/terminal/update/');
+			link+':8082/v1/terminal/update');
 
 }
 

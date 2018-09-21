@@ -3,6 +3,6 @@
 </strong> <fmt:message key="success_message" />
 </div>
 <div class="alert alert-danger" id="errorUpdate">
-    <a href="#" class="close" data-dismiss="alert">&times;</a> <strong>Warning!
-</strong> <fmt:message key="error_message" />
+    <a href="#" class="close" data-dismiss="alert">&times;</a> <strong>Error!
+	</strong> <fmt:message key="error_message" />
 </div>

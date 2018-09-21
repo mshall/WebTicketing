@@ -53,7 +53,7 @@
 								<input type="button" value="<fmt:message key="submit" />"
 									name="submit" class="btn btn-primary" onclick="assignTicket()" />
 								<input type="reset" value="<fmt:message key="cancel" />"
-									name="cancel" onclick="window.history.go(-1);"
+									name="cancel" onclick="window.history.go(0);"
 									class="btn btn-danger" />
 							</div>
 						</div>
@@ -71,7 +71,7 @@
 		$(document).ready(function() {
 			//$("#successUpdate").hide();
 			//$("#errorUpdate").hide();
-			getAllComplaintsByStatus('Open');
+			getAllComplaintsByStatus('open');
 			getAllTechniciansForTicketing();
 		});
 

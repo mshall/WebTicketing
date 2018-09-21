@@ -29,6 +29,7 @@ table {
 	width: 100%;
 }
 </style>
+<title><fmt:message key="tickets" /></title>
 </head>
 <body>
 
