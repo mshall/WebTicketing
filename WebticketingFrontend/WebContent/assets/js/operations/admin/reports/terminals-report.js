@@ -301,7 +301,7 @@ function exportToExcel() {
 	if (data == '')
 		return;
 
-	JSONToCSVConvertor(data, "Deplyments report", true);
+	JSONToCSVConvertor(data, "Terminals report", true);
 }
 // -----------------------------------------------------------------------------------------
 // Print table
