@@ -101,13 +101,19 @@
         });
         
         function save(){
+        	var countSelect=0;
         	$('input[type=checkbox]').each(function () {
         	    if(this.checked){
+        	    	countSelect++;
         	    	console.log ($(this).val());
         	    	saveMerchantRoll($(this).val());
         	    }
         	});
+        	if(countSelect==0){
+        		$("#errorUpdate").text("please select roll paper");	
+        	}else{
         	getAllRollPapers();
+        	}
         }
 
 
