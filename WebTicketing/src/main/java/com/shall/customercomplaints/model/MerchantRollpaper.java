@@ -37,6 +37,8 @@ public class MerchantRollpaper {
 	@Column(name = "roll_paper_out_number")
 	private int rollpaperOutNumber;
 
+	private int remaining;
+
 	@Column(name = "meet_sla")
 	private String meetSla;
 
