@@ -98,6 +98,22 @@ public class UserService implements GenericService<User, Integer> {
 		if (source.getUsername() != null && !source.getUsername().isEmpty()) {
 			target.setUsername(source.getUsername());
 		}
+		if (source.getCity() != null && !source.getCity().isEmpty()) {
+			target.setCity(source.getCity());
+		}
+
+		if (source.getName() != null && !source.getName().isEmpty()) {
+			target.setName(source.getName());
+		}
+
+		if (source.getPhone1() != null && !source.getPhone1().isEmpty()) {
+			target.setPhone1(source.getPhone1());
+		}
+
+		if (source.getPhone2() != null && !source.getPhone2().isEmpty()) {
+			target.setPhone2(source.getPhone2());
+		}
+
 		return target;
 	}
 
