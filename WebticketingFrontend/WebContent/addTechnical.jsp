@@ -60,8 +60,8 @@
                                 <label class="control-label col-sm-4" ><fmt:message key="status" /> </label>
                                 <div class="col-sm-8">
                                     <select id="status">
-                                        <option value="active">Active</option>
-                                        <option value="inactive">InActive</option>
+                                        <option value="0">Active</option>
+                                        <option value="1">InActive</option>
                                     </select>
                                 </div>
                             </div>

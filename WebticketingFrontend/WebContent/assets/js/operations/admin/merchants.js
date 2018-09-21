@@ -260,7 +260,7 @@ function processMerchantDetails(response) {
 
 
 
-//---------------------------- get store drop down list
+//---------------------------- get merchant drop down list
 //---------------------------------------------------------------------------------------------------
 
 function getMerchantsDropdown(){

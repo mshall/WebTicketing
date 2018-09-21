@@ -83,7 +83,7 @@ function getTechnicianById(technicianId) {
 }
 
 function processGetTechnicianByResponse(response) {
-	console.log("technicain.processGetTechnicianByResponse:-> "+response);
+	console.log("technicain.processGetTechnicianByResponse:-> " + JSON.stringify(response));
 	
 	$("#userId").val(response.results.userId);
 	$("#name").val(response.results.name);
