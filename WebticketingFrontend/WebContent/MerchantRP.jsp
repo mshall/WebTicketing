@@ -61,12 +61,12 @@
                                 <div class="form-group">
                                     <label class="control-label col-sm-4"><fmt:message key="total_in" /> </label> 
                                     <div class="col-sm-8"> 
-                                        <input type="text" name="TotalIn" value="" size="50%" />
+                                        <input type="text" name="TotalIn" id="rollpaperOutNumber" value="" size="50%" />
                                     </div> </div>
                                 <div class="form-group">
                                     <label class="control-label col-sm-4"><fmt:message key="meet_sla" /></label> 
                                     <div class="col-sm-8">  
-                                        <input type="text" name="SLA" value="" size="50%" />
+                                        <input type="text" id="meetSla" value="" size="50%" />
                                     </div> </div>
 
 
