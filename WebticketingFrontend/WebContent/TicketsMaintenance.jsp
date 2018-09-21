@@ -48,7 +48,7 @@
 								<label class="control-label col-sm-2"><fmt:message
 										key="status" />: </label> <select id="status" name="status"
 									class="col-sm-4" style="border-radius: .5rem">
-									<option value="">Select...</option>
+									<option value="">Select status</option>
 									<option value="open">Open</option>
 									<option value="close">Closed</option>
 								</select>
@@ -63,8 +63,8 @@
 							<br> <br>
 							<div class="row">
 								<label class="control-label col-sm-2"><fmt:message
-										key="complaintNote" /> </label> <input class="col-sm-4" type="text" id="note"
-									name="note" placeholder=" write your Notes" />
+										key="complaint_note" /> </label> <input class="col-sm-4" type="text" id="note"
+									name="note" placeholder="Write your notes" />
 
 							</div>
 							<br> <br>

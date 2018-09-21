@@ -23,7 +23,7 @@
 					<div class="panel panel-primary" id="panel1">
 						<div class="panel-heading">
 							<h4 class="panel-title">
-								<fmt:message key="tickets" />
+								<fmt:message key="maintenance_report" />
 							</h4>
 						</div>
 
@@ -41,9 +41,9 @@
 							<div>
 								<label class="control-label col-sm-2"><fmt:message
 										key="status" /></label> <select id="status">
-									<option value="">select...</option>
-									<option value="open">open</option>
-									<option value="closed">closed</option>
+									<option value="">Select status</option>
+									<option value="open">Open</option>
+									<option value="closed">Closed</option>
 								</select>
 							</div>
 							<div>

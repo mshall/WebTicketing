@@ -166,7 +166,8 @@ function processUpdateComplaintResponse(response) {
 	formMessage.text(message);
 
 	if (code == 200) {
-		window.location.replace("TicketsHistory.jsp");
+//		window.location.replace("TicketsHistory.jsp");
+		$("#successUpdate").show();
 	} else {
 		formMessage.css("color", "red");
 	}
