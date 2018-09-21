@@ -110,6 +110,7 @@
         	    }
         	});
         	if(countSelect==0){
+        		console.log("please select roll paper");
         		$("#errorUpdate").text("please select roll paper");	
         	}else{
         	getAllRollPapers();

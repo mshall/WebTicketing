@@ -22,6 +22,7 @@ function processAllRollPapersResponse(response) {
 			+ "<thead> <tr><th>rollpaper Id</th>"
 			+ "<th>rollpaper Size</th>"
 			+ "<th>total In</th>"
+			+ "<th>remaining</th>"
 			+ "<th>store Id</th>"
 			+ "<th>Tender</th>"
 			+ "<th> </th>"
@@ -31,6 +32,7 @@ function processAllRollPapersResponse(response) {
 				+ response.results[i].rollpaperId + "</td><td>"
 				+ response.results[i].rollpaperSize + "</td><td>"
 				+ response.results[i].totalIn + "</td><td>"
+				+ response.results[i].remaining + "</td><td>"
 				+ response.results[i].storeName + "</td><td> Tender </td><td>"
 				+ "<button type='button' class='btn btn-warning' onclick='goToUpdateRollPage("
 				+ response.results[i].rollpaperId
