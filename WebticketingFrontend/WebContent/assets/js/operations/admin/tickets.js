@@ -128,7 +128,7 @@ function updateComplaint() {
 	var data = new FormData();
 	var complaintId=$("#complaintId").val();
 	var status = $("#status").val();
-	var solution = $("#solution").val();
+	var solution = $("#complaintSolution").val();
 	var note = $("#note").val();
 	var complaint = {
 		"complaintId" : complaintId,
@@ -161,14 +161,19 @@ function processUpdateComplaintResponse(response) {
 	var code = response.code;
 	var message = response.message;
 	var results = response.results;
-
+	
 	// ----
 	formMessage.text(message);
 
 	if (code == 200) {
 //		window.location.replace("TicketsHistory.jsp");
 		$("#successUpdate").show();
+		var complaintNote = results.complaintNote;
+		var complaintSolution = results.complaintSolution;
+		$("#note").val(complaintNote);
+		$("#complaintSolution").val(complaintSolution);
 	} else {
+		$("#errorUpdate").show();
 		formMessage.css("color", "red");
 	}
 }
@@ -269,7 +274,7 @@ function processGetTicketByResponse(response) {
 
 	$("#complaintId").val(response.results.complaintId);
 	$("#complaintSolution").val(response.results.complaintSolution);
-	$("#complaintNote").val(response.results.complaintNote);
+	$("#note").val(response.results.complaintNote);
 	$("#status").val(response.results.status);
 	
 }
