@@ -51,13 +51,13 @@ function processAllRollPapersResponse(response) {
 
 ///////////////////////////////////////////////////
 function goToUpdateRollPage(rollpaperId) {
-	window.location.replace("RollUpdate.jsp?rollpaperId=" + rollpaperId);
+	window.location.replace("addRollPaper.jsp?rollpaperId=" + rollpaperId);
 }
 
 /////////////////////////////////////////////////////
-function getROllById() {
+function getROllById(rollpaperId) {
 	$.ajax({
-		url : link+':8082/v1/rollpaper/' + $.urlParam('rollpaperId'),
+		url : link+':8082/v1/rollpaper/' + rollpaperId,
 		type : 'GET',
 		contentType : "application/json; charset=utf-8",
 		data : {},
@@ -73,10 +73,12 @@ function getROllById() {
 function processGetRollByResponse(response) {
 	console.log('processGetRollByResponse -> Response: '
 			+ response);
-	//$("#rollpaperId").val(response.rollpaperId);
-	$("#rollpaperSize").val(response.rollpaperSize);
-	$("#totalIn").val(response.totalIn);
-	$("#storeId").val(response.storeId);
+	$("#rollpaperId").val(response.results.rollpaperId);
+	$("#rollpaperSize").val(response.results.rollpaperSize);
+	$("#totalIn").val(response.results.totalIn);
+	$("#storeId").val(response.results.storeId);
+	$("#remaining").val(response.results.remaining);
+	$("#out").val(response.results.out);
 }
 
 // ////////////////////////////////////////////////////
@@ -86,11 +88,14 @@ function addRoll() {
 	rollpaperSize = $("#rollpaperSize").val();
 	totalIn = $("#totalIn").val();
 	storeId = $("#storeId").val();
-	
+	remaining = $("#remaining").val();
+	out = $("#out").val();
 	var terminal = {
 		"rollpaperSize" : rollpaperSize,
 		"totalIn" : totalIn,
-		"storeId" : storeId
+		"storeId" : storeId,
+		"remaining":remaining,
+		"out":out
 	}
 	sendData(JSON.stringify(terminal), link+':8082/v1/rollpaper/');
 
@@ -121,12 +126,16 @@ function updateRoll() {
 	rollpaperSize = $("#rollpaperSize").val();
 	totalIn = $("#totalIn").val();
 	storeId = $("#storeId").val();
+	remaining = $("#remaining").val();
+	out = $("#out").val();
 	
 	var terminal = {
 		"rollpaperId":rollpaperId,
 		"rollpaperSize" : rollpaperSize,
 		"totalIn" : totalIn,
-		"storeId" : storeId
+		"storeId" : storeId,
+		"remaining":remaining,
+		"out":out
 	}
 	sendData(JSON.stringify(terminal),
 			link+':8082/v1/rollpaper/update/');
