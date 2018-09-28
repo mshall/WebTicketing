@@ -176,6 +176,7 @@ function updateTechnician(){
 	status=$("#status").val();
 	
 	var technician={
+			"userId":userId,
 			"name":name,
 			"phone1":phone1,
 			"phone2":phone2,

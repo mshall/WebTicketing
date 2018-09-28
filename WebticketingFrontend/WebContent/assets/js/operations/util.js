@@ -13,10 +13,11 @@ function getURLParameter(sParam) {
 
 function handleAjaxError(data, textStatus, jqXHR) {
 	console.log('handleAjaxError');
+	$("#errorUpdate").append("<b></b>");
 	$("#errorUpdate").show();
-	console.log(data);
-	console.log(textStatus);
-	console.log(jqXHR);
+	console.log("data:"+data);
+	console.log("textStatus:"+textStatus);
+	console.log("jqXHR:"+jqXHR);
 }
 
 function processDeleteResponse(response) {

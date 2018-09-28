@@ -87,7 +87,7 @@
 							<div class="form-group ">
 								<label class="control-label col-sm-4"><fmt:message key="terminal_id" /></label>
 								<div class="col-sm-8">
-									<input type="text" class="form-control" id="terminalId"
+									<input type="number" class="form-control" id="terminalId"
 										placeholder="Terminal ID" required="">
 								</div>
 							</div>

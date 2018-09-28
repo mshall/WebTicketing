@@ -92,8 +92,8 @@ function processGetSimByResponse(response) {
 
 	$("#simSerial").val(response.results.simSerial);
 	$("#operator").val(response.results.operator);
-	$("#simCondition").val(response.results.simCondition);
-	$("#status").val(response.results.status);
+	$("#simCondition").val(response.results.simCondition?1:0);
+	$("#status").val(response.results.status?1:0);
 	$("#storeId").val(response.results.storeId);
 	$("#merchantId").val(response.results.merchantId);
 	$("#terminalId").val(response.results.terminalId);
