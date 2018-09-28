@@ -48,6 +48,7 @@
 							</div>
 							<div>
 								<br>
+								<input type="hidden" value="maintainace" id="maintainacePage"/>
 								<button class="btn btn-primary" onclick="exportToExcel()">
 									<fmt:message key="export_excel" />
 								</button>

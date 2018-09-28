@@ -1,7 +1,7 @@
 function getAllComplaints() {
 
 	$.ajax({
-		url : link+':8082/v1/complaint/all',
+		url : link + ':8082/v1/complaint/all',
 		type : 'GET',
 		contentType : "application/json; charset=utf-8",
 		data : {},
@@ -9,9 +9,9 @@ function getAllComplaints() {
 		success : function(response) {
 			processGetAllComplaintsResponse(response);
 		},
-        error: function(data, textStatus, jqXHR) {
-            handleAjaxError(data, textStatus, jqXHR);
-        }
+		error : function(data, textStatus, jqXHR) {
+			handleAjaxError(data, textStatus, jqXHR);
+		}
 	});
 }
 function processGetAllComplaintsResponse(response) {
@@ -43,7 +43,7 @@ function processGetAllComplaintsResponse(response) {
 function getComplaintsByTechnician() {
 	var userId = $.session.get('userId');
 	$.ajax({
-		url : link+':8082/v1/complaint/?technicianId=' + userId,
+		url : link + ':8082/v1/complaint/?technicianId=' + userId,
 		type : 'GET',
 		contentType : "application/json; charset=utf-8",
 		data : {},
@@ -51,9 +51,9 @@ function getComplaintsByTechnician() {
 		success : function(response) {
 			processComplaintsByTechnicianResponse(response);
 		},
-        error: function(data, textStatus, jqXHR) {
-            handleAjaxError(data, textStatus, jqXHR);
-        }
+		error : function(data, textStatus, jqXHR) {
+			handleAjaxError(data, textStatus, jqXHR);
+		}
 	});
 }
 
@@ -120,7 +120,7 @@ function updateComplaint() {
 }
 function sendUpdateComplaintData(data) {
 	$.ajax({
-		url : link+':8082/v1/complaint/update/',
+		url : link + ':8082/v1/complaint/update/',
 		type : 'POST',
 		contentType : "application/json; charset=utf-8",
 		data : data,
@@ -128,9 +128,9 @@ function sendUpdateComplaintData(data) {
 		success : function(response) {
 			processUpdateComplaintResponse(response);
 		},
-        error: function(data, textStatus, jqXHR) {
-            handleAjaxError(data, textStatus, jqXHR);
-        }
+		error : function(data, textStatus, jqXHR) {
+			handleAjaxError(data, textStatus, jqXHR);
+		}
 	});
 }
 
@@ -157,7 +157,7 @@ function processUpdateComplaintResponse(response) {
 function getAllComplaintsByStatus(status) {
 	// 
 	$.ajax({
-		url : link+':8082/v1/complaint//status/' + status,
+		url : link + ':8082/v1/complaint//status/' + status,
 		type : 'GET',
 		contentType : "application/json; charset=utf-8",
 		data : {},
@@ -165,9 +165,9 @@ function getAllComplaintsByStatus(status) {
 		success : function(response) {
 			processGetAllComplaintsByStatusResponse(response);
 		},
-        error: function(data, textStatus, jqXHR) {
-            handleAjaxError(data, textStatus, jqXHR);
-        }
+		error : function(data, textStatus, jqXHR) {
+			handleAjaxError(data, textStatus, jqXHR);
+		}
 	});
 }
 
@@ -209,7 +209,7 @@ function assignTicket() {
 }
 function sendAssingTicketData(data) {
 	$.ajax({
-		url : link+':8082/v1/complaint/update/',
+		url : link + ':8082/v1/complaint/update/',
 		type : 'POST',
 		contentType : "application/json; charset=utf-8",
 		data : data,
@@ -217,9 +217,9 @@ function sendAssingTicketData(data) {
 		success : function(response) {
 			processWithdrawTerminalResponse(response);
 		},
-        error: function(data, textStatus, jqXHR) {
-            handleAjaxError(data, textStatus, jqXHR);
-        }
+		error : function(data, textStatus, jqXHR) {
+			handleAjaxError(data, textStatus, jqXHR);
+		}
 	});
 }
 function processAssignTicketResponse(response) {
@@ -239,8 +239,15 @@ function exportToExcel() {
 	var data = $('#taTicketsJson').val();
 	if (data == '')
 		return;
-
-	JSONToCSVConvertor(data, "Tickets report", true);
+	var maintainacePage = $("#maintainacePage").val();
+	var reportName = "Tickets report";
+	if (maintainacePage === undefined || maintainacePage === null
+			|| maintainacePage === "") {
+		reportName = "Tickets report";
+	} else if(reportName = "maintainace"){
+		reportName = "Maintainance report";
+	}
+	JSONToCSVConvertor(data, reportName, true);
 }
 // -----------------------------------------------------------------------------------------
 // Print table
