@@ -98,8 +98,14 @@ function changePassword() {
 	var data = new FormData();
 	var username = $("#userName").val();
 	var password = $("#newPassword").val();
-
+	var old_password=$("#password").val();
+	
 	var results_ = getUserByUserName(username);
+	if(results_.results.password!==old_password){
+		$("#errorUpdate").append("<b>Old Password is Worng</b>");
+		$("#errorUpdate").show();
+		return;
+	}
 	console.log(JSON.stringify(results_));
 	var userId_ = results_.results.userId;
 

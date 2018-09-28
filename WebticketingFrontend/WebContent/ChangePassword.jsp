@@ -78,7 +78,7 @@
         <img src="Image/Spectralogo.jpg " width="400">
     </div>
     <br ><br><br>
-    
+    <jsp:include page="AlertMessage.jsp"></jsp:include>
     
     <div class="container">
         <div class="row">
@@ -120,5 +120,13 @@
     </div>
     <script src="assets/js/operations/util.js"></script>
     <script src="assets/js/operations/login.js"></script>
+    <script>
+   
+    		$(document).ready(function() {
+    		
+    $("#successUpdate").hide();
+            $("#errorUpdate").hide();
+    		});
+    		 </script> 
 </body>
 </html>
