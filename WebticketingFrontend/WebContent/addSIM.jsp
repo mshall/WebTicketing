@@ -118,12 +118,12 @@
 		getStoresDropdown();
 		getMerchantsDropdown();
 		
-		console.log($.urlParam('simId'));
-		
-		if($.urlParam('simId')!=null||$.urlParam('simId')!=undefined){
+		var simId=getURLParameter('simId');
+		console.log(simId);
+		if(simId!=null||simId!=undefined){
 			console.log("getsim");
 			$('#pageTitle').html('<fmt:message key="edit_sim" />');
-			getSimById();
+			getSimById(simId);
 		}else{
 			$('#pageTitle').html('<fmt:message key="add_sim" />');
 		}
@@ -134,8 +134,8 @@
 		}
 
 		function save(){
-			console.log($.urlParam('simId'));
-			if($.urlParam('simId')==null||$.urlParam('simId')==undefined){
+			var simId=getURLParameter('simId');
+			if(simId==null||simId==undefined){
 				console.log("add sim");
 				saveSim(link+':8082/v1/sim/');
 			}else{

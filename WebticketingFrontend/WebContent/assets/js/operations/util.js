@@ -13,7 +13,8 @@ function getURLParameter(sParam) {
 
 function handleAjaxError(data, textStatus, jqXHR) {
 	console.log('handleAjaxError');
-	$("#errorUpdate").append("<b></b>");
+	console.log("Error:--------------------->"+data.responseText);
+	$("#errorUpdate").append("<b>"+data.responseText.message+"</b>");
 	$("#errorUpdate").show();
 	console.log("data:"+data);
 	console.log("textStatus:"+textStatus);

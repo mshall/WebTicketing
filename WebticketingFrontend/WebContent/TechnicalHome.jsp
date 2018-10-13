@@ -36,7 +36,7 @@
 										<th><fmt:message key="problem" /></th>
 										<th><fmt:message key="mobile" /></th>
 										<th><fmt:message key="status" /></th>
-										<th></th>
+										<th><fmt:message key="operations" /></th>
 									</tr>
 								</thead>
 								<tbody id="allTicketsByTechnician">

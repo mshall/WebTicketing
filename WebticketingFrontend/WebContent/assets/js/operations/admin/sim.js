@@ -48,7 +48,7 @@ function processAllSimResponse(response) {
 		output += "<tr><td>" + response.results[i].simSerial + "</td><td>"
 				+ response.results[i].operator + "</td><td>"
 				+ response.results[i].simCondition + "</td><td>"
-				+ response.results[i].status + "</td><td>"
+				+ (response.results[i].status==1?'Stocked':'Deployed') + "</td><td>"
 				+ response.results[i].storeName + "</td><td>"
 				+ response.results[i].merchantName + "</td><td>"
 				+ response.results[i].terminalId + "</td><td>"
@@ -72,9 +72,9 @@ function navigateToSimPage(simId) {
 	window.location.replace("addSIM.jsp?simId=" + simId);
 }
 ////////////////////////////////////////////
-function getSimById() {
+function getSimById(simId) {
 	$.ajax({
-		url : link+':8082/v1/sim/' + $.urlParam('simId'),
+		url : link+':8082/v1/sim/' + simId,
 		type : 'GET',
 		contentType : "application/json; charset=utf-8",
 		data : {},
@@ -106,9 +106,10 @@ function saveSim(url) {
 
 	var simSerial = $("#simSerial").val();
 	var operator = $("#operator").val();
-	var simCondition = $("#simCondition").val();
-	var status = $("#status").val();
+	var simCondition = $("#simCondition").val()==1?'true':'false';
+	var status = $("#status").val()==1?'true':'false';
 	var storeId = $("#storeId").val();
+	var storeName = $("#storeId option:selected").text();
 	var merchantId = $("#merchantId").val();
 	var terminalId = $("#terminalId").val();
 	var sim = {
@@ -117,6 +118,7 @@ function saveSim(url) {
 		"simCondition" : simCondition,
 		"status" : status,
 		"storeId" : storeId,
+		"storeName":storeName,
 		"merchantId" : merchantId,
 		"terminalId" : terminalId
 	}

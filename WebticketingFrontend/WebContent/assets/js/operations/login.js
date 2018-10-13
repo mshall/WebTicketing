@@ -102,7 +102,7 @@ function changePassword() {
 	
 	var results_ = getUserByUserName(username);
 	if(results_.results.password!==old_password){
-		$("#errorUpdate").append("<b>Old Password is Worng</b>");
+		$("#errorUpdate").append("<b>Old Password is Wrong</b>");
 		$("#errorUpdate").show();
 		return;
 	}

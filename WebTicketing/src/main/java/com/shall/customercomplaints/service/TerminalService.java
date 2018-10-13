@@ -114,6 +114,29 @@ public class TerminalService implements GenericService<Terminal, Integer> {
 		if (source.getTerminalSerialNumber() != null && !source.getTerminalSerialNumber().isEmpty()) {
 			destination.setTerminalSerialNumber(source.getTerminalSerialNumber());
 		}
+		
+		if (source.getTender() != null && !source.getTender().isEmpty()) {
+			destination.setTender(source.getTender());
+		}
+		
+		if (source.getStoreName() != null && !source.getStoreName().isEmpty()) {
+			destination.setStoreName(source.getStoreName());
+		}
+		
+		destination.setSale(source.isSale());
+		destination.setOnlineRefund(source.isOnlineRefund());
+		destination.setOfflineRefund(source.isOfflineRefund());
+		destination.setOfflineSale(source.isOfflineSale());
+		destination.setOnlineVoid(source.isOnlineVoid());
+		destination.setOfflineVoid(source.isOfflineVoid());
+		destination.setPreauth(source.isPreauth());
+		destination.setAmex(source.isAmex());
+		destination.setInstallments(source.isInstallments());
+		destination.setPrepaidServices(source.isPrepaidServices());
+		destination.setDiners(source.isDiners());
+		destination.setPremuim(source.isPremuim());
+		destination.setManualEntry(source.isManualEntry());
+
 
 		return destination;
 	}
